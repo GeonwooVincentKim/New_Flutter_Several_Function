@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'details_body_details.dart';
+import 'package:flutter_app/app_screens/settings/SideMenu.dart';
+import 'package:flutter_app/shared/helpers/icomoon.dart';
 
 class DetailPage extends StatelessWidget{
   @override
@@ -9,6 +11,17 @@ class DetailPage extends StatelessWidget{
         backgroundColor: Colors.black87,
         title: Text("GAME TITLE"),
         centerTitle: true,
+        actions: [
+          IconButton(
+            icon: Icon(
+              IconMoon.iaddoutline,
+              color: Colors.white,
+            ),
+            onPressed: (){
+              SideMenu();
+            }
+          ),
+        ],
       ),
       body: DetailBody(),
     );
