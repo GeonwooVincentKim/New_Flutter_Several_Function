@@ -89,7 +89,6 @@ class ProcessingText extends StatelessWidget{
         child: WidgetTextAlign(),
       ),
     );
-
   }
 }
 
