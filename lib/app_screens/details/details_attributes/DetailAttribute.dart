@@ -21,31 +21,19 @@ class ImageAttribute extends StatelessWidget{
               ]
           ),
         ),
-        GestureDetector(
-          onTap: (){
-            Navigator.push(
-              context, MaterialPageRoute(builder: (context){return MyFavoritesPage();})
-            );
-          },
-          child:  Align(
-            alignment: Alignment.topRight,
-            child:  Icon(
-                IconMoon.istarfull
-            ),
-            // child: IconButton(
-            //     icon: Icon(
-            //         IconMoon.istarfull
-            //     ),
-            //     onPressed: (){
-            //       // Navigator.push(
-            //       //     context, MaterialPageRoute(builder: (context){return DiscoverPage();})
-            //       // );
-            //     }
-            // ),
-            // child: Icon(IconMoon.istarfull),
-          )
-        ),
-
+       Align(
+          alignment: Alignment.topRight,
+          child: IconButton(
+              icon: Icon(
+                  IconMoon.istarfull
+              ),
+              onPressed: (){
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context){return MyFavoritesPage();})
+                );
+              }
+          ),
+        )
       ]
     );
   }
