@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/app_screens/discover/discover_attributes/DiscoverBody.dart';
+import 'package:flutter_app/app_screens/myfavorites/myfavorites_attribute/MyFavoritesBody.dart';
 import 'package:flutter_app/app_screens/settings/dialog/Dialog.dart';
 import 'package:flutter_app/widgets/expanded/widgets_attribute/Details/widget_details.dart';
 import 'package:flutter_app/shared/helpers/icomoon.dart';
@@ -24,7 +24,7 @@ class ImageAttribute extends StatelessWidget{
         GestureDetector(
           onTap: (){
             Navigator.push(
-              context, MaterialPageRoute(builder: (context){return DiscoverPage();})
+              context, MaterialPageRoute(builder: (context){return MyFavoritesPage();})
             );
           },
           child:  Align(

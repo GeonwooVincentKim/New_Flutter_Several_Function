@@ -8,7 +8,7 @@ class MyFavoritesPage extends StatelessWidget{
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black87,
-        title: Text("GAME TITLE"),
+        title: Text("MY FAVORITES"),
         centerTitle: true,
         actions: [
           IconButton(
