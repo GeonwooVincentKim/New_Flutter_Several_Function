@@ -36,20 +36,48 @@ void showAddListDialog(BuildContext context) async{
     context: context,
     barrierDismissible: false, // user must tap button!
     builder: (BuildContext context) {
+      // return Dialog(
+      //   shape: RoundedRectangleBorder(
+      //       borderRadius:
+      //       BorderRadius.circular(20.0)), //this right here
+      //   child: Container(
+      //     height: 200,
+      //     child: Padding(
+      //       padding: const EdgeInsets.all(12.0),
+      //       child: Column(
+      //         mainAxisAlignment: MainAxisAlignment.center,
+      //         crossAxisAlignment: CrossAxisAlignment.start,
+      //         children: [
+      //           TextField(
+      //             decoration: InputDecoration(
+      //                 border: InputBorder.none,
+      //                 hintText: 'What do you want to remember?'),
+      //           ),
+      //           SizedBox(
+      //             width: 320.0,
+      //             child: RaisedButton(
+      //               onPressed: () {},
+      //               child: Text(
+      //                 "Save",
+      //                 style: TextStyle(color: Colors.white),
+      //               ),
+      //               color: const Color(0xFF1BC0C5),
+      //             ),
+      //           )
+      //         ],
+      //       ),
+      //     ),
+      //   ),
+      // );
       return AlertDialog(
         title: Text('ADD TO MY LIST'),
         content: Text("Are you sure you want to add TITLE OF THE GAME to your list of game?"),
         actions: <Widget>[
+
           FlatButton(
-            child: Text('OK'),
+            child: Text('OK', style: TextStyle(fontSize: 15, fontFamily: 'icomoon')),
             onPressed: () {
               Navigator.pop(context, "OK");
-            },
-          ),
-          FlatButton(
-            child: Text('Cancel'),
-            onPressed: () {
-              Navigator.pop(context, "Cancel");
             },
           ),
         ],
