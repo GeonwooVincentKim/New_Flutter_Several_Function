@@ -10,11 +10,10 @@ import 'package:flutter_app/widgets/expanded/widgets_attribute/Main/MainDetails.
 class expanded_widgets_up extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Text(
-        "IN PROGRESS",
-        style: WidgetTextStyle(),
-      ),
+    // If I don't use this,
+    return Text(
+      "IN PROGRESS",
+      style: WidgetTextStyle(),
     );
   }
 }
@@ -24,14 +23,11 @@ class expanded_widgets_up extends StatelessWidget{
 class expanded_widgets_down extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Text(
-        "COMPLETED",
-        style: WidgetTextStyle(),
-      ),
+    return Text(
+      "COMPLETED",
+      style: WidgetTextStyle(),
     );
   }
-  
 }
 
 /*
