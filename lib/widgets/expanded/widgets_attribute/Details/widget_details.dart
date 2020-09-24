@@ -62,45 +62,31 @@ class DetailsBottomImages extends StatelessWidget{
         children: <Widget>[
           Row(
             children: [
-              Expanded(
-                child: Column(
-                  children: <Widget>[
-                    BottomImage(),
-                  ]
-                ),
-              ),
-
-              Expanded(
-                child: Column(
-                  children: <Widget>[
-                    BottomImage(),
-                  ]
-                ),
-              ),
+              ExpandedBottomImage(),
+              ExpandedBottomImage(),
             ]
           ),
           BottomDivider(),
           Row(
             children: [
-              Expanded(
-                child: Column(
-                    children: <Widget>[
-                      BottomImage(),
-                    ]
-                ),
-              ),
-
-              Expanded(
-                child: Column(
-                    children: <Widget>[
-                      BottomImage(),
-                    ]
-                ),
-              ),
+              ExpandedBottomImage(),
+              ExpandedBottomImage(),
             ]
           )
         ],
       ),
     );
   }
+  
+  // ignore: non_constant_identifier_names
+  ExpandedBottomImage(){
+    return Expanded(
+      child: Column(
+          children: <Widget>[
+            BottomImage(),
+          ]
+      ),
+    );
+  }
 }
+

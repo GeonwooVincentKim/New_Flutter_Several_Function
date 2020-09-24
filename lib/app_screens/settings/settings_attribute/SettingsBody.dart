@@ -25,6 +25,48 @@ import 'SettingImage.dart';
 //   void initState(){
 //     pageList.add(Settings());
 //   }
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       drawer: SideMenu(),
+//       appBar: AppBar(
+//         backgroundColor: Colors.black87,
+//         title: Text("SETTINGS"),
+//         centerTitle: true,
+//       ),
+//       body: SettingsBody(),
+//       bottomNavigationBar: BottomAppBar(
+//         color: Colors.black87,
+//         child: new Row(
+//           // mainAxisSize: MainAxisSize.max,
+//           // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//             children: <Widget>[
+//
+//               //IconButton(icon: Icon(Icons.menu), onPressed: () {}),
+//               RichText(
+//                 text: TextSpan(
+//                     style: TextStyle(
+//                       color: Colors.white,
+//                       fontSize: 25,
+//                     ),
+//                     children: <TextSpan>[
+//                       TextSpan(text: "HI"),
+//                     ]
+//                 ),
+//               ),
+//               /*Padding(
+//                 padding: EdgeInsets.symmetric(vertical: 10),
+//                 child: Text("Hi", style: TextStyle(color: Colors.white, fontSize: 25)),
+//               //
+//             ),*/
+//               // Text("Button", textAlign: TextAlign.center),
+//             ]
+//         ),
+//       ),
+//       // body: Body_Divide_Test(),
+//     );
+//   }
 // }
 
 // class Settings extends StatelessWidget{

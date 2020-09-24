@@ -55,7 +55,7 @@ class _HomeState extends State<Home>{
       onPageChanged: (index){
         pageChanged(index);
       },
-      scrollDirection: Axis.horizontal,
+      //scrollDirection: Axis.horizontal,
       children: <Widget>[
         Body(),
         DiscoverPage(),
