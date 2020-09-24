@@ -10,17 +10,6 @@ class MyFavoritesPage extends StatelessWidget{
         backgroundColor: Colors.black87,
         title: Text("MY FAVORITES"),
         centerTitle: true,
-        actions: [
-          IconButton(
-              icon: Icon(
-                IconMoon.iedit,
-                color: Colors.white,
-              ),
-              onPressed: (){
-                showAddListDialog(context);
-              }
-          ),
-        ],
       ),
       body: MyFavoritesPageBody(),
     );
