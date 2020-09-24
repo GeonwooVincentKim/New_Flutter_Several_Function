@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/app_screens/settings/settings.dart';
 import 'package:flutter_app/app_screens/settings/settings_attribute/SettingText.dart';
-// import 'file:///E:/flutter_test_project/flutter_app/lib/app_screens/settings/SideMenu.dart';
-import 'package:flutter_app/main.dart';
-import 'package:flutter_app/shared/helpers/icomoon.dart';
 import 'package:flutter_app/widgets/expanded/divider.dart';
 // import '../SideMenu.dart';
 import 'package:flutter_app/app_screens/settings/SideMenu.dart';
