@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/app_screens/main/BodyAttributes.dart';
-
+import 'package:flutter_app/app_screens/main/main_attributes/BodyAttributes.dart';
 import 'package:flutter_app/widgets/expanded/divider.dart';
 import 'package:flutter_app/widgets/expanded/widgets_attribute/Main/MainWidgets.dart';
 

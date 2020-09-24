@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/app_screens/details/details_attributes/DetailsBody.dart';
 import 'package:flutter_app/app_screens/discover/discover_attributes/DiscoverBody.dart';
 import 'package:flutter_app/app_screens/main/Body.dart';
-import 'package:flutter_app/app_screens/main/HomeAttribute.dart';
+import 'package:flutter_app/app_screens/main/main_attributes/HomeAttribute.dart';
 import 'package:flutter_app/app_screens/settings/SideMenu.dart';
 import 'package:flutter_app/shared/helpers/icomoon.dart';
 // ignore: implementation_imports
