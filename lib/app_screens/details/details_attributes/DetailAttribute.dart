@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/app_screens/settings/dialog/Dialog.dart';
 import 'package:flutter_app/widgets/expanded/widgets_attribute/Details/widget_details.dart';
 import 'package:flutter_app/shared/helpers/icomoon.dart';
 
@@ -21,7 +22,15 @@ class ImageAttribute extends StatelessWidget{
         ),
         Align(
           alignment: Alignment.topRight,
-          child: Icon(IconMoon.istarfull),
+          child: IconButton(
+            icon: Icon(
+              IconMoon.istarfull
+            ),
+            onPressed: (){
+              showAlertDialog(context);
+            }
+          ),
+          // child: Icon(IconMoon.istarfull),
         )
       ]
     );

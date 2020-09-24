@@ -19,7 +19,7 @@ class DetailPage extends StatelessWidget{
               color: Colors.white,
             ),
             onPressed: (){
-              // showAlertDialog(context);
+              showAlertDialog(context);
             }
           ),
         ],
