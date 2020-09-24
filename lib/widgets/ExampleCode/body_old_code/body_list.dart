@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 // import 'file:///E:/flutter_test_project/flutter_app/lib/app_screens/main/Home.dart';
 import 'package:flutter_app/widgets/expanded/divider.dart';
-import 'package:flutter_app/widgets/expanded/MainWidgets.dart';
+import 'file:///E:/flutter_test_project/Flutter_Several_Function/lib/widgets/expanded/widgets_attribute/Main/MainWidgets.dart';
 
 
 
