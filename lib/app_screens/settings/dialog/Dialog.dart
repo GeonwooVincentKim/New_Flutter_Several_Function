@@ -8,8 +8,8 @@ void showAlertDialog(BuildContext context) async {
     barrierDismissible: false, // user must tap button!
     builder: (BuildContext context) {
       return AlertDialog(
-        title: Text('AlertDialog Demo'),
-        content: Text("Select button you want"),
+        title: Text('Change your Background-Picture'),
+        content: Text("Do you wish to change it??"),
         actions: <Widget>[
           FlatButton(
             child: Text('OK'),
