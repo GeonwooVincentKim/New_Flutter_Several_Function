@@ -37,59 +37,7 @@ class Settings extends StatelessWidget{
               )
           ),
         )
-
-        // child: Text(
-        //   "HI", textAlign: TextAlign.center,
-        //   style: TextStyle(fontFamily: 'icomoon', fontSize: 25, color: Colors.white)
-        // ),
-        // child: BottomAppBar(
-        //   // BottomNavigationBarItem(
-        //   //     icon: Icon(Icons.cancel), title: Text("Title")),
-        //   // BottomNavigationBarItem(
-        //   //     icon: Icon(Icons.cancel), title: Text("Title")),
-        // ),
       ),
-      // bottomNavigationBar: BottomAppBar(
-      //   color: Colors.black87,
-      //   child: new Row(
-      //     // mainAxisSize: MainAxisSize.max,
-      //     // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      //     children: <Widget>[
-      //       // Container(
-      //       //   height: 20,
-      //       //   child: GestureDetector(
-      //       //     onTap: (){
-      //       //
-      //       //     },
-      //       //     child: RichText(
-      //       //       text: TextSpan(
-      //       //         style: TextStyle(
-      //       //           color: Colors.white,
-      //       //           fontSize: 25,
-      //       //         ),
-      //       //         children: <TextSpan>[
-      //       //           TextSpan(text: "HI"),
-      //       //         ]
-      //       //       )
-      //       //     ),
-      //       //   )
-      //       // )
-      //       //IconButton(icon: Icon(Icons.menu), onPressed: () {}),
-      //       // RichText(
-      //       //   text: TextSpan(
-      //       //     style: TextStyle(
-      //       //       color: Colors.white,
-      //       //       fontSize: 25,
-      //       //     ),
-      //       //     children: <TextSpan>[
-      //       //       TextSpan(text: "HI"),
-      //       //     ]
-      //       //   ),
-      //       // ),
-      //     ]
-      //   ),
-      // ),
-      // body: Body_Divide_Test(),
     );
   }
 }
