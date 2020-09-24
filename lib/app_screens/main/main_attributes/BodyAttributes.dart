@@ -73,14 +73,7 @@ class CompletedList extends StatelessWidget{
           itemCount: listDown.length,
           itemBuilder: (context, index) {
             return Container(
-              child: GestureDetector(
-                onTap: (){
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (context){return DetailPage();})
-                  );
-                },
-                child: ProceededList(),
-              ),
+              child: ProceededList(),
             );
           }
         // itemBuilder: (context, index) => ProceededList()
