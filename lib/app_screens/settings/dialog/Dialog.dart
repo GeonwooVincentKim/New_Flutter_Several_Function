@@ -73,7 +73,17 @@ void showAddListDialog(BuildContext context) async{
         title: Text('ADD TO MY LIST'),
         content: Text("Are you sure you want to add TITLE OF THE GAME to your list of game?"),
         actions: <Widget>[
-
+          // SizedBox(
+          //   width: 320.0,
+          //   child: RaisedButton(
+          //     onPressed: () {},
+          //     child: Text(
+          //       "Save",
+          //       style: TextStyle(color: Colors.white),
+          //     ),
+          //     color: const Color(0xFF1BC0C5),
+          //   ),
+          // )
           FlatButton(
             child: Text('OK', style: TextStyle(fontSize: 15, fontFamily: 'icomoon')),
             onPressed: () {

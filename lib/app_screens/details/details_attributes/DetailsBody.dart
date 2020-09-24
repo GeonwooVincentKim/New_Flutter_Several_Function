@@ -35,28 +35,30 @@ class DetailBody extends StatelessWidget{
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        padding: EdgeInsets.only(left: 10.0, top: 20.0, right: 10.0),
         alignment: Alignment.topLeft,
         color: Colors.white,
-        child: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              Center(
-                child: ImageAttribute(),
-              ),
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          child: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                Center(
+                  child: ImageAttribute(),
+                ),
 
-              // I should convert as CircularProgressIndicator function.
-              ProgressBar(),
-              Center(
-                child: TextAttribute(),
-              ),
-              Center(
-                child: BottomImage(),
-              ),
-            ],
+                // I should convert as CircularProgressIndicator function.
+                ProgressBar(),
+                Center(
+                  child: TextAttribute(),
+                ),
+                Center(
+                  child: BottomImage(),
+                ),
+              ],
+            ),
           ),
-        ),
-
+        )
+        // padding: EdgeInsets.only(left: 10.0, top: 20.0, right: 10.0),
       ),
     );
   }
