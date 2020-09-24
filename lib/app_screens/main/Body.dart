@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/app_screens/main/BodyAttributes.dart';
 
 import 'package:flutter_app/widgets/expanded/divider.dart';
-import 'package:flutter_app/widgets/expanded/expanded_widgets.dart';
+import 'package:flutter_app/widgets/expanded/MainWidgets.dart';
 
 // Main Scene that shows Body part separately.
 class Body extends StatefulWidget{

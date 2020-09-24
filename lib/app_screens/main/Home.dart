@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/app_screens/details/details_attributes/details_body.dart';
-import 'package:flutter_app/app_screens/discover/discover_attributes/discover_body.dart';
+import 'package:flutter_app/app_screens/details/details_attributes/DetailsBody.dart';
+import 'package:flutter_app/app_screens/discover/discover_attributes/DiscoverBody.dart';
 import 'package:flutter_app/app_screens/main/Body.dart';
 import 'package:flutter_app/app_screens/main/HomeAttribute.dart';
 import 'package:flutter_app/app_screens/settings/SideMenu.dart';

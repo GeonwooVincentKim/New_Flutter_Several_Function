@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'details_body_details.dart';
+import 'BodyDetail.dart';
 import 'package:flutter_app/app_screens/settings/SideMenu.dart';
 import 'package:flutter_app/shared/helpers/icomoon.dart';
 

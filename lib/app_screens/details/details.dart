@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'details_attributes/details_body.dart';
+import 'details_attributes/DetailsBody.dart';
 
 // ignore: non_constant_identifier_names
 void detail_main(){

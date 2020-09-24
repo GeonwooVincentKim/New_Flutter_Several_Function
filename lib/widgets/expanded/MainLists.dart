@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'expanded_widgets.dart';
+import 'MainWidgets.dart';
 
 // ignore: camel_case_types
 class ProcessingList extends StatelessWidget{

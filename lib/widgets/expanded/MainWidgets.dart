@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/widgets/expanded/widgets_attribute/Main/Widget.dart';
+import 'package:flutter_app/widgets/expanded/widgets_attribute/Main/MainDetails.dart';
 
 /*
   Text-Attributes for Main
