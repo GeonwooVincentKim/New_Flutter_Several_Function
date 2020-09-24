@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 // Dialog Menu
@@ -36,62 +38,79 @@ void showAddListDialog(BuildContext context) async{
     context: context,
     barrierDismissible: false, // user must tap button!
     builder: (BuildContext context) {
-      // return Dialog(
-      //   shape: RoundedRectangleBorder(
-      //       borderRadius:
-      //       BorderRadius.circular(20.0)), //this right here
-      //   child: Container(
-      //     height: 200,
-      //     child: Padding(
-      //       padding: const EdgeInsets.all(12.0),
-      //       child: Column(
-      //         mainAxisAlignment: MainAxisAlignment.center,
-      //         crossAxisAlignment: CrossAxisAlignment.start,
-      //         children: [
-      //           TextField(
-      //             decoration: InputDecoration(
-      //                 border: InputBorder.none,
-      //                 hintText: 'What do you want to remember?'),
-      //           ),
-      //           SizedBox(
-      //             width: 320.0,
-      //             child: RaisedButton(
-      //               onPressed: () {},
-      //               child: Text(
-      //                 "Save",
-      //                 style: TextStyle(color: Colors.white),
-      //               ),
-      //               color: const Color(0xFF1BC0C5),
-      //             ),
-      //           )
-      //         ],
-      //       ),
-      //     ),
-      //   ),
-      // );
       return AlertDialog(
         title: Text('ADD TO MY LIST'),
-        content: Text("Are you sure you want to add TITLE OF THE GAME to your list of game?"),
-        actions: <Widget>[
-          // SizedBox(
-          //   width: 320.0,
-          //   child: RaisedButton(
-          //     onPressed: () {},
-          //     child: Text(
-          //       "Save",
-          //       style: TextStyle(color: Colors.white),
-          //     ),
-          //     color: const Color(0xFF1BC0C5),
-          //   ),
-          // )
-          FlatButton(
-            child: Text('OK', style: TextStyle(fontSize: 15, fontFamily: 'icomoon')),
-            onPressed: () {
-              Navigator.pop(context, "OK");
-            },
+        shape: RoundedRectangleBorder(
+            borderRadius:
+            BorderRadius.circular(20.0)), //this right here
+        content: Container(
+          height: 200,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text("Are you sure you want to add TITLE OF THE GAME to your list of game?"),
+              TextField(
+                decoration: InputDecoration(
+                    border: InputBorder.none,
+                    hintText: 'What do you want to remember?'),
+              ),
+              SizedBox(
+                width: 500.0,
+                child: RaisedButton(
+                  onPressed: () {},
+                  child: Text(
+                    "Save",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  color: const Color(0xFF1BC0C5),
+                ),
+              )
+            ],
           ),
-        ],
+        ),
       );
+      // return AlertDialog(
+      //   title: Text('ADD TO MY LIST'),
+      //   content: Row(
+      //     children: [
+      //       Expanded(
+      //         child: Text("Are you sure you want to add TITLE OF THE GAME to your list of game?"),
+      //       ),
+      //       // Expanded(
+      //       //   child: Row(
+      //       //     children: [
+      //       //       Text("Are you sure you want to add TITLE OF THE GAME to your list of game?"),
+      //       //     ],
+      //       //   ),
+      //       // ),
+      //       // Text("Are you sure you want to add TITLE OF THE GAME to your list of game?"),
+      //     ],
+      //   ),
+      //   actions: <Widget>[
+      //     Align(
+      //       alignment: Alignment.bottomCenter,
+      //       child: SizedBox(
+      //
+      //         child: RaisedButton(
+      //           onPressed: () {},
+      //           child: Text(
+      //             "Save",
+      //             style: TextStyle(color: Colors.white),
+      //           ),
+      //           color: const Color(0xFF1BC0C5),
+      //         ),
+      //       ),
+      //     )
+      //
+      //     // FlatButton(
+      //     //   child: Text('OK', style: TextStyle(fontSize: 15, fontFamily: 'icomoon')),
+      //     //   onPressed: () {
+      //     //     Navigator.pop(context, "OK");
+      //     //   },
+      //     // ),
+      //   ],
+      // );
     },
   );
 }
