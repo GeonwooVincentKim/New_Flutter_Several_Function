@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/app_screens/settings/dialog/Dialog.dart';
 import 'package:flutter_app/app_screens/settings/settings_attribute/SettingText.dart';
 import 'package:flutter_app/widgets/expanded/divider.dart';
 // import '../SideMenu.dart';
@@ -44,6 +45,7 @@ class Settings extends StatelessWidget{
 
 
 class SettingsBody extends StatelessWidget{
+  final scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -55,7 +57,12 @@ class SettingsBody extends StatelessWidget{
           child: Column(
             children: <Widget>[
               Center(
-                child: ImageAttribute(),
+                child: GestureDetector(
+                  onTap: () {
+                    showAlertDialog(context);
+                  },
+                  child: ImageAttribute(),
+                ),
               ),
               transparent_divider(),
               Text(
@@ -68,7 +75,6 @@ class SettingsBody extends StatelessWidget{
             ],
           ),
         ),
-
       ),
     );
   }
