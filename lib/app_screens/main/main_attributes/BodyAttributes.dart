@@ -24,39 +24,31 @@ class InProcessList extends StatelessWidget{
               borderRadius: BorderRadius.circular(10.0),
               child: Container(
                   height: 67,
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                          context, MaterialPageRoute(builder: (context){return DetailPage();})
-                      );
-                    },
-                    child: Dismissible(
-                        key: Key(item),
-                        onDismissed: (direction) {
-                          // setState(() {
-                          //   listUp.removeAt(index);
-                          // });
-                          Scaffold.of(context).showSnackBar(
-                              SnackBar(content:
-                              Text("$item dismissed")
-                              )
-                          );
-                        },
-                        background: Container(
-                          color: Colors.amber,
-                          alignment: Alignment(-0.9, 0.0),
-                          child: Icon(IconMoon.ipencil, color: Colors.white, size: 30.0,),
-                        ),
-                        secondaryBackground: Container(
-                          color: Colors.green,
-                          alignment: Alignment(0.9, 0.0),
-                          child: Icon(IconMoon.icheck2, color: Colors.white, size: 30.0,),
-                        ),
+                  child: Dismissible(
+                      key: Key(item),
+                      onDismissed: (direction) {
+                        // setState(() {
+                        //   listUp.removeAt(index);
+                        // });
+                        Scaffold.of(context).showSnackBar(
+                            SnackBar(content:
+                            Text("$item dismissed")
+                            )
+                        );
+                      },
+                      background: Container(
+                        color: Colors.amber,
+                        alignment: Alignment(-0.9, 0.0),
+                        child: Icon(IconMoon.ipencil, color: Colors.white, size: 30.0,),
+                      ),
+                      secondaryBackground: Container(
+                        color: Colors.green,
+                        alignment: Alignment(0.9, 0.0),
+                        child: Icon(IconMoon.icheck2, color: Colors.white, size: 30.0,),
+                      ),
 
-                        child: ProcessingList()
-                    ),
-                  )
-
+                      child: ProcessingList()
+                  ),
               ),
 
             );
