@@ -26,3 +26,7 @@ samples, guidance on mobile development, and a full API reference.
 - [Dismissible-Widget-Border](https://stackoverflow.com/questions/57542470/how-to-fix-this-dismissible-widget-border)
 - [Dismissible-ListView](https://medium.com/@maffan/how-to-make-a-dismissible-listview-in-flutter-a9f730a751be)
 
+
+# The roles of ExampleCode
+
+- [Nothing]
