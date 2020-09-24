@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/app_screens/details/details_attributes/DetailsBody.dart';
 import 'package:flutter_app/app_screens/main/Body.dart';
 import 'package:flutter_app/app_screens/settings/SideMenu.dart';
 
@@ -90,18 +91,26 @@ class DiscoverBodyDetails extends StatelessWidget{
         borderRadius: BorderRadius.circular(10.0),
       ),
       height: 220,
-      child: Column(
-        children: [
-          Expanded(
-            flex: 3,
-            child: DiscoverUp(),
-          ),
-          Expanded(
-            flex: 1,
-            child: DiscoverDown(),
-          ),
-        ],
-      ),
+      child: GestureDetector(
+        onTap: (){
+          Navigator.push(
+            context, MaterialPageRoute(builder: (context){return DetailPage();})
+          );
+        },
+        child: Column(
+          children: [
+            Expanded(
+              flex: 3,
+              child: DiscoverUp(),
+            ),
+            Expanded(
+              flex: 1,
+              child: DiscoverDown(),
+            ),
+          ],
+        ),
+      )
+
     );
   }
 }
