@@ -14,7 +14,7 @@ class DetailPage extends StatelessWidget{
         actions: [
           IconButton(
             icon: Icon(
-              IconMoon.iaddoutline,
+              IconMoon.iedit,
               color: Colors.white,
             ),
             onPressed: (){
