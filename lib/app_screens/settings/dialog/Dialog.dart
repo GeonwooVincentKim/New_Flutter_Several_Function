@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 // Dialog Menu
 void showAlertDialog(BuildContext context) async {
-  final scaffoldKey = GlobalKey<ScaffoldState>();
+  final scaffoldKey = new GlobalKey<ScaffoldState>();
   String result = await showDialog(
     context: context,
     barrierDismissible: false, // user must tap button!
@@ -27,18 +27,4 @@ void showAlertDialog(BuildContext context) async {
       );
     },
   );
-
-  scaffoldKey.currentState
-    ..hideCurrentSnackBar()
-    ..showSnackBar(
-      SnackBar(
-        content: Text("Result: $result"),
-        backgroundColor: Colors.orange,
-        action: SnackBarAction(
-          label: "Done",
-          textColor: Colors.white,
-          onPressed: () {},
-        ),
-      ),
-    );
 }

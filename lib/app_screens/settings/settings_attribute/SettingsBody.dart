@@ -57,6 +57,8 @@ class SettingsBody extends StatelessWidget{
           child: Column(
             children: <Widget>[
               Center(
+                // If I use FlatButton, it shows AlertDialog overflows
+                // So I have to use GestureDetector.
                 child: GestureDetector(
                   onTap: () {
                     showAlertDialog(context);
