@@ -40,8 +40,9 @@ Image-Picker
 
 Popup-menu
 - [Popup-Menu](https://www.developerlibs.com/2018/06/flutter-event-alert-with-pop-up.html)
-- [Popup-Menu-Dialog](https: //www.youtube.com/watch?v=FGfhnS6skMQ)
-
+- [Popup-Menu-Dialog](https://www.youtube.com/watch?v=FGfhnS6skMQ)
+- [Flutter-AlertDialog-example](https://androidkt.com/flutter-alertdialog-example/)
+- [Flutter-AlertDialog-to-CustomDialog](https://medium.com/flutterpub/flutter-alert-dialog-to-custom-dialog-966195157da8)
 
 # The roles of ExampleCode
 

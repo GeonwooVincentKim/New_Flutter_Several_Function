@@ -44,9 +44,11 @@ void showAddListDialog(BuildContext context) async{
             borderRadius:
             BorderRadius.circular(20.0)), //this right here
         content: Container(
-          height: 200,
+          height: 150,
+          width: MediaQuery.of(context).size.width,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            // mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text("Are you sure you want to add TITLE OF THE GAME to your list of game?"),
@@ -55,9 +57,9 @@ void showAddListDialog(BuildContext context) async{
                     border: InputBorder.none,
                     hintText: 'What do you want to remember?'),
               ),
-              SizedBox(
-                width: 500.0,
+              Expanded(
                 child: RaisedButton(
+
                   onPressed: () {},
                   child: Text(
                     "Save",
