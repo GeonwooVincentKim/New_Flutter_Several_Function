@@ -7,7 +7,7 @@ import 'package:flutter_app/widgets/expanded/widgets_attribute/Main/MainDetails.
   2. expanded_widgets_down
 */
 // ignore: non_constant_identifier_names, camel_case_types
-class expanded_widgets_up extends StatelessWidget{
+class ProgressText extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     // If I don't use this,
@@ -20,7 +20,7 @@ class expanded_widgets_up extends StatelessWidget{
 
 
 // ignore: camel_case_types
-class expanded_widgets_down extends StatelessWidget{
+class ComplitedText extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Text(

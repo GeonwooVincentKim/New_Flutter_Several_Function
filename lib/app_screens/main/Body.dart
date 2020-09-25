@@ -34,7 +34,7 @@ class _BodyState extends State<Body>{
               Row(
                 children: <Widget>[
                   // Import expanded_widgets class.
-                  expanded_widgets_up(),
+                  ProgressText(),
                 ],
               ),
               divider(),
@@ -51,7 +51,7 @@ class _BodyState extends State<Body>{
               Row(
                 children: <Widget>[
                   // Import expanded_widgets_down class.
-                  expanded_widgets_down(),
+                  ComplitedText(),
                 ],
               ),
               divider(),

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-// import 'file:///E:/flutter_test_project/flutter_app/lib/app_screens/main/Home.dart';
+import 'package:flutter_app/app_screens/main/main_attributes/BodyAttributes.dart';
 import 'package:flutter_app/widgets/expanded/divider.dart';
-import 'file:///E:/flutter_test_project/Flutter_Several_Function/lib/widgets/expanded/widgets_attribute/Main/MainWidgets.dart';
-
+import 'package:flutter_app/widgets/expanded/widgets_attribute/Main/MainWidgets.dart';
 
 
 var itemList = [
@@ -27,7 +26,7 @@ class Body extends StatelessWidget{
             Row(
               children: <Widget>[
                 // Import expanded_widgets class.
-                expanded_widgets_up(),
+                ProgressText(),
               ],
             ),
             divider(),
@@ -39,7 +38,7 @@ class Body extends StatelessWidget{
             Row(
               children: <Widget>[
                 // Import expanded_widgets_down class.
-                expanded_widgets_down(),
+                ComplitedText(),
               ],
             ),
             divider(),
@@ -74,7 +73,7 @@ class New_Body extends StatelessWidget{
             Row(
               children: <Widget>[
                 // Import expanded_widgets class.
-                expanded_widgets_up(),
+                ProgressText(),
               ],
             ),
             divider(),
@@ -92,7 +91,7 @@ class New_Body extends StatelessWidget{
             Row(
               children: <Widget>[
                 // Import expanded_widgets_down class.
-                expanded_widgets_down(),
+                ComplitedText(),
               ],
             ),
             divider(),
@@ -140,7 +139,7 @@ class Body_Expanded extends StatelessWidget{
                 Row(
                   children: <Widget>[
                     // Import expanded_widgets class.
-                    expanded_widgets_up(),
+                    ProgressText(),
                   ],
                 ),
                 divider(),
@@ -158,7 +157,7 @@ class Body_Expanded extends StatelessWidget{
                 Row(
                   children: <Widget>[
                     // Import expanded_widgets_down class.
-                    expanded_widgets_down(),
+                    ComplitedText(),
                   ],
                 ),
                 divider(),

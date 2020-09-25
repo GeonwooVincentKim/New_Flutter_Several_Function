@@ -41,10 +41,8 @@ class DetailsImage extends StatelessWidget{
   Widget build(BuildContext context) {
     return Container(
       width: 420,
-      child: FittedBox(
-        child: Image(
-            image: NetworkImage("https://www.gstatic.com/webp/gallery/1.jpg")
-        ),
+      child: Image.network(
+        "https://www.gstatic.com/webp/gallery/1.jpg",
         fit: BoxFit.fill,
       ),
     );

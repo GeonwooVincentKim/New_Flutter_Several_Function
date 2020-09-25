@@ -15,11 +15,9 @@ class DiscoverUp extends StatelessWidget{
         ),
 
         // Make it fits to the box.
-        child: FittedBox(
-          child: Image(
-            image: NetworkImage("https://www.gstatic.com/webp/gallery/1.jpg")
-          ),
-          fit: BoxFit.fill,
+        child: Image.network(
+            "https://www.gstatic.com/webp/gallery/1.jpg",
+            fit: BoxFit.fitWidth
         ),
       ),
     );
