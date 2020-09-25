@@ -31,20 +31,16 @@ class PlatForm extends StatelessWidget{
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.centerLeft,
-      child: Row(
-        children: <Widget>[
-          RichText(
-            text: TextSpan(
-              style: subtitleFont,
-              children: <TextSpan>[
-                TextSpan(text: "Platform: "),
-                TextSpan(text: "PS4", style: contextFont),
-                TextSpan(text: " | Genre: "),
-                TextSpan(text: "RPG", style: contextFont),
-              ],
-            ),
-          ),
-        ],
+      child: RichText(
+        text: TextSpan(
+          style: subtitleFont,
+          children: <TextSpan>[
+            TextSpan(text: "Platform: "),
+            TextSpan(text: "PS4", style: contextFont),
+            TextSpan(text: " | Genre: "),
+            TextSpan(text: "RPG", style: contextFont),
+          ],
+        ),
       ),
     );
   }
@@ -56,18 +52,14 @@ class Progressions extends StatelessWidget{
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.centerLeft,
-      child: Row(
-        children: <Widget>[
-          RichText(
-            text: TextSpan(
-              style: subtitleFont,
-              children: <TextSpan>[
-                TextSpan(text: "Progressions: "),
-                TextSpan(text: "80%", style: contextFont),
-              ],
-            ),
-          ),
-        ],
+      child: RichText(
+        text: TextSpan(
+          style: subtitleFont,
+          children: <TextSpan>[
+            TextSpan(text: "Progressions: "),
+            TextSpan(text: "80%", style: contextFont),
+          ],
+        ),
       ),
     );
   }
