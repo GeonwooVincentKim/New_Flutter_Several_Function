@@ -51,6 +51,8 @@ class DiscoverBodyDetails extends StatelessWidget{
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.0),
         ),
+        // It just going to show only one-Image if I convert this code as
+        // height = MediaQuery.of(context).size.height
         height: 220,
         child: GestureDetector(
           onTap: (){

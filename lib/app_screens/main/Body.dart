@@ -21,50 +21,53 @@ class _BodyState extends State<Body>{
 
     return Center(
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         color: Colors.black12,
-        child: SingleChildScrollView(
-          child: Column(
-            // mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              // ...listUp.map((item) {
-              //
-              // }).toList(),
-              Row(
-                children: <Widget>[
-                  // Import expanded_widgets class.
-                  ProgressText(),
-                ],
-              ),
-              CustomDivider(color: Colors.black87),
-              // Import buttons that combined Image and Text.
-              // For the codes that belows 'IN PROGRESS'.
-              Row(
-                children: <Widget>[
-                  InProcessList()
-                ]
-              ),
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          child: SingleChildScrollView(
+            child: Column(
+              // mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                // ...listUp.map((item) {
+                //
+                // }).toList(),
+                Row(
+                  children: <Widget>[
+                    // Import expanded_widgets class.
+                    ProgressText(),
+                  ],
+                ),
+                CustomDivider(color: Colors.black87),
+                // Import buttons that combined Image and Text.
+                // For the codes that belows 'IN PROGRESS'.
+                Row(
+                    children: <Widget>[
+                      InProcessList()
+                    ]
+                ),
 
-              transparent_divider(),
+                transparent_divider(),
 
-              Row(
-                children: <Widget>[
-                  // Import expanded_widgets_down class.
-                  CompletedText(),
-                ],
-              ),
-              CustomDivider(color: Colors.black87),
+                Row(
+                  children: <Widget>[
+                    // Import expanded_widgets_down class.
+                    CompletedText(),
+                  ],
+                ),
+                CustomDivider(color: Colors.black87),
 
-              // For the codes that belows 'COMPILED'.
-              Row(
-                children: <Widget>[
-                  CompletedList(),
-                ]
-              ),
-            ],
+                // For the codes that belows 'COMPILED'.
+                Row(
+                    children: <Widget>[
+                      CompletedList(),
+                    ]
+                ),
+              ],
+            ),
           ),
-        ),
+        )
+
       ),
     );
   }

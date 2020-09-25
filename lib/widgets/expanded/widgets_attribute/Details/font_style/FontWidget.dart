@@ -29,19 +29,21 @@ class MainFont extends StatelessWidget{
 class PlatForm extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.centerLeft,
-      child: RichText(
-        text: TextSpan(
-          style: subtitleFont,
-          children: <TextSpan>[
-            TextSpan(text: "Platform: "),
-            TextSpan(text: "PS4", style: contextFont),
-            TextSpan(text: " | Genre: "),
-            TextSpan(text: "RPG", style: contextFont),
-          ],
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        RichText(
+          text: TextSpan(
+            style: subtitleFont,
+            children: <TextSpan>[
+              TextSpan(text: "Platform: "),
+              TextSpan(text: "PS4", style: contextFont),
+              TextSpan(text: " | Genre: "),
+              TextSpan(text: "RPG", style: contextFont),
+            ],
+          ),
         ),
-      ),
+      ],
     );
   }
 }

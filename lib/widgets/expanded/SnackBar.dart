@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-void showSnackBar(BuildContext context, String item){
+// ignore: non_constant_identifier_names
+void ShowSnackBar(BuildContext context, String item){
   var snackBar = SnackBar(
     content: Text("You've just tapped $item"),
     action: SnackBarAction(
@@ -24,7 +25,7 @@ List<String> getListElements(){
 
 // Outer-Function.
 // ignore: missing_return
-Widget getListView(){
+Widget GetListView(){
   var listItems = getListElements();
   var listView = ListView.builder(
 
@@ -37,7 +38,7 @@ Widget getListView(){
           title: Text(listItems[index]),
           onTap: (){
             // debugPrint("${listItems[index]} was tapped");
-            showSnackBar(context, listItems[index]);
+            ShowSnackBar(context, listItems[index]);
           },
         );
       }
