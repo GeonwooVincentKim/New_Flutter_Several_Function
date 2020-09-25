@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/app_screens/discover/discover_attributes/DiscoverBody.dart';
+import 'package:flutter_app/app_screens/discover/Discover.dart';
 import 'app_screens/main/Home.dart';
 
 void main(){

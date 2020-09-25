@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/app_screens/myfavorites/myfavorites_attribute/MyFavoritesBody.dart';
+import 'package:flutter_app/app_screens/myfavorites/MyFavorites.dart';
 import 'package:flutter_app/app_screens/settings/dialog/Dialog.dart';
 import 'package:flutter_app/widgets/expanded/widgets_attribute/Details/widget_details.dart';
 import 'package:flutter_app/shared/helpers/icomoon.dart';
