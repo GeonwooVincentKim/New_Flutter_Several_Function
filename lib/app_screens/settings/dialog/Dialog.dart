@@ -44,7 +44,6 @@ void showAddListDialog(BuildContext context) async{
             borderRadius:
             BorderRadius.circular(20.0)), //this right here
         content: Container(
-          height: 150,
           width: MediaQuery.of(context).size.width,
           child: Column(
             // mainAxisAlignment: MainAxisAlignment.center,
@@ -57,17 +56,29 @@ void showAddListDialog(BuildContext context) async{
                     border: InputBorder.none,
                     hintText: 'What do you want to remember?'),
               ),
-              Expanded(
-                child: RaisedButton(
+              Row(
+                  children: [
+                    Expanded(
+                      child: RaisedButton(
 
-                  onPressed: () {},
-                  child: Text(
-                    "Save",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  color: const Color(0xFF1BC0C5),
-                ),
+                        onPressed: () {},
+                        // child: Expanded(
+                        //   child: Text(
+                        //     "Save",
+                        //     style: TextStyle(color: Colors.white),
+                        //   ),
+                        // ),
+                        child: Text(
+                          "Save",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        color: const Color(0xFF1BC0C5),
+                      ),
+                    )
+
+                  ],
               )
+
             ],
           ),
         ),
