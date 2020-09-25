@@ -51,11 +51,22 @@ void showAddListDialog(BuildContext context) async{
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text("Are you sure you want to add TITLE OF THE GAME to your list of game?"),
-              TextField(
-                decoration: InputDecoration(
-                    border: InputBorder.none,
-                    hintText: 'What do you want to remember?'),
+              Row(
+                children: [
+                  Expanded(
+                    child: Text("Border"),
+                  ),
+                  Expanded(
+                    child: TextField(
+                      decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'remember?'),
+                    ),
+                  )
+                ]
               ),
+              // Text("Border"),
+
               Row(
                 children: [
                   Expanded(
