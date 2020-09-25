@@ -25,20 +25,18 @@ class LocalID extends StatelessWidget{
 class Email extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Row(
-        children: <Widget>[
-          RichText(
-            text: TextSpan(
-              style: FontStyleContent(),
-              children: <TextSpan>[
-                TextSpan(text: "Email: "),
-                TextSpan(text: "test@test.com", style: FontStyleSubContent()),
-              ],
-            ),
+    return Row(
+      children: <Widget>[
+        RichText(
+          text: TextSpan(
+            style: FontStyleContent(),
+            children: <TextSpan>[
+              TextSpan(text: "Email: "),
+              TextSpan(text: "test@test.com", style: FontStyleSubContent()),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
