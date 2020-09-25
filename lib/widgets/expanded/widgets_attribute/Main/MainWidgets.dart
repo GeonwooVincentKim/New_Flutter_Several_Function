@@ -18,7 +18,6 @@ class ProgressText extends StatelessWidget{
   }
 }
 
-
 // ignore: camel_case_types
 class ComplitedText extends StatelessWidget{
   @override
