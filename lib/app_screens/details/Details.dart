@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app_screens/settings/dialog/Dialog.dart';
-import 'DetailAttribute.dart';
-import 'package:flutter_app/app_screens/settings/SideMenu.dart';
+import 'details_attributes/DetailAttribute.dart';
 import 'package:flutter_app/shared/helpers/icomoon.dart';
 
 class DetailPage extends StatelessWidget{
@@ -43,11 +42,11 @@ class DetailBody extends StatelessWidget{
             child: Column(
               children: <Widget>[
                 Center(
-                  child: ImageAttribute(),
+                  child: imageAttribute(),
                 ),
 
                 // I should convert as CircularProgressIndicator function.
-                ProgressBar(),
+                progressBar(),
                 Center(
                   child: TextAttribute(),
                 ),

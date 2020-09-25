@@ -6,7 +6,7 @@ import 'package:flutter_app/shared/helpers/icomoon.dart';
 
 
 // Image-Attributes that is below in the Detail-Page part.
-class ImageAttribute extends StatelessWidget{
+class imageAttribute extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return Stack(
@@ -40,7 +40,7 @@ class ImageAttribute extends StatelessWidget{
 }
 
 // Progress-Bar-Attributes that is belows in the Detail-Page part.
-class ProgressBar extends StatelessWidget{
+class progressBar extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Column(
