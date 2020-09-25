@@ -18,7 +18,7 @@ class MainFont extends StatelessWidget{
         // Couldn't define the name forms as 'Class'
         // Because It occurs error that just relating 'parameter'.
         // So I define as 'function' not 'Class'.
-        style: expanded_font_style_main(),
+        style: mainFont,
       ),
     );
   }
@@ -35,12 +35,12 @@ class PlatForm extends StatelessWidget{
         children: <Widget>[
           RichText(
             text: TextSpan(
-              style: expanded_font_style_contents(),
+              style: subtitleFont,
               children: <TextSpan>[
                 TextSpan(text: "Platform: "),
-                TextSpan(text: "PS4", style: expanded_font_style_sub_text()),
+                TextSpan(text: "PS4", style: contextFont),
                 TextSpan(text: " | Genre: "),
-                TextSpan(text: "RPG", style: expanded_font_style_sub_text()),
+                TextSpan(text: "RPG", style: contextFont),
               ],
             ),
           ),
@@ -60,10 +60,10 @@ class Progressions extends StatelessWidget{
         children: <Widget>[
           RichText(
             text: TextSpan(
-              style: expanded_font_style_contents(),
+              style: subtitleFont,
               children: <TextSpan>[
                 TextSpan(text: "Progressions: "),
-                TextSpan(text: "80%", style: expanded_font_style_sub_text()),
+                TextSpan(text: "80%", style: contextFont),
               ],
             ),
           ),
@@ -81,10 +81,10 @@ class Editor extends StatelessWidget{
       alignment: Alignment.centerLeft,
       child: RichText(
         text: TextSpan(
-          style: expanded_font_style_contents(),
+          style: subtitleFont,
           children: <TextSpan>[
             TextSpan(text: "Editor: "),
-            TextSpan(text: "Editor Name", style: expanded_font_style_sub_text()),
+            TextSpan(text: "Editor Name", style: contextFont),
           ],
         ),
       ),
@@ -106,10 +106,10 @@ class ReleaseDate extends StatelessWidget{
       alignment: Alignment.centerLeft,
       child: RichText(
         text: TextSpan(
-          style: expanded_font_style_contents(),
+          style: subtitleFont,
           children: <TextSpan>[
             TextSpan(text: "ReleaseDate: "),
-            TextSpan(text: "${formatted} ", style: expanded_font_style_sub_text()),
+            TextSpan(text: "${formatted} ", style: contextFont),
           ],
         ),
       ),
@@ -140,7 +140,7 @@ class Description extends StatelessWidget{
         // ),
         RichText(
           text: TextSpan(
-            style: expanded_font_style_contents(),
+            style: subtitleFont,
             children: <TextSpan>[
               TextSpan(text: "Description: "),
             ],
@@ -151,11 +151,11 @@ class Description extends StatelessWidget{
           children: <Widget> [
             RichText(
               text: TextSpan(
-                style: expanded_font_style_contents(),
+                style: subtitleFont,
                 children: <TextSpan>[
                   TextSpan(
                       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget laoreet diam. Fusce vulputate justo tortor, vitae scelerisque elit molestie sit amet. Vestibulum ut purus sapien. Mauris vel sem vel felis ornare mollis. Phasellus luctus massa vitae pulvinar vestibulum. Vivamus tincidunt, mauris sit amet ultrices egestas, magna felis consectetur Add to my listligula, eu dignissim orci odio nec purus. Curabitur a porta tellus, vel efficitur ipsum. Aenean turpis purus, efficitur eget neque eu, placerat blandit ligula. Proin nec neque quam. ",
-                      style: expanded_font_style_sub_text()
+                      style: contextFont
                   ),
                 ],
               ),
@@ -169,7 +169,7 @@ class Description extends StatelessWidget{
 }
 
 // ignore: camel_case_types
-class SubFont6 extends StatelessWidget{
+class ImageFonts extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Align(
@@ -180,7 +180,7 @@ class SubFont6 extends StatelessWidget{
           transparent_divider(),
           RichText(
             text: TextSpan(
-              style: expanded_font_style_contents(),
+              style: subtitleFont,
               children: <TextSpan>[
                 TextSpan(text: "Images: "),
               ],

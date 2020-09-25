@@ -24,7 +24,7 @@ class DetailsText extends StatelessWidget{
           transparent_divider(),
           Description(),
           transparent_divider(),
-          SubFont6(),
+          ImageFonts(),
           transparent_divider(),
           // expanded_widgets_details_down_detail(),
         ],
