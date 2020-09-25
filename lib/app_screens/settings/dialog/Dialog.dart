@@ -73,13 +73,11 @@ void showAddListDialog(BuildContext context) async{
                   )
                 ]
               ),
-              // Text("Border"),
 
               Row(
                 children: [
                   Expanded(
                     child: RaisedButton(
-
                       onPressed: () {},
                       child: Text(
                         "Save",
@@ -90,52 +88,10 @@ void showAddListDialog(BuildContext context) async{
                   )
                 ],
               )
-
             ],
           ),
         ),
       );
-      // return AlertDialog(
-      //   title: Text('ADD TO MY LIST'),
-      //   content: Row(
-      //     children: [
-      //       Expanded(
-      //         child: Text("Are you sure you want to add TITLE OF THE GAME to your list of game?"),
-      //       ),
-      //       // Expanded(
-      //       //   child: Row(
-      //       //     children: [
-      //       //       Text("Are you sure you want to add TITLE OF THE GAME to your list of game?"),
-      //       //     ],
-      //       //   ),
-      //       // ),
-      //       // Text("Are you sure you want to add TITLE OF THE GAME to your list of game?"),
-      //     ],
-      //   ),
-      //   actions: <Widget>[
-      //     Align(
-      //       alignment: Alignment.bottomCenter,
-      //       child: SizedBox(
-      //
-      //         child: RaisedButton(
-      //           onPressed: () {},
-      //           child: Text(
-      //             "Save",
-      //             style: TextStyle(color: Colors.white),
-      //           ),
-      //           color: const Color(0xFF1BC0C5),
-      //         ),
-      //       ),
-      //     )
-      //
-      //     // FlatButton(
-      //     //   child: Text('OK', style: TextStyle(fontSize: 15, fontFamily: 'icomoon')),
-      //     //   onPressed: () {
-      //     //     Navigator.pop(context, "OK");
-      //     //   },
-      //     // ),
-      //   ],
-      // );
     },
   );
 }

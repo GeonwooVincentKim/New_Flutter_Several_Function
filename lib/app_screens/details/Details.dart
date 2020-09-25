@@ -63,5 +63,3 @@ class DetailBody extends StatelessWidget{
     );
   }
 }
-
-

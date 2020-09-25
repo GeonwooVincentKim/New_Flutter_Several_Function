@@ -106,8 +106,6 @@ class _HomeState extends State<Home>{
       pageController.animateToPage(index, duration: Duration(milliseconds: 700), curve: Curves.ease);
       switch(index){
         case 0: {
-          //Navigator.pushNamed(context, '/home');
-          // onAddButtonTapped(1);
           setState(() {
             _showStar = true;
             _title="MY GAMES";
@@ -115,8 +113,6 @@ class _HomeState extends State<Home>{
           break;
         }
         case 1:{
-          //Navigator.pushNamed(context, '/discover');
-          // onAddButtonTapped(1);
           setState(() {
             _showStar = false;
             _title="DISCOVER";

@@ -175,9 +175,6 @@ class Body_Expanded extends StatelessWidget{
               ],
             ),
           ),
-          // onTap: (){
-          //   Scaffold.of(context).showSnackBar(SnackBar(content: Text('Tap')));
-          // },
         ),
     );
   }
