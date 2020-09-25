@@ -6,7 +6,7 @@ import 'package:flutter_app/shared/helpers/icomoon.dart';
 
 
 // Image-Attributes that is below in the Detail-Page part.
-class imageAttribute extends StatelessWidget{
+class ImageAttribute extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return Stack(
@@ -40,12 +40,13 @@ class imageAttribute extends StatelessWidget{
 }
 
 // Progress-Bar-Attributes that is belows in the Detail-Page part.
-class progressBar extends StatelessWidget{
+// ignore: camel_case_types
+class ProgressBar extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.center,
+      // crossAxisAlignment: CrossAxisAlignment.start,
+      // mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
         LinearProgressIndicator(
           minHeight: 10,

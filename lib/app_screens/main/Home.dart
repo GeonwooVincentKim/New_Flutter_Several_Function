@@ -14,11 +14,12 @@ class Home extends StatefulWidget{
   Home({Key key, this.title}) : super(key: key);
   @override
   State<StatefulWidget> createState()
-    => _HomeState();
+  => _HomeState();
 }
 
 class _HomeState extends State<Home>{
   String _title;
+  bool _showStar = true;
   int _selectedPage = 0;
   List<Widget> pageList = List<Widget>();
 
@@ -39,6 +40,7 @@ class _HomeState extends State<Home>{
       BottomNavigationBarItem(
         icon: Icon(IconMoon.isearch),
         title: Text('Discover'),
+
       ),
     ];
   }
@@ -50,15 +52,15 @@ class _HomeState extends State<Home>{
 
   Widget buildPageView(){
     return PageView(
-      controller: pageController,
-      onPageChanged: (index){
-        pageChanged(index);
-      },
-      //scrollDirection: Axis.horizontal,
-      children: <Widget>[
-        Body(),
-        DiscoverPage(),
-      ]
+        controller: pageController,
+        onPageChanged: (index){
+          pageChanged(index);
+        },
+        //scrollDirection: Axis.horizontal,
+        children: <Widget>[
+          Body(),
+          DiscoverPage(),
+        ]
     );
   }
 
@@ -77,12 +79,7 @@ class _HomeState extends State<Home>{
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: SideMenu(),
-      appBar: AppBar(
-        backgroundColor: Colors.black87,
-        title: Text(_title),
-        centerTitle: true,
-        actions: AppbarActions(),
-      ),
+      appBar: HomeAppbar(_title, _showStar, context),
       body: buildPageView(),
       bottomNavigationBar: BottomNavigationBar(
 
@@ -112,13 +109,19 @@ class _HomeState extends State<Home>{
         case 0: {
           //Navigator.pushNamed(context, '/home');
           // onAddButtonTapped(1);
-          _title="MY GAMES";
+          setState(() {
+            _showStar = true;
+            _title="MY GAMES";
+          });
           break;
         }
         case 1:{
-          // Navigator.pushNamed(context, '/discover');
+          //Navigator.pushNamed(context, '/discover');
           // onAddButtonTapped(1);
-          _title="DISCOVER";
+          setState(() {
+            _showStar = false;
+            _title="DISCOVER";
+          });
           break;
         }
       }

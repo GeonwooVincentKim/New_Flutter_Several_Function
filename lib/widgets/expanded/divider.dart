@@ -21,23 +21,30 @@ class transparent_divider extends StatelessWidget{
   }
 }
 
-// ignore: camel_case_types
-class text_divider extends StatelessWidget{
-  @override
-  Widget build(BuildContext context){
-    return const Divider(
-      color: Colors.transparent,
-      height: 30,
-    );
-  }
-}
-
 class BottomDivider extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return const Divider(
       color: Colors.transparent,
-      height: 30,
+      height: 40,
+    );
+  }
+}
+
+class CustomDivider extends StatelessWidget{
+  final Color color;
+  final double height;
+
+  CustomDivider({
+    @required this.color,
+    this.height = 40,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Divider(
+      color: color,
+      height: height,
     );
   }
 }

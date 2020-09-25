@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app_screens/discover/Discover.dart';
+import 'package:flutter_app/app_screens/myfavorites/MyFavorites.dart';
 import 'app_screens/main/Home.dart';
 
 void main(){
@@ -7,10 +8,12 @@ void main(){
       MaterialApp(
         title: "My Flutter App",
         home: Home(),
-        routes: {
-          '/home': (context) => Home(),
-          '/discover': (context) => DiscoverPage(),
-        },
+        // routes: {
+        //   '/': (context) => Home(),
+        //   '/discover': (context) => DiscoverPage(),
+        // },
       ),
   );
+
+
 }

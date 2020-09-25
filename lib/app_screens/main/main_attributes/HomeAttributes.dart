@@ -5,26 +5,34 @@ import 'package:flutter_app/shared/helpers/icomoon.dart';
 import 'package:flutter_app/widgets/expanded/divider.dart';
 
 // ignore: non_constant_identifier_names
-AppbarActions(){
-  return <Widget>[
-    IconButton(
-        icon: Icon(
-          IconMoon.istarfull,
-          color: Colors.white,
-        ),
-        onPressed: (){
-          SideMenu();
-        }
-    ),
-    IconButton(
-        icon: Icon(
-          Icons.tune,
-          color: Colors.white,
-        ),
-        onPressed: (){
-          DetailBody();
-        }
-    ),
-  ];
+AppBar HomeAppbar (title, showStar, context) {
+
+  return AppBar(
+    backgroundColor: Colors.black87,
+    title: Text(title),
+    centerTitle: true,
+    actions: [
+      showStar ?
+      IconButton(
+          icon: Icon(
+            IconMoon.istarfull,
+            color: Colors.white,
+          ),
+          onPressed: (){
+            Navigator.pushNamed(context, '/favorite');
+            //SideMenu();
+          }
+      ) : Container(),
+      IconButton(
+          icon: Icon(
+            Icons.tune,
+            color: Colors.white,
+          ),
+          onPressed: (){
+            DetailBody();
+          }
+      ),
+    ],
+  );
 }
 
