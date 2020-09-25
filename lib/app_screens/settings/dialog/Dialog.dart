@@ -57,7 +57,7 @@ void showAddListDialog(BuildContext context) async{
               Row(
                 children: [
                   Expanded(
-                    child: Text("Border", style: TextStyle(
+                    child: Text("Progress", style: TextStyle(
                       fontWeight: FontWeight.w300,
                     )),
                   ),
@@ -68,7 +68,7 @@ void showAddListDialog(BuildContext context) async{
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.black87, width: 1.0),
                         ),
-                        hintText: 'remember?'),
+                        hintText: '10%'),
                     ),
                   )
                 ]
