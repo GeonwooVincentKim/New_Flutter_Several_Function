@@ -167,22 +167,19 @@ class Description extends StatelessWidget{
 class ImageFonts extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.centerLeft,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          transparent_divider(),
-          RichText(
-            text: TextSpan(
-              style: subtitleFont,
-              children: <TextSpan>[
-                TextSpan(text: "Images: "),
-              ],
-            ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        transparent_divider(),
+        RichText(
+          text: TextSpan(
+            style: subtitleFont,
+            children: <TextSpan>[
+              TextSpan(text: "Images: "),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

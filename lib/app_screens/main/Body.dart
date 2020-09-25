@@ -51,7 +51,7 @@ class _BodyState extends State<Body>{
               Row(
                 children: <Widget>[
                   // Import expanded_widgets_down class.
-                  ComplitedText(),
+                  CompletedText(),
                 ],
               ),
               CustomDivider(color: Colors.black87),
@@ -62,7 +62,6 @@ class _BodyState extends State<Body>{
                   CompletedList(),
                 ]
               ),
-
             ],
           ),
         ),

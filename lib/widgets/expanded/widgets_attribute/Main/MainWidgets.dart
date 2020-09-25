@@ -19,7 +19,7 @@ class ProgressText extends StatelessWidget{
 }
 
 // ignore: camel_case_types
-class ComplitedText extends StatelessWidget{
+class CompletedText extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Text(

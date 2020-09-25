@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/app_screens/main/main_attributes/BodyAttributes.dart';
 import 'package:flutter_app/widgets/expanded/divider.dart';
 import 'package:flutter_app/widgets/expanded/widgets_attribute/Main/MainWidgets.dart';
 
@@ -38,7 +37,7 @@ class Body extends StatelessWidget{
             Row(
               children: <Widget>[
                 // Import expanded_widgets_down class.
-                ComplitedText(),
+                CompletedText(),
               ],
             ),
             CustomDivider(color: Colors.black87),
@@ -91,7 +90,7 @@ class New_Body extends StatelessWidget{
             Row(
               children: <Widget>[
                 // Import expanded_widgets_down class.
-                ComplitedText(),
+                CompletedText(),
               ],
             ),
             CustomDivider(color: Colors.black87),
@@ -157,7 +156,7 @@ class Body_Expanded extends StatelessWidget{
                 Row(
                   children: <Widget>[
                     // Import expanded_widgets_down class.
-                    ComplitedText(),
+                    CompletedText(),
                   ],
                 ),
                 CustomDivider(color: Colors.black87),
