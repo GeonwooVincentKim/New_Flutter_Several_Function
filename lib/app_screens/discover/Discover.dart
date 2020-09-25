@@ -59,8 +59,7 @@ class DiscoverBody extends StatelessWidget{
     ];
     return Center(
       child: Container(
-        padding: EdgeInsets.only(right: 5.0, top: 20.0),
-        // alignment: Alignment.topLeft,
+        padding: EdgeInsets.symmetric(vertical: 20.0),
         color: Colors.black12,
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
