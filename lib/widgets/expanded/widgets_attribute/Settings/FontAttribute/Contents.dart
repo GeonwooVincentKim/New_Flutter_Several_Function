@@ -6,10 +6,10 @@ class LocalID extends StatelessWidget{
   Widget build(BuildContext context) {
     return RichText(
       text: TextSpan(
-        style: FontStyleContent(),
+        style: fontStyleContent,
         children: <TextSpan>[
           TextSpan(text: "Local ID: "),
-          TextSpan(text: "8VxqWO9pRBTvpLGxFXquloo97X13", style: FontStyleSubContent()),
+          TextSpan(text: "8VxqWO9pRBTvpLGxFXquloo97X13", style: fontStyleSubContent),
         ],
       ),
     );
@@ -23,10 +23,10 @@ class Email extends StatelessWidget{
       children: <Widget>[
         RichText(
           text: TextSpan(
-            style: FontStyleContent(),
+            style: fontStyleContent,
             children: <TextSpan>[
               TextSpan(text: "Email: "),
-              TextSpan(text: "test@test.com", style: FontStyleSubContent()),
+              TextSpan(text: "test@test.com", style: fontStyleSubContent),
             ],
           ),
         ),
@@ -45,12 +45,12 @@ class Address extends StatelessWidget{
       children: <Widget>[
         RichText(
           text: TextSpan(
-            style: AddressStyleContent(),
+            style: addressStyleContent,
             children: <TextSpan>[
               TextSpan(text: "Address: "),
               TextSpan(
                 text: "Seoul, Gangnam-gu, Samseong 2(i)-dong, Seolleung-ro 112-gil, 87 명인빌딩",
-                style: AddressStyleSubContent()
+                style: addressStyleSubContent
               ),
             ],
           ),
