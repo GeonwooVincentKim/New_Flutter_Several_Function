@@ -37,7 +37,7 @@ class _BodyState extends State<Body>{
                   ProgressText(),
                 ],
               ),
-              divider(),
+              CustomDivider(color: Colors.black87),
               // Import buttons that combined Image and Text.
               // For the codes that belows 'IN PROGRESS'.
               Row(
@@ -54,7 +54,7 @@ class _BodyState extends State<Body>{
                   ComplitedText(),
                 ],
               ),
-              divider(),
+              CustomDivider(color: Colors.black87),
 
               // For the codes that belows 'COMPILED'.
               Row(

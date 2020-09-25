@@ -29,7 +29,7 @@ class Body extends StatelessWidget{
                 ProgressText(),
               ],
             ),
-            divider(),
+            CustomDivider(color: Colors.black87),
             // Import buttons that combined Image and Text.
             // Body_Details(),
             SizedBox(height: 15),
@@ -41,7 +41,7 @@ class Body extends StatelessWidget{
                 ComplitedText(),
               ],
             ),
-            divider(),
+            CustomDivider(color: Colors.black87),
             // Body_Details(),
             SizedBox(height: 15),
             // Body_Details(),
@@ -76,7 +76,7 @@ class New_Body extends StatelessWidget{
                 ProgressText(),
               ],
             ),
-            divider(),
+            CustomDivider(color: Colors.black87),
             // Import buttons that combined Image and Text.
             // For the codes that belows 'IN PROGRESS'.
             Expanded(
@@ -94,7 +94,7 @@ class New_Body extends StatelessWidget{
                 ComplitedText(),
               ],
             ),
-            divider(),
+            CustomDivider(color: Colors.black87),
 
             // For the codes that belows 'COMPILED'.
             Expanded(
@@ -142,7 +142,7 @@ class Body_Expanded extends StatelessWidget{
                     ProgressText(),
                   ],
                 ),
-                divider(),
+                CustomDivider(color: Colors.black87),
                 // Import buttons that combined Image and Text.
                 // For the codes that belows 'IN PROGRESS'.
                 Expanded(
@@ -160,7 +160,7 @@ class Body_Expanded extends StatelessWidget{
                     ComplitedText(),
                   ],
                 ),
-                divider(),
+                CustomDivider(color: Colors.black87),
 
                 // For the codes that belows 'COMPILED'.
                 Expanded(

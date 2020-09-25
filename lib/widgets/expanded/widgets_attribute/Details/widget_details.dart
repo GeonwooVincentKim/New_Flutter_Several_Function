@@ -64,7 +64,7 @@ class DetailsBottomImages extends StatelessWidget{
               ExpandedBottomImage(),
             ]
           ),
-          BottomDivider(),
+          CustomDivider(color: Colors.transparent),
           Row(
             children: [
               ExpandedBottomImage(),

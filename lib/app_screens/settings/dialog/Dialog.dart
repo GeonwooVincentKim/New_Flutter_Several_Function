@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_app/widgets/expanded/divider.dart';
 
 // Dialog Menu
 void showAlertDialog(BuildContext context) async {
@@ -51,9 +52,16 @@ void showAddListDialog(BuildContext context) async{
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text("Are you sure you want to add TITLE OF THE GAME to your list of game?"),
+              // CustomDivider(color: Colors.transparent),
+              transparent_divider(),
               Row(
                 children: [
-                  Text("Border"),
+                  Expanded(
+                    child: Text("Border", style: TextStyle(
+                      fontWeight: FontWeight.w300,
+                    )),
+                  ),
+
                   Expanded(
                     child: TextField(
                       decoration: InputDecoration(
