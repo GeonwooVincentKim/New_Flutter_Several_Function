@@ -40,7 +40,6 @@ class _HomeState extends State<Home>{
       BottomNavigationBarItem(
         icon: Icon(IconMoon.isearch),
         title: Text('Discover'),
-
       ),
     ];
   }

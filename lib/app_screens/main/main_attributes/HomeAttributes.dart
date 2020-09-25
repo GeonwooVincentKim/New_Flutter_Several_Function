@@ -6,7 +6,6 @@ import 'package:flutter_app/widgets/expanded/divider.dart';
 
 // ignore: non_constant_identifier_names
 AppBar HomeAppbar (title, showStar, context) {
-
   return AppBar(
     backgroundColor: Colors.black87,
     title: Text(title),
@@ -20,7 +19,6 @@ AppBar HomeAppbar (title, showStar, context) {
           ),
           onPressed: (){
             Navigator.pushNamed(context, '/favorite');
-            //SideMenu();
           }
       ) : Container(),
       IconButton(

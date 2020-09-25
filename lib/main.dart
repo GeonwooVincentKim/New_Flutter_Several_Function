@@ -24,10 +24,6 @@ void main(){
             builder: (BuildContext context) => Home(),
           );
         },
-        // routes: {
-        //   '/': (context) => Home(),
-        //   '/discover': (context) => DiscoverPage(),
-        // },
       ),
   );
 
