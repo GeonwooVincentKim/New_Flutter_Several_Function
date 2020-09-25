@@ -7,43 +7,6 @@ import 'package:flutter_app/shared/helpers/icomoon.dart';
 import 'package:flutter_app/widgets/expanded/divider.dart';
 import 'package:flutter_app/widgets/expanded/widgets_attribute/Discover/DiscoverWidget.dart';
 
-// class Discover extends StatefulWidget{
-//   final void Function(int) onAddButtonTapped;
-//   Discover({Key key, this.title, this.onAddButtonTapped}): super(key: key);
-//   final String title;
-//   @override
-//   State<StatefulWidget> createState()
-//     => _DiscoverState();
-// }
-//
-// class _DiscoverState extends State<Discover>{
-//   String _title;
-//   // int _selectedPage = 1;
-//   List<Widget> pageList = List<Widget>();
-//
-//   @override
-//   void initState() {
-//     pageList.add(Body());
-//     pageList.add(DiscoverPage());
-//     _title = 'DISCOVER';
-//     super.initState();
-//   }
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       drawer: SideMenu(),
-//       appBar: AppBar(
-//         backgroundColor: Colors.black87,
-//         title: Text(_title),
-//         centerTitle: true,
-//       ),
-//       // body: Body(),
-//       body: DiscoverBody(),
-//     );
-//   }
-// }
-
 class DiscoverPage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {

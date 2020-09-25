@@ -32,7 +32,7 @@ class DiscoverDown extends StatelessWidget{
     return Container(
       width: 365,
       height: 50,
-      padding: EdgeInsets.only(right: 10.0, top: 5.0),
+      padding: EdgeInsets.symmetric(vertical: 5.0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(10.0),

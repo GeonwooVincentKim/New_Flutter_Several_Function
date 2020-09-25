@@ -26,7 +26,7 @@ class MainFont extends StatelessWidget{
 
 // Text-font attributes for 'Sub-Text' of 'details-page'.
 // ignore: cameL_case_types
-class SubFont1 extends StatelessWidget{
+class PlatForm extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Align(
@@ -51,7 +51,7 @@ class SubFont1 extends StatelessWidget{
 }
 
 // ignore: camel_case_types
-class SubFont2 extends StatelessWidget{
+class Progressions extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Align(
@@ -74,7 +74,7 @@ class SubFont2 extends StatelessWidget{
 }
 
 // ignore: camel_case_types
-class SubFont3 extends StatelessWidget{
+class Editor extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Align(
@@ -88,17 +88,12 @@ class SubFont3 extends StatelessWidget{
           ],
         ),
       ),
-      // child: Row(
-      //   children: <Widget>[
-      //
-      //   ],
-      // ),
     );
   }
 }
 
 // ignore: camel_case_types
-class SubFont4 extends StatelessWidget{
+class ReleaseDate extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     // To apply 'DateTime' and 'DateFormat', you should import the codes from
@@ -128,7 +123,7 @@ class SubFont4 extends StatelessWidget{
 }
 
 // ignore: camel_case_types
-class SubFont5 extends StatelessWidget{
+class Description extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     // If you apply the 'intl' module, you should type this commands as a code
