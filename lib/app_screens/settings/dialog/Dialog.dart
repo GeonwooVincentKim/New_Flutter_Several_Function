@@ -57,26 +57,19 @@ void showAddListDialog(BuildContext context) async{
                     hintText: 'What do you want to remember?'),
               ),
               Row(
-                  children: [
-                    Expanded(
-                      child: RaisedButton(
+                children: [
+                  Expanded(
+                    child: RaisedButton(
 
-                        onPressed: () {},
-                        // child: Expanded(
-                        //   child: Text(
-                        //     "Save",
-                        //     style: TextStyle(color: Colors.white),
-                        //   ),
-                        // ),
-                        child: Text(
-                          "Save",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        color: const Color(0xFF1BC0C5),
+                      onPressed: () {},
+                      child: Text(
+                        "Save",
+                        style: TextStyle(color: Colors.white),
                       ),
-                    )
-
-                  ],
+                      color: const Color(0xDD000000),
+                    ),
+                  )
+                ],
               )
 
             ],
