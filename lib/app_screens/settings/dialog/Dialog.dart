@@ -53,14 +53,14 @@ void showAddListDialog(BuildContext context) async{
               Text("Are you sure you want to add TITLE OF THE GAME to your list of game?"),
               Row(
                 children: [
-                  Expanded(
-                    child: Text("Border"),
-                  ),
+                  Text("Border"),
                   Expanded(
                     child: TextField(
                       decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintText: 'remember?'),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.black87, width: 1.0),
+                        ),
+                        hintText: 'remember?'),
                     ),
                   )
                 ]
