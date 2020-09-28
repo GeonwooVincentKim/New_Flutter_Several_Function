@@ -42,54 +42,63 @@ void showAddListDialog(BuildContext context) async{
     builder: (BuildContext context) {
       return AlertDialog(
         title: Text('ADD TO MY LIST', textAlign: TextAlign.center),
-        contentPadding: EdgeInsets.only(top: 10),
-        content: Container(
-          width: MediaQuery.of(context).size.width,
-          child: Column(
-            // mainAxisAlignment: MainAxisAlignment.center,
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text("Are you sure you want to add TITLE OF THE GAME to your list of game?"),
-              // CustomDivider(color: Colors.transparent),
-              transparent_divider(),
-              Row(
-                children: [
-                  Expanded(
-                    child: Text("Progress: ", style: TextStyle(
-                      fontWeight: FontWeight.w300,
-                    )),
-                  ),
+        titlePadding: EdgeInsets.symmetric(vertical: 20),
+        contentPadding: EdgeInsets.zero,
+        content: Expanded(
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 25),
+                  child: Column(
+                    children: [
+                      Text("Are you sure you want to add TITLE OF THE GAME to your list of game?"),
+                      // CustomDivider(color: Colors.transparent),
+                      transparent_divider(),
+                      Row(
+                          children: [
+                            Expanded(
+                              child: Text("Progress: ", style: TextStyle(
+                                fontWeight: FontWeight.w300,
+                              )),
+                            ),
 
-                  Expanded(
-                    child: TextField(
-                      textAlign: TextAlign.center,
-                      decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black87, width: 1.5),
-                        ),
-                        hintText: '10%'),
-                    ),
-                  ),
-                ]
-              ),
-
-              Row(
-                children: [
-                  Expanded(
-                    child: RaisedButton(
-                      onPressed: () {},
-                      padding: EdgeInsets.symmetric(vertical: 5),
-                      child: Text(
-                        "+ Add to my List",
-                        style: TextStyle(color: Colors.white),
+                            Expanded(
+                              child: TextField(
+                                textAlign: TextAlign.center,
+                                decoration: InputDecoration(
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(color: Colors.black87, width: 1.5),
+                                    ),
+                                    hintText: '10%'),
+                              ),
+                            ),
+                          ]
                       ),
-                      color: const Color(0xDD000000),
+                    ]
+                  ),
+                ),
+                transparent_divider(),
+                InkWell(
+                  child: Container(
+                    padding: EdgeInsets.symmetric(vertical: 20),
+                    // padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
+                    decoration: BoxDecoration(
+                      color: Colors.black,
                     ),
-                  )
-                ],
-              )
-            ],
+                    child: Text(
+                      "+ Add to my List",
+                      style: TextStyle(color: Colors.white),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       );
