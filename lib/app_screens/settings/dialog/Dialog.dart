@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_app/widgets/expanded/divider.dart';
+import 'package:flutter_app/widgets/expanded/widgets_attribute/Details/font_style/FontStyle.dart';
 
 // Dialog Menu
 void showAlertDialog(BuildContext context) async {
@@ -40,10 +41,8 @@ void showAddListDialog(BuildContext context) async{
     barrierDismissible: false, // user must tap button!
     builder: (BuildContext context) {
       return AlertDialog(
-        title: Text('ADD TO MY LIST'),
-        shape: RoundedRectangleBorder(
-            borderRadius:
-            BorderRadius.circular(20.0)), //this right here
+        title: Text('ADD TO MY LIST', textAlign: TextAlign.center),
+        contentPadding: EdgeInsets.only(top: 10),
         content: Container(
           width: MediaQuery.of(context).size.width,
           child: Column(
@@ -57,20 +56,21 @@ void showAddListDialog(BuildContext context) async{
               Row(
                 children: [
                   Expanded(
-                    child: Text("Progress", style: TextStyle(
+                    child: Text("Progress: ", style: TextStyle(
                       fontWeight: FontWeight.w300,
                     )),
                   ),
 
                   Expanded(
                     child: TextField(
+                      textAlign: TextAlign.center,
                       decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black87, width: 1.0),
+                          borderSide: BorderSide(color: Colors.black87, width: 1.5),
                         ),
                         hintText: '10%'),
                     ),
-                  )
+                  ),
                 ]
               ),
 
@@ -79,8 +79,9 @@ void showAddListDialog(BuildContext context) async{
                   Expanded(
                     child: RaisedButton(
                       onPressed: () {},
+                      padding: EdgeInsets.symmetric(vertical: 5),
                       child: Text(
-                        "Save",
+                        "+ Add to my List",
                         style: TextStyle(color: Colors.white),
                       ),
                       color: const Color(0xDD000000),
