@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app_screens/settings/dialog/Dialog.dart';
 import 'package:flutter_app/shared/helpers/icomoon.dart';
+import 'package:flutter_app/widgets/expanded/widgets_attribute/myfavorites/MyFavoritesWidget.dart';
 
 class MyFavoritesPage extends StatelessWidget{
   @override
@@ -26,41 +27,29 @@ class MyFavoritesPageBody extends StatelessWidget{
           SliverPadding(
             padding: const EdgeInsets.all(20),
             sliver: SliverGrid.count(
-              crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
+              crossAxisSpacing: 30,
+              mainAxisSpacing: 30,
               crossAxisCount: 2,
-              children: <Widget>[
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  child: const Text("He'd have you all unravel at the"),
-                  color: Colors.green[100],
-                ),
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  child: const Text('Heed not the rabble'),
-                  color: Colors.green[200],
-                ),
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  child: const Text('Sound of screams but the'),
-                  color: Colors.green[300],
-                ),
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  child: const Text('Who scream'),
-                  color: Colors.green[400],
-                ),
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  child: const Text('Revolution is coming...'),
-                  color: Colors.green[500],
-                ),
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  child: const Text('Revolution, they...'),
-                  color: Colors.green[600],
-                ),
-              ],
+              children: List.generate(100, (index){
+                return Column(
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: FavoriteImage()
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: FavoriteText(),
+                    ),
+                  ],
+                );
+                // return Center(
+                //   child: Text(
+                //     'Item $index',
+                //     style: Theme.of(context).textTheme.headline5,
+                //   ),
+                // );
+              }),
             ),
           ),
         ],
