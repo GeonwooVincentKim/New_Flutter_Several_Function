@@ -25,7 +25,7 @@ class ImageAttribute extends StatelessWidget{
           alignment: Alignment.topRight,
           child: IconButton(
               icon: Icon(
-                  IconMoon.istarfull
+                  IconMoon.istarfull,
               ),
               onPressed: (){
                 Navigator.push(

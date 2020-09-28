@@ -9,11 +9,11 @@ void showAlertDialog(BuildContext context) async {
   final scaffoldKey = new GlobalKey<ScaffoldState>();
   String result = await showDialog(
     context: context,
-    barrierDismissible: false, // user must tap button!
+    // barrierDismissible: false, // user must tap button!
     builder: (BuildContext context) {
       return AlertDialog(
-        title: Text('Change Image'),
-        content: Text("Do you wish to change Image?"),
+        title: Text('Add to my List'),
+        content: Text("Do you wish add to your List??"),
         actions: <Widget>[
           FlatButton(
             child: Text('OK'),
@@ -36,9 +36,9 @@ void showAlertDialog(BuildContext context) async {
 // 'ADD TO MY LIST' Dialog.
 void showAddListDialog(BuildContext context) async{
   final scaffoldKey = new GlobalKey<ScaffoldState>();
-  String result = await showDialog(
+  return showDialog(
     context: context,
-    barrierDismissible: false, // user must tap button!
+    // barrierDismissible: false, // user must tap button!
     builder: (BuildContext context) {
       return AlertDialog(
         title: Text('ADD TO MY LIST', textAlign: TextAlign.center),
@@ -95,6 +95,10 @@ void showAddListDialog(BuildContext context) async{
                     textAlign: TextAlign.center,
                   ),
                 ),
+                onTap: (){
+                  showAlertDialog(context);
+                  // Scaffold.of(context).showSnackBar(SnackBar(content: Text('Tap')));
+                }
               ),
             ],
           ),
