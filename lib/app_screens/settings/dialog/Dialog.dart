@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_app/app_screens/myfavorites/MyFavorites.dart';
 import 'package:flutter_app/widgets/expanded/divider.dart';
 import 'package:flutter_app/widgets/expanded/widgets_attribute/Details/font_style/FontStyle.dart';
 
@@ -18,7 +19,9 @@ void showAlertDialog(BuildContext context) async {
           FlatButton(
             child: Text('OK'),
             onPressed: () {
-              Navigator.pop(context, "OK");
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context){return MyFavoritesPage();})
+              );
             },
           ),
           FlatButton(
