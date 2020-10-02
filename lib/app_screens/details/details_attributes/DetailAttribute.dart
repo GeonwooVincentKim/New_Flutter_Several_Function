@@ -12,16 +12,9 @@ class ImageAttribute extends StatelessWidget{
     return Stack(
       children: <Widget>[
         Container(
-          height: 210,
-          child: Column(
-              children: <Widget>[
-                Expanded(
-                  child: DetailsImage(),
-                ),
-              ]
-          ),
+          child: DetailsImage(),
         ),
-       Align(
+        Align(
           alignment: Alignment.topRight,
           child: IconButton(
               icon: Icon(
