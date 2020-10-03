@@ -5,6 +5,9 @@ import 'package:flutter_app/shared/helpers/icomoon.dart';
 import 'package:flutter_app/widgets/expanded/widgets_attribute/myfavorites/MyFavoritesWidget.dart';
 
 class MyFavoritesPage extends StatelessWidget{
+  //final int procedure;
+  //MyFavoritesPage(this.procedure);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +38,12 @@ class MyFavoritesPageBody extends StatelessWidget{
                 return GestureDetector(
                   onTap: (){
                     Navigator.push(
-                        context, MaterialPageRoute(builder: (context){return DetailPage();})
+                        context,
+                        MaterialPageRoute(
+                            builder: (context){
+                              return DetailPage();
+                            }
+                        )
                     );
                   },
                   child: Column(
