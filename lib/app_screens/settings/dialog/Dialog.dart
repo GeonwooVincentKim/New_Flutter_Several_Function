@@ -39,6 +39,9 @@ void showAlertDialog(BuildContext context) async {
 // 'ADD TO MY LIST' Dialog.
 void showAddListDialog(BuildContext context) async{
   final scaffoldKey = new GlobalKey<ScaffoldState>();
+  final _procedureController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+
   return showDialog(
     context: context,
     // barrierDismissible: false, // user must tap button!
@@ -70,13 +73,21 @@ void showAddListDialog(BuildContext context) async{
                           ),
 
                           Expanded(
-                            child: TextField(
+                            child: TextFormField(
                               textAlign: TextAlign.center,
                               decoration: InputDecoration(
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(color: Colors.black87, width: 1.5),
                                   ),
                                   hintText: '10%'),
+                              controller: _procedureController,
+                              keyboardType: TextInputType.number,
+                              validator: (value) {
+                                if(value.trim().isEmpty){
+                                  return "Please Input your Procedure-Number Value.";
+                                }
+                                return null;
+                              }
                             ),
                           ),
                         ]
@@ -98,11 +109,34 @@ void showAddListDialog(BuildContext context) async{
                     textAlign: TextAlign.center,
                   ),
                 ),
+                // onTap: null,
                 onTap: (){
+                  // if(_formKey.currentState.validate()){
+                  //   Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //       builder: (context) {
+                  //         return MyFavoritesPage();
+                  //       }
+                  //       // builder: (context) => MyFavoritesPage(
+                  //       //   /*int.parse(_procedureController.text.trim())*/
+                  //       // ),
+                  //     )
+                  //   );
+                  // }
                   showAlertDialog(context);
                   // Scaffold.of(context).showSnackBar(SnackBar(content: Text('Tap')));
                 }
               ),
+              // OutlineButton(
+              //   textColor: Colors.white,
+              //   highlightedBorderColor: Colors.white,
+              //   borderSide: BorderSide(
+              //     color: Colors.white, width: 0.8, style: BorderStyle.solid),
+              //     onPressed: MyFavoritesPage,
+              //   ),
+              //
+              // ),
             ],
           ),
         ),
