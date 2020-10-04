@@ -1,88 +1,42 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/app_screens/details/Details.dart';
-import 'package:flutter_app/app_screens/settings/dialog/Dialog.dart';
-import 'package:flutter_app/shared/helpers/icomoon.dart';
-import 'package:flutter_app/widgets/expanded/widgets_attribute/myfavorites/MyFavoritesWidget.dart';
 
-class MyFavoritesPage extends StatelessWidget{
-  //final int procedure;
-  //MyFavoritesPage(this.procedure);
-
+class FavoriteImage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black87,
-        title: Text("MY FAVORITES"),
-        centerTitle: true,
+    return Container(
+      child: Image.network(
+          "https://www.gstatic.com/webp/gallery/1.jpg",
+          fit: BoxFit.fitWidth
       ),
-      body: MyFavoritesPageBody(),
     );
   }
 }
 
-class MyFavoritesPageBody extends StatelessWidget{
+class FavoriteText extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: CustomScrollView(
-        primary: false,
-        slivers: <Widget>[
-          SliverPadding(
-            padding: const EdgeInsets.all(20),
-            sliver: SliverGrid.count(
-              crossAxisSpacing: 30,
-              mainAxisSpacing: 30,
-              crossAxisCount: 2,
-              children: List.generate(100, (index){
-                return GestureDetector(
-                  onTap: (){
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context){
-                              return DetailPage();
-                            }
-                        )
-                    );
-                  },
-                  child: Column(
-                    children: [
-                      Expanded(
-                          flex: 2,
-                          child: FavoriteImage()
-                      ),
-                      Expanded(
-                        flex: 1,
-                        child: FavoriteText(),
-                      ),
-                    ],
-                  ),
-                );
-                // return Column(
-                //   children: [
-                //     Expanded(
-                //       flex: 2,
-                //       child: FavoriteImage()
-                //     ),
-                //     Expanded(
-                //       flex: 1,
-                //       child: FavoriteText(),
-                //     ),
-                //   ],
-                // );
-                // // return Center(
-                //   child: Text(
-                //     'Item $index',
-                //     style: Theme.of(context).textTheme.headline5,
-                //   ),
-                // );
-              }),
-            ),
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.height,
+      padding: EdgeInsets.symmetric(vertical: 18),
+      decoration: BoxDecoration(
+        color: Colors.black12,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Text(
+              'TITLE OF THE GAME',
+              textScaleFactor: 2,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.black,
+                fontFamily: "icomoon",
+                fontSize: 8,
+              )
           ),
         ],
-      )
+      ),
     );
   }
-
 }
