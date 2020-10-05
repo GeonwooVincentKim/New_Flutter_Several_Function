@@ -23,13 +23,21 @@ class _BodyState extends State<Body>{
   @override
   void initState() {
     // TODO: implement initState
-    List<Game> listGame = Provider.of<Products>(context).items;
-    inProgressList = listGame.where((game) => game.progression < 100);
-    completedList = listGame.where((game) => game.progression == 100);
+    print('initState home');
+
+    List<Game> listGame = Provider.of<Products>(context).items.toList();
+    inProgressList = listGame.where((game) => game.progression < 100).toList();
+    completedList = listGame.where((game) => game.progression == 100).toList();
+
+    print(listGame.length);
+    print(inProgressList.length);
+    print(completedList.length);
+    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+
     return Center(
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
@@ -53,7 +61,7 @@ class _BodyState extends State<Body>{
               // For the codes that belows 'IN PROGRESS'.
               Row(
                 children: <Widget>[
-                  HomeWidgetsList(list: inProgressList)
+                  // HomeWidgetsList(list: inProgressList)
                 ]
               ),
 
@@ -70,7 +78,7 @@ class _BodyState extends State<Body>{
               // For the codes that belows 'COMPILED'.
               Row(
                 children: <Widget>[
-                  HomeWidgetsList(list: completedList),
+                  // HomeWidgetsList(list: completedList),
                 ]
               ),
             ],
