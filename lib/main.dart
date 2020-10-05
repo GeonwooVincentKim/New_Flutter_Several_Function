@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app_screens/discover/Discover.dart';
 import 'package:flutter_app/app_screens/myfavorites/MyFavorites.dart';
+import 'package:flutter_app/data/ProductStore.dart';
 import 'package:flutter_app/data/Provide.dart';
 import 'package:provider/provider.dart';
 import 'app_screens/main/Home.dart';
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget{
           // Show Current Products
           ChangeNotifierProvider(create: (_) => Products()),
           // Add into your Cart
-          // ChangeNotifierProvider(create: (_) => Cart()),
+          ChangeNotifierProvider(create: (_) => Cart()),
         ],
         child: MaterialApp(
           title: "My Flutter App",

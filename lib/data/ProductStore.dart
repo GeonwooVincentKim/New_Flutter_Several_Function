@@ -7,4 +7,16 @@ class Cart with ChangeNotifier{
     return [...items];
   }
 
+  void add(Game item) {
+    _items.add(item);
+    // This call tells the widgets that are listening to this model to rebuild.
+    notifyListeners();
+  }
+
+  /// Removes all items from the cart.
+  void removeAll() {
+    _items.clear();
+    // This call tells the widgets that are listening to this model to rebuild.
+    notifyListeners();
+  }
 }
