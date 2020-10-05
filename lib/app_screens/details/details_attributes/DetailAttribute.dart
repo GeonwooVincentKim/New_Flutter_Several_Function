@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/app_screens/myfavorites/MyFavorites.dart';
 import 'package:flutter_app/app_screens/settings/dialog/Dialog.dart';
 import 'package:flutter_app/data/Provide.dart';
+import 'package:flutter_app/model/game/game.dart';
 import 'package:flutter_app/widgets/expanded/widgets_attribute/Details/DetailsWidget.dart';
 import 'package:flutter_app/shared/helpers/icomoon.dart';
 import 'package:provider/provider.dart';
@@ -19,20 +20,37 @@ class DetailImageAttribute extends StatelessWidget{
             Container(
               child: DetailsImage(),
             ),
+            // Align(
+            //   alignment: Alignment.topRight,
+            //   child: ListView.builder(
+            //     itemBuilder: (context, index){
+            //       return IconButton(
+            //           icon: Icon(
+            //             IconMoon.istarfull,
+            //             // product.items[index].isFavorite? IconMoon.istarfull: IconMoon.istar
+            //           ),
+            //           onPressed: (){
+            //             Navigator.push(
+            //                 context, MaterialPageRoute(builder: (context){return MyFavoritesPage();})
+            //             );
+            //           }
+            //       );
+            //     }
+            //   ),
+            // )
             Align(
               alignment: Alignment.topRight,
               child: IconButton(
-                icon: Icon(
-                  // IconMoon.istarfull,
-                  product.items.isFavorite?
-                ),
-                onPressed: (){
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (context){return MyFavoritesPage();})
-                  );
-                }
+                  icon: Icon(
+                      IconMoon.istarfull,
+                  ),
+                  onPressed: (){
+                    Navigator.push(
+                        context, MaterialPageRoute(builder: (context){return MyFavoritesPage();})
+                    );
+                  }
               ),
-            )
+            ),
           ]
         )
       ),

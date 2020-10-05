@@ -63,7 +63,6 @@ class _MyFavoritesPageBodyState extends State<MyFavoritesPageBody>{
       child: GridView.builder(
         shrinkWrap: true,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            // 컬럼 몇 개? (3줄)
               crossAxisCount: 2,
               childAspectRatio: 1.0,
               mainAxisSpacing: 30.0,
