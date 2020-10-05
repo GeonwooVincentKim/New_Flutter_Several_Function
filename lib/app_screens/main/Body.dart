@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app_screens/main/main_attributes/BodyAttributes.dart';
+import 'package:flutter_app/data/Provide.dart';
 import 'package:flutter_app/widgets/expanded/divider.dart';
 import 'package:flutter_app/widgets/expanded/widgets_attribute/Main/MainWidgets.dart';
+import 'package:flutter_app/model/game/game.dart';
+import 'package:provider/provider.dart';
 
 // Main Scene that shows Body part separately.
 class Body extends StatefulWidget{
@@ -14,11 +17,19 @@ class Body extends StatefulWidget{
 }
 
 class _BodyState extends State<Body>{
+
+  List<Game> inProgressList, completedList;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    List<Game> listGame = Provider.of<Products>(context).items;
+    inProgressList = listGame.where((game) => game.progression < 100);
+    completedList = listGame.where((game) => game.progression == 100);
+  }
+
   @override
   Widget build(BuildContext context) {
-    var listUp = ["Title1", "Title2", "Title3"];
-    var listDown = ["Title4", "Title5", "Title6", "Title7"];
-
     return Center(
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
@@ -42,7 +53,7 @@ class _BodyState extends State<Body>{
               // For the codes that belows 'IN PROGRESS'.
               Row(
                 children: <Widget>[
-                  InProcessList()
+                  HomeWidgetsList(list: inProgressList)
                 ]
               ),
 
@@ -59,7 +70,7 @@ class _BodyState extends State<Body>{
               // For the codes that belows 'COMPILED'.
               Row(
                 children: <Widget>[
-                  CompletedList(),
+                  HomeWidgetsList(list: completedList),
                 ]
               ),
             ],

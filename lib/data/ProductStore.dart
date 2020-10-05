@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/data/games.dart';
 import 'package:flutter_app/model/game/game.dart';
 
 class Cart with ChangeNotifier{
-  List<Game> _items = [];
+  List<Game> _items = DUMMY_GAMES;
+
   List<Game> get items{
     return [...items];
   }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/widgets/expanded/widgets_attribute/Main/MainDetails.dart';
 
+import 'package:flutter_app/model/game/game.dart';
+
 /*
   Text-Attributes for Main
   1. expanded_widgets_up
@@ -73,6 +75,13 @@ class ProcessingImage extends StatelessWidget{
 
 // ignore: camel_case_types
 class ProcessingText extends StatelessWidget{
+
+  final Game game;
+
+  ProcessingText({
+    @required this.game
+  });
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -81,7 +90,7 @@ class ProcessingText extends StatelessWidget{
       ),
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-        child: WidgetTextAlign(),
+        child: WidgetTextAlign(game: game),
       ),
     );
   }
@@ -89,6 +98,13 @@ class ProcessingText extends StatelessWidget{
 
 // ignore: camel_case_types
 class ProceededText extends StatelessWidget{
+
+  final Game game;
+
+  ProceededText({
+    @required this.game
+  });
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -101,7 +117,7 @@ class ProceededText extends StatelessWidget{
       ),
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-        child: WidgetTextAlign(),
+        child: WidgetTextAlign(game: game),
       ),
     );
   }

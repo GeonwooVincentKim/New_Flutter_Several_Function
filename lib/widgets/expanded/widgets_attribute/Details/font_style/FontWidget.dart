@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/data/games.dart';
 import 'package:intl/intl.dart';
 import 'dart:ui' as ui;
 
@@ -13,7 +14,8 @@ class MainFont extends StatelessWidget{
     return Align(
       alignment: Alignment.centerLeft,
       child: Text(
-        "TITLE",
+        // "TITLE",
+        DUMMY_GAMES[0].title,
         textDirection: ui.TextDirection.ltr,
         // Couldn't define the name forms as 'Class'
         // Because It occurs error that just relating 'parameter'.
