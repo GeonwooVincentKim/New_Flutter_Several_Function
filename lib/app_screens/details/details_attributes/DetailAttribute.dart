@@ -6,7 +6,7 @@ import 'package:flutter_app/shared/helpers/icomoon.dart';
 
 
 // Image-Attributes that is below in the Detail-Page part.
-class ImageAttribute extends StatelessWidget{
+class DetailImageAttribute extends StatelessWidget{
   final _heightController = TextEditingController();
   @override
   Widget build(BuildContext context){

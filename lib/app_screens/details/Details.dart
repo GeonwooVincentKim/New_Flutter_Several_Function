@@ -43,7 +43,7 @@ class DetailBody extends StatelessWidget{
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Center(
-                  child: ImageAttribute(),
+                  child: DetailImageAttribute(),
                 ),
 
                 // I should convert as CircularProgressIndicator function.

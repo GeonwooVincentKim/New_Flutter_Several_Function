@@ -12,4 +12,9 @@ class Products with ChangeNotifier {
     _items.add(value);
     notifyListeners();
   }
+
+  void deleteProduct(value){
+    _items.remove(value);
+    notifyListeners();
+  }
 }
