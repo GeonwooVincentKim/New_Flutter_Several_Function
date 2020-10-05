@@ -111,19 +111,19 @@ void showAddListDialog(BuildContext context) async{
                 ),
                 // onTap: null,
                 onTap: (){
-                  // if(_formKey.currentState.validate()){
-                  //   Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //       builder: (context) {
-                  //         return MyFavoritesPage();
-                  //       }
-                  //       // builder: (context) => MyFavoritesPage(
-                  //       //   /*int.parse(_procedureController.text.trim())*/
-                  //       // ),
-                  //     )
-                  //   );
-                  // }
+                  if(_formKey.currentState.validate()){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        // builder: (context) {
+                        //   return MyFavoritesPage();
+                        // }
+                        builder: (context) => MyFavoritesPage(
+                          // int.parse(_procedureController.text.trim())
+                        ),
+                      )
+                    );
+                  }
                   showAlertDialog(context);
                   // Scaffold.of(context).showSnackBar(SnackBar(content: Text('Tap')));
                 }
