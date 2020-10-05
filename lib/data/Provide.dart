@@ -2,19 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/model/game/game.dart';
 
 class Products with ChangeNotifier {
-  List<Game> _items = [];
+  List<Game> _productItems = [];
 
   List<Game> get items {
-    return [...items];
+    return [..._productItems];
   }
 
   void addProduct(value) {
-    _items.add(value);
+    _productItems.add(value);
     notifyListeners();
   }
 
   void deleteProduct(value){
-    _items.remove(value);
+    _productItems.remove(value);
     notifyListeners();
   }
 }

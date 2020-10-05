@@ -28,3 +28,22 @@ class Game {
   });
 
 }
+
+
+// class Products with ChangeNotifier {
+//   List<Game> _items = [];
+//
+//   List<Game> get items {
+//     return [...items];
+//   }
+//
+//   void addProduct(value) {
+//     _items.add(value);
+//     notifyListeners();
+//   }
+//
+//   void deleteProduct(value){
+//     _items.remove(value);
+//     notifyListeners();
+//   }
+// }

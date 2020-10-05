@@ -13,9 +13,9 @@ class MyApp extends StatelessWidget{
     return MultiProvider(
         providers: [
           // Show Current Products
-          ChangeNotifierProvider(create: (_) => Products()),
+          ChangeNotifierProvider(create: (_ctx) => Products()),
           // Add into your Cart
-          ChangeNotifierProvider(create: (_) => Cart()),
+          ChangeNotifierProvider(create: (_ctx) => Cart()),
         ],
         child: MaterialApp(
           title: "My Flutter App",

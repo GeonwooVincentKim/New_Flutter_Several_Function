@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app_screens/myfavorites/MyFavorites.dart';
 import 'package:flutter_app/app_screens/settings/dialog/Dialog.dart';
+import 'package:flutter_app/data/Provide.dart';
 import 'package:flutter_app/widgets/expanded/widgets_attribute/Details/DetailsWidget.dart';
 import 'package:flutter_app/shared/helpers/icomoon.dart';
+import 'package:provider/provider.dart';
 
 
 // Image-Attributes that is below in the Detail-Page part.
@@ -10,26 +12,51 @@ class DetailImageAttribute extends StatelessWidget{
   final _heightController = TextEditingController();
   @override
   Widget build(BuildContext context){
-    return Stack(
-      children: <Widget>[
-        Container(
-          child: DetailsImage(),
-        ),
-        Align(
-          alignment: Alignment.topRight,
-          child: IconButton(
-              icon: Icon(
-                  IconMoon.istarfull,
+    return Consumer<Products>(
+      builder: (ctx, product, child) => (
+        Stack(
+          children: <Widget>[
+            Container(
+              child: DetailsImage(),
+            ),
+            Align(
+              alignment: Alignment.topRight,
+              child: IconButton(
+                icon: Icon(
+                  // IconMoon.istarfull,
+                  product.items.isFavorite?
+                ),
+                onPressed: (){
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context){return MyFavoritesPage();})
+                  );
+                }
               ),
-              onPressed: (){
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context){return MyFavoritesPage();})
-                );
-              }
-          ),
+            )
+          ]
         )
-      ]
+      ),
     );
+    // return Stack(
+    //   children: <Widget>[
+    //     Container(
+    //       child: DetailsImage(),
+    //     ),
+    //     Align(
+    //       alignment: Alignment.topRight,
+    //       child: IconButton(
+    //           icon: Icon(
+    //               IconMoon.istarfull,
+    //           ),
+    //           onPressed: (){
+    //             Navigator.push(
+    //                 context, MaterialPageRoute(builder: (context){return MyFavoritesPage();})
+    //             );
+    //           }
+    //       ),
+    //     )
+    //   ]
+    // );
   }
 }
 
