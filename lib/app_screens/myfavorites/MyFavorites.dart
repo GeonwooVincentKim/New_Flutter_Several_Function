@@ -58,44 +58,21 @@ class _MyFavoritesPageBodyState extends State<MyFavoritesPageBody>{
   // }
 
   Widget buildBody(){
-    return GridView.builder(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        // 컬럼 몇 개? (3줄)
-          crossAxisCount: 2,
-          // 가로와 세로의 비율? (2면 가로가 세로의 2배)
-          childAspectRatio: 1.0,
-          // 각 그리드 아이템 별 사이의 간격 main이 가로, cross가 세로
-          mainAxisSpacing: 1.0,
-          crossAxisSpacing: 1.0),
-      // 아이템 몇 개?
-      itemCount: 5,
-      itemBuilder: (context, index) {
-        return buildListItem(context, index);
-      }
+    return Padding(
+      padding: const EdgeInsets.all(20),
+      child: GridView.builder(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            // 컬럼 몇 개? (3줄)
+              crossAxisCount: 2,
+              childAspectRatio: 1.0,
+              mainAxisSpacing: 30.0,
+              crossAxisSpacing: 30.0),
+          itemCount: 10,
+          itemBuilder: (context, index) {
+            return buildListItem(context, index);
+          }
+      )
     );
-    // return Center(
-    //     child: CustomScrollView(
-    //       primary: false,
-    //       slivers: <Widget>[
-    //         GridView.builder(
-    //             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-    //               // crossAxisCount: 2,
-    //               // mainAxisSpacing: 30,
-    //               // crossAxisSpacing: 30,
-    //                 crossAxisCount: 3,
-    //                 // 가로와 세로의 비율? (2면 가로가 세로의 2배)
-    //                 childAspectRatio: 1.0,
-    //                 // 각 그리드 아이템 별 사이의 간격 main이 가로, cross가 세로
-    //                 mainAxisSpacing: 1.0,
-    //                 crossAxisSpacing: 1.0
-    //             ),
-    //             itemBuilder: (context, index){
-    //               return buildListItem(context, index);
-    //             }
-    //         ),
-    //       ],
-    //     )
-    // );
   }
 
   @override
@@ -111,7 +88,30 @@ class _MyFavoritesPageBodyState extends State<MyFavoritesPageBody>{
   }
 
   Widget buildListItem(BuildContext context, int index) {
-    return Image.network("https://placeimg.com/64/64/2", fit: BoxFit.cover);
+    return GestureDetector(
+      onTap: (){
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context){
+                  return DetailPage();
+                }
+            )
+        );
+      },
+      child: Column(
+        children: [
+          Expanded(
+              flex: 2,
+              child: FavoriteImage()
+          ),
+          Expanded(
+            flex: 1,
+            child: FavoriteText(),
+          ),
+        ],
+      ),
+    );
   }
 
   // void _addMyFavor(FavoriteItem favorItem){
