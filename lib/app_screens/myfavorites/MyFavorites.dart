@@ -61,6 +61,7 @@ class _MyFavoritesPageBodyState extends State<MyFavoritesPageBody>{
     return Padding(
       padding: const EdgeInsets.all(20),
       child: GridView.builder(
+        shrinkWrap: true,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             // 컬럼 몇 개? (3줄)
               crossAxisCount: 2,
@@ -79,11 +80,11 @@ class _MyFavoritesPageBodyState extends State<MyFavoritesPageBody>{
   Widget build(BuildContext context) {
     return Scaffold(
       body: buildBody(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: Colors.blueAccent,
-        child: Icon(Icons.create),
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {},
+      //   backgroundColor: Colors.blueAccent,
+      //   child: Icon(Icons.create),
+      // ),
     );
   }
 
