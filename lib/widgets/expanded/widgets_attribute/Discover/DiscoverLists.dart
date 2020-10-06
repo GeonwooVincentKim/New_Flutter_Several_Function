@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app_screens/details/Details.dart';
+import 'package:flutter_app/model/game/game.dart';
 import 'package:flutter_app/widgets/expanded/widgets_attribute/Discover/DiscoverWidget.dart';
 
 
 class DiscoverList extends StatelessWidget{
-  // final Game game;
+  final Game gameTitle;
   
-  // DiscoverList({
-  //   @required this.game
-  // });
+  DiscoverList({
+    @required this.gameTitle
+  });
 
   @override
   Widget build(BuildContext context) {

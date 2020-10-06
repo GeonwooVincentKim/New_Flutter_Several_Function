@@ -20,7 +20,7 @@ class DiscoverWidgetsList extends StatelessWidget{
       itemBuilder: (context, index){
         final item = discoverList[index];
         // DiscoverList(game: item);
-        return DiscoverList();
+        return DiscoverList(gameTitle: item);
       }
     );
   }
