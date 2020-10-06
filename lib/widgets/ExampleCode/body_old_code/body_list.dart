@@ -37,7 +37,7 @@ class Body extends StatelessWidget{
             Row(
               children: <Widget>[
                 // Import expanded_widgets_down class.
-                CompletedText(),
+                // CompletedText(),
               ],
             ),
             CustomDivider(color: Colors.black87),
@@ -90,7 +90,7 @@ class New_Body extends StatelessWidget{
             Row(
               children: <Widget>[
                 // Import expanded_widgets_down class.
-                CompletedText(),
+                // CompletedText(),
               ],
             ),
             CustomDivider(color: Colors.black87),

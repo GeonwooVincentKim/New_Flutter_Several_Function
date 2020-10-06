@@ -26,7 +26,7 @@ class _HomeState extends State<Home>{
   @override
   void initState() {
     pageList.add(Body());
-    pageList.add(Discover());
+    pageList.add(DiscoverPage());
     _title = "MY GAMES";
     super.initState();
   }
@@ -58,7 +58,7 @@ class _HomeState extends State<Home>{
         //scrollDirection: Axis.horizontal,
         children: <Widget>[
           Body(),
-          Discover(),
+          DiscoverPage(),
         ]
     );
   }
