@@ -8,12 +8,7 @@ import 'package:flutter_app/model/game/game.dart';
   1. expanded_widgets_up
   2. expanded_widgets_down
 */
-class TextContents {
-  String List;
-  TextContents(this.List);
-}
-
-// ignore: non_constant_identifier_names, camel_case_types
+// ignore: must_be_immutable
 class ProgressText extends StatelessWidget{
   String title = '';
 
@@ -21,40 +16,9 @@ class ProgressText extends StatelessWidget{
     @required this.title
   });
 
-  // final List<String> StringList;
-  // ProgressText({
-  //   @required this.StringList
-  // });
-  // List<String> TextList = <String>['IN PROCESS', 'PROCEEDED'];
-  // @override
-  // String List;
-  // ProgressText(this.List);
-
   Widget build(BuildContext context) {
-    // If I don't use this,
-    // return ListView.builder(
-    //   itemCount: StringList.length,
-    //   itemBuilder: (context, index){
-    //     final item = StringList[index];
-    //     return Container(
-    //       child: Center(child: Text('${TextList[index]}'))
-    //     );
-    //   }
-    // );
     return Text(
-      // '${TextList[index]}'
       title.toUpperCase(),
-      style: WidgetTextStyle(),
-    );
-  }
-}
-
-// ignore: camel_case_types
-class CompletedText extends StatelessWidget{
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      "COMPLETED",
       style: WidgetTextStyle(),
     );
   }

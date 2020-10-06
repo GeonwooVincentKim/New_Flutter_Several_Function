@@ -17,10 +17,9 @@ class Body extends StatefulWidget{
 }
 
 class _BodyState extends State<Body>{
-
   List<Game> inProgressList = [], completedList =[];
   List<String> titleList = <String>['IN PROCESS', 'Completed'];
-  List<ProgressText> TextList = new List<ProgressText>();
+
   int i =0;
   @override
   void initState() {
@@ -49,23 +48,13 @@ class _BodyState extends State<Body>{
               // ...listUp.map((item) {
               //
               // }).toList(),
-                  // Import expanded_widgets class.
               ProgressText(title: titleList[0]),
-              // ProgressText(text: ""),
-              // ProgressText(StringList: ['IN PROCESS'],),
-              // Text(
-              //   TextList[i],
-              // ),
               CustomDivider(color: Colors.black87),
               // Import buttons that combined Image and Text.
               // For the codes that belows 'IN PROGRESS'.
               HomeWidgetsList(list: inProgressList),
               transparent_divider(),
-
-              // Import expanded_widgets_down class.
-              // Text(
-              //   TextList[i + 1],
-              // ),
+              
               ProgressText(title: titleList[1]),
               CustomDivider(color: Colors.black87),
 
