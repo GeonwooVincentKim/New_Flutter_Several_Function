@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/model/game/game.dart';
 
 // ignore: camel_case_types
 class DiscoverUp extends StatelessWidget{
@@ -29,6 +30,12 @@ class DiscoverUp extends StatelessWidget{
 
 // ignore: camel_case_types
 class DiscoverDown extends StatelessWidget{
+  // final Game game;
+
+  // DiscoverDown({
+  //   @required this.game
+  // });
+
   @override
   Widget build(BuildContext context) {
     return Container(

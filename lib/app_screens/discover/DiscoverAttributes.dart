@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/model/game/game.dart';
 import 'package:flutter_app/widgets/expanded/divider.dart';
-import 'package:flutter_app/widgets/expanded/widgets_attribute/myfavorites/MyFavoritesLists.dart';
+import 'package:flutter_app/widgets/expanded/widgets_attribute/Discover/DiscoverLists.dart';
 
 class DiscoverWidgetsList extends StatelessWidget{
   final List<Game> discoverList;
@@ -19,7 +19,8 @@ class DiscoverWidgetsList extends StatelessWidget{
       itemCount: discoverList.length,
       itemBuilder: (context, index){
         final item = discoverList[index];
-        child: DiscoverList(game: item);
+        // DiscoverList(game: item);
+        return DiscoverList();
       }
     );
   }
