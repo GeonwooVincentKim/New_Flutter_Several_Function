@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/data/Provide.dart';
 import 'package:flutter_app/shared/helpers/icomoon.dart';
 import 'package:flutter_app/widgets/expanded/divider.dart';
 import 'package:flutter_app/widgets/expanded/widgets_attribute/Main/MainLists.dart';
@@ -7,24 +6,29 @@ import 'package:flutter_app/model/game/game.dart';
 
 
 class HomeWidgetsList extends StatelessWidget{
+  final List<Game> list;
+
+  HomeWidgetsList({
+    @required this.list
+  });
+
   @override
   Widget build(BuildContext context){
-    var Lists = ["Title1", "Title2", "Title3", "Title4", "Title5", "Title6", "Title7"];
-    return Expanded(
-      child: ListView.separated(
+    // var Lists = ["Title1", "Title2", "Title3", "Title4", "Title5", "Title6", "Title7"];
+    return ListView.separated(
           shrinkWrap: true,
           physics: NeverScrollableScrollPhysics(),
           separatorBuilder: (context, index) =>
               transparent_divider(),
-          itemCount: Lists.length,
+          itemCount: list.length,
           itemBuilder: (context, index) {
-            final item = Lists[index];
+            final item = list[index];
             return ClipRRect(
               borderRadius: BorderRadius.circular(10.0),
               child: Container(
                 height: 67,
                 child: Dismissible(
-                    key: Key(item),
+                    key: Key(item.id),
                     onDismissed: (direction) {
                       // setState(() {
                       //   listUp.removeAt(index);
@@ -46,13 +50,12 @@ class HomeWidgetsList extends StatelessWidget{
                       child: Icon(IconMoon.icheck2, color: Colors.white, size: 30.0,),
                     ),
 
-                    child: ProcessingList()
+                    child: ProcessingList(game: item)
                 ),
               ),
 
             );
           }
-      ),
     );
   }
 }

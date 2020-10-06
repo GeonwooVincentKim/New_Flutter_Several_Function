@@ -9,11 +9,11 @@ import 'MainWidgets.dart';
 // ignore: camel_case_types
 class ProcessingList extends StatelessWidget{
 
-  // final List<Game> listGame;
-  //
-  // ProcessingList({
-  //   @required this.listGame
-  // });
+  final Game game;
+
+  ProcessingList({
+    @required this.game
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,7 @@ class ProcessingList extends StatelessWidget{
               //     // );
               //   }
               // ),
-              child: ProcessingText()
+              child: ProcessingText(game: game)
           )
         ],
       ),
