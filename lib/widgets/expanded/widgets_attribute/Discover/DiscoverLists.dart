@@ -34,7 +34,7 @@ class DiscoverList extends StatelessWidget{
             ),
             Expanded(
               flex: 1,
-              child: DiscoverDown(),
+              child: DiscoverDown(gameContents: gameTitle),
               // child: DiscoverDown(game: game),
             ),
           ],

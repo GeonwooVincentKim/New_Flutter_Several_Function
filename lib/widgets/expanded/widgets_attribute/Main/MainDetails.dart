@@ -31,8 +31,7 @@ class WidgetTextAlign extends StatelessWidget{
         Align(
           alignment: Alignment.bottomLeft,
           child: Text(
-            game.platforms[0],
-            // "Platform: PS4 | Genre : RPG",
+            "Platform: " + game.platforms[0],
             style: TextStyle(
               color: Colors.black26,
               fontFamily: "icomoon",

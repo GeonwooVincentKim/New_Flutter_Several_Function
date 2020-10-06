@@ -30,11 +30,11 @@ class DiscoverUp extends StatelessWidget{
 
 // ignore: camel_case_types
 class DiscoverDown extends StatelessWidget{
-  // final Game game;
+  final Game gameContents;
 
-  // DiscoverDown({
-  //   @required this.game
-  // });
+  DiscoverDown({
+    @required this.gameContents
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +54,8 @@ class DiscoverDown extends StatelessWidget{
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Text(
-            'TITLE OF THE GAME',
+            gameContents.title,
+            // 'TITLE OF THE GAME',
             textScaleFactor: 2,
             textDirection: TextDirection.ltr,
             textAlign: TextAlign.left,
@@ -65,7 +66,7 @@ class DiscoverDown extends StatelessWidget{
             ),
           ),
           Text(
-            "Platform: PS4 | Genre : RPG",
+            "Platform: " + gameContents.platforms[0],
             style: TextStyle(
               color: Colors.black26,
               fontFamily: "icomoon",
