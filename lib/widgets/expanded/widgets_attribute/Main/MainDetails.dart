@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/data/Provide.dart';
-import 'package:flutter_app/data/games.dart';
-import 'package:provider/provider.dart';
-
 import 'package:flutter_app/model/game/game.dart';
 
 // ignore: camel_case_types

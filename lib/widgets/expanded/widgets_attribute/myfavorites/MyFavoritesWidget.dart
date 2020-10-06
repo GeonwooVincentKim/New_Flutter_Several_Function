@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/model/game/game.dart';
 
 class FavoriteImage extends StatelessWidget{
   @override
@@ -13,10 +14,14 @@ class FavoriteImage extends StatelessWidget{
 }
 
 class FavoriteText extends StatelessWidget{
-  String title = '';
-  FavoriteText({
-    @required this.title
-  });
+  // String title = '';
+  // FavoriteText({
+  //   @required this.title
+  // });
+  // final Game favoriteGame;
+  // FavoriteText({
+  //   @required this.favoriteGame
+  // });
 
   @override
   Widget build(BuildContext context) {
