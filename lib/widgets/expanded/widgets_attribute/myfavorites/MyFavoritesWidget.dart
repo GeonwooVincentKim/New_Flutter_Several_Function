@@ -8,23 +8,16 @@ class FavoriteImage extends StatelessWidget{
           "https://www.gstatic.com/webp/gallery/1.jpg",
           fit: BoxFit.fitWidth
       ),
-      // child: ClipRRect(
-      //   borderRadius: BorderRadius.only(
-      //     topLeft: Radius.circular(10.0),
-      //     topRight: Radius.circular(10.0),
-      //   ),
-      //
-      //   // Make it fits to the box.
-      //   child: Image.network(
-      //       "https://www.gstatic.com/webp/gallery/1.jpg",
-      //       fit: BoxFit.fitWidth
-      //   ),
-      // ),
     );
   }
 }
 
 class FavoriteText extends StatelessWidget{
+  String title = '';
+  FavoriteText({
+    @required this.title
+  });
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -54,5 +47,4 @@ class FavoriteText extends StatelessWidget{
       ),
     );
   }
-
 }

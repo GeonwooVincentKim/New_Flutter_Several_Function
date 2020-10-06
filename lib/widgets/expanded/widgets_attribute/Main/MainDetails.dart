@@ -58,13 +58,10 @@ class WidgetTextAlign extends StatelessWidget{
   }
 }
 
-// ignore: non_constant_identifier_names
-WidgetTextStyle(){
-  return TextStyle(
-      decoration: TextDecoration.none,
-      fontSize: 25.0,
-      fontFamily: "icomoon",
-      fontWeight: FontWeight.w700,
-      color: Colors.black87
-  );
-}
+const widgetTextStyle = TextStyle(
+  decoration: TextDecoration.none,
+  fontSize: 25.0,
+  fontFamily: "icomoon",
+  fontWeight: FontWeight.w700,
+  color: Colors.black87
+);

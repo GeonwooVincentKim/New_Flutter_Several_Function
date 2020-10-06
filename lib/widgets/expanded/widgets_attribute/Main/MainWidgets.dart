@@ -19,7 +19,7 @@ class ProgressText extends StatelessWidget{
   Widget build(BuildContext context) {
     return Text(
       title.toUpperCase(),
-      style: WidgetTextStyle(),
+      style: widgetTextStyle,
     );
   }
 }
@@ -34,7 +34,7 @@ class ProceededImage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 67,
+      height: 97,
       // height: MediaQuery.of(context).size.height,
       child: ClipRRect(
         borderRadius: BorderRadius.only(
@@ -56,7 +56,7 @@ class ProcessingImage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Container(
-      // height: 67,
+     height: 97,
       child: ClipRRect(
         child: Image(
           image: NetworkImage("https://www.gstatic.com/webp/gallery/1.jpg"),
@@ -79,6 +79,7 @@ class ProcessingText extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 97,
       decoration: BoxDecoration(
         color: Colors.black12,
       ),
@@ -102,7 +103,7 @@ class ProceededText extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 67,
+      height: 97,
       // height: MediaQuery.of(context).size.height * 0.12,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.only(
