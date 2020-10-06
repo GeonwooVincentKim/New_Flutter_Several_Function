@@ -19,7 +19,9 @@ class Body extends StatefulWidget{
 class _BodyState extends State<Body>{
 
   List<Game> inProgressList = [], completedList =[];
-
+  List<String> titleList = <String>['IN PROCESS', 'Completed'];
+  List<ProgressText> TextList = new List<ProgressText>();
+  int i =0;
   @override
   void initState() {
     // TODO: implement initState
@@ -27,6 +29,7 @@ class _BodyState extends State<Body>{
     setState(() {
       inProgressList = listGame.where((game) => game.progression < 100).toList();
       completedList = listGame.where((game) => game.progression == 100).toList();
+      // inProgressListText = "IN PROGRE"
     });
     super.initState();
   }
@@ -35,6 +38,7 @@ class _BodyState extends State<Body>{
   Widget build(BuildContext context) {
     return Center(
       child: Container(
+        // height: MediaQuery.of(context).size.height,
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         color: Colors.black12,
         child: SingleChildScrollView(
@@ -46,7 +50,12 @@ class _BodyState extends State<Body>{
               //
               // }).toList(),
                   // Import expanded_widgets class.
-              ProgressText(),
+              ProgressText(title: titleList[0]),
+              // ProgressText(text: ""),
+              // ProgressText(StringList: ['IN PROCESS'],),
+              // Text(
+              //   TextList[i],
+              // ),
               CustomDivider(color: Colors.black87),
               // Import buttons that combined Image and Text.
               // For the codes that belows 'IN PROGRESS'.
@@ -54,7 +63,10 @@ class _BodyState extends State<Body>{
               transparent_divider(),
 
               // Import expanded_widgets_down class.
-              CompletedText(),
+              // Text(
+              //   TextList[i + 1],
+              // ),
+              ProgressText(title: titleList[1]),
               CustomDivider(color: Colors.black87),
 
               // For the codes that belows 'COMPILED'.

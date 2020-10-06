@@ -8,13 +8,42 @@ import 'package:flutter_app/model/game/game.dart';
   1. expanded_widgets_up
   2. expanded_widgets_down
 */
+class TextContents {
+  String List;
+  TextContents(this.List);
+}
+
 // ignore: non_constant_identifier_names, camel_case_types
 class ProgressText extends StatelessWidget{
-  @override
+  String title = '';
+
+  ProgressText({
+    @required this.title
+  });
+
+  // final List<String> StringList;
+  // ProgressText({
+  //   @required this.StringList
+  // });
+  // List<String> TextList = <String>['IN PROCESS', 'PROCEEDED'];
+  // @override
+  // String List;
+  // ProgressText(this.List);
+
   Widget build(BuildContext context) {
     // If I don't use this,
+    // return ListView.builder(
+    //   itemCount: StringList.length,
+    //   itemBuilder: (context, index){
+    //     final item = StringList[index];
+    //     return Container(
+    //       child: Center(child: Text('${TextList[index]}'))
+    //     );
+    //   }
+    // );
     return Text(
-      "IN PROGRESS",
+      // '${TextList[index]}'
+      title.toUpperCase(),
       style: WidgetTextStyle(),
     );
   }
@@ -42,6 +71,7 @@ class ProceededImage extends StatelessWidget{
   Widget build(BuildContext context) {
     return Container(
       height: 67,
+      // height: MediaQuery.of(context).size.height,
       child: ClipRRect(
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(10.0),
@@ -62,7 +92,7 @@ class ProcessingImage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 67,
+      // height: 67,
       child: ClipRRect(
         child: Image(
           image: NetworkImage("https://www.gstatic.com/webp/gallery/1.jpg"),
@@ -109,6 +139,7 @@ class ProceededText extends StatelessWidget{
   Widget build(BuildContext context) {
     return Container(
       height: 67,
+      // height: MediaQuery.of(context).size.height * 0.12,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.only(
             topRight: Radius.circular(10.0),

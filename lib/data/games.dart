@@ -1,5 +1,3 @@
-
-
 import 'package:flutter_app/model/game/game.dart';
 import 'package:flutter_app/model/game/genre.dart';
 import 'package:flutter_app/model/game/platform.dart';
