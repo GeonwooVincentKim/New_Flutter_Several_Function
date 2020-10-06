@@ -36,7 +36,9 @@ class _DiscoverState extends State<Discover>{
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              DiscoverWidgetsList(list: pageList)
+              Expanded(
+                child: DiscoverWidgetsList(list: pageList),
+              )
             ]
         ),
       ),
