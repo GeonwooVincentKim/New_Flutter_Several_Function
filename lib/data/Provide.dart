@@ -11,6 +11,8 @@ class Products with ChangeNotifier {
     return [..._productItems];
   }
 
+  // {..._selectedGame}
+
   void addProduct(value) {
     _productItems.add(value);
     notifyListeners();

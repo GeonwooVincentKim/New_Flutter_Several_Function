@@ -18,26 +18,21 @@ class Body extends StatefulWidget{
 
 class _BodyState extends State<Body>{
 
-  List<Game> inProgressList, completedList;
+  List<Game> inProgressList = [], completedList =[];
 
   @override
   void initState() {
     // TODO: implement initState
-    print('initState home');
-
-    List<Game> listGame = Provider.of<Products>(context).items.toList();
-    inProgressList = listGame.where((game) => game.progression < 100).toList();
-    completedList = listGame.where((game) => game.progression == 100).toList();
-
-    print(listGame.length);
-    print(inProgressList.length);
-    print(completedList.length);
+    final List<Game> listGame = Provider.of<Products>(context, listen: false).items;
+    setState(() {
+      inProgressList = listGame.where((game) => game.progression < 100).toList();
+      completedList = listGame.where((game) => game.progression == 100).toList();
+    });
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-
     return Center(
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
@@ -50,37 +45,20 @@ class _BodyState extends State<Body>{
               // ...listUp.map((item) {
               //
               // }).toList(),
-              Row(
-                children: <Widget>[
                   // Import expanded_widgets class.
-                  ProgressText(),
-                ],
-              ),
+              ProgressText(),
               CustomDivider(color: Colors.black87),
               // Import buttons that combined Image and Text.
               // For the codes that belows 'IN PROGRESS'.
-              Row(
-                children: <Widget>[
-                  // HomeWidgetsList(list: inProgressList)
-                ]
-              ),
-
+              HomeWidgetsList(list: inProgressList),
               transparent_divider(),
 
-              Row(
-                children: <Widget>[
-                  // Import expanded_widgets_down class.
-                  CompletedText(),
-                ],
-              ),
+              // Import expanded_widgets_down class.
+              CompletedText(),
               CustomDivider(color: Colors.black87),
 
               // For the codes that belows 'COMPILED'.
-              Row(
-                children: <Widget>[
-                  // HomeWidgetsList(list: completedList),
-                ]
-              ),
+              HomeWidgetsList(list: completedList),
             ],
           ),
         ),

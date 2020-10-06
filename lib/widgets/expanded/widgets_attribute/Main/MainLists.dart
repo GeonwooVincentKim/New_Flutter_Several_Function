@@ -43,7 +43,7 @@ class ProcessingList extends StatelessWidget{
               //     // );
               //   }
               // ),
-              child: ProcessingText(game: game),
+              child: ProcessingText(game: game)
           )
         ],
       ),

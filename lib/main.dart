@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/app_screens/discover/Discover.dart';
+// import 'package:flutter_app/app_screens/discover/Discover.dart';
 import 'package:flutter_app/app_screens/myfavorites/MyFavorites.dart';
 import 'package:flutter_app/data/ProductStore.dart';
 import 'package:flutter_app/data/Provide.dart';
