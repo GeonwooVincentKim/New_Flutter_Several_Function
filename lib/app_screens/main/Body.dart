@@ -51,7 +51,6 @@ class _BodyState extends State<Body>{
               // Import buttons that combined Image and Text.
               // For the codes that belows 'IN PROGRESS'.
               HomeWidgetsList(list: inProgressList),
-
               transparent_divider(),
 
               // Import expanded_widgets_down class.

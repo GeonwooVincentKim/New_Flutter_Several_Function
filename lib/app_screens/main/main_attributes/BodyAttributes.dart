@@ -52,7 +52,7 @@ class HomeWidgetsList extends StatelessWidget{
             ),
           ),
         );
-      }
+      },
     );
   }
 }
