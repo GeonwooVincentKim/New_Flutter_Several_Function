@@ -26,6 +26,7 @@ class HomeWidgetsList extends StatelessWidget{
           borderRadius: BorderRadius.circular(10.0),
           child: Container(
             height: 67,
+            // height: MediaQuery.of(context).size.height * 0.12,
             child: Dismissible(
               key: Key(item.id),
               onDismissed: (direction) {

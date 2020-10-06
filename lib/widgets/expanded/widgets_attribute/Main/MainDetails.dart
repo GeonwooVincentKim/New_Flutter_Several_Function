@@ -18,44 +18,40 @@ class WidgetTextAlign extends StatelessWidget{
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Column(
-          children: <Widget>[
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                game.title,
-                textScaleFactor: 2,
-                textDirection: TextDirection.ltr,
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  color: Colors.black,
-                  fontFamily: "icomoon",
-                  fontSize: 12,
-                ),
-              ),
+        Align(
+          alignment: Alignment.centerLeft,
+          child: Text(
+            game.title,
+            textScaleFactor: 2,
+            textDirection: TextDirection.ltr,
+            textAlign: TextAlign.left,
+            style: TextStyle(
+              color: Colors.black,
+              fontFamily: "icomoon",
+              fontSize: 12,
             ),
-            Align(
-              alignment: Alignment.bottomLeft,
-              child: Text(
-               game.platforms[0],
-                // "Platform: PS4 | Genre : RPG",
-                style: TextStyle(
-                  color: Colors.black26,
-                  fontFamily: "icomoon",
-                ),
-              ),
+          ),
+        ),
+        Align(
+          alignment: Alignment.bottomLeft,
+          child: Text(
+            game.platforms[0],
+            // "Platform: PS4 | Genre : RPG",
+            style: TextStyle(
+              color: Colors.black26,
+              fontFamily: "icomoon",
             ),
-            Align(
-              alignment: Alignment.bottomLeft,
-              child: Text(
-                "Progression: 50%",
-                style: TextStyle(
-                  color: Colors.black26,
-                  fontFamily: "icomoon",
-                ),
-              ),
+          ),
+        ),
+        Align(
+          alignment: Alignment.bottomLeft,
+          child: Text(
+            "Progression: 50%",
+            style: TextStyle(
+              color: Colors.black26,
+              fontFamily: "icomoon",
             ),
-          ],
+          ),
         ),
       ],
     );
