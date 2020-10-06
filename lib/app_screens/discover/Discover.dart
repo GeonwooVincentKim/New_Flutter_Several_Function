@@ -35,15 +35,7 @@ class _DiscoverState extends State<Discover>{
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Expanded(
-                  child: ListView.separated(
-                      shrinkWrap: true,
-                      separatorBuilder: (context, index) =>
-                          transparent_divider(),
-                      itemCount: itemList.length,
-                      itemBuilder: (context, index) => DiscoverBodyDetails()
-                  )
-              ),
+              
             ]
         ),
       ),
@@ -52,41 +44,41 @@ class _DiscoverState extends State<Discover>{
 }
 
 
-class DiscoverPage extends StatelessWidget{
-  @override
-  Widget build(BuildContext context) {
-    return DiscoverBody();
-  }
-}
+// class DiscoverPage extends StatelessWidget{
+//   @override
+//   Widget build(BuildContext context) {
+//     return DiscoverBody();
+//   }
+// }
 
-class DiscoverBody extends StatelessWidget{
-  @override
-  Widget build(BuildContext context){
-    var itemList = [
-      "Title_Details_1", "Title_Details_2", "Title_Details_3"
-    ];
-    return Center(
-      child: Container(
-        padding: EdgeInsets.symmetric(vertical: 20.0),
-        color: Colors.black12,
-        child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Expanded(
-                  child: ListView.separated(
-                      shrinkWrap: true,
-                      separatorBuilder: (context, index) =>
-                          transparent_divider(),
-                      itemCount: itemList.length,
-                      itemBuilder: (context, index) => DiscoverBodyDetails()
-                  )
-              ),
-            ]
-        ),
-      ),
-    );
-  }
-}
+// class DiscoverBody extends StatelessWidget{
+//   @override
+//   Widget build(BuildContext context){
+//     var itemList = [
+//       "Title_Details_1", "Title_Details_2", "Title_Details_3"
+//     ];
+//     return Center(
+//       child: Container(
+//         padding: EdgeInsets.symmetric(vertical: 20.0),
+//         color: Colors.black12,
+//         child: Column(
+//             crossAxisAlignment: CrossAxisAlignment.start,
+//             children: <Widget>[
+//               Expanded(
+//                   child: ListView.separated(
+//                       shrinkWrap: true,
+//                       separatorBuilder: (context, index) =>
+//                           transparent_divider(),
+//                       itemCount: itemList.length,
+//                       itemBuilder: (context, index) => DiscoverBodyDetails()
+//                   )
+//               ),
+//             ]
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 
 class DiscoverBodyDetails extends StatelessWidget{
