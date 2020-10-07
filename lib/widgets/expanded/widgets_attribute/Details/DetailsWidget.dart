@@ -8,24 +8,29 @@ import 'font_style/FontWidget.dart';
 // For Text-font of 'details-page'.
 // ignore: camel_case_types
 class DetailsText extends StatelessWidget{
+  final Game gameDetailsText;
+  DetailsText({
+    @required this.gameDetailsText
+  });
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: Column(
         children: <Widget>[
-          MainFont(),
+          MainFont(gameMainFont: gameDetailsText),
           transparent_divider(),
-          PlatForm(),
+          PlatForm(gamePlatform: gameDetailsText),
           transparent_divider(),
-          Progressions(),
+          Progressions(gameProgressions: gameDetailsText),
           transparent_divider(),
-          Editor(),
+          Editor(gameEditor: gameDetailsText),
           transparent_divider(),
-          ReleaseDate(),
+          ReleaseDate(gameReleaseDate: gameDetailsText),
           transparent_divider(),
-          Description(),
+          Description(gameDescription: gameDetailsText),
           transparent_divider(),
-          ImageFonts(),
+          ImageFonts(gameImageFonts: gameDetailsText),
           transparent_divider(),
           // expanded_widgets_details_down_detail(),
         ],

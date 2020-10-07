@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app_screens/myfavorites/MyFavorites.dart';
-import 'package:flutter_app/app_screens/settings/dialog/Dialog.dart';
 import 'package:flutter_app/data/Provide.dart';
 import 'package:flutter_app/model/game/game.dart';
 import 'package:flutter_app/widgets/expanded/widgets_attribute/Details/DetailsWidget.dart';
@@ -60,26 +59,6 @@ class DetailImageAttribute extends StatelessWidget{
         )
       ),
     );
-    // return Stack(
-    //   children: <Widget>[
-    //     Container(
-    //       child: DetailsImage(),
-    //     ),
-    //     Align(
-    //       alignment: Alignment.topRight,
-    //       child: IconButton(
-    //           icon: Icon(
-    //               IconMoon.istarfull,
-    //           ),
-    //           onPressed: (){
-    //             Navigator.push(
-    //                 context, MaterialPageRoute(builder: (context){return MyFavoritesPage();})
-    //             );
-    //           }
-    //       ),
-    //     )
-    //   ]
-    // );
   }
 }
 
@@ -105,6 +84,11 @@ class ProgressBar extends StatelessWidget{
 
 // Text-Attributes that is belows in the Detail-Page part.
 class TextAttribute extends StatelessWidget{
+  final Game gameText;
+  TextAttribute({
+    @required this.gameText
+  });
+
   @override
   Widget build(BuildContext context){
     return Container(
@@ -114,7 +98,7 @@ class TextAttribute extends StatelessWidget{
             Row(
               children: <Widget>[
                 // Title
-                DetailsText(),
+                DetailsText(gameDetailsText: gameText),
               ],
             ),
           ],

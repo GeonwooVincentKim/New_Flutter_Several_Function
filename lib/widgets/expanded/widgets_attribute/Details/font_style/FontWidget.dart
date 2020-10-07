@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/data/games.dart';
+import 'package:flutter_app/model/game/game.dart';
 import 'package:intl/intl.dart';
 import 'dart:ui' as ui;
 
@@ -9,13 +10,17 @@ import 'FontStyle.dart';
 // Text-font attributes for 'Main-Text' of 'details-page'.
 // ignore: camel_case_types
 class MainFont extends StatelessWidget{
+  final Game gameMainFont;
+  MainFont({
+    @required this.gameMainFont
+  });
+
   @override
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.centerLeft,
       child: Text(
-        // "TITLE",
-        DUMMY_GAMES[0].title,
+        gameMainFont.title,
         textDirection: ui.TextDirection.ltr,
         // Couldn't define the name forms as 'Class'
         // Because It occurs error that just relating 'parameter'.
@@ -29,6 +34,11 @@ class MainFont extends StatelessWidget{
 // Text-font attributes for 'Sub-Text' of 'details-page'.
 // ignore: cameL_case_types
 class PlatForm extends StatelessWidget{
+  final Game gamePlatform;
+  PlatForm({
+    @required this.gamePlatform
+  });
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -39,9 +49,9 @@ class PlatForm extends StatelessWidget{
             style: subtitleFont,
             children: <TextSpan>[
               TextSpan(text: "Platform: "),
-              TextSpan(text: "PS4", style: contextFont),
+              TextSpan(text: gamePlatform.platforms[0], style: contextFont),
               TextSpan(text: " | Genre: "),
-              TextSpan(text: "RPG", style: contextFont),
+              TextSpan(text: gamePlatform.platforms[1], style: contextFont),
             ],
           ),
         ),
@@ -52,6 +62,11 @@ class PlatForm extends StatelessWidget{
 
 // ignore: camel_case_types
 class Progressions extends StatelessWidget{
+  final Game gameProgressions;
+  Progressions({
+    @required this.gameProgressions
+  });
+
   @override
   Widget build(BuildContext context) {
     return Align(
@@ -71,6 +86,11 @@ class Progressions extends StatelessWidget{
 
 // ignore: camel_case_types
 class Editor extends StatelessWidget{
+  final Game gameEditor;
+  Editor({
+    @required this.gameEditor
+  });
+
   @override
   Widget build(BuildContext context) {
     return Align(
@@ -90,6 +110,10 @@ class Editor extends StatelessWidget{
 
 // ignore: camel_case_types
 class ReleaseDate extends StatelessWidget{
+  final Game gameReleaseDate;
+  ReleaseDate({
+    @required this.gameReleaseDate
+  });
   @override
   Widget build(BuildContext context) {
     // To apply 'DateTime' and 'DateFormat', you should import the codes from
@@ -115,6 +139,11 @@ class ReleaseDate extends StatelessWidget{
 
 // ignore: camel_case_types
 class Description extends StatelessWidget{
+  final Game gameDescription;
+  Description({
+    @required this.gameDescription
+  });
+
   @override
   Widget build(BuildContext context) {
     // If you apply the 'intl' module, you should type this commands as a code
@@ -161,6 +190,11 @@ class Description extends StatelessWidget{
 
 // ignore: camel_case_types
 class ImageFonts extends StatelessWidget{
+  final Game gameImageFonts;
+  ImageFonts({
+    @required this.gameImageFonts
+  });
+
   @override
   Widget build(BuildContext context) {
     return Column(
