@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app_screens/details/Details.dart';
+import 'package:flutter_app/model/game/game.dart';
 import 'package:flutter_app/widgets/expanded/widgets_attribute/myfavorites/MyFavoritesWidget.dart';
 
 
@@ -27,6 +28,11 @@ class MyFavoritesPageBody extends StatefulWidget{
 }
 
 class _MyFavoritesPageBodyState extends State<MyFavoritesPageBody>{
+  final Game gameMyFavorite;
+  
+  _MyFavoritesPageBodyState({
+    @required this.gameMyFavorite
+  });
   // final _items = <FavoriteItem>[];
   // final _formKey = GlobalKey<FormState>();
   // var _myFavoriteController = TextEditingController();
@@ -74,6 +80,7 @@ class _MyFavoritesPageBodyState extends State<MyFavoritesPageBody>{
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       body: buildBody(),
       // floatingActionButton: FloatingActionButton(
@@ -85,13 +92,14 @@ class _MyFavoritesPageBodyState extends State<MyFavoritesPageBody>{
   }
 
   Widget buildListItem(BuildContext context, int index) {
+    
     return GestureDetector(
       onTap: (){
         Navigator.push(
             context,
             MaterialPageRoute(
                 builder: (context){
-                  return DetailPage(gameDetail: );
+                  return DetailPage(gameDetail: gameMyFavorite);
                 }
             )
         );

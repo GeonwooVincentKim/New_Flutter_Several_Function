@@ -61,7 +61,7 @@ class DetailBody extends StatelessWidget{
                 // I should convert as CircularProgressIndicator function.
                 ProgressBar(),
                 Center(
-                  child: TextAttribute(),
+                  child: TextAttribute(gameText: gameDetailBody),
                 ),
                 Center(
                   child: BottomImage(),
