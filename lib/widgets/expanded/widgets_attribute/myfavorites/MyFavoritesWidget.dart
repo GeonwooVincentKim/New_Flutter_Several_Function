@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/data/games.dart';
 import 'package:flutter_app/model/game/game.dart';
 
 class FavoriteImage extends StatelessWidget{
@@ -14,12 +15,12 @@ class FavoriteImage extends StatelessWidget{
 }
 
 class FavoriteText extends StatelessWidget{
-  final Game game;
+  final List<Game> game;
   FavoriteText({
     @required this.game
   });
   // final Game game;
-  
+  //
   // FavoriteText({
   //   @required this.game
   // });
@@ -44,9 +45,10 @@ class FavoriteText extends StatelessWidget{
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Text(
-              '${game.title}',
+              // 'Text',
+              '${game.length}',
               // game.title,]:
-              // "Testing",
+              // DUMMY_GAMES.Game.titles,
               textScaleFactor: 2,
               textAlign: TextAlign.center,
               style: TextStyle(
