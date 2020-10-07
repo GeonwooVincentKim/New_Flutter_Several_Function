@@ -10,7 +10,12 @@ import 'package:provider/provider.dart';
 
 // Image-Attributes that is below in the Detail-Page part.
 class DetailImageAttribute extends StatelessWidget{
-  final _heightController = TextEditingController();
+  // final _heightController = TextEditingController();
+  final Game game;
+  DetailImageAttribute({
+    @required this.game
+  });
+
   @override
   Widget build(BuildContext context){
     return Consumer<Products>(
@@ -18,7 +23,7 @@ class DetailImageAttribute extends StatelessWidget{
         Stack(
           children: <Widget>[
             Container(
-              child: DetailsImage(),
+              child: DetailsImage(gameDetailImage: game),
             ),
             // Align(
             //   alignment: Alignment.topRight,

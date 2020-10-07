@@ -77,8 +77,8 @@ flutter:
     - assets/img/games/bravelyDefault2/Switch_BravelyDefault2_.jpg
     - assets/img/games/noCover.gif
     - assets/img/games/noImage.png
-    - assets/img/avatars/panda.jpg
-    - assets/img/404.png
+    # - assets/img/avatars/panda.jpg
+    # - assets/img/404.png
 
   #   - images/a_dot_ham.jpeg
 

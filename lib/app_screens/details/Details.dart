@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app_screens/settings/dialog/Dialog.dart';
+import 'package:flutter_app/model/game/game.dart';
 import 'details_attributes/DetailAttribute.dart';
 import 'package:flutter_app/shared/helpers/icomoon.dart';
 
 class DetailPage extends StatelessWidget{
+
+  final Game gameDetail;
+  DetailPage({
+    @required this.gameDetail
+  });
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,13 +30,18 @@ class DetailPage extends StatelessWidget{
           ),
         ],
       ),
-      body: DetailBody(),
+      body: DetailBody(gameDetailBody: gameDetail,),
     );
   }
 }
 
 
 class DetailBody extends StatelessWidget{
+  final Game gameDetailBody;
+  DetailBody({
+    @required this.gameDetailBody
+  });
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -43,7 +55,7 @@ class DetailBody extends StatelessWidget{
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Center(
-                  child: DetailImageAttribute(),
+                  child: DetailImageAttribute(game: gameDetailBody),
                 ),
 
                 // I should convert as CircularProgressIndicator function.

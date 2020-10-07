@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/model/game/game.dart';
 
 class FavoriteImage extends StatelessWidget{
   @override

@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app_screens/details/Details.dart';
-import 'package:flutter_app/app_screens/main/Home.dart';
-import 'package:flutter_app/app_screens/settings/dialog/Dialog.dart';
-import 'package:flutter_app/shared/helpers/icomoon.dart';
 import 'package:flutter_app/widgets/expanded/widgets_attribute/myfavorites/MyFavoritesWidget.dart';
 
 
@@ -94,7 +91,7 @@ class _MyFavoritesPageBodyState extends State<MyFavoritesPageBody>{
             context,
             MaterialPageRoute(
                 builder: (context){
-                  return DetailPage();
+                  return DetailPage(gameDetail: );
                 }
             )
         );

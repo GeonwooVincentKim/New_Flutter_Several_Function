@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/model/game/game.dart';
 import 'package:flutter_app/widgets/expanded/divider.dart';
 import 'package:flutter_app/widgets/expanded/widgets_attribute/Details/BottomImage.dart';
 import 'font_style/FontWidget.dart';
@@ -37,12 +38,19 @@ class DetailsText extends StatelessWidget{
 // For Image of 'details-page'.
 // ignore: camel_case_types
 class DetailsImage extends StatelessWidget{
+  final Game gameDetailImage;
+  
+  DetailsImage({
+    @required this.gameDetailImage
+  });
+
   @override
   Widget build(BuildContext context) {
+
     return Container(
       width: 420,
-      child: Image.network(
-        "https://www.gstatic.com/webp/gallery/1.jpg",
+      child: Image.asset(
+        gameDetailImage.images[0],
         fit: BoxFit.fill,
       ),
     );

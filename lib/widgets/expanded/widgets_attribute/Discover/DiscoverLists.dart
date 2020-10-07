@@ -23,7 +23,7 @@ class DiscoverList extends StatelessWidget{
       child: GestureDetector(
         onTap: (){
           Navigator.push(
-            context, MaterialPageRoute(builder: (context){return DetailPage();})
+            context, MaterialPageRoute(builder: (context){return DetailPage(gameDetail: gameTitle,);})
           );
         },
         child: Column(
