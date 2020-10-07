@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/data/games.dart';
 import 'package:flutter_app/model/game/game.dart';
-import 'package:intl/intl.dart';
 import 'dart:ui' as ui;
 
 import 'package:flutter_app/widgets/expanded/divider.dart';
@@ -51,7 +49,7 @@ class PlatForm extends StatelessWidget{
               TextSpan(text: "Platform: "),
               TextSpan(text: gamePlatform.platforms[0], style: contextFont),
               TextSpan(text: " | Genre: "),
-              TextSpan(text: gamePlatform.platforms[1], style: contextFont),
+              TextSpan(text: gamePlatform.genres[0], style: contextFont),
             ],
           ),
         ),
@@ -76,7 +74,8 @@ class Progressions extends StatelessWidget{
           style: subtitleFont,
           children: <TextSpan>[
             TextSpan(text: "Progressions: "),
-            TextSpan(text: "80%", style: contextFont),
+            TextSpan(text: (gameProgressions.progression).toString(), style: contextFont),
+            TextSpan(text: "%", style: contextFont),
           ],
         ),
       ),
@@ -100,7 +99,7 @@ class Editor extends StatelessWidget{
           style: subtitleFont,
           children: <TextSpan>[
             TextSpan(text: "Editor: "),
-            TextSpan(text: "Editor Name", style: contextFont),
+            TextSpan(text: gameEditor.publisher, style: contextFont),
           ],
         ),
       ),
@@ -116,12 +115,6 @@ class ReleaseDate extends StatelessWidget{
   });
   @override
   Widget build(BuildContext context) {
-    // To apply 'DateTime' and 'DateFormat', you should import the codes from
-    // 'package:intl/intl.dart'.
-    final DateTime now = DateTime.now();
-    final DateFormat formatter = DateFormat('yyyy-MM-dd');
-    final String formatted = formatter.format(now);
-
     return Align(
       alignment: Alignment.centerLeft,
       child: RichText(
@@ -129,7 +122,7 @@ class ReleaseDate extends StatelessWidget{
           style: subtitleFont,
           children: <TextSpan>[
             TextSpan(text: "ReleaseDate: "),
-            TextSpan(text: "${formatted} ", style: contextFont),
+            TextSpan(text: gameReleaseDate.releaseDate, style: contextFont),
           ],
         ),
       ),
@@ -153,11 +146,6 @@ class Description extends StatelessWidget{
       // Makes Column as Row.
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        // Text(
-        //   "Description: ",
-        //   textDirection: ui.TextDirection.ltr,
-        //   style: expanded_font_style_contents(),
-        // ),
         RichText(
           text: TextSpan(
             style: subtitleFont,
@@ -174,7 +162,7 @@ class Description extends StatelessWidget{
                 style: subtitleFont,
                 children: <TextSpan>[
                   TextSpan(
-                      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget laoreet diam. Fusce vulputate justo tortor, vitae scelerisque elit molestie sit amet. Vestibulum ut purus sapien. Mauris vel sem vel felis ornare mollis. Phasellus luctus massa vitae pulvinar vestibulum. Vivamus tincidunt, mauris sit amet ultrices egestas, magna felis consectetur Add to my listligula, eu dignissim orci odio nec purus. Curabitur a porta tellus, vel efficitur ipsum. Aenean turpis purus, efficitur eget neque eu, placerat blandit ligula. Proin nec neque quam. ",
+                      text: gameDescription.description,
                       style: contextFont
                   ),
                 ],

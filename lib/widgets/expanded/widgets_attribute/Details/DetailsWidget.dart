@@ -32,7 +32,6 @@ class DetailsText extends StatelessWidget{
           transparent_divider(),
           ImageFonts(gameImageFonts: gameDetailsText),
           transparent_divider(),
-          // expanded_widgets_details_down_detail(),
         ],
       )
     );

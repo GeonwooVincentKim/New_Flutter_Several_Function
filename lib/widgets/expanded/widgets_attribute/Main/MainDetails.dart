@@ -41,7 +41,7 @@ class WidgetTextAlign extends StatelessWidget{
         Align(
           alignment: Alignment.bottomLeft,
           child: Text(
-            "Progression: 50%",
+            "Progression: " + (game.progression).toString() + "%",
             style: TextStyle(
               color: Colors.black26,
               fontFamily: "icomoon",
