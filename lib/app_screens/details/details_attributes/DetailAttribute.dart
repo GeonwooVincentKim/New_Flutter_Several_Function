@@ -24,34 +24,25 @@ class DetailImageAttribute extends StatelessWidget{
             Container(
               child: DetailsImage(gameDetailImage: game),
             ),
-            // Align(
-            //   alignment: Alignment.topRight,
-            //   child: ListView.builder(
-            //     itemBuilder: (context, index){
-            //       return IconButton(
-            //           icon: Icon(
-            //             IconMoon.istarfull,
-            //             // product.items[index].isFavorite? IconMoon.istarfull: IconMoon.istar
-            //           ),
-            //           onPressed: (){
-            //             Navigator.push(
-            //                 context, MaterialPageRoute(builder: (context){return MyFavoritesPage();})
-            //             );
-            //           }
-            //       );
-            //     }
-            //   ),
-            // )
             Align(
               alignment: Alignment.topRight,
               child: IconButton(
                   icon: Icon(
-                      IconMoon.istarfull,
+                    game.isFavorite?
+                      IconMoon.istarfull : IconMoon.istar,
                   ),
+                  // icon: Icon(
+                  //   IconMoon.istarfull,
+                  //   product.items[game].isFavorite? 
+                  // ),
                   onPressed: (){
-                    Navigator.push(
-                        context, MaterialPageRoute(builder: (context){return MyFavoritesPage();})
-                    );
+                    // setState((){
+                    //   game.isFavorite = true;
+                    // });
+                    // Navigator.push(context, route))
+                    // Navigator.push(
+                    //     context, MaterialPageRoute(builder: (context){return MyFavoritesPage(gameMyFavorite: game);})
+                    // );
                   }
               ),
             ),
@@ -65,6 +56,11 @@ class DetailImageAttribute extends StatelessWidget{
 // Progress-Bar-Attributes that is belows in the Detail-Page part.
 // ignore: camel_case_types
 class ProgressBar extends StatelessWidget{
+  final Game gameProgressBar;
+  ProgressBar({
+    @required this.gameProgressBar
+  });
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -74,7 +70,7 @@ class ProgressBar extends StatelessWidget{
         LinearProgressIndicator(
           minHeight: 10,
           backgroundColor: Colors.grey,
-          value: 0.8,
+          value: gameProgressBar.progression / 100
         ),
       ],
     );
