@@ -29,13 +29,12 @@ class DiscoverList extends StatelessWidget{
         child: Column(
           children: [
             Expanded(
-              flex: 3,
+              flex: 4,
               child: DiscoverUp(),
             ),
             Expanded(
-              flex: 1,
+              flex: 2,
               child: DiscoverDown(gameContents: gameTitle),
-              // child: DiscoverDown(game: game),
             ),
           ],
         ),
