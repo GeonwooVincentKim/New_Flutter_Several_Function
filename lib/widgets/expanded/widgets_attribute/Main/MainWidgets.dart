@@ -31,6 +31,11 @@ class ProgressText extends StatelessWidget{
 */
 // ignore: camel_case_types
 class ProceededImage extends StatelessWidget{
+  final Game game;
+
+  ProceededImage({
+    @required this.game
+  });
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -41,8 +46,8 @@ class ProceededImage extends StatelessWidget{
           topLeft: Radius.circular(10.0),
           bottomLeft: Radius.circular(10.0),
         ),
-        child: Image(
-          image: NetworkImage("https://www.gstatic.com/webp/gallery/1.jpg"),
+        child: Image.asset(
+          game.images[0],
           fit: BoxFit.fitHeight
         ),
       ),
@@ -53,14 +58,23 @@ class ProceededImage extends StatelessWidget{
 
 // ignore: camel_case_types
 class ProcessingImage extends StatelessWidget{
+  final Game game;
+
+  ProcessingImage({
+    @required this.game
+  });
+
   @override
   Widget build(BuildContext context) {
     return Container(
-     height: 97,
+      width: MediaQuery.of(context).size.width / 5,
+      // width: 90,
+      height: 97,
       child: ClipRRect(
-        child: Image(
-          image: NetworkImage("https://www.gstatic.com/webp/gallery/1.jpg"),
-          fit: BoxFit.fitHeight
+        child: Image.asset(
+          game.images[0],
+          fit: BoxFit.fitWidth,
+          // scale: 1.2,
         ),
       ),
     );

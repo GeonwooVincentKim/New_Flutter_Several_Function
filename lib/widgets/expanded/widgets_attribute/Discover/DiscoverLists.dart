@@ -30,7 +30,7 @@ class DiscoverList extends StatelessWidget{
           children: [
             Expanded(
               flex: 4,
-              child: DiscoverUp(),
+              child: DiscoverUp(gameImage: gameTitle),
             ),
             Expanded(
               flex: 2,

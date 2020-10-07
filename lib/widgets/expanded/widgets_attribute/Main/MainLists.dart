@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/app_screens/details/Details.dart';
 import 'package:flutter_app/model/game/game.dart';
 import 'package:flutter_app/widgets/expanded/widgets_attribute/Main/MainWidgets.dart';
 
@@ -18,20 +19,27 @@ class ProcessingList extends StatelessWidget{
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10.0),
       ),
-      child: Row(
-        children: [
-          Expanded(
-              flex: 1,
-              // For Top-part Widgets, the Main
-              child: ProcessingImage()
-          ),
-
-          Expanded(
-              flex: 3,
-              // For Below-part Widgets, the Main
-              child: ProcessingText(game: game)
-          )
-        ],
+      child: GestureDetector(
+        onTap: (){
+          Navigator.push(
+            context, MaterialPageRoute(builder: (context){return DetailPage();})
+          );
+        },
+        child: Row(
+          children: [
+            // Expanded(
+            //     flex: 1,
+            //     // For Top-part Widgets, the Main
+            //     child: ProcessingImage(game: game),
+            // ),
+            ProcessingImage(game: game),
+            Expanded(
+                flex: 3,
+                // For Below-part Widgets, the Main
+                child: ProcessingText(game: game)
+            )
+          ],
+        ),
       ),
     );
   }
@@ -41,6 +49,12 @@ class ProcessingList extends StatelessWidget{
 
 // ignore: camel_case_types
 class ProceededList extends StatelessWidget{
+  final Game game;
+
+  ProceededList({
+    @required this.game
+  });
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -53,13 +67,13 @@ class ProceededList extends StatelessWidget{
           Expanded(
               flex: 1,
               // For Top-part Widgets, the Main
-              child: ProceededImage()
+              child: ProceededImage(game: game),
           ),
 
           Expanded(
               flex: 3,
               // For Below-part Widgets, the Main
-              child: ProceededText()
+              child: ProceededText(game: game),
           )
         ],
       ),

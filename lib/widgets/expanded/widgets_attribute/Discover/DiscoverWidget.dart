@@ -3,6 +3,12 @@ import 'package:flutter_app/model/game/game.dart';
 
 // ignore: camel_case_types
 class DiscoverUp extends StatelessWidget{
+  final Game gameImage;
+
+  DiscoverUp({
+    @required this.gameImage
+  });
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,9 +24,9 @@ class DiscoverUp extends StatelessWidget{
         ),
 
         // Make it fits to the box.
-        child: Image.network(
-            "https://www.gstatic.com/webp/gallery/1.jpg",
-            fit: BoxFit.fitWidth
+        child: Image.asset(
+          gameImage.images[0],
+          fit: BoxFit.fitWidth,
         ),
       ),
     );
