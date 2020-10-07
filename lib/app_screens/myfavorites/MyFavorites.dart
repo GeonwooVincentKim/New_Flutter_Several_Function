@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app_screens/details/Details.dart';
+import 'package:flutter_app/data/Provide.dart';
 import 'package:flutter_app/model/game/game.dart';
 import 'package:flutter_app/widgets/expanded/widgets_attribute/myfavorites/MyFavoritesWidget.dart';
+import 'package:provider/provider.dart';
 
 
 class MyFavoritesPage extends StatelessWidget{
@@ -13,8 +15,12 @@ class MyFavoritesPage extends StatelessWidget{
   //final int procedure;
   //MyFavoritesPage(this.procedure);
 
+  
   @override
   Widget build(BuildContext context) {
+    // List<Game> contentList =  Provider.of<Products>(context, listen: false).items;
+    // final List<Game> favoriteList =;
+    // contentList = favoriteList.toList();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black87,
@@ -28,6 +34,7 @@ class MyFavoritesPage extends StatelessWidget{
 }
 
 class MyFavoritesPageBody extends StatelessWidget{
+
   
   
   // final _items = <FavoriteItem>[];
@@ -109,7 +116,7 @@ class MyFavoritesPageBody extends StatelessWidget{
           ),
           Expanded(
             flex: 1,
-            child: FavoriteText(),
+            child: FavoriteText(game: contentList),
           ),
         ],
       ),
