@@ -42,10 +42,10 @@ class DetailsText extends StatelessWidget{
 // For Image of 'details-page'.
 // ignore: camel_case_types
 class DetailsImage extends StatelessWidget{
-  final Game gameDetailImage;
+  final String image;
   
   DetailsImage({
-    @required this.gameDetailImage
+    @required this.image
   });
 
   @override
@@ -54,7 +54,7 @@ class DetailsImage extends StatelessWidget{
     return Container(
       width: 420,
       child: Image.asset(
-        gameDetailImage.images[0],
+        image,
         fit: BoxFit.fill,
       ),
     );

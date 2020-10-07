@@ -8,12 +8,33 @@ import 'package:provider/provider.dart';
 
 
 // Image-Attributes that is below in the Detail-Page part.
-class DetailImageAttribute extends StatelessWidget{
-  // final _heightController = TextEditingController();
-  final Game game;
+
+class DetailImageAttribute extends StatefulWidget {
+
+  final String image;
+  final bool isFavorite;
+
   DetailImageAttribute({
-    @required this.game
+    @required this.image,
+    @required this.isFavorite
   });
+
+  @override
+  _DetailImageAttributeState createState() => _DetailImageAttributeState();
+}
+
+class _DetailImageAttributeState extends State<DetailImageAttribute> {
+
+  bool isFavorite = false;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    setState(() {
+      isFavorite = widget.isFavorite;
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context){
@@ -22,27 +43,22 @@ class DetailImageAttribute extends StatelessWidget{
         Stack(
           children: <Widget>[
             Container(
-              child: DetailsImage(gameDetailImage: game),
+              child: DetailsImage(image: widget.image),
             ),
             Align(
               alignment: Alignment.topRight,
               child: IconButton(
                   icon: Icon(
-                    game.isFavorite?
+                    isFavorite?
                       IconMoon.istarfull : IconMoon.istar,
+                    color: Colors.white,
                   ),
-                  // icon: Icon(
-                  //   IconMoon.istarfull,
-                  //   product.items[game].isFavorite? 
-                  // ),
                   onPressed: (){
-                    // setState((){
-                    //   game.isFavorite = true;
-                    // });
-                    // Navigator.push(context, route))
-                    // Navigator.push(
-                    //     context, MaterialPageRoute(builder: (context){return MyFavoritesPage(gameMyFavorite: game);})
-                    // );
+                    Provider.of<Products>(context, listen: false).changeFavorite(!isFavorite);
+                    setState(() {
+                      isFavorite = !isFavorite;
+                    });
+                    print(isFavorite);
                   }
               ),
             ),
@@ -56,7 +72,7 @@ class DetailImageAttribute extends StatelessWidget{
 // Progress-Bar-Attributes that is belows in the Detail-Page part.
 // ignore: camel_case_types
 class ProgressBar extends StatelessWidget{
-  final Game gameProgressBar;
+  final double gameProgressBar;
   ProgressBar({
     @required this.gameProgressBar
   });
@@ -70,7 +86,7 @@ class ProgressBar extends StatelessWidget{
         LinearProgressIndicator(
           minHeight: 10,
           backgroundColor: Colors.grey,
-          value: gameProgressBar.progression / 100
+          value: gameProgressBar / 100
         ),
       ],
     );
@@ -116,5 +132,4 @@ class BottomImage extends StatelessWidget{
       ),
     );
   }
-
 }

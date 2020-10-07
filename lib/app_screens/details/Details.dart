@@ -1,22 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app_screens/settings/dialog/Dialog.dart';
+import 'package:flutter_app/data/Provide.dart';
 import 'package:flutter_app/model/game/game.dart';
+import 'package:provider/provider.dart';
 import 'details_attributes/DetailAttribute.dart';
 import 'package:flutter_app/shared/helpers/icomoon.dart';
 
-class DetailPage extends StatelessWidget{
+class DetailPage extends StatefulWidget {
 
-  final Game gameDetail;
+  final String gameId;
   DetailPage({
-    @required this.gameDetail
+    this.gameId
   });
+  
+  @override
+  _DetailPageState createState() => _DetailPageState();
+}
+
+class _DetailPageState extends State<DetailPage> {
+
+  Game selectedGame;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    selectedGame = Provider.of<Products>(context, listen: false).selectedGame;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black87,
-        title: Text("GAME TITLE"),
+        title: Text(selectedGame.title),
         centerTitle: true,
         actions: [
           IconButton(
@@ -30,7 +47,7 @@ class DetailPage extends StatelessWidget{
           ),
         ],
       ),
-      body: DetailBody(gameDetailBody: gameDetail,),
+      body: DetailBody(gameDetailBody: selectedGame),
     );
   }
 }
@@ -55,11 +72,11 @@ class DetailBody extends StatelessWidget{
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Center(
-                  child: DetailImageAttribute(game: gameDetailBody),
+                  child: DetailImageAttribute(image: gameDetailBody.images[0], isFavorite: gameDetailBody.isFavorite),
                 ),
 
                 // I should convert as CircularProgressIndicator function.
-                ProgressBar(gameProgressBar: gameDetailBody),
+                ProgressBar(gameProgressBar: gameDetailBody.progression),
                 Center(
                   child: TextAttribute(gameText: gameDetailBody),
                 ),

@@ -27,4 +27,20 @@ class Game {
     this.videoUrl,
   });
 
+  factory Game.from(Game game) {
+    return Game(
+      id: game.id ?? '',
+      title: game.title ?? '',
+      images: game.images ?? [],
+      platforms: game.platforms ?? [],
+      genres: game.genres ?? [],
+      publisher: game.publisher ?? [],
+      description: game.description ?? '',
+      releaseDate: game.releaseDate ?? '',
+      isFavorite: game.isFavorite ?? false,
+      progression: game.progression ?? 0.0,
+      videoUrl: game.videoUrl ?? ''
+    );
+  }
+
 }

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/app_screens/details/Details.dart';
+import 'package:flutter_app/app_screens/discover/Discover.dart';
 // import 'package:flutter_app/app_screens/discover/Discover.dart';
 import 'package:flutter_app/app_screens/myfavorites/MyFavorites.dart';
 import 'package:flutter_app/data/ProductStore.dart';
 import 'package:flutter_app/data/Provide.dart';
+import 'package:flutter_app/model/game/game.dart';
 import 'package:provider/provider.dart';
 import 'app_screens/main/Home.dart';
 
@@ -19,13 +22,20 @@ class MyApp extends StatelessWidget{
         ],
         child: MaterialApp(
           title: "My Flutter App",
-          home: Home(),
+          initialRoute: '/',
+          routes: {
+            '/': (context) => Home(),
+            '/discover': (context) => Discover(),
+            '/favorite': (context) => MyFavoritesPage()
+          },
           onGenerateRoute: (RouteSettings settings){
             final List<String> pathElements = settings.name.split("/");
             if(pathElements[0] != '') return null;
-            if(pathElements[1] == 'favorite'){
+            if(pathElements[1] == 'game'){
+              String gameId = pathElements[2];
+
               return MaterialPageRoute(
-                builder: (BuildContext context) => MyFavoritesPage(),
+                builder: (BuildContext context) => DetailPage(gameId: gameId),
               );
             }
             return null;

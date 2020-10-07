@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app_screens/details/Details.dart';
+import 'package:flutter_app/data/Provide.dart';
 import 'package:flutter_app/model/game/game.dart';
 import 'package:flutter_app/widgets/expanded/widgets_attribute/Main/MainWidgets.dart';
+import 'package:provider/provider.dart';
 
 // ignore: camel_case_types
 class ProcessingList extends StatelessWidget{
@@ -21,9 +23,11 @@ class ProcessingList extends StatelessWidget{
       ),
       child: GestureDetector(
         onTap: (){
-          Navigator.push(
-            context, MaterialPageRoute(builder: (context){return DetailPage(gameDetail: game,);})
-          );
+          Provider.of<Products>(context, listen: false).selectGame(game);
+          Navigator.pushNamed(context, "/game/${game.id}");
+          // Navigator.push(
+          //   context, MaterialPageRoute(builder: (context){return DetailPage(gameDetail: game,);})
+          // );
         },
         child: Row(
           children: [

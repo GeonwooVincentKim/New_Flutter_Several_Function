@@ -15,10 +15,14 @@ class FavoriteImage extends StatelessWidget{
 
 class FavoriteText extends StatelessWidget{
   final Game game;
-  
   FavoriteText({
     @required this.game
   });
+  // final Game game;
+  
+  // FavoriteText({
+  //   @required this.game
+  // });
   // final Game favoriteGame;
   // FavoriteText({
   //   @required this.favoriteGame
@@ -40,8 +44,9 @@ class FavoriteText extends StatelessWidget{
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Text(
+              '${game.title}',
               // game.title,]:
-              "" + game.title,
+              // "Testing",
               textScaleFactor: 2,
               textAlign: TextAlign.center,
               style: TextStyle(

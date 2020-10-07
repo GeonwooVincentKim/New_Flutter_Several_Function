@@ -5,11 +5,11 @@ import 'package:flutter_app/widgets/expanded/widgets_attribute/myfavorites/MyFav
 
 
 class MyFavoritesPage extends StatelessWidget{
-  final Game gameMyFavorite;
+  // final Game gameMyFavorite;
   
-  MyFavoritesPage({
-    @required this.gameMyFavorite
-  });
+  // MyFavoritesPage({
+  //   @required this.gameMyFavorite
+  // });
   //final int procedure;
   //MyFavoritesPage(this.procedure);
 
@@ -21,29 +21,15 @@ class MyFavoritesPage extends StatelessWidget{
         title: Text("MY FAVORITES"),
         centerTitle: true,
       ),
-      body: MyFavoritesPageBody(gameMyFavoriteBody: gameMyFavorite,),
+      body: MyFavoritesPageBody(),
       // body: MyFavoritesPageBody(),
     );
   }
 }
 
-class MyFavoritesPageBody extends StatefulWidget{
-  final Game gameMyFavoriteBody;
+class MyFavoritesPageBody extends StatelessWidget{
   
-  MyFavoritesPageBody({
-    @required this.gameMyFavoriteBody
-  });
-
-  @override
-  _MyFavoritesPageBodyState createState() => _MyFavoritesPageBodyState(gameMyFavoriteBody: gameMyFavoriteBody);
-}
-
-class _MyFavoritesPageBodyState extends State<MyFavoritesPageBody>{
-  final Game gameMyFavoriteBody;
   
-  _MyFavoritesPageBodyState({
-    @required this.gameMyFavoriteBody
-  });
   // final _items = <FavoriteItem>[];
   // final _formKey = GlobalKey<FormState>();
   // var _myFavoriteController = TextEditingController();
@@ -110,7 +96,7 @@ class _MyFavoritesPageBodyState extends State<MyFavoritesPageBody>{
             context,
             MaterialPageRoute(
                 builder: (context){
-                  return DetailPage(gameDetail: gameMyFavoriteBody);
+                  return DetailPage();
                 }
             )
         );
@@ -123,7 +109,7 @@ class _MyFavoritesPageBodyState extends State<MyFavoritesPageBody>{
           ),
           Expanded(
             flex: 1,
-            child: FavoriteText(game: gameMyFavoriteBody),
+            child: FavoriteText(),
           ),
         ],
       ),

@@ -5,13 +5,26 @@ import 'package:flutter_app/data/games.dart';
 
 class Products with ChangeNotifier {
   List<Game> _productItems = DUMMY_GAMES;
-  Game _selectedGame = null;
+  Game _selectedGame;
 
   List<Game> get items {
-    return [..._productItems];
+    return [..._productItems]; // copy of productItem
   }
 
-  // {..._selectedGame}
+  Game get selectedGame {
+    return Game.from(_selectedGame); // copy of selected game
+  }
+
+  void changeFavorite(bool isFavorite){
+    _selectedGame.isFavorite = isFavorite;
+    print(_selectedGame.isFavorite);
+    notifyListeners();
+  }
+
+  void selectGame(Game game) {
+    _selectedGame = game;
+    notifyListeners();
+  }
 
   void addProduct(value) {
     _productItems.add(value);
