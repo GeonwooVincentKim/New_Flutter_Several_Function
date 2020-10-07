@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app_screens/details/Details.dart';
+import 'package:flutter_app/data/Provide.dart';
 import 'package:flutter_app/model/game/game.dart';
 import 'package:flutter_app/widgets/expanded/widgets_attribute/Discover/DiscoverWidget.dart';
+import 'package:provider/provider.dart';
 
 
 class DiscoverList extends StatelessWidget{
@@ -22,9 +24,11 @@ class DiscoverList extends StatelessWidget{
       height: 220,
       child: GestureDetector(
         onTap: (){
-          Navigator.push(
-            context, MaterialPageRoute(builder: (context){return DetailPage();})
-          );
+          Provider.of<Products>(context, listen: false).selectGame(gameTitle);
+          // Navigator.push(
+          //   context, MaterialPageRoute(builder: (context){return DetailPage();})
+          // );
+          Navigator.pushNamed(context, "/game/${gameTitle.id}");
         },
         child: Column(
           children: [
