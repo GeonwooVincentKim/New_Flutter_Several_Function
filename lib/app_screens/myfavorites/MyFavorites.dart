@@ -101,17 +101,19 @@ class MyFavoritesPageBody extends StatelessWidget{
   }
 
   Widget buildListItem(BuildContext context, int index) {
-    
+    bool isFavorite = false;
     return GestureDetector(
       onTap: (){
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context){
-                  return DetailPage();
-                }
-            )
-        );
+        Provider.of<Products>(context, listen: false).changeFavorite(!isFavorite);
+        Navigator.pushNamed(context, "/game/${inWidgetList.length}");
+        // Navigator.push(
+        //     context,
+        //     MaterialPageRoute(
+        //         builder: (context){
+        //           return DetailPage();
+        //         }
+        //     )
+        // );
       },
       child: Column(
         children: [
