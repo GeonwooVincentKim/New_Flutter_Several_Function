@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app_screens/details/Details.dart';
+import 'package:flutter_app/app_screens/myfavorites/MyFavoritesAttribute.dart';
 import 'package:flutter_app/data/Provide.dart';
 import 'package:flutter_app/data/games.dart';
 import 'package:flutter_app/model/game/game.dart';
@@ -15,7 +16,7 @@ class MyFavoritesPage extends StatelessWidget{
   // });
   //final int procedure;
   //MyFavoritesPage(this.procedure);
-  List<Game> widgetList = [];
+  // List<Game> widgetList = [];
   @override
   Widget build(BuildContext context) {
 
@@ -29,18 +30,19 @@ class MyFavoritesPage extends StatelessWidget{
         title: Text("MY FAVORITES"),
         centerTitle: true,
       ),
-      body: MyFavoritesPageBody(inWidgetList: widgetList),
-      // body: MyFavoritesPageBody(),
+      // body: MyFavoritesPageBody(inWidgetList: widgetList),
+      body: MyFavoritesPageBody(),
     );
   }
 }
 
 class MyFavoritesPageBody extends StatelessWidget{
-  // List<Game> inWidgetList = [];
-  final List<Game> inWidgetList;
-  MyFavoritesPageBody({
-    @required this.inWidgetList
-  });
+  List<Game> inWidgetList = [];
+  // List<Game> listGame = Provider.of<Products>(context, listen: false).items;
+  // final List<Game> inWidgetList;
+  // MyFavoritesPageBody({
+  //   @required this.inWidgetList
+  // });
   // final _items = <FavoriteItem>[];
   // final _formKey = GlobalKey<FormState>();
   // var _myFavoriteController = TextEditingController();
@@ -68,30 +70,35 @@ class MyFavoritesPageBody extends StatelessWidget{
   //   );
   // }
 
-  Widget buildBody(){
-    return Padding(
-      padding: const EdgeInsets.all(20),
-      child: GridView.builder(
-        shrinkWrap: true,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              childAspectRatio: 1.0,
-              mainAxisSpacing: 30.0,
-              crossAxisSpacing: 30.0),
-          // itemCount: inWidgetList.length,
-          itemCount: 10,
-          itemBuilder: (context, index) {
-            return buildListItem(context, index);
-          }
-      )
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     
     return Scaffold(
-      body: buildBody(),
+      body: Padding(
+          padding: const EdgeInsets.all(20),
+          child: GridView.builder(
+              shrinkWrap: true,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  childAspectRatio: 1.0,
+                  mainAxisSpacing: 30.0,
+                  crossAxisSpacing: 30.0),
+              // itemCount: inWidgetList.length,
+              itemCount: inWidgetList.length,
+              itemBuilder: (context, index) {
+                final item = inWidgetList[index];
+
+                // return Text(
+                //
+                //   inWidgetList[index].toString(),
+                // )
+                // return MyFavoritesList(myFavoriteList: item);
+                return buildListItem(context);
+                // return buildListItem(context, index);
+              }
+          )
+      ),
+      // body: buildBody(),
       // floatingActionButton: FloatingActionButton(
       //   onPressed: () {},
       //   backgroundColor: Colors.blueAccent,
@@ -99,21 +106,18 @@ class MyFavoritesPageBody extends StatelessWidget{
       // ),
     );
   }
+  Widget buildListItem(BuildContext context) {
 
-  Widget buildListItem(BuildContext context, int index) {
-    bool isFavorite = false;
     return GestureDetector(
       onTap: (){
-        Provider.of<Products>(context, listen: false).changeFavorite(!isFavorite);
-        Navigator.pushNamed(context, "/game/${inWidgetList.length}");
-        // Navigator.push(
-        //     context,
-        //     MaterialPageRoute(
-        //         builder: (context){
-        //           return DetailPage();
-        //         }
-        //     )
-        // );
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context){
+                  return DetailPage();
+                }
+            )
+        );
       },
       child: Column(
         children: [
