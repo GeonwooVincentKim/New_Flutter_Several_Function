@@ -17,7 +17,7 @@ class Body extends StatefulWidget{
 }
 
 class _BodyState extends State<Body>{
-  List<Game> inProgressList = [], completedList =[];
+  List<Game> inProgressList = [], completedList = [];
   List<String> titleList = <String>['IN PROCESS', 'Completed'];
  
   @override

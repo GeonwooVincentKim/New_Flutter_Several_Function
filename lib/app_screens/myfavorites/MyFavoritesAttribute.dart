@@ -4,7 +4,7 @@ import 'package:flutter_app/model/game/game.dart';
 import 'package:flutter_app/widgets/expanded/widgets_attribute/myfavorites/MyFavoritesWidget.dart';
 
 class MyFavoritesList extends StatelessWidget{
-  final List<Game> myFavoriteList;
+  final Game myFavoriteList;
 
   MyFavoritesList({
     @required this.myFavoriteList
@@ -15,15 +15,7 @@ class MyFavoritesList extends StatelessWidget{
     
     return GestureDetector(
       onTap: (){
-        // Navigator.pushNamed(context, '/favorite');
-        // Navigator.push(
-        //     context,
-        //     MaterialPageRoute(
-        //         builder: (context){
-        //           return DetailPage();
-        //         }
-        //     )
-        // );
+        Navigator.pushNamed(context, '/game/${myFavoriteList.id}');
       },
       child: Column(
         children: [

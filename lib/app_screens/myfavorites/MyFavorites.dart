@@ -32,7 +32,6 @@ class MyFavoritesPageBody extends StatelessWidget{
   Widget build(BuildContext context) {
     final List<Game> listGame = Provider.of<Products>(context, listen: false).items;
     inWidgetList = listGame.where((game) => game.isFavorite).toList();
-    selectedGame = Provider.of<Products>(context, listen: false).selectedGame;
     // inProgressListText = "IN PROGRE"
 
     return Scaffold(
@@ -52,56 +51,24 @@ class MyFavoritesPageBody extends StatelessWidget{
             // return buildListItem(context);
             return GestureDetector(
               onTap: (){
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context){
-                          return DetailPage();
-                        }
-                    )
-                );
+                item.isFavorite?
+                Navigator.pushNamed(context, '/game/${item.id}') :  Container();
               },
               child: Column(
                 children: [
                   Expanded(
                     flex: 2,
-                    child: FavoriteImage(game: inWidgetList),
+                    child: FavoriteImage(game: item),
                   ),
                   Expanded(
                     flex: 1,
-                    child: FavoriteText(game: inWidgetList),
+                    child: FavoriteText(game: item),
                   ),
                 ],
               ),
             );
           }
         )
-      ),
-    );
-  }
-  Widget buildListItem(BuildContext context) {
-    return GestureDetector(
-      onTap: (){
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context){
-                  return DetailPage();
-                }
-            )
-        );
-      },
-      child: Column(
-        children: [
-          Expanded(
-            flex: 2,
-            child: FavoriteImage(game: inWidgetList),
-          ),
-          Expanded(
-            flex: 1,
-            child: FavoriteText(game: inWidgetList),
-          ),
-        ],
       ),
     );
   }

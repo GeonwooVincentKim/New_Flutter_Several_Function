@@ -138,7 +138,7 @@ class _DetailPageState extends State<DetailPage> {
                   ),
                   // onTap: null,
                   onTap: (){
-                    Navigator.of(context).pop();
+                    // Navigator.of(context).pop();
                     // if(_formKey.currentState.validate()){
                     //   Navigator.push(
                     //     context,

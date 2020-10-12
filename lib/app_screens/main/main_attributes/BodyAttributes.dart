@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/data/Provide.dart';
 import 'package:flutter_app/shared/helpers/icomoon.dart';
 import 'package:flutter_app/widgets/expanded/divider.dart';
 import 'package:flutter_app/widgets/expanded/widgets_attribute/Main/MainLists.dart';
 import 'package:flutter_app/model/game/game.dart';
+import 'package:provider/provider.dart';
 
 
 class HomeWidgetsList extends StatelessWidget{
   final List<Game> list;
+  List<Game> inProgressList = [], completedList =[];
 
   HomeWidgetsList({
     @required this.list
@@ -14,6 +17,10 @@ class HomeWidgetsList extends StatelessWidget{
 
   @override
   Widget build(BuildContext context){
+    final List<Game> listGame = Provider.of<Products>(context, listen: false).items;
+    inProgressList = listGame.where((game) => game.progression < 100).toList();
+    completedList = listGame.where((game) => game.progression == 100).toList();
+    
     return ListView.separated(
       shrinkWrap: true,
       physics: NeverScrollableScrollPhysics(),
