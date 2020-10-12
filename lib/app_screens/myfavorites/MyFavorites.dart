@@ -45,20 +45,22 @@ class MyFavoritesPageBody extends StatelessWidget{
             final item = inWidgetList[index];
             return GestureDetector(
               onTap: (){
-                // Navigator.pushNamed(context, '/game/${item.id}');
-                item.isFavorite?
-                  Navigator.pushNamed(context, '/game/${item.id}') :  Container();
+                Navigator.pushNamed(context, '/game/${item.id}');
+                // item.isFavorite?
+                //   Navigator.pushNamed(context, '/game/${item.id}') :  Container();
               },
               child: Column(
                 children: [
-                  Expanded(
-                    flex: 2,
-                    child: FavoriteImage(game: item),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: FavoriteText(game: item),
-                  ),
+                  item.isFavorite?
+                    Expanded(
+                      flex: 2,
+                      child: FavoriteImage(game: item),
+                    ) : Container(),
+                  item.isFavorite?
+                    Expanded(
+                      flex: 1,
+                      child: FavoriteText(game: item),
+                    ) : Container(),
                 ],
               ),
             );
