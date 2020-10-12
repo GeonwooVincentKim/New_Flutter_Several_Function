@@ -45,7 +45,7 @@ class FavoriteText extends StatelessWidget{
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Text(
-              'Text',
+              '${game.length}',
               // '${game.length}',
               // game.title,]:
               // DUMMY_GAMES.Game.titles,

@@ -26,8 +26,8 @@ AppBar HomeAppbar (title, showStar, context) {
             color: Colors.white,
           ),
           onPressed: (){
-            // print("Not");
-            DetailBody(gameDetailBody: null,);
+            print("Not");
+            // DetailBody(gameDetailBody: null,);
           }
       ),
     ],

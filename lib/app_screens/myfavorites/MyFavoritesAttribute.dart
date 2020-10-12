@@ -14,14 +14,15 @@ class MyFavoritesList extends StatelessWidget{
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context){
-                  return DetailPage();
-                }
-            )
-        );
+        Navigator.pushNamed(context, '/favorite');
+        // Navigator.push(
+        //     context,
+        //     MaterialPageRoute(
+        //         builder: (context){
+        //           return DetailPage();
+        //         }
+        //     )
+        // );
       },
       child: Column(
         children: [

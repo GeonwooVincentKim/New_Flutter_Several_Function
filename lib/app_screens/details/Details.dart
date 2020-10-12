@@ -24,7 +24,8 @@ class _DetailPageState extends State<DetailPage> {
 
   Game selectedGame;
   final _textFieldController = TextEditingController();
-
+  // final GlobalKey<Game> _key = GlobalKey();
+  
   @override
   void initState() {
     // TODO: implement initState

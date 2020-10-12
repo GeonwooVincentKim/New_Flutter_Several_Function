@@ -38,41 +38,13 @@ class MyFavoritesPage extends StatelessWidget{
 
 class MyFavoritesPageBody extends StatelessWidget{
   List<Game> inWidgetList = [];
-  // List<Game> listGame = Provider.of<Products>(context, listen: false).items;
-  // final List<Game> inWidgetList;
-  // MyFavoritesPageBody({
-  //   @required this.inWidgetList
-  // });
-  // final _items = <FavoriteItem>[];
-  // final _formKey = GlobalKey<FormState>();
-  // var _myFavoriteController = TextEditingController();
-  //
-  // @override
-  // void Dispose(){
-  //   _myFavoriteController.dispose();
-  //   super.dispose();
-  // }
-
-  // Widget _buildItemWidget(FavoriteItem favorItem){
-  //   return ListTile(
-  //     title: Text(
-  //       favorItem.title,
-  //       // style: favorItem.isDone
-  //       //     ? TextStyle(
-  //       //   decoration: TextDecoration.lineThrough,
-  //       //   fontStyle: FontStyle.italic,
-  //       // ) : null,
-  //     ),
-  //     // trailing: IconButton(
-  //     //   icon: Icon(Icons.delete_forever),
-  //     //   onPressed: () => _deleteTodo(todo),
-  //     // ),
-  //   );
-  // }
 
   @override
   Widget build(BuildContext context) {
-    
+    final List<Game> listGame = Provider.of<Products>(context, listen: false).items;
+    inWidgetList = listGame.where((game) => game.isFavorite).toList();
+    // inProgressListText = "IN PROGRE"
+
     return Scaffold(
       body: Padding(
           padding: const EdgeInsets.all(20),
@@ -83,27 +55,13 @@ class MyFavoritesPageBody extends StatelessWidget{
                   childAspectRatio: 1.0,
                   mainAxisSpacing: 30.0,
                   crossAxisSpacing: 30.0),
-              // itemCount: inWidgetList.length,
               itemCount: inWidgetList.length,
               itemBuilder: (context, index) {
                 final item = inWidgetList[index];
-
-                // return Text(
-                //
-                //   inWidgetList[index].toString(),
-                // )
-                // return MyFavoritesList(myFavoriteList: item);
                 return buildListItem(context);
-                // return buildListItem(context, index);
               }
           )
       ),
-      // body: buildBody(),
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: () {},
-      //   backgroundColor: Colors.blueAccent,
-      //   child: Icon(Icons.create),
-      // ),
     );
   }
   Widget buildListItem(BuildContext context) {
@@ -133,11 +91,4 @@ class MyFavoritesPageBody extends StatelessWidget{
       ),
     );
   }
-
-  // void _addMyFavor(FavoriteItem favorItem){
-  //   setState((){
-  //     _items.add(favorItem);
-  //     _myFavoriteController.text = '';
-  //   });
-  // }
 }
