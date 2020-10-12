@@ -12,8 +12,6 @@ class FavoriteImage extends StatelessWidget{
   
   @override
   Widget build(BuildContext context) {
-    // Game selectedGameImage;
-    // selectedGameImage = Provider.of<Products>(context, listen: false).selectedGame;
     return Container(
       child: Image.asset(
         game.images[0],
@@ -28,28 +26,14 @@ class FavoriteText extends StatelessWidget{
   FavoriteText({
     @required this.game
   });
-  // final Game game;
-  //
-  // FavoriteText({
-  //   @required this.game
-  // });
-  // final Game favoriteGame;
-  // FavoriteText({
-  //   @required this.favoriteGame
-  // });
 
   @override
   Widget build(BuildContext context) {
-    // Game selectedGame;
-    // selectedGame = Provider.of<Products>(context, listen: false).selectedGame;
     return Container(
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
       padding: EdgeInsets.symmetric(vertical: 18),
       decoration: BoxDecoration(
-        // borderRadius: BorderRadius.only(
-        //     bottomLeft: Radius.circular(10.0),
-        //     bottomRight: Radius.circular(10.0)),
         color: Colors.black12,
       ),
       child: Column(
@@ -57,10 +41,6 @@ class FavoriteText extends StatelessWidget{
         children: <Widget>[
           Text(
               game.title,
-              // '${game.length}',
-              // '${game.length}',
-              // game.title,]:
-              // DUMMY_GAMES.Game.titles,
               textScaleFactor: 2,
               textAlign: TextAlign.center,
               style: TextStyle(
