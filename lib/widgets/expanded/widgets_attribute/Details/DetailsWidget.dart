@@ -81,15 +81,15 @@ class BottomImagesList extends StatelessWidget{
         children: <Widget>[
           Row(
             children: [
-              BottomImage(),
-              BottomImage(),
+              BottomImage(bottomImages: imageBottom),
+              BottomImage(bottomImages: imageBottom),
             ]
           ),
           CustomDivider(color: Colors.transparent),
           Row(
             children: [
-              BottomImage(),
-              BottomImage(),
+              BottomImage(bottomImages: imageBottom),
+              BottomImage(bottomImages: imageBottom),
             ]
           )
         ],
@@ -97,4 +97,3 @@ class BottomImagesList extends StatelessWidget{
     );
   }
 }
-
