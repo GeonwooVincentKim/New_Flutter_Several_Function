@@ -15,7 +15,7 @@ class FavoriteImage extends StatelessWidget{
 }
 
 class FavoriteText extends StatelessWidget{
-  final List<Game> game;
+  final Game game;
   FavoriteText({
     @required this.game
   });
@@ -45,7 +45,7 @@ class FavoriteText extends StatelessWidget{
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Text(
-              '${game.length}',
+              '${game.title}',
               // '${game.length}',
               // game.title,]:
               // DUMMY_GAMES.Game.titles,

@@ -9,21 +9,9 @@ import 'package:provider/provider.dart';
 
 
 class MyFavoritesPage extends StatelessWidget{
-  // final Game gameMyFavorite;
   
-  // MyFavoritesPage({
-  //   @required this.gameMyFavorite
-  // });
-  //final int procedure;
-  //MyFavoritesPage(this.procedure);
-  // List<Game> widgetList = [];
   @override
   Widget build(BuildContext context) {
-
-
-    // List<Game> contentList =  Provider.of<Products>(context, listen: false).items;
-    // final List<Game> favoriteList =;
-    // contentList = favoriteList.toList();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black87,
@@ -38,7 +26,6 @@ class MyFavoritesPage extends StatelessWidget{
 
 class MyFavoritesPageBody extends StatelessWidget{
   List<Game> inWidgetList = [];
-
   @override
   Widget build(BuildContext context) {
     final List<Game> listGame = Provider.of<Products>(context, listen: false).items;
@@ -47,25 +34,24 @@ class MyFavoritesPageBody extends StatelessWidget{
 
     return Scaffold(
       body: Padding(
-          padding: const EdgeInsets.all(20),
-          child: GridView.builder(
-              shrinkWrap: true,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: 1.0,
-                  mainAxisSpacing: 30.0,
-                  crossAxisSpacing: 30.0),
-              itemCount: inWidgetList.length,
-              itemBuilder: (context, index) {
-                final item = inWidgetList[index];
-                return buildListItem(context);
-              }
-          )
+        padding: const EdgeInsets.all(20),
+        child: GridView.builder(
+          shrinkWrap: true,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              childAspectRatio: 1.0,
+              mainAxisSpacing: 30.0,
+              crossAxisSpacing: 30.0),
+          itemCount: inWidgetList.length,
+          itemBuilder: (context, index) {
+            final item = inWidgetList[index];
+            return buildListItem(context);
+          }
+        )
       ),
     );
   }
   Widget buildListItem(BuildContext context) {
-
     return GestureDetector(
       onTap: (){
         Navigator.push(
