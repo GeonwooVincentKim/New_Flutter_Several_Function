@@ -92,7 +92,7 @@ class DetailBody extends StatelessWidget{
                 ),
                 Center(
                   child: BottomImagesList(imageBottom: gameDetailBody.images[1]),
-                ),
+                )
               ],
             ),
           ),
