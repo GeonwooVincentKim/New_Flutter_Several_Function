@@ -96,16 +96,5 @@ class BottomImagesList extends StatelessWidget{
       ),
     );
   }
-  
-  // // ignore: non_constant_identifier_names
-  // ExpandedBottomImage(){
-  //   return Expanded(
-  //     child: Column(
-  //         children: <Widget>[
-  //           BottomImage(),
-  //         ]
-  //     ),
-  //   );
-  // }
 }
 
