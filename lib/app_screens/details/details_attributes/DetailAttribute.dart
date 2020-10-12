@@ -118,18 +118,3 @@ class TextAttribute extends StatelessWidget{
     );
   }
 }
-
-// BottomImage-Attributes that is belows in the Detail-Page part.
-class BottomImage extends StatelessWidget{
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(left: 10.0, top: 15.0),
-      child: Column(
-        children: <Widget>[
-          DetailsBottomImages(),
-        ]
-      ),
-    );
-  }
-}

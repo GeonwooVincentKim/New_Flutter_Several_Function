@@ -16,6 +16,7 @@ AppBar HomeAppbar (title, showStar, context) {
             color: Colors.white,
           ),
           onPressed: (){
+            print("Testing..");
             Navigator.pushNamed(context, '/favorite');
           }
       ) : Container(),
@@ -25,7 +26,8 @@ AppBar HomeAppbar (title, showStar, context) {
             color: Colors.white,
           ),
           onPressed: (){
-            DetailBody();
+            // print("Not");
+            DetailBody(gameDetailBody: null,);
           }
       ),
     ],

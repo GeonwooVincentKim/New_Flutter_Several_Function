@@ -63,7 +63,16 @@ class DetailsImage extends StatelessWidget{
 
 // For BottomImage of 'details-page'.
 // ignore: camel_case_types
-class DetailsBottomImages extends StatelessWidget{
+class BottomImagesList extends StatelessWidget{
+  // final String bottomimage;
+  // DetailsBottomImages({
+  //   @required this.bottomimage
+  // });
+  final String imageBottom;
+  BottomImagesList({
+    @required this.imageBottom,
+  });
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -72,15 +81,15 @@ class DetailsBottomImages extends StatelessWidget{
         children: <Widget>[
           Row(
             children: [
-              ExpandedBottomImage(),
-              ExpandedBottomImage(),
+              BottomImage(),
+              BottomImage(),
             ]
           ),
           CustomDivider(color: Colors.transparent),
           Row(
             children: [
-              ExpandedBottomImage(),
-              ExpandedBottomImage(),
+              BottomImage(),
+              BottomImage(),
             ]
           )
         ],
@@ -88,15 +97,15 @@ class DetailsBottomImages extends StatelessWidget{
     );
   }
   
-  // ignore: non_constant_identifier_names
-  ExpandedBottomImage(){
-    return Expanded(
-      child: Column(
-          children: <Widget>[
-            BottomImage(),
-          ]
-      ),
-    );
-  }
+  // // ignore: non_constant_identifier_names
+  // ExpandedBottomImage(){
+  //   return Expanded(
+  //     child: Column(
+  //         children: <Widget>[
+  //           BottomImage(),
+  //         ]
+  //     ),
+  //   );
+  // }
 }
 

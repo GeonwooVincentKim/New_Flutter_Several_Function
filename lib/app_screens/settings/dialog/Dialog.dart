@@ -14,13 +14,16 @@ void showAlertDialog(BuildContext context) async {
     builder: (BuildContext context) {
       return AlertDialog(
         title: Text('Add to my List'),
-        content: Text("Do you wish add to your List??"),
+        // content: TextField(
+        //   controller: _textFieldContrller
+        // ),
+        // content: Text("Do you wish add to your List??"),
         actions: <Widget>[
           FlatButton(
             child: Text('OK'),
             onPressed: () {
               Navigator.push(
-                  context, MaterialPageRoute(builder: (context){return MyFavoritesPage();})
+                context, MaterialPageRoute(builder: (context){return MyFavoritesPage();})
               );
             },
           ),
@@ -41,6 +44,7 @@ void showAddListDialog(BuildContext context) async{
   final scaffoldKey = new GlobalKey<ScaffoldState>();
   final _procedureController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+  // final GlobalKey<Game> _key = GlobalKey();
 
   return showDialog(
     context: context,
