@@ -1,21 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/data/Provide.dart';
 import 'package:flutter_app/data/games.dart';
 import 'package:flutter_app/model/game/game.dart';
+import 'package:provider/provider.dart';
 
 class FavoriteImage extends StatelessWidget{
+  final List<Game> game;
+  FavoriteImage({
+    @required this.game
+  });
+  
   @override
   Widget build(BuildContext context) {
+    Game selectedGameImage;
+    selectedGameImage = Provider.of<Products>(context, listen: false).selectedGame;
     return Container(
-      child: Image.network(
-          "https://www.gstatic.com/webp/gallery/1.jpg",
-          fit: BoxFit.fitWidth
+      child: Image.asset(
+        selectedGameImage.images[0],
+        fit: BoxFit.fitWidth
       ),
     );
   }
 }
 
 class FavoriteText extends StatelessWidget{
-  final Game game;
+  final List<Game> game;
   FavoriteText({
     @required this.game
   });
@@ -31,6 +40,8 @@ class FavoriteText extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
+    Game selectedGame;
+    selectedGame = Provider.of<Products>(context, listen: false).selectedGame;
     return Container(
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
@@ -45,7 +56,8 @@ class FavoriteText extends StatelessWidget{
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Text(
-              '${game.title}',
+              selectedGame.title,
+              // '${game.length}',
               // '${game.length}',
               // game.title,]:
               // DUMMY_GAMES.Game.titles,

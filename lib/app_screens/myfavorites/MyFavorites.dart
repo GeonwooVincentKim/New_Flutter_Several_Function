@@ -26,10 +26,13 @@ class MyFavoritesPage extends StatelessWidget{
 
 class MyFavoritesPageBody extends StatelessWidget{
   List<Game> inWidgetList = [];
+  Game selectedGame;
+
   @override
   Widget build(BuildContext context) {
     final List<Game> listGame = Provider.of<Products>(context, listen: false).items;
     inWidgetList = listGame.where((game) => game.isFavorite).toList();
+    selectedGame = Provider.of<Products>(context, listen: false).selectedGame;
     // inProgressListText = "IN PROGRE"
 
     return Scaffold(
@@ -44,8 +47,33 @@ class MyFavoritesPageBody extends StatelessWidget{
               crossAxisSpacing: 30.0),
           itemCount: inWidgetList.length,
           itemBuilder: (context, index) {
+            // if listGame.where((game) => game.isFavorite == false).toList();
             final item = inWidgetList[index];
-            return buildListItem(context);
+            // return buildListItem(context);
+            return GestureDetector(
+              onTap: (){
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context){
+                          return DetailPage();
+                        }
+                    )
+                );
+              },
+              child: Column(
+                children: [
+                  Expanded(
+                    flex: 2,
+                    child: FavoriteImage(game: inWidgetList),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: FavoriteText(game: inWidgetList),
+                  ),
+                ],
+              ),
+            );
           }
         )
       ),
@@ -66,8 +94,8 @@ class MyFavoritesPageBody extends StatelessWidget{
       child: Column(
         children: [
           Expanded(
-              flex: 2,
-              child: FavoriteImage()
+            flex: 2,
+            child: FavoriteImage(game: inWidgetList),
           ),
           Expanded(
             flex: 1,

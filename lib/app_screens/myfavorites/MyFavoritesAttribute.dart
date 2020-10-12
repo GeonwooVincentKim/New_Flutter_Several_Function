@@ -12,23 +12,24 @@ class MyFavoritesList extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
+    
     return GestureDetector(
       onTap: (){
         // Navigator.pushNamed(context, '/favorite');
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context){
-                  return DetailPage();
-                }
-            )
-        );
+        // Navigator.push(
+        //     context,
+        //     MaterialPageRoute(
+        //         builder: (context){
+        //           return DetailPage();
+        //         }
+        //     )
+        // );
       },
       child: Column(
         children: [
           Expanded(
               flex: 2,
-              child: FavoriteImage()
+              child: FavoriteImage(game: myFavoriteList),
           ),
           Expanded(
             flex: 1,
