@@ -6,6 +6,7 @@ import 'package:flutter_app/app_screens/settings/dialog/Dialog.dart';
 import 'package:flutter_app/data/Provide.dart';
 import 'package:flutter_app/model/game/game.dart';
 import 'package:flutter_app/widgets/expanded/divider.dart';
+import 'package:flutter_app/widgets/expanded/widgets_attribute/Details/font_style/FontWidget.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_app/shared/helpers/icomoon.dart';
 
@@ -25,22 +26,24 @@ class DetailPage extends StatefulWidget {
 }
 
 class _DetailPageState extends State<DetailPage> {
+  List<Game> listProgression = [];
   Game selectedGame;
-  Game addGame;
-  double _progression;
-  // final _textFieldController = TextEditingController();
+  double _progression = 0.0;
+
   final _formKey = GlobalKey<FormState>();
-  // final GlobalKey<Game> _key = GlobalKey();
-  // final GlobalKey<Game> _key = GlobalKey();
   
   @override
   void initState() {
     // TODO: implement initState
-    final List<Game> listGame = Provider.of<Products>(context, listen: false).items;
-    setState((){
+    setState(() {
       selectedGame = Provider.of<Products>(context, listen: false).selectedGame;
     });
-    final addGame = Provider.of<Products>(context, listen: false).addGame;
+
+    if(selectedGame == null) {
+      final List<Game> listGame = Provider.of<Products>(context, listen: false).items.toList();
+      selectedGame = listGame.firstWhere((game) => game.id == widget.gameId);
+    }
+  
     super.initState();
   }
  
@@ -120,11 +123,13 @@ class _DetailPageState extends State<DetailPage> {
                                 controller: _procedureController,
                                 keyboardType: TextInputType.number,
                                 onSaved: (progression) {
+                                  print('progression');
                                   setState(() {
                                     _progression = double.parse(progression);
                                     print(_progression);
-
                                   });
+                                  print(_progression);
+                                  
                                 },
                                 validator: (value) {
                                   if(value.isEmpty){
@@ -154,33 +159,7 @@ class _DetailPageState extends State<DetailPage> {
                       ),
                     ),
                     // onTap: null,
-                    onTap: (){
-                      if(!_formKey.currentState.validate()){
-                        // Scaffold.of(context).showSnackBar(
-                        //   SnackBar(content: Text("Processing.."))
-                        // );
-                        return;
-                        // addGame.progression;
-                      }
-
-
-                      // Navigator.of(context).pop();
-                      // if(_formKey.currentState.validate()){
-                      //   Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //       builder: (context) {
-                      //         return MyFavoritesPage();
-                      //       }
-                      //       // builder: (context) => MyFavoritesPage(
-                      //       //   // int.parse(_procedureController.text.trim())
-                      //       // ),
-                      //     )
-                      //   );
-                      // }
-                      // showAlertDialog(context);
-                      // Scaffold.of(context).showSnackBar(SnackBar(content: Text('Tap')));
-                    }
+                    onTap: () => _submitForm(context)
                   ),
                   // OutlineButton(
                   //   textColor: Colors.white,
@@ -198,5 +177,17 @@ class _DetailPageState extends State<DetailPage> {
         );
       },
     );
+  }
+
+  void _submitForm (BuildContext context) {
+    if(!_formKey.currentState.validate())
+      return;
+
+    _formKey.currentState.save();
+    
+    Provider.of<Products>(context).addGameUserList(selectedGame);
+    Provider.of<Products>(context).changeProgression(selectedGame, _progression);
+
+    Navigator.of(context).pop();
   }
 }

@@ -9,7 +9,6 @@ import 'package:provider/provider.dart';
 
 class HomeWidgetsList extends StatelessWidget{
   final List<Game> list;
-  List<Game> inProgressList = [], completedList =[];
 
   HomeWidgetsList({
     @required this.list
@@ -17,11 +16,18 @@ class HomeWidgetsList extends StatelessWidget{
 
   @override
   Widget build(BuildContext context){
-    final List<Game> listGame = Provider.of<Products>(context, listen: false).items;
-    inProgressList = listGame.where((game) => game.progression < 100).toList();
-    completedList = listGame.where((game) => game.progression == 100).toList();
     
-    return ListView.separated(
+    return list.length == 0
+    ? Center(
+      child: Container(
+        padding: EdgeInsets.all(10),
+        color: Colors.black12,
+        child: Text(
+          'There is no game in the list'
+        )
+      )
+    )
+    : ListView.separated(
       shrinkWrap: true,
       physics: NeverScrollableScrollPhysics(),
       separatorBuilder: (context, index) =>

@@ -6,15 +6,23 @@ import 'package:provider/provider.dart';
 
 class FavoriteImage extends StatelessWidget{
   final Game game;
+  // final String image;
+
+  Game selectedImage;
+  String imageList;
+  List<Game> inImageList = [];
   FavoriteImage({
     @required this.game
+    // @required this.image
   });
   
   @override
   Widget build(BuildContext context) {
+    final List<Game> listGame = Provider.of<Products>(context, listen: false).items;
+    // inImageList = listGame.where((game) => ).toList();
     return Container(
       child: Image.asset(
-        game.images[0],
+        game.images[1],
         fit: BoxFit.fitWidth
       ),
     );
@@ -22,9 +30,9 @@ class FavoriteImage extends StatelessWidget{
 }
 
 class FavoriteText extends StatelessWidget{
-  final Game game;
+  final Game gameText;
   FavoriteText({
-    @required this.game
+    @required this.gameText
   });
 
   @override
@@ -40,7 +48,7 @@ class FavoriteText extends StatelessWidget{
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Text(
-              game.title,
+              gameText.title,
               textScaleFactor: 2,
               textAlign: TextAlign.center,
               style: TextStyle(

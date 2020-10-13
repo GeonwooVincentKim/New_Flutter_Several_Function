@@ -1,14 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/app_screens/myfavorites/MyFavoritesAttribute.dart';
 import 'package:flutter_app/data/Provide.dart';
 import 'package:flutter_app/model/game/game.dart';
+import 'package:flutter_app/widgets/ExampleCode/body_old_code/body_list.dart';
 import 'package:flutter_app/widgets/expanded/widgets_attribute/myfavorites/MyFavoritesWidget.dart';
 import 'package:provider/provider.dart';
 
 
 class MyFavoritesPage extends StatelessWidget{
-  
+  List<Game> myFavoritePage = [];
+  // List<Game> inWidgetList = [];
+  Game selectedGame;
+
+  // MyFavoritesPage({
+  //   @required this.myFavoritePage
+  // });
   @override
   Widget build(BuildContext context) {
+    // final List<Game> listGame = Provider.of<Products>(context, listen: false).items;
+    // inWidgetList = listGame.where((game) => game.isFavorite).toList();
+    // selectedGame = Provider.of<Products>(context, listen: false).selectedGame;
+    // myFavoritePage = listGame.toList();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black87,
@@ -16,6 +28,7 @@ class MyFavoritesPage extends StatelessWidget{
         centerTitle: true,
       ),
       // body: MyFavoritesPageBody(inWidgetList: widgetList),
+      // body: MyFavoritesPageBody(gameTitle: myFavoritePage),
       body: MyFavoritesPageBody(),
     );
   }
@@ -24,11 +37,18 @@ class MyFavoritesPage extends StatelessWidget{
 class MyFavoritesPageBody extends StatelessWidget{
   List<Game> inWidgetList = [];
   Game selectedGame;
+  // final Game gameTitle;
+  // final List<Game> gameTitle;
+  // MyFavoritesPageBody({
+  //   @required this.gameTitle
+  // });
 
   @override
   Widget build(BuildContext context) {
     final List<Game> listGame = Provider.of<Products>(context, listen: false).items;
     inWidgetList = listGame.where((game) => game.isFavorite).toList();
+    // selectedGame = Provider.of<Products>(context, listen: false).selectedGame;
+    
 
     return Scaffold(
       body: Padding(
@@ -43,8 +63,10 @@ class MyFavoritesPageBody extends StatelessWidget{
           itemCount: inWidgetList.length,
           itemBuilder: (context, index) {
             final item = inWidgetList[index];
+            // return MyFavoritesLists(favoriteList: item);
             return GestureDetector(
               onTap: (){
+                // Provider.of<Products>(context, listen: false).selectGame(favoriteList);
                 Navigator.pushNamed(context, '/game/${item.id}');
                 // item.isFavorite?
                 //   Navigator.pushNamed(context, '/game/${item.id}') :  Container();
@@ -59,7 +81,7 @@ class MyFavoritesPageBody extends StatelessWidget{
                   item.isFavorite?
                     Expanded(
                       flex: 1,
-                      child: FavoriteText(game: item),
+                      child: FavoriteText(gameText: item),
                     ) : Container(),
                 ],
               ),

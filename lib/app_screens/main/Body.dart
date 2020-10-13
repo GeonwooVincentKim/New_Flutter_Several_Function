@@ -23,7 +23,7 @@ class _BodyState extends State<Body>{
   @override
   void initState() {
     // TODO: implement initState
-    final List<Game> listGame = Provider.of<Products>(context, listen: false).items;
+    final List<Game> listGame = Provider.of<Products>(context, listen: false).userList;
     setState(() {
       inProgressList = listGame.where((game) => game.progression < 100).toList();
       completedList = listGame.where((game) => game.progression == 100).toList();
@@ -34,8 +34,7 @@ class _BodyState extends State<Body>{
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
+    return Container(
         // height: MediaQuery.of(context).size.height,
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         color: Colors.black12,
@@ -62,7 +61,6 @@ class _BodyState extends State<Body>{
             ],
           ),
         ),
-      ),
-    );
+      );
   }
 }

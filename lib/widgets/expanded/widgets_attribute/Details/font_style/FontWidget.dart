@@ -74,6 +74,7 @@ class Progressions extends StatelessWidget{
           style: subtitleFont,
           children: <TextSpan>[
             TextSpan(text: "Progressions: "),
+            // TextSpan(text: "%", (p)) 
             TextSpan(text: (gameProgressions.progression).toString(), style: contextFont),
             TextSpan(text: "%", style: contextFont),
           ],
