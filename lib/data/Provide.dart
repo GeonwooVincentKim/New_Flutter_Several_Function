@@ -26,6 +26,12 @@ class Products with ChangeNotifier {
     notifyListeners();
   }
 
+
+  void addGame(Game game){
+    _productItems.add(game);
+    notifyListeners();
+  }
+
   void addProduct(value) {
     _productItems.add(value);
     notifyListeners();

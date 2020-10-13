@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app_screens/details/details_attributes/DetailsBody.dart';
+import 'package:flutter_app/app_screens/main/Home.dart';
+import 'package:flutter_app/app_screens/myfavorites/MyFavorites.dart';
 import 'package:flutter_app/app_screens/settings/dialog/Dialog.dart';
 import 'package:flutter_app/data/Provide.dart';
 import 'package:flutter_app/model/game/game.dart';
@@ -10,32 +12,43 @@ import 'package:flutter_app/shared/helpers/icomoon.dart';
 class DetailPage extends StatefulWidget {
 
   final String gameId;
+  // DetailPage({
+  //   Key key,
+  //   this.gameId
+  // }) : super(key: key);
   DetailPage({
     this.gameId
   });
-  
+
   @override
   _DetailPageState createState() => _DetailPageState();
 }
 
 class _DetailPageState extends State<DetailPage> {
-
   Game selectedGame;
-  final _textFieldController = TextEditingController();
+  Game addGame;
+  double _progression;
+  // final _textFieldController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+  // final GlobalKey<Game> _key = GlobalKey();
   // final GlobalKey<Game> _key = GlobalKey();
   
   @override
   void initState() {
     // TODO: implement initState
-    selectedGame = Provider.of<Products>(context, listen: false).selectedGame;
+    final List<Game> listGame = Provider.of<Products>(context, listen: false).items;
+    setState((){
+      selectedGame = Provider.of<Products>(context, listen: false).selectedGame;
+    });
+    final addGame = Provider.of<Products>(context, listen: false).addGame;
     super.initState();
   }
-
-  @override
-  void dispose(){
-    _textFieldController.dispose();
-    super.dispose();
-  }
+ 
+  // @override
+  // void dispose(){
+  //   _textFieldController.dispose();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -62,10 +75,7 @@ class _DetailPageState extends State<DetailPage> {
 
   // 'ADD TO MY LIST' Dialog.
   void showAddListDialog(BuildContext context) async{
-    final scaffoldKey = new GlobalKey<ScaffoldState>();
     final _procedureController = TextEditingController();
-    final _formKey = GlobalKey<FormState>();
-    // final GlobalKey<Game> _key = GlobalKey();
 
     return showDialog(
       context: context,
@@ -77,7 +87,9 @@ class _DetailPageState extends State<DetailPage> {
           contentPadding: EdgeInsets.zero,
           content: Container(
             width: MediaQuery.of(context).size.width,
-            child: Column(
+            child: Form(
+              key: _formKey,
+              child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -85,11 +97,11 @@ class _DetailPageState extends State<DetailPage> {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 25),
                   child: Column(
-                    children: [
-                      Text("Are you sure you want to add TITLE OF THE GAME to your list of game?"),
-                      // CustomDivider(color: Colors.transparent),
-                      transparent_divider(),
-                      Row(
+                      children: [
+                        Text("Are you sure you want to add TITLE OF THE GAME to your list of game?"),
+                        // CustomDivider(color: Colors.transparent),
+                        transparent_divider(),
+                        Row(
                           children: [
                             Expanded(
                               child: Text("Progress: ", style: TextStyle(
@@ -107,8 +119,15 @@ class _DetailPageState extends State<DetailPage> {
                                     hintText: '10%'),
                                 controller: _procedureController,
                                 keyboardType: TextInputType.number,
+                                onSaved: (progression) {
+                                  setState(() {
+                                    _progression = double.parse(progression);
+                                    print(_progression);
+
+                                  });
+                                },
                                 validator: (value) {
-                                  if(value.trim().isEmpty){
+                                  if(value.isEmpty){
                                     return "Please Input your Procedure-Number Value.";
                                   }
                                   return null;
@@ -116,54 +135,64 @@ class _DetailPageState extends State<DetailPage> {
                               ),
                             ),
                           ]
+                        ),
+                      ]
+                    ),
+                  ),
+                  transparent_divider(),
+                  InkWell(
+                    child: Container(
+                      padding: EdgeInsets.symmetric(vertical: 20),
+                      // padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
+                      decoration: BoxDecoration(
+                        color: Colors.black,
                       ),
-                    ]
-                  ),
-                ),
-                transparent_divider(),
-                InkWell(
-                  child: Container(
-                    padding: EdgeInsets.symmetric(vertical: 20),
-                    // padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
-                    decoration: BoxDecoration(
-                      color: Colors.black,
+                      child: Text(
+                        "+ Add to my List",
+                        style: TextStyle(color: Colors.white),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
-                    child: Text(
-                      "+ Add to my List",
-                      style: TextStyle(color: Colors.white),
-                      textAlign: TextAlign.center,
-                    ),
+                    // onTap: null,
+                    onTap: (){
+                      if(!_formKey.currentState.validate()){
+                        // Scaffold.of(context).showSnackBar(
+                        //   SnackBar(content: Text("Processing.."))
+                        // );
+                        return;
+                        // addGame.progression;
+                      }
+
+
+                      // Navigator.of(context).pop();
+                      // if(_formKey.currentState.validate()){
+                      //   Navigator.push(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //       builder: (context) {
+                      //         return MyFavoritesPage();
+                      //       }
+                      //       // builder: (context) => MyFavoritesPage(
+                      //       //   // int.parse(_procedureController.text.trim())
+                      //       // ),
+                      //     )
+                      //   );
+                      // }
+                      // showAlertDialog(context);
+                      // Scaffold.of(context).showSnackBar(SnackBar(content: Text('Tap')));
+                    }
                   ),
-                  // onTap: null,
-                  onTap: (){
-                    // Navigator.of(context).pop();
-                    // if(_formKey.currentState.validate()){
-                    //   Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //       builder: (context) {
-                    //         return MyFavoritesPage();
-                    //       }
-                    //       // builder: (context) => MyFavoritesPage(
-                    //       //   // int.parse(_procedureController.text.trim())
-                    //       // ),
-                    //     )
-                    //   );
-                    // }
-                    // showAlertDialog(context);
-                    // Scaffold.of(context).showSnackBar(SnackBar(content: Text('Tap')));
-                  }
-                ),
-                // OutlineButton(
-                //   textColor: Colors.white,
-                //   highlightedBorderColor: Colors.white,
-                //   borderSide: BorderSide(
-                //     color: Colors.white, width: 0.8, style: BorderStyle.solid),
-                //     onPressed: MyFavoritesPage,
-                //   ),
-                //
-                // ),
-              ],
+                  // OutlineButton(
+                  //   textColor: Colors.white,
+                  //   highlightedBorderColor: Colors.white,
+                  //   borderSide: BorderSide(
+                  //     color: Colors.white, width: 0.8, style: BorderStyle.solid),
+                  //     onPressed: MyFavoritesPage,
+                  //   ),
+                  //
+                  // ),
+                ],
+              ),
             ),
           ),
         );

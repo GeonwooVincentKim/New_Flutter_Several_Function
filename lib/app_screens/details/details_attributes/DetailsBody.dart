@@ -6,7 +6,8 @@ import 'package:flutter_app/widgets/expanded/widgets_attribute/Details/DetailsWi
 class DetailBody extends StatelessWidget{
   final Game gameDetailBody;
   DetailBody({
-    @required this.gameDetailBody
+    @required this.gameDetailBody,
+    // @required this.key
   });
 
   @override

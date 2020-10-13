@@ -148,7 +148,7 @@ var DUMMY_GAMES = [
       publisher: 'e1',
       description: "Persona 5 is a role-playing video game developed by Atlus. It is the sixth installment in the Persona series, which is part of the larger Megami Tensei franchise. Persona 5 takes place in modern-day Tokyo and follows a high school student known by the pseudonym Joker who transfers to a new school after being falsely accused of assault and put on probation. Over the course of a school year, he and other students awaken to a special power, becoming a group of secret vigilantes known as the Phantom Thieves of Hearts. They explore the Metaverse, a supernatural realm born from humanity's subconscious desires, to steal malevolent intent from the hearts of adults. As with previous games in the series, the party battles enemies known as Shadows using physical manifestations of their psyche known as their Personas. The game incorporates role-playing and dungeon crawling elements alongside social simulation scenarios.",
       releaseDate: '2016/09/15',
-      isFavorite: true,
+      isFavorite: false,
       progression: 90,
       videoUrl: "https://www.youtube.com/watch?v=YKfaPgl8N8E"
   ),
