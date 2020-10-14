@@ -1,22 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app_screens/details/details_attributes/DetailsBody.dart';
-import 'package:flutter_app/app_screens/main/Home.dart';
-import 'package:flutter_app/app_screens/myfavorites/MyFavorites.dart';
-import 'package:flutter_app/app_screens/settings/dialog/Dialog.dart';
 import 'package:flutter_app/provider/Provide.dart';
 import 'package:flutter_app/model/game/game.dart';
 import 'package:flutter_app/widgets/expanded/divider.dart';
-import 'package:flutter_app/widgets/expanded/widgets_attribute/Details/font_style/FontWidget.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_app/shared/helpers/icomoon.dart';
 
 class DetailPage extends StatefulWidget {
 
   final String gameId;
-  // DetailPage({
-  //   Key key,
-  //   this.gameId
-  // }) : super(key: key);
+
   DetailPage({
     this.gameId
   });
@@ -34,7 +27,6 @@ class _DetailPageState extends State<DetailPage> {
   
   @override
   void initState() {
-    // TODO: implement initState
     setState(() {
       selectedGame = Provider.of<Products>(context, listen: false).selectedGame;
     });
@@ -46,12 +38,6 @@ class _DetailPageState extends State<DetailPage> {
   
     super.initState();
   }
- 
-  // @override
-  // void dispose(){
-  //   _textFieldController.dispose();
-  //   super.dispose();
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -102,7 +88,6 @@ class _DetailPageState extends State<DetailPage> {
                   child: Column(
                       children: [
                         Text("Are you sure you want to add TITLE OF THE GAME to your list of game?"),
-                        // CustomDivider(color: Colors.transparent),
                         transparent_divider(),
                         Row(
                           children: [
@@ -148,7 +133,6 @@ class _DetailPageState extends State<DetailPage> {
                   InkWell(
                     child: Container(
                       padding: EdgeInsets.symmetric(vertical: 20),
-                      // padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
                       decoration: BoxDecoration(
                         color: Colors.black,
                       ),
@@ -158,18 +142,8 @@ class _DetailPageState extends State<DetailPage> {
                         textAlign: TextAlign.center,
                       ),
                     ),
-                    // onTap: null,
                     onTap: () => _submitForm(context)
                   ),
-                  // OutlineButton(
-                  //   textColor: Colors.white,
-                  //   highlightedBorderColor: Colors.white,
-                  //   borderSide: BorderSide(
-                  //     color: Colors.white, width: 0.8, style: BorderStyle.solid),
-                  //     onPressed: MyFavoritesPage,
-                  //   ),
-                  //
-                  // ),
                 ],
               ),
             ),

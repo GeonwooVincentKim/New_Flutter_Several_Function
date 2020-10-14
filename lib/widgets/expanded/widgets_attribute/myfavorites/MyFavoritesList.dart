@@ -31,14 +31,6 @@ class MyFavoriteList extends StatelessWidget{
               flex: 1,
               child: FavoriteText(gameText: gameContents),
             ) : Container(),
-          // Expanded(
-          //   flex: 2,
-          //   child: FavoriteImage(game: gameContents),
-          // ),
-          // Expanded(
-          //   flex: 1,
-          //   child: FavoriteText(gameText: gameContents),
-          // ),
         ],
       ),
     );
