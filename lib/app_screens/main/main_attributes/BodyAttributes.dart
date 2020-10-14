@@ -9,6 +9,7 @@ import 'package:provider/provider.dart';
 
 class HomeWidgetsList extends StatelessWidget{
   final List<Game> list;
+  Game selectedGame;
 
   HomeWidgetsList({
     @required this.list
@@ -45,12 +46,22 @@ class HomeWidgetsList extends StatelessWidget{
               onDismissed: (direction) {
                 // setState(() {
                 //   listUp.removeAt(index);
-                // });
-                Scaffold.of(context).showSnackBar(
-                    SnackBar(content:
-                    Text("$item dismissed")
-                    )
-                );
+                // });'
+                // Provider.of<Products>(context).deleteProduct(selectedGame);
+                list.removeAt(index);
+                 
+                // Scaffold.of(context).showSnackBar(
+                //   SnackBar(content:
+                //     Text("$item dismissed"),
+                //     action: SnackBarAction(
+                //       label: "UNDO",
+                //       onPressed: (){
+                //         changeProgression();
+                //       },
+                //     )
+                //   )
+                // );
+                
               },
               background: Container(
                 color: Colors.amber,

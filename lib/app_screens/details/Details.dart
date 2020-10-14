@@ -161,7 +161,8 @@ class _DetailPageState extends State<DetailPage> {
     
     Provider.of<Products>(context).addGameUserList(selectedGame);
     Provider.of<Products>(context).changeProgression(selectedGame, _progression);
-
+    Provider.of<Products>(context).deleteProduct(selectedGame);
+    
     Navigator.of(context).pop();
   }
 }
