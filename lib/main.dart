@@ -26,8 +26,8 @@ class MyApp extends StatelessWidget{
           routes: {
             '/': (context) => Home(),
             '/discover': (context) => Discover(),
-            // '/favorite': (context) => MyFavoritesPage()
-            '/favorite': (context) => MyFavorites()
+            '/favorite': (context) => MyFavoritesPage()
+            // '/favorite': (context) => MyFavorites()
           },
           onGenerateRoute: (RouteSettings settings){
             final List<String> pathElements = settings.name.split("/");
