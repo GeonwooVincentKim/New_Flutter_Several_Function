@@ -19,7 +19,8 @@ class Body extends StatefulWidget{
 class _BodyState extends State<Body>{
   List<Game> inProgressList = [], completedList = [];
   List<String> titleList = <String>['IN PROCESS', 'Completed'];
- 
+  Game deletedGame;
+
   @override
   void initState() {
     // TODO: implement initState
@@ -27,6 +28,8 @@ class _BodyState extends State<Body>{
     setState(() {
       inProgressList = listGame.where((game) => game.progression < 100).toList();
       completedList = listGame.where((game) => game.progression == 100).toList();
+      // inProgressList.removeAt(0);
+      // deletedGame = Provider.of<Products>(context, listen: false).deleteProduct(context);
       // inProgressListText = "IN PROGRE"
     });
     super.initState();

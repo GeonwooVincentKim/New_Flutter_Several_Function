@@ -10,7 +10,7 @@ import 'package:provider/provider.dart';
 class HomeWidgetsList extends StatelessWidget{
   final List<Game> list;
   Game selectedGame;
-
+  
   HomeWidgetsList({
     @required this.list
   });
@@ -36,6 +36,7 @@ class HomeWidgetsList extends StatelessWidget{
       itemCount: list.length,
       itemBuilder: (context, index) {
         final item = list[index];
+        // return BodyList(bodyList: item);
         return ClipRRect(
           borderRadius: BorderRadius.circular(10.0),
           child: Container(
@@ -47,20 +48,9 @@ class HomeWidgetsList extends StatelessWidget{
                 // setState(() {
                 //   listUp.removeAt(index);
                 // });'
-                // Provider.of<Products>(context).deleteProduct(selectedGame);
+                // Provider.of<Products>(context).deleteProduct(index);
                 list.removeAt(index);
-                 
-                // Scaffold.of(context).showSnackBar(
-                //   SnackBar(content:
-                //     Text("$item dismissed"),
-                //     action: SnackBarAction(
-                //       label: "UNDO",
-                //       onPressed: (){
-                //         changeProgression();
-                //       },
-                //     )
-                //   )
-                // );
+                // print(index);
                 
               },
               background: Container(

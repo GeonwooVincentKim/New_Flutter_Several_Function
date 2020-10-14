@@ -18,7 +18,7 @@ class FavoriteImage extends StatelessWidget{
   
   @override
   Widget build(BuildContext context) {
-    final List<Game> listGame = Provider.of<Products>(context, listen: false).items;
+    // final List<Game> listGame = Provider.of<Products>(context, listen: false).items;
     // inImageList = listGame.where((game) => ).toList();
     return Container(
       child: Image.asset(
