@@ -26,8 +26,19 @@ class _BodyState extends State<Body>{
     // TODO: implement initState
     final List<Game> listGame = Provider.of<Products>(context, listen: false).userList;
     setState(() {
-      inProgressList = listGame.where((game) => game.progression < 100).toList();
-      completedList = listGame.where((game) => game.progression == 100).toList();
+      print("SetState");
+      if(listGame.isEmpty == true){
+        print("True");
+        inProgressList = listGame.where((game) => game.progression < 100).toList();
+        completedList = listGame.where((game) => game.progression == 100).toList();
+      }
+      else if(listGame.isEmpty == false){
+        print("False");
+        // inProgressList.removeAt(0);
+        inProgressList = listGame.where((game) => game.progression < 100).toList();
+        // completedList = listGame.where((game) => game.progression == 100).toList();
+      }
+      
       // inProgressList.removeAt(0);
       // deletedGame = Provider.of<Products>(context, listen: false).deleteProduct(context);
       // inProgressListText = "IN PROGRE"
