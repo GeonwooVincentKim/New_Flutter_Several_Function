@@ -3,7 +3,7 @@ import 'package:flutter_app/app_screens/details/details_attributes/DetailsBody.d
 import 'package:flutter_app/app_screens/main/Home.dart';
 import 'package:flutter_app/app_screens/myfavorites/MyFavorites.dart';
 import 'package:flutter_app/app_screens/settings/dialog/Dialog.dart';
-import 'package:flutter_app/data/Provide.dart';
+import 'package:flutter_app/provider/Provide.dart';
 import 'package:flutter_app/model/game/game.dart';
 import 'package:flutter_app/widgets/expanded/divider.dart';
 import 'package:flutter_app/widgets/expanded/widgets_attribute/Details/font_style/FontWidget.dart';

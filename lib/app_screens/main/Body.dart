@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app_screens/main/main_attributes/BodyAttributes.dart';
-import 'package:flutter_app/data/Provide.dart';
+import 'package:flutter_app/provider/Provide.dart';
 import 'package:flutter_app/widgets/expanded/divider.dart';
 import 'package:flutter_app/widgets/expanded/widgets_attribute/Main/MainWidgets.dart';
 import 'package:flutter_app/model/game/game.dart';

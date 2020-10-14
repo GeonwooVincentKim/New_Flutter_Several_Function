@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/app_screens/myfavorites/MyFavoritesAttribute.dart';
-import 'package:flutter_app/data/Provide.dart';
+import 'package:flutter_app/provider/Provide.dart';
 import 'package:flutter_app/model/game/game.dart';
-import 'package:flutter_app/widgets/ExampleCode/body_old_code/body_list.dart';
-import 'package:flutter_app/widgets/expanded/widgets_attribute/myfavorites/MyFavoirtesAttribute.dart';
-import 'package:flutter_app/widgets/expanded/widgets_attribute/myfavorites/MyFavoritesWidget.dart';
+import 'package:flutter_app/app_screens/myfavorites/MyFavoirtesAttribute.dart';
 import 'package:provider/provider.dart';
 
 
+// ignore: must_be_immutable
 class MyFavoritesPage extends StatelessWidget{
   List<Game> inWidgetList = [];
   @override

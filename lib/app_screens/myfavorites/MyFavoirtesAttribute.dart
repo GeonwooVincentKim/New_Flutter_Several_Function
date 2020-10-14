@@ -26,6 +26,4 @@ class MyFavoriteWidgetList extends StatelessWidget{
       }
     );
   }
-  
-  
 }

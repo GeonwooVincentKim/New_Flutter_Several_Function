@@ -4,7 +4,7 @@ import 'package:flutter_app/app_screens/discover/Discover.dart';
 // import 'package:flutter_app/app_screens/discover/Discover.dart';
 import 'package:flutter_app/app_screens/myfavorites/MyFavorites.dart';
 import 'package:flutter_app/data/ProductStore.dart';
-import 'package:flutter_app/data/Provide.dart';
+import 'package:flutter_app/provider/Provide.dart';
 import 'package:flutter_app/model/game/game.dart';
 import 'package:provider/provider.dart';
 import 'app_screens/main/Home.dart';

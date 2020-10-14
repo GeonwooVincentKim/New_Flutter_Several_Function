@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/data/Provide.dart';
+import 'package:flutter_app/provider/Provide.dart';
 import 'package:flutter_app/model/game/game.dart';
 import 'package:flutter_app/widgets/expanded/widgets_attribute/myfavorites/MyFavoritesWidget.dart';
 import 'package:provider/provider.dart';
@@ -21,24 +21,24 @@ class MyFavoriteList extends StatelessWidget{
       },
       child: Column(
         children: [
-          // gameContents.isFavorite?
-          //   Expanded(
-          //     flex: 2,
-          //     child: FavoriteImage(game: gameContents),
-          //   ) : Container(),
-          // gameContents.isFavorite?
-          //   Expanded(
-          //     flex: 1,
-          //     child: FavoriteText(gameText: gameContents),
-          //   ) : Container(),
-          Expanded(
-            flex: 2,
-            child: FavoriteImage(game: gameContents),
-          ),
-          Expanded(
-            flex: 1,
-            child: FavoriteText(gameText: gameContents),
-          ),
+          gameContents.isFavorite?
+            Expanded(
+              flex: 2,
+              child: FavoriteImage(game: gameContents),
+            ) : Container(),
+          gameContents.isFavorite?
+            Expanded(
+              flex: 1,
+              child: FavoriteText(gameText: gameContents),
+            ) : Container(),
+          // Expanded(
+          //   flex: 2,
+          //   child: FavoriteImage(game: gameContents),
+          // ),
+          // Expanded(
+          //   flex: 1,
+          //   child: FavoriteText(gameText: gameContents),
+          // ),
         ],
       ),
     );
