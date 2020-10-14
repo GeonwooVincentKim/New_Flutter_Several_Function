@@ -22,9 +22,9 @@ void showAlertDialog(BuildContext context) async {
           FlatButton(
             child: Text('OK'),
             onPressed: () {
-              Navigator.push(
-                context, MaterialPageRoute(builder: (context){return MyFavoritesPage();})
-              );
+              // Navigator.push(
+              //   context, MaterialPageRoute(builder: (context){return MyFavoritesPage();})
+              // );
             },
           ),
           FlatButton(
@@ -116,17 +116,17 @@ void showAddListDialog(BuildContext context) async{
                 // onTap: null,
                 onTap: (){
                   if(_formKey.currentState.validate()){
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        // builder: (context) {
-                        //   return MyFavoritesPage();
-                        // }
-                        builder: (context) => MyFavoritesPage(
-                          // int.parse(_procedureController.text.trim())
-                        ),
-                      )
-                    );
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     // builder: (context) {
+                    //     //   return MyFavoritesPage();
+                    //     // }
+                    //     builder: (context) => MyFavoritesPage(
+                    //       // int.parse(_procedureController.text.trim())
+                    //     ),
+                    //   )
+                    // );
                   }
                   showAlertDialog(context);
                   // Scaffold.of(context).showSnackBar(SnackBar(content: Text('Tap')));
