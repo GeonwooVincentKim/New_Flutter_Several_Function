@@ -29,14 +29,19 @@ class _BodyState extends State<Body>{
       print("SetState");
       if(listGame.isEmpty == true){
         print("True");
-        inProgressList = listGame.where((game) => game.progression < 100).toList();
-        completedList = listGame.where((game) => game.progression == 100).toList();
+        // inProgressList = listGame.where((game) => game.progression < 100).toList();
+        // completedList = listGame.where((game) => game.progression == 100).toList();
+        // inProgressList = listGame.removeWhere((game) => false)
+        // listGame.clear();
+        inProgressList.clear();
+        completedList.clear();
       }
       else if(listGame.isEmpty == false){
         print("False");
         // inProgressList.removeAt(0);
         inProgressList = listGame.where((game) => game.progression < 100).toList();
-        // completedList = listGame.where((game) => game.progression == 100).toList();
+        completedList = listGame.where((game) => game.progression == 100).toList();
+        // inProgressList.clear();
       }
       
       // inProgressList.removeAt(0);

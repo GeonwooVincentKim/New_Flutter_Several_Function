@@ -55,7 +55,7 @@ class Products with ChangeNotifier {
   }
 
   void deleteProduct(value){
-    _productItems.remove(value);
+    _userLists.remove(value);
     notifyListeners();
   }
 }

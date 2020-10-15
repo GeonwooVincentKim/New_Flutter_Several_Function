@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_app/provider/Provide.dart';
 import 'package:flutter_app/shared/helpers/icomoon.dart';
@@ -49,6 +51,11 @@ class HomeWidgetsList extends StatelessWidget{
                 //   listUp.removeAt(index);
                 // });'
                 // Provider.of<Products>(context).deleteProduct(index);
+                // if(direction == DismissDirection.startToEnd){
+                //   setState((){
+
+                //   });
+                // }
                 list.removeAt(index);
                 // print(index);
                 

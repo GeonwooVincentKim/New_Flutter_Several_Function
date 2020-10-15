@@ -16,8 +16,6 @@ class MyFavoriteList extends StatelessWidget{
       onTap: (){
         Provider.of<Products>(context, listen: false).selectGame(gameContents);
         Navigator.pushNamed(context, '/game/${gameContents.id}');
-        // item.isFavorite?
-        //   Navigator.pushNamed(context, '/game/${item.id}') :  Container();
       },
       child: Column(
         children: [

@@ -11,7 +11,17 @@ class MyFavoriteWidgetList extends StatelessWidget{
   
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
+    return myfavoriteList.length == 0
+    ? Center(
+      child: Container(
+        padding: EdgeInsets.all(10),
+        color: Colors.black12,
+        child: Text(
+          'There is no favorite-game in your list'
+        )
+      ),
+    )
+    : GridView.builder(
       shrinkWrap: true,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
