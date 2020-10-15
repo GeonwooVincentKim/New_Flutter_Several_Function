@@ -84,7 +84,7 @@ class _HomeState extends State<Home>{
 
         type: BottomNavigationBarType.fixed,
         selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white38,
         // onTap: _onItemTapped,
         iconSize: 50,
         currentIndex: _selectedPage,

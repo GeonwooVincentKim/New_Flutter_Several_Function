@@ -3,6 +3,7 @@ import 'package:flutter_app/app_screens/Details.dart';
 import 'package:flutter_app/app_screens/Discover.dart';
 // import 'package:flutter_app/app_screens/discover/Discover.dart';
 import 'package:flutter_app/app_screens/MyFavorites.dart';
+import 'package:flutter_app/app_screens/settings.dart';
 import 'package:flutter_app/data/ProductStore.dart';
 import 'package:flutter_app/provider/Provide.dart';
 import 'package:flutter_app/model/game/game.dart';
@@ -26,7 +27,8 @@ class MyApp extends StatelessWidget{
           routes: {
             '/': (context) => Home(),
             '/discover': (context) => Discover(),
-            '/favorite': (context) => MyFavoritesPage()
+            '/favorite': (context) => MyFavoritesPage(),
+            '/settings': (context) => Settings(),
             // '/favorite': (context) => MyFavorites()
           },
           onGenerateRoute: (RouteSettings settings){

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/app_screens/settings.dart';
-import 'package:flutter_app/app_screens/settings/settings_attribute/SettingsBody.dart';
 import 'package:flutter_app/main.dart';
 
 class SideMenu extends StatelessWidget{
@@ -27,9 +25,7 @@ class SideMenu extends StatelessWidget{
           ListTile(
             title: Text("Settings"),
             onTap: (){
-              // It cannot move to Settings();
-              // So I alternated as settings_main();.
-              settings_main();
+              Navigator.pushNamed(context, '/settings');
             },
           ),
         ],
