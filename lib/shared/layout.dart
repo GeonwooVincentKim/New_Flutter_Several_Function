@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/shared/helpers/icomoon.dart';
+import 'package:flutter_app/shared/style.dart';
 
 
 class PageLayout extends StatelessWidget {
