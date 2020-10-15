@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/widgets/expanded/widgets_attribute/Settings/FontAttribute/FontStyle.dart';
+import 'package:flutter_app/widgets/font/FontAttribute/FontStyle.dart';
 
 class LocalID extends StatelessWidget{
   @override

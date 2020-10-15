@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/model/game/game.dart';
 import 'package:flutter_app/widgets/expanded/divider.dart';
 import 'package:flutter_app/widgets/expanded/widgets_attribute/Details/BottomImage.dart';
-import 'font_style/FontWidget.dart';
+import 'package:flutter_app/widgets/font/font_style/FontWidget.dart';
 
 
 // For Text-font of 'details-page'.

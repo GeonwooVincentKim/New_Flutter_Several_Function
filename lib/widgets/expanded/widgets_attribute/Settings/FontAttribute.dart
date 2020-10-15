@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/widgets/expanded/divider.dart';
-import 'package:flutter_app/widgets/expanded/widgets_attribute/Settings/FontAttribute/Contents.dart';
+import 'package:flutter_app/widgets/font/FontAttribute/Contents.dart';
 
 
 class SettingsText extends StatelessWidget{

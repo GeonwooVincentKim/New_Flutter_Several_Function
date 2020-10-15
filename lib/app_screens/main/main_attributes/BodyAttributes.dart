@@ -1,12 +1,8 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_app/provider/Provide.dart';
 import 'package:flutter_app/shared/helpers/icomoon.dart';
 import 'package:flutter_app/widgets/expanded/divider.dart';
 import 'package:flutter_app/widgets/expanded/widgets_attribute/Main/MainLists.dart';
 import 'package:flutter_app/model/game/game.dart';
-import 'package:provider/provider.dart';
 
 
 class HomeWidgetsList extends StatelessWidget{
