@@ -3,7 +3,7 @@ import 'package:flutter_app/app_screens/settings/dialog/Dialog.dart';
 import 'package:flutter_app/app_screens/settings/settings_attribute/SettingText.dart';
 import 'package:flutter_app/widgets/expanded/divider.dart';
 // import '../SideMenu.dart';
-import 'package:flutter_app/app_screens/settings/SideMenu.dart';
+import 'package:flutter_app/app_screens/SideMenu.dart';
 import 'SettingImage.dart';
 
 

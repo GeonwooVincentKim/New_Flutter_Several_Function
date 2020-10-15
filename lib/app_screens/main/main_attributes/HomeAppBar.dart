@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/app_screens/details/Details.dart';
+import 'package:flutter_app/app_screens/Details.dart';
 import 'package:flutter_app/shared/helpers/icomoon.dart';
 
 // ignore: non_constant_identifier_names

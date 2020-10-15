@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/app_screens/details/Details.dart';
+import 'package:flutter_app/app_screens/Details.dart';
 import 'package:flutter_app/provider/Provide.dart';
 import 'package:flutter_app/model/game/game.dart';
 import 'package:flutter_app/widgets/expanded/widgets_attribute/Discover/DiscoverWidget.dart';

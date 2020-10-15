@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'settings_attribute/SettingsBody.dart';
+import 'settings/settings_attribute/SettingsBody.dart';
 
 // ignore: non_constant_identifier_names
 void settings_main(){

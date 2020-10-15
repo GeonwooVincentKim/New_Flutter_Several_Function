@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/app_screens/settings/settings.dart';
+import 'package:flutter_app/app_screens/settings.dart';
+import 'package:flutter_app/app_screens/settings/settings_attribute/SettingsBody.dart';
 import 'package:flutter_app/main.dart';
 
 class SideMenu extends StatelessWidget{
