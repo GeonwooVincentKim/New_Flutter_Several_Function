@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app_screens/attributes/SettingsAttribute.dart';
-import 'package:flutter_app/app_screens/settings/dialog/Dialog.dart';
 import 'package:flutter_app/shared/style.dart';
 import 'package:flutter_app/widgets/Commons/details_block.dart';
-import 'package:flutter_app/widgets/expanded/divider.dart';
-import 'package:flutter_app/app_screens/SideMenu.dart';
 
 
 class Settings extends StatelessWidget{
@@ -120,77 +117,3 @@ class Settings extends StatelessWidget{
     );
   }
 }
-// class Settings extends StatelessWidget{
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       drawer: SideMenu(),
-//       appBar: AppBar(
-//         backgroundColor: Colors.black87,
-//         title: Text("SETTINGS"),
-//         centerTitle: true,
-//       ),
-//       body: SettingsBody(),
-//       bottomNavigationBar: BottomAppBar(
-//         // shape: CircularNotchedRectangle(),
-//         color: Colors.black87,
-//         // notchMargin: 2.0,
-//         clipBehavior: Clip.antiAlias,
-//         child: Padding(
-//           padding: EdgeInsets.symmetric(vertical: 20),
-//           child: RichText(
-//               textAlign: TextAlign.center,
-//               text: TextSpan(
-//                   style: TextStyle(
-//                     color: Colors.white,
-//                     fontSize: 25,
-//                   ),
-//                   children: <TextSpan>[
-//                     TextSpan(text: "Modify"),
-//                   ]
-//               )
-//           ),
-//         )
-//       ),
-//     );
-//   }
-// }
-
-
-// class SettingsBody extends StatelessWidget{
-//   final scaffoldKey = GlobalKey<ScaffoldState>();
-//   @override
-//   Widget build(BuildContext context) {
-//     return Center(
-//       child: Container(
-//         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-//         alignment: Alignment.topLeft,
-//         color: Colors.white,
-//         child: SingleChildScrollView(
-//           child: Column(
-//             children: <Widget>[
-//               Center(
-//                 // If I use FlatButton, it shows AlertDialog overflows
-//                 // So I have to use GestureDetector.
-//                 child: GestureDetector(
-//                   onTap: () {
-//                     showAlertDialog(context);
-//                   },
-//                   child: ImageAttribute(),
-//                 ),
-//               ),
-//               transparent_divider(),
-//               Text(
-//                 "John Doe",
-//                 textScaleFactor: 1.5,
-//               ),
-//               Center(
-//                 child: TextAttribute(),
-//               ),
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
