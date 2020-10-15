@@ -32,6 +32,7 @@ class _DetailPageState extends State<DetailPage> {
     });
 
     if(selectedGame == null) {
+      print("Passing..??");
       final List<Game> listGame = Provider.of<Products>(context, listen: false).items.toList();
       selectedGame = listGame.firstWhere((game) => game.id == widget.gameId);
     }
@@ -161,7 +162,7 @@ class _DetailPageState extends State<DetailPage> {
     
     Provider.of<Products>(context).addGameUserList(selectedGame);
     Provider.of<Products>(context).changeProgression(selectedGame, _progression);
-    Provider.of<Products>(context).deleteProduct(selectedGame);
+    Provider.of<Products>(context).deleteGame(selectedGame);
     
     Navigator.of(context).pop();
   }

@@ -54,6 +54,11 @@ class Products with ChangeNotifier {
     notifyListeners();
   }
 
+  void deleteGame(Game game){
+    _userLists.remove(game);
+    notifyListeners();
+  }
+
   void deleteProduct(value){
     _userLists.remove(value);
     notifyListeners();
