@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/app_screens/discover/DiscoverAttributes.dart';
 import 'package:flutter_app/provider/Provide.dart';
 import 'package:flutter_app/model/game/game.dart';
+import 'package:flutter_app/widgets/expanded/divider.dart';
+import 'package:flutter_app/widgets/expanded/widgets_attribute/Discover/DiscoverLists.dart';
 import 'package:provider/provider.dart';
 
 class Discover extends StatefulWidget{
@@ -35,7 +37,18 @@ class _DiscoverState extends State<Discover>{
             children: <Widget>[
               // DiscoverWidgetsList(list: pageList),
               Expanded(
-                child: DiscoverWidgetsList(discoverList: pageList),
+                // child: DiscoverWidgetsList(discoverList: pageList),
+                child: ListView.separated(
+                  shrinkWrap: true,
+                  separatorBuilder: (context, index) =>
+                      transparent_divider(),
+                  itemCount: pageList.length,
+                  itemBuilder: (context, index){
+                    final item = pageList[index];
+                    // DiscoverList(game: item);
+                    return DiscoverList(gameTitle: item);
+                  }
+                )
               )
             ]
         ),
