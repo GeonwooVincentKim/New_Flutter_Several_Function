@@ -3,6 +3,7 @@ import 'package:flutter_app/model/game/game.dart';
 import 'package:flutter_app/provider/Provide.dart';
 import 'package:flutter_app/shared/layout.dart';
 import 'package:flutter_app/shared/style.dart';
+import 'package:flutter_app/widgets/Details/favorites_card.dart';
 import 'package:flutter_app/widgets/expanded/widgets_attribute/myfavorites/MyFavoritesList.dart';
 import 'package:provider/provider.dart';
 
@@ -42,6 +43,7 @@ class MyFavoritesPage extends StatelessWidget{
         itemCount: inWidgetList.length,
         itemBuilder: (context, index) {
           final item = inWidgetList[index];
+          // return FavoritesGameCard(card: item);
           return MyFavoriteList(gameContents: item);
         }
       ),
