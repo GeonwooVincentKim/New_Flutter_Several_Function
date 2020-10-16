@@ -9,7 +9,9 @@ class Settings extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBarSettings(),
-      backgroundColor: backgroundColor,
+      // backgroundColor: backgroundColor,
+      // backgroundColor: Colors.black12,
+      // backgroundColor: Colors.white70,
       body: _buildSettingsBody(context),
     );
   }
@@ -17,7 +19,7 @@ class Settings extends StatelessWidget{
   AppBar _buildAppBarSettings(){
     return AppBar(
       title: Text("SETTINGS"),
-      backgroundColor: backgroundColor,
+      backgroundColor: appBarColor,
       centerTitle: true,
     );
   }
@@ -27,11 +29,12 @@ class Settings extends StatelessWidget{
 
     return Container(
       height: screenHeight,
+      color: backgroundColor,
       child: Stack(
         overflow: Overflow.visible,
         children: [
           Padding(
-            padding: EdgeInsets.symmetric(vertical: 50, horizontal: defaultPadding),
+            padding: EdgeInsets.symmetric(vertical: 20, horizontal: defaultPadding),
             child: SingleChildScrollView(
               child: Column(
                 children: [
@@ -97,10 +100,10 @@ class Settings extends StatelessWidget{
       child: FlatButton(
         shape: ContinuousRectangleBorder(
           side: BorderSide(
-            color: linkColor,
+            color: lineColor,
           )
         ),
-        color: Color(0xff0783d2),
+        color: Colors.black87,
         child: Padding(
           padding: EdgeInsets.all(defaultPadding / 2),
           child: Text(

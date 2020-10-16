@@ -21,16 +21,21 @@ class Details extends StatelessWidget{
           TextSpan(
             text: "$label: ".toUpperCase(),
             style: TextStyle(
-              color: textAccentColor,
+              color: textAccentColor, // Emphasizes Text Color.
+              fontFamily: "icomoon",
+              fontWeight: FontWeight.w700,
             )
           ),
           TextSpan(
             text: info,
-            style: TextStyle(color: infoColor)
+            style: TextStyle(
+              color: infoColor,
+              fontFamily: "icomoon",
+              fontWeight: FontWeight.w700,
+            )
           ),
         ]
       )
     );
   }
-
 }
