@@ -190,6 +190,53 @@ class _DetailPageState extends State<DetailPage> {
             ]));
   }
 
+  Widget _buildBottomImage(){
+    return Container(
+      padding: EdgeInsets.only(right: 10.0, top: 5.0),
+      child: Column(
+        children: <Widget>[
+          Row(
+            children: [
+              _buildBottomImageList(),
+              _buildBottomImageList()
+            ],
+          ),
+          CustomDivider(color: Colors.transparent),
+          Row(
+            children: [
+              _buildBottomImageList(),
+              _buildBottomImageList()
+            ],
+          )
+
+          
+        ],
+      ),
+    );
+  }
+
+  Widget _buildBottomImageList(){
+    return Expanded(
+      child: Column(
+        children: <Widget>[
+          Container(
+            // To separate between spaces of images, I've just set width as 150.
+            // Otherwise, the images between width of images stick together.
+            // (Horizontal-Part).
+            width: 150,
+            child: ClipRRect(
+              borderRadius: BorderRadius.all(Radius.circular(5.0)),
+              child: Image.asset(
+                selectedGame.images[1],
+                fit: BoxFit.fitWidth,
+              ),
+            )
+          )
+        ],
+      ),
+    );
+  }
+
   Widget _buildDetailsBody() {
     return SingleChildScrollView(
         child: Column(
@@ -204,6 +251,7 @@ class _DetailPageState extends State<DetailPage> {
           gameProgressBar: selectedGame.progression,
         ),
         _buildDetailsText(selectedGame),
+        _buildBottomImage(),
       ],
     ));
   }
