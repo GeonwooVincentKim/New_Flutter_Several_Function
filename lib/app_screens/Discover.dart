@@ -46,6 +46,7 @@ class _DiscoverState extends State<Discover>{
   Widget build(BuildContext context){
     return Scaffold(
       body: _buildDiscoverBody(),
+      backgroundColor: backgroundColor,
     );
     // return PageLayout(
     //   appBarTitle: "DISCOVER",

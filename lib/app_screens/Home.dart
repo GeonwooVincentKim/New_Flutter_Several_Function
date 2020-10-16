@@ -223,9 +223,3 @@ class _HomeState extends State<Home>{
     });
   }
 }
-
-// class FavoriteItem {
-//   bool isFavor = false;
-//   String title;
-//   FavoriteItem(this.title);
-// }
