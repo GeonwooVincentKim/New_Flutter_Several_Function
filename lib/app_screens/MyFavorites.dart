@@ -43,7 +43,6 @@ class MyFavoritesPage extends StatelessWidget{
         itemBuilder: (context, index) {
           final item = inWidgetList[index];
           return FavoritesGameCard(card: item);
-          // return MyFavoriteList(gameContents: item);
         }
       ),
     );

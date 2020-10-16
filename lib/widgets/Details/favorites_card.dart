@@ -18,37 +18,18 @@ class FavoritesGameCard extends StatelessWidget {
         Provider.of<Products>(context, listen: false).selectGame(card);
         Navigator.pushNamed(context, '/game/${card.id}');
       },
-      // child: Card(
-      //   margin: EdgeInsets.only(bottom: defaultPadding),
-        
-      //   child: Stack(
-      //     children: [
-      //       card.isFavorite?
-      //         _buildMyFavoritesImage(context) : Container(),
-      //         // FavoriteImage(game: card) : Container(),
-      //       card.isFavorite?
-      //         // FavoriteText(gameText: card) : Container(),
-      //         _buildMyFavoritesText(context) : Container(),
-      //     ],
-      //   ),
-      // ),
+
       child: Column(
         children: [
-          // gameContents.isFavorite?
-          //   FavoriteImage(game: gameContents) : Container(),
-          // gameContents.isFavorite?
-          //   FavoriteText(gameText: gameContents) : Container(),
           card.isFavorite?
             Expanded(
               flex: 2,
               child: _buildMyFavoritesImage(),
-              // child: FavoriteImage(game: gameContents),
             ) : Container(),
           card.isFavorite?
             Expanded(
               flex: 1,
               child: _buildMyFavoritesText(context),
-              // child: FavoriteText(gameText: gameContents),
             ) : Container(),
         ],
       ),
@@ -57,7 +38,6 @@ class FavoritesGameCard extends StatelessWidget {
 
   Widget _buildMyFavoritesImage(){
     return Container(
-      // width: 100,
       child: Image.asset(
         card.images[1],
         fit: BoxFit.fill
@@ -66,34 +46,6 @@ class FavoritesGameCard extends StatelessWidget {
   }
 
   Widget _buildMyFavoritesText(BuildContext context){
-    // return Positioned(
-    //   bottom: 0,
-    //   right: 0,
-    //   left: 0,
-    //   child: GradientBox(
-    //     hasBorderRadius: false,
-    //     borderRadius: BorderRadius.only(
-    //       bottomLeft: Radius.circular(0.0),
-    //       bottomRight: Radius.circular(0.0) 
-    //     ),
-    //     padding: EdgeInsets.symmetric(vertical: defaultPadding),
-    //     child: Column(
-    //       crossAxisAlignment: CrossAxisAlignment.center,
-    //       children: <Widget>[
-    //         Text(
-    //             card.title,
-    //             textScaleFactor: 2,
-    //             textAlign: TextAlign.center,
-    //             style: TextStyle(
-    //               color: Colors.black,
-    //               fontFamily: "icomoon",
-    //               fontSize: 8,
-    //             )
-    //         ),
-    //       ],
-    //     ),
-    //   ),
-    // );
     return Container(
       width: MediaQuery.of(context).size.width,
       padding: EdgeInsets.symmetric(vertical: 10),
