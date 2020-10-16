@@ -17,20 +17,32 @@ class MyFavoriteList extends StatelessWidget{
         Provider.of<Products>(context, listen: false).selectGame(gameContents);
         Navigator.pushNamed(context, '/game/${gameContents.id}');
       },
-      child: Column(
+      child: Stack(
         children: [
           gameContents.isFavorite?
-            Expanded(
-              flex: 2,
-              child: FavoriteImage(game: gameContents),
-            ) : Container(),
+            FavoriteImage(game: gameContents) : Container(),
           gameContents.isFavorite?
-            Expanded(
-              flex: 1,
-              child: FavoriteText(gameText: gameContents),
-            ) : Container(),
+            FavoriteText(gameText: gameContents) : Container(),
+          // gameContents.isFavorite?
+          //   Expanded(
+          //     flex: 2,
+          //     child: FavoriteImage(game: gameContents),
+          //   ) : Container(),
+          // gameContents.isFavorite?
+          //   Expanded(
+          //     flex: 1,
+          //     child: FavoriteText(gameText: gameContents),
+          //   ) : Container(),
         ],
       ),
     );
+  }
+
+  Widget _buildMyFavoritesImage(){
+
+  }
+
+  Widget _buildMyFavoritesText(){
+
   }
 }
