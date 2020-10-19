@@ -26,16 +26,6 @@ class GameTile extends StatelessWidget {
           Provider.of<Products>(context, listen: false).selectGame(game);
           Navigator.pushNamed(context, "/game/${game.id}");
         },
-        // child: Row(
-        //   children: [
-        //     ProcessingImage(game: game),
-        //     Expanded(
-        //         flex: 3,
-        //         // For Below-part Widgets, the Main
-        //         child: ProcessingText(game: game)
-        //     )
-        //   ],
-        // ),
         child: Container(
           // decoration: BoxDecoration(color: boxBackgroundColor),
           child: Dismissible(
