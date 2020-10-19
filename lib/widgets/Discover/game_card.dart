@@ -38,7 +38,7 @@ class DiscoverGameCard extends StatelessWidget{
       child: ClipRRect(
         borderRadius: BorderRadius.circular(10.0),
         child: Container(
-          height: 250,
+          height: 350,
           child: Image.asset(
             discoverGame.images[0],
             fit: BoxFit.fill,
