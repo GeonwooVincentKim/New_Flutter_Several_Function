@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_app/app_screens/Discover.dart';
 import 'package:flutter_app/app_screens/Body.dart';
-import 'package:flutter_app/app_screens/main/main_attributes/HomeAppBar.dart';
+import 'package:flutter_app/app_screens/attributes/HomeAppBar.dart';
 import 'package:flutter_app/app_screens/SideMenu.dart';
 import 'package:flutter_app/shared/helpers/icomoon.dart';
 // ignore: implementation_imports

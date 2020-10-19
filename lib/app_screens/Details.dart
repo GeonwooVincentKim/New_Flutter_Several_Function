@@ -6,11 +6,9 @@ import 'package:flutter_app/widgets/Commons/details_block.dart';
 import 'package:flutter_app/widgets/Details/detail_image.dart';
 import 'package:flutter_app/widgets/Details/label.dart';
 import 'package:flutter_app/widgets/expanded/divider.dart';
-import 'package:flutter_app/widgets/font/font_style/FontStyle.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_app/shared/helpers/icomoon.dart';
 
-import 'package:flutter_app/widgets/Commons/gradient_box.dart';
 
 class DetailPage extends StatefulWidget {
   final String gameId;
@@ -59,91 +57,6 @@ class _DetailPageState extends State<DetailPage> {
             showAddListDialog(context);
           },
         ),
-      ],
-    );
-  }
-
-  Widget _buildDetailsImage(BuildContext context, Game selectedGame) {
-    double screenWidth = MediaQuery.of(context).size.width;
-  bool isFavorite = false;
-    
-    return Consumer<Products>(
-      builder: (ctx, product, child) => (
-        Stack(
-          children: [
-            Container(
-              width: screenWidth,
-              child: Image.asset(
-                selectedGame.images[0] ?? 'assets/img/games/persona5/persona5.png',
-                fit: BoxFit.fitWidth,
-              ),
-            ),
-        
-            Positioned(
-              bottom: 0,
-              left: 0,
-              right: 0,
-              child: Column(
-                children: [
-                  Align(
-          alignment: Alignment.topRight,
-          child: IconButton(
-              icon: Icon(
-                isFavorite ? IconMoon.istarfull : IconMoon.istar,
-                color: Colors.white,
-              ),
-              onPressed: () {
-                Provider.of<Products>(context, listen: false)
-                    .changeFavorite(!isFavorite);
-                setState(() {
-                  isFavorite = !isFavorite;
-                });
-                print(isFavorite);
-              }),
-        ),
-                  Container(
-                    width: screenWidth,
-                    child: GradientBox(
-                        padding: EdgeInsets.symmetric(
-                            vertical: defaultPadding / 2,
-                            horizontal: defaultPadding),
-                        child: Text(selectedGame.title.toUpperCase(),
-                            style: TextStyle(fontSize: 16))),
-                  ),
-                  (
-                    selectedGame.progression != 0
-                      ? _buildProgressionBar(context, selectedGame.progression)
-                      : Container()
-                  ),
-                ],
-              )
-            )
-          ],
-        )
-      ),
-    );
-    // return ;
-  }
-
-  Widget _buildProgressionBar(BuildContext context, double progression) {
-    double screenWidth = MediaQuery.of(context).size.width;
-
-    return Stack(
-      children: [
-        // LinearProgressIndicator(
-        //   minHeight: 10,
-        //   backgroundColor: Colors.grey,
-        //   value: screenWidth / 100
-        // ),
-        Container(
-          height: 5,
-          decoration: BoxDecoration(color: textGreyColor),
-        ),
-        Container(
-          height: 5,
-          width: (screenWidth * progression) / 100,
-          decoration: BoxDecoration(color: linkColor),
-        )
       ],
     );
   }
@@ -235,8 +148,6 @@ class _DetailPageState extends State<DetailPage> {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        // _buildGameImage(context, selectedGame),
-        // _buildDetailsImage(context, selectedGame),
         DetailImageAttribute(
            image: selectedGame.images[0], isFavorite: selectedGame.isFavorite),
         ProgressBar(

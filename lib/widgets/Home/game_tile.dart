@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/data/games.dart';
 import 'package:flutter_app/model/game/game.dart';
-import 'package:flutter_app/shared/helpers/functions.dart';
+import 'package:flutter_app/provider/Provide.dart';
+import 'package:flutter_app/shared/helpers/icomoon.dart';
 import 'package:flutter_app/shared/style.dart';
+import 'package:provider/provider.dart';
 
 
 class GameTile extends StatelessWidget {
@@ -13,113 +14,108 @@ class GameTile extends StatelessWidget {
     @required this.game
   });
 
-  // dummy data
-  final dummyGenre = DUMMY_GENRES.toList();
-  final dummyPlatform = DUMMY_PLATFORMS.toList();
-
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: defaultPadding / 2),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(10),
-        child: GestureDetector(
-          onTap: () => {
-            Navigator.pushNamed(context, '/game/${game.id}')
-          },
-          child: Container(
-            decoration: BoxDecoration(color: boxBackgroundColor),
-            child: Dismissible(
-              key: ObjectKey(game.id),
-              child: _buildTileContent(),
-              background: _buildSlideLeft(),
-              secondaryBackground: _buildSlidRight(),
-            ),
-          ),
+      // margin: EdgeInsets.only(bottom: defaultPadding / 2),
+      // decoration: BoxDecoration(
+      //   borderRadius: BorderRadius.circular(10.0),
+      // ),
+      child: GestureDetector(
+        onTap: (){
+          Provider.of<Products>(context, listen: false).selectGame(game);
+          Navigator.pushNamed(context, "/game/${game.id}");
+        },
+        // child: Row(
+        //   children: [
+        //     ProcessingImage(game: game),
+        //     Expanded(
+        //         flex: 3,
+        //         // For Below-part Widgets, the Main
+        //         child: ProcessingText(game: game)
+        //     )
+        //   ],
+        // ),
+        child: Container(
+          // decoration: BoxDecoration(color: boxBackgroundColor),
+          child: Dismissible(
+            key: ObjectKey(game.id),
+            child: _buildTileContent(),
+            background: _buildSlideLeft(),
+            secondaryBackground: _buildSlideRight(),
+            onDismissed: (direction){
+              
+            },
+          )
         ),
-      )
+      ),
     );
   }
 
-  Widget _buildSlidRight() {
-    return Container(
-      color: Color(0xff12ab1b),
-      child: Align(
-        alignment: Alignment.centerRight,
-        child: Padding(
-          padding: EdgeInsets.only(right: 40),
-          child: Icon(
-            Icons.done,
-            color: Colors.white
-          ),
-        )
-      )
-    );
-  }
-
-  Widget _buildSlideLeft() {
-    return Container(
-      color: Color(0xffe96f25),
-      child: Align(
-        alignment: Alignment.centerLeft,
-        child: Padding(
-          padding: EdgeInsets.only(left: 40),
-          child: Icon(
-            Icons.edit,
-            color: Colors.white
-          ),
-        )
-      )
-    );
-  }
-
-  Widget _buildTileContent() {
+  Widget _buildTileContent(){
     return Row(
-      children: <Widget>[
+      children: [
         Container(
-          height: 135,
-          width: 90,
-          child: Image.asset(
-            game.images[0],
-            fit: BoxFit.fill,
-          ),
+          // width: MediaQuery.of(context).size.width / 5,
+          width: 85,
+          height: 97,
+          child: ClipRRect(
+            child: Image.asset(
+              game.images[0],
+              fit: BoxFit.fitWidth,
+            )
+          )
         ),
         _buildTileText()
+        // Expanded(
+        //     flex: 3,
+        //     // For Below-part Widgets, the Main
+        //     child: _buildTileText(),
+        //     // child: ProcessingText(game: game)
+        // )
       ],
     );
   }
 
+  Widget _buildSlideLeft(){
+    return Container(
+      color: Colors.amber,
+      alignment: Alignment(-0.9, 0.0),
+      child: Icon(IconMoon.ipencil, color: Colors.white, size: 30.0,),
+    );
+  }
 
-  Widget _buildTileText() {
-    final listGenre = getNameInList(dummyGenre, game.genres);
-    final listPlatform = getNameInList(dummyPlatform, game.platforms);
+  Widget _buildSlideRight(){
+    return Container(
+      color: Colors.green,
+      alignment: Alignment(0.9, 0.0),
+      child: Icon(IconMoon.icheck2, color: Colors.white, size: 30.0,),
+    );
+  }
 
-
+  Widget _buildTileText(){
     return Flexible(
       child: Container(
+        width: 290,
+        height: 97,
+        decoration: BoxDecoration(
+          color: Colors.black12
+        ),
         padding: EdgeInsets.all(defaultPadding),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
+          children: [
             Text(
               game.title.toUpperCase(),
               overflow: TextOverflow.ellipsis,
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: defaultPadding / 2),
+              style: contextFont,
+            ),SizedBox(height: defaultPadding / 2),
             Text(
-              "Platform : $listPlatform",
-              overflow: TextOverflow.ellipsis,
+              "Platform: " + game.platforms[0],
+              style: subcontextFont,
             ),
-            SizedBox(height: defaultPadding / 4),
             Text(
-              "Genre: $listGenre",
-              overflow: TextOverflow.ellipsis,
-            ),
-            SizedBox(height: defaultPadding / 4),
-            Text(
-              "Progression: ${game.progression} %",
-              style: TextStyle(color: linkColor),
+              "Progrerssion: ${game.progression} %",
+              style: subcontextFont,
             )
           ],
         )
