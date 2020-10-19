@@ -10,9 +10,7 @@ import 'package:flutter_app/widgets/font/font_style/FontStyle.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_app/shared/helpers/icomoon.dart';
 
-import '../widgets/Commons/gradient_box.dart';
-// import 'details/details_attributes/DetailAttribute.dart';
-// import 'details/details_attributes/DetailAttribute.dart';
+import 'package:flutter_app/widgets/Commons/gradient_box.dart';
 
 class DetailPage extends StatefulWidget {
   final String gameId;
@@ -64,10 +62,6 @@ class _DetailPageState extends State<DetailPage> {
       ],
     );
   }
-
-  // Widget _buildDetailsImage(BuildContext context, Game selectedGame){
-
-  // }
 
   Widget _buildDetailsImage(BuildContext context, Game selectedGame) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -161,28 +155,28 @@ class _DetailPageState extends State<DetailPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                selectedGame.title.toLowerCase(),
+                selectedGame.title.toUpperCase(),
                 style: mainFont,
               ),
               SizedBox(height: defaultPadding),
               DetailsBlock(
-                label: "Platforms: ",
+                label: "Platforms ",
                 info: selectedGame.platforms[0],
               ),
               DetailsBlock(
-                label: "Genres: ",
+                label: "Genres ",
                 info: selectedGame.genres[0],
               ),
               DetailsBlock(
-                label: "Progressions: ",
+                label: "Progressions ",
                 info: (selectedGame.progression).toString(),
               ),
               DetailsBlock(
-                label: "Editor: ",
+                label: "Editor ",
                 info: selectedGame.publisher,
               ),
               DetailsBlock(
-                  label: "ReleaseData: ", info: selectedGame.releaseDate),
+                  label: "ReleaseData ", info: selectedGame.releaseDate),
               Label(label: "Description: "),
               SizedBox(height: defaultPadding / 2),
               Text(selectedGame.description,
@@ -208,8 +202,6 @@ class _DetailPageState extends State<DetailPage> {
               _buildBottomImageList()
             ],
           )
-
-          
         ],
       ),
     );
@@ -363,61 +355,3 @@ class _DetailPageState extends State<DetailPage> {
     Navigator.of(context).pop();
   }
 }
-// class DetailPage extends StatefulWidget {
-
-//   final String gameId;
-
-//   DetailPage({
-//     this.gameId
-//   });
-
-//   @override
-//   _DetailPageState createState() => _DetailPageState();
-// }
-
-// class _DetailPageState extends State<DetailPage> {
-//   List<Game> listProgression = [];
-//   Game selectedGame;
-//   double _progression = 0.0;
-
-//   final _formKey = GlobalKey<FormState>();
-
-//   @override
-//   void initState() {
-//     setState(() {
-//       selectedGame = Provider.of<Products>(context, listen: false).selectedGame;
-//     });
-
-//     if(selectedGame == null) {
-//       print("Passing..??");
-//       final List<Game> listGame = Provider.of<Products>(context, listen: false).items.toList();
-//       selectedGame = listGame.firstWhere((game) => game.id == widget.gameId);
-//     }
-
-//     super.initState();
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         backgroundColor: Colors.black87,
-//         title: Text(selectedGame.title),
-//         centerTitle: true,
-//         actions: [
-//           IconButton(
-//             icon: Icon(
-//               IconMoon.iedit,
-//               color: Colors.white,
-//             ),
-//             onPressed: (){
-//               showAddListDialog(context);
-//             }
-//           ),
-//         ],
-//       ),
-//       body: DetailBody(gameDetailBody: selectedGame),
-//     );
-//   }
-
-// }

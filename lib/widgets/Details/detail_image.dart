@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/app_screens/MyFavorites.dart';
 import 'package:flutter_app/provider/Provide.dart';
-import 'package:flutter_app/model/game/game.dart';
-import 'package:flutter_app/widgets/expanded/widgets_attribute/Details/DetailsWidget.dart';
 import 'package:flutter_app/shared/helpers/icomoon.dart';
 import 'package:flutter_app/shared/style.dart';
 import 'package:provider/provider.dart';
@@ -68,29 +65,6 @@ class _DetailImageAttributeState extends State<DetailImageAttribute> {
           ]
         )
       ),
-    );
-  }
-
-  Widget _buildProgressionBar(BuildContext context, double progression) {
-    double screenWidth = MediaQuery.of(context).size.width;
-
-    return Stack(
-      children: [
-        // LinearProgressIndicator(
-        //   minHeight: 10,
-        //   backgroundColor: Colors.grey,
-        //   value: screenWidth / 100
-        // ),
-        Container(
-          height: 5,
-          decoration: BoxDecoration(color: textGreyColor),
-        ),
-        Container(
-          height: 5,
-          width: (screenWidth * progression) / 100,
-          decoration: BoxDecoration(color: linkColor),
-        )
-      ],
     );
   }
 }
