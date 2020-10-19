@@ -19,7 +19,7 @@ class ProgressText extends StatelessWidget{
         children: <Widget>[
           Text(
             title.toUpperCase(),
-            style: widgetTextStyle
+            style: mainFont
           ),
           CustomDivider(color: Colors.black87)
           // Divider(color: textGreyColor)

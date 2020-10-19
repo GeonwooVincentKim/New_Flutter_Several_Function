@@ -6,7 +6,7 @@ import 'package:flutter_app/app_screens/settings.dart';
 import 'package:flutter_app/data/ProductStore.dart';
 import 'package:flutter_app/provider/Provide.dart';
 import 'package:provider/provider.dart';
-import 'app_screens/Home.dart';
+import 'app_screens/PageSlider.dart';
 
 void main() => runApp(MyApp());
 
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget{
           title: "My Flutter App",
           initialRoute: '/',
           routes: {
-            '/': (context) => Home(),
+            '/': (context) => PageSlider(),
             '/discover': (context) => Discover(),
             '/favorite': (context) => MyFavoritesPage(),
             '/settings': (context) => Settings(),
@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget{
           onUnknownRoute: (RouteSettings settings){
             print(settings);
             return MaterialPageRoute(
-              builder: (BuildContext context) => Home(),
+              builder: (BuildContext context) => PageSlider(),
             );
           },
         ),
