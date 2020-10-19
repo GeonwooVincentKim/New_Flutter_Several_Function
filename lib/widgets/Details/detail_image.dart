@@ -43,7 +43,6 @@ class _DetailImageAttributeState extends State<DetailImageAttribute> {
                 widget.image,
                 fit: BoxFit.fitWidth,
               ),
-              // child: DetailsImage(image: widget.image),
             ),
             Align(
               alignment: Alignment.topRight,

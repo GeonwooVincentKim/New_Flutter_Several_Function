@@ -33,44 +33,50 @@ class HomeWidgetsList extends StatelessWidget{
           transparent_divider(),
       itemCount: list.length,
       itemBuilder: (context, index) {
-        final item = list[index];
-        // return BodyList(bodyList: item);
         return ClipRRect(
           borderRadius: BorderRadius.circular(10.0),
-          child: Container(
-            // height: 67,
-            // height: MediaQuery.of(context).size.height * 0.12,
-            child: Dismissible(
-              key: Key(item.id),
-              onDismissed: (direction) {
-                // setState(() {
-                //   listUp.removeAt(index);
-                // });'
-                // Provider.of<Products>(context).deleteProduct(index);
-                // if(direction == DismissDirection.startToEnd){
-                //   setState((){
-
-                //   });
-                // }
-                list.removeAt(index);
-                // print(index);
-                
-              },
-              background: Container(
-                color: Colors.amber,
-                alignment: Alignment(-0.9, 0.0),
-                child: Icon(IconMoon.ipencil, color: Colors.white, size: 30.0,),
-              ),
-              secondaryBackground: Container(
-                color: Colors.green,
-                alignment: Alignment(0.9, 0.0),
-                child: Icon(IconMoon.icheck2, color: Colors.white, size: 30.0,),
-              ),
-              child: ProcessingList(game: item)
-            ),
-          ),
+          child: ProcessingList(game: list[index])
         );
-      },
+      }
+      // itemBuilder: (context, index) {
+      //   final item = list[index];
+      //   // return BodyList(bodyList: item);
+      //   return ClipRRect(
+      //     borderRadius: BorderRadius.circular(10.0),
+      //     child: Container(
+      //       // height: 67,
+      //       // height: MediaQuery.of(context).size.height * 0.12,
+      //       child: Dismissible(
+      //         key: Key(item.id),
+      //         onDismissed: (direction) {
+      //           // setState(() {
+      //           //   listUp.removeAt(index);
+      //           // });'
+      //           // Provider.of<Products>(context).deleteProduct(index);
+      //           // if(direction == DismissDirection.startToEnd){
+      //           //   setState((){
+
+      //           //   });
+      //           // }
+      //           list.removeAt(index);
+      //           // print(index);
+                
+      //         },
+      //         background: Container(
+      //           color: Colors.amber,
+      //           alignment: Alignment(-0.9, 0.0),
+      //           child: Icon(IconMoon.ipencil, color: Colors.white, size: 30.0,),
+      //         ),
+      //         secondaryBackground: Container(
+      //           color: Colors.green,
+      //           alignment: Alignment(0.9, 0.0),
+      //           child: Icon(IconMoon.icheck2, color: Colors.white, size: 30.0,),
+      //         ),
+      //         child: ProcessingList(game: item)
+      //       ),
+      //     ),
+      //   );
+      // },
     );
   }
 }

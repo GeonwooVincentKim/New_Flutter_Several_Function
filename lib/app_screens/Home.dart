@@ -152,6 +152,7 @@ class _HomeState extends State<Home>{
   Widget buildPageView(){
     return PageView(
         controller: pageController,
+        physics: ClampingScrollPhysics(),
         onPageChanged: (index){
           pageChanged(index);
         },
@@ -167,11 +168,6 @@ class _HomeState extends State<Home>{
     setState((){
       _selectedPage = index;
     });
-  }
-
-  void onAddButtonTapped(int index){
-    pageController.animateToPage(index);
-    pageController.jumpToPage(index);
   }
 
   @override
@@ -198,6 +194,18 @@ class _HomeState extends State<Home>{
       ),
       // body: Body_Divide_Test(),
     );
+    // return PageView(
+    //     controller: pageController,
+    //     physics: ClampingScrollPhysics(),
+    //     onPageChanged: (index){
+    //       pageChanged(index);
+    //     },
+    //     //scrollDirection: Axis.horizontal,
+    //     children: <Widget>[
+    //       Body(),
+    //       Discover(),
+    //     ]
+    // );
   }
 
   void bottomTapped(int index){

@@ -48,12 +48,5 @@ class _DiscoverState extends State<Discover>{
       body: _buildDiscoverBody(),
       backgroundColor: backgroundColor,
     );
-    // return PageLayout(
-    //   appBarTitle: "DISCOVER",
-    //   body: _buildDiscoverBody(),
-    //   hasBottomNavigation: true,
-    //   hasDrawer: true,
-    //   // selectedIndex: ,
-    // );
   }
 }

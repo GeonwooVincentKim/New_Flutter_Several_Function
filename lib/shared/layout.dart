@@ -91,12 +91,12 @@ class PageLayout extends StatelessWidget {
                   Navigator.pushReplacementNamed(context, '/settings');
                 }
               ),
-              _buildDrawerTile(
-                link: 'logout',
-                title: "Logout",
-                // icon: Icons.logout,
-                onTap: () {}
-              )
+              // _buildDrawerTile(
+              //   link: 'logout',
+              //   title: "Logout",
+              //   // icon: Icons.logout,
+              //   onTap: () {}
+              // )
             ],
           ),
         ),
