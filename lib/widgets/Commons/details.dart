@@ -5,12 +5,10 @@ import 'package:flutter_app/shared/style.dart';
 class Details extends StatelessWidget{
   final String label;
   final String info;
-  final Color infoColor;
 
   Details({
     @required this.label,
     @required this.info,
-    this.infoColor = textInfoColor
   });
   
   @override
@@ -20,19 +18,11 @@ class Details extends StatelessWidget{
         children: <TextSpan>[
           TextSpan(
             text: "$label: ".toUpperCase(),
-            style: TextStyle(
-              color: textAccentColor, // Emphasizes Text Color.
-              fontFamily: "icomoon",
-              fontWeight: FontWeight.w700,
-            )
+            style: settingsContextFont
           ),
           TextSpan(
             text: info,
-            style: TextStyle(
-              color: infoColor,
-              fontFamily: "icomoon",
-              fontWeight: FontWeight.w700,
-            )
+            style: settingsSubContextFont
           ),
         ]
       )

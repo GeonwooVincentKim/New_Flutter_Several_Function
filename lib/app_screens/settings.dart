@@ -108,11 +108,7 @@ class Settings extends StatelessWidget{
           padding: EdgeInsets.all(defaultPadding / 2),
           child: Text(
             "EDIT",
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 20,
-              fontWeight: FontWeight.bold
-            )
+            style: settingsMainFont
           ),
         ),
         onPressed: () {},

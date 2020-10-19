@@ -23,7 +23,6 @@ class DetailsBlock extends StatelessWidget{
         Details(
           label: label,
           info: info,
-          infoColor: infoColor,
         ),
         SizedBox(height: marginBottom),
       ]

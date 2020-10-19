@@ -14,12 +14,6 @@ const Color textYellowColor = Color(0xffe1d819);
 const Color textInfoColor = Color(0x42000000);
 // const Color textInfoColor = Color.fromRGBO(255, 255, 255, 0.7);
 
-const fontStyleContent = TextStyle(
-  decoration: TextDecoration.none, // that by default so it's useless too
-  fontSize: 17,
-  fontWeight: FontWeight.w700,
-);
-
 // Home
 const mainFont = TextStyle(
     decoration: TextDecoration.none,
@@ -39,4 +33,30 @@ const subcontextFont = TextStyle(
     color: Colors.black26,
     fontFamily: "icomoon",
     fontSize: 12,
+);
+
+// Settings
+const settingsMainFont = TextStyle(
+    color: Colors.white,
+    fontSize: 20,
+    fontWeight: FontWeight.bold
+);
+
+const settingsContextFont = TextStyle(
+    color: textAccentColor,
+    fontFamily: "icomoon",  
+    fontWeight: FontWeight.w700,
+);
+
+const settingsSubContextFont = TextStyle(
+    color: textInfoColor,
+    fontFamily: "icomoon",
+    fontWeight: FontWeight.w700,
+);
+
+// Favorites
+const favoritesFont = TextStyle(
+  color: Colors.black,
+  fontFamily: "icomoon",
+  fontSize: 8
 );

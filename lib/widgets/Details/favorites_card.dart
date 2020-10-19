@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/model/game/game.dart';
 import 'package:flutter_app/provider/Provide.dart';
 import 'package:flutter_app/shared/style.dart';
-import 'package:flutter_app/widgets/Commons/gradient_box.dart';
 import 'package:provider/provider.dart';
 
 class FavoritesGameCard extends StatelessWidget {
@@ -59,11 +58,7 @@ class FavoritesGameCard extends StatelessWidget {
               card.title,
               textScaleFactor: 2,
               textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.black,
-                fontFamily: "icomoon",
-                fontSize: 8,
-              )
+              style: favoritesFont
           ),
         ],
       ),

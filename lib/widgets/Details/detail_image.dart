@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/provider/Provide.dart';
 import 'package:flutter_app/shared/helpers/icomoon.dart';
-import 'package:flutter_app/shared/style.dart';
 import 'package:provider/provider.dart';
 
 // Image-Attributes that is below in the Detail-Page part.
