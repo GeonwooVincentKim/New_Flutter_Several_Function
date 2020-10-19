@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/app_screens/SideMenu.dart';
 import 'package:flutter_app/app_screens/attributes/SettingsAttribute.dart';
 import 'package:flutter_app/shared/style.dart';
 import 'package:flutter_app/widgets/Commons/details_block.dart';
@@ -8,6 +9,7 @@ class Settings extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: SideMenu(),
       appBar: _buildAppBarSettings(),
       // backgroundColor: backgroundColor,
       // backgroundColor: Colors.black12,
