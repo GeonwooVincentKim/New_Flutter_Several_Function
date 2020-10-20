@@ -62,17 +62,36 @@ class ListTilesWithTitle extends StatelessWidget{
                 // ),
                 child: Dismissible(
                   // key: ObjectKey(game.id),
-                  key: Key(list[index].id),
+                  key: ObjectKey(list[index].id),
                   // child: _buildTileContent(),
                   background: _buildSlideLeft(),
                   secondaryBackground: _buildSlideRight(),
                   onDismissed: (direction){
-                    this.list.removeAt(index);
+                    Provider.of<Products>(context).deleteGame(list[index]); 
+                    
+                    this.list.removeAt(index) ?? Column(
+                          children: [
+                            ProgressText(title: title),
+                            Center(
+                              child: Container(
+                                padding: EdgeInsets.all(10),
+                                color: Colors.black12,
+                                child: Text(
+                                  'There is no game in the list'
+                                )
+                              )
+                            ),
+                            ( marginBottom
+                              ? SizedBox(height: defaultPadding * 2)
+                              : Container()
+                            )
+                          ],
+                      );
                   },
                   child: GestureDetector(
                     onTap: (){
                       Provider.of<Products>(context, listen: false).selectGame(game);
-                      Navigator.pushNamed(context, "/game/${list[index].id}");
+                      Navigator.pushNamed(context, "/game/${game.id}");
                     },
                     child: Container(
                       // decoration: BoxDecoration(color: boxBackgroundColor),
