@@ -27,6 +27,7 @@ class MyApp extends StatelessWidget{
             '/discover': (context) => Discover(),
             '/favorite': (context) => MyFavoritesPage(),
             '/settings': (context) => Settings(),
+            '/details': (context) => DetailPage(),
             // '/favorite': (context) => MyFavorites()
           },
           onGenerateRoute: (RouteSettings settings){

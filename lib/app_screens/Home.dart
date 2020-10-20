@@ -30,42 +30,59 @@ class _BodyState extends State<Home>{
   @override
   void initState() {
     // TODO: implement initState
-    final List<Game> listGame = Provider.of<Products>(context, listen: false).userList;
+    // final List<Game> listGame = Provider.of<Products>(context, listen: false).userList;
       
-    setState(() {
-      inProgressList = listGame.where((game) => game.progression < 100).toList();
-      completedList = listGame.where((game) => game.progression == 100).toList();
-    });
+    // setState(() {
+    //   inProgressList = listGame.where((game) => game.progression < 100).toList();
+    //   completedList = listGame.where((game) => game.progression == 100).toList();
+    // });
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+
+    // final List<Game> listGame = Provider.of<Products>(context).userList;
+      
+    // setState(() {
+    //   inProgressList = listGame.where((game) => game.progression < 100).toList();
+    //   completedList = listGame.where((game) => game.progression == 100).toList();
+    // });
+
     return Container(
         // height: MediaQuery.of(context).size.height,
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         color: Colors.black12,
         child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              RaisedButton(
-                onPressed: (){
-                  Provider.of<Products>(context).deleteGame(Provider.of<Products>(context).items[0]);
-                },
-                // child: Text('delete'),
-              ),
-              ListTilesWithTitle(
-                title: titleList[0],
-                list: inProgressList
-              ),
-              transparent_divider(),
-              ListTilesWithTitle(
-                title: titleList[1],
-                list: completedList,
-              ),
-            ],
-          ),
+          child: Consumer<Products>(
+            builder: (ctx, product, child) {
+              final List<Game> listGame = product.userList;
+
+              inProgressList = listGame.where((game) => game.progression < 100).toList();
+              completedList = listGame.where((game) => game.progression == 100).toList();
+              
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  RaisedButton(
+                    onPressed: (){
+                      Provider.of<Products>(context).deleteGame(Provider.of<Products>(context).items[0]);
+                    },
+                    // child: Text('delete'),
+                    ),
+                    ListTilesWithTitle(
+                      title: titleList[0],
+                      list: inProgressList
+                    ),
+                    transparent_divider(),
+                    ListTilesWithTitle(
+                      title: titleList[1],
+                      list: completedList,
+                    ),
+                  ],
+                );
+            }
+          )
         ),
       );
   }

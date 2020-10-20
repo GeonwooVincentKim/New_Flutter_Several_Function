@@ -68,8 +68,18 @@ class ListTilesWithTitle extends StatelessWidget{
                   background: _buildSlideLeft(),
                   secondaryBackground: _buildSlideRight(),
                   onDismissed: (direction){
+                    if(direction == DismissDirection.startToEnd){
+                      print("Hi");
+                      Provider.of<Products>(context, listen: false).changeProgression(list[index], 100);
+                      Navigator.pushNamed(context, '/game/${list[index].id}');
+                      this.list.removeAt(index);
+                    }
+                    else if(direction == DismissDirection.endToStart){
+                      print("Hello");
+                      Provider.of<Products>(context, listen: false).changeProgression(list[index], 100);
+                      // Provider.of<Products>(context).deleteGame(list[index]);
+                    }
                     // Provider.of<Products>(context).changeProgression(list[index], game.progression);
-                    Provider.of<Products>(context).deleteGame(list[index]);
                     // Provider.of<Products>(context).deleteGame(Provider.of<Products>(context).items[index]);
                     // this.list.removeAt(index);
                     this.list.removeAt(index) ?? Column(
