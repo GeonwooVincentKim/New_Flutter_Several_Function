@@ -34,7 +34,9 @@ class GameTile extends StatelessWidget {
             background: _buildSlideLeft(),
             secondaryBackground: _buildSlideRight(),
             onDismissed: (direction){
-              
+              // if (!ObjectKey(game.id)..validate()) return;
+              // _formKey.currentState.save();
+              Provider.of<Products>(context).deleteGame(game);
             },
           )
         ),
