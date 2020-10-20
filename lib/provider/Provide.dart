@@ -55,6 +55,7 @@ class Products with ChangeNotifier {
   }
 
   void deleteGame(Game game){
+    // _userLists.removeWhere((element) => element.id == game.id);
     _userLists.remove(game);
     notifyListeners();
   }

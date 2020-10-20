@@ -169,7 +169,7 @@ class _DetailPageState extends State<DetailPage> {
 
   // 'ADD TO MY LIST' Dialog.
   void showAddListDialog(BuildContext context) async {
-    final _procedureController = TextEditingController();
+    
 
     return showDialog(
       context: context,
@@ -183,69 +183,7 @@ class _DetailPageState extends State<DetailPage> {
             width: MediaQuery.of(context).size.width,
             child: Form(
               key: _formKey,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 25),
-                    child: Column(children: [
-                      Text(
-                          "Are you sure you want to add TITLE OF THE GAME to your list of game?"),
-                      transparent_divider(),
-                      Row(children: [
-                        Expanded(
-                          child: Text("Progress: ",
-                              style: TextStyle(
-                                fontWeight: FontWeight.w300,
-                              )),
-                        ),
-                        Expanded(
-                          child: TextFormField(
-                              textAlign: TextAlign.center,
-                              decoration: InputDecoration(
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        color: Colors.black87, width: 1.5),
-                                  ),
-                                  hintText: '10%'),
-                              controller: _procedureController,
-                              keyboardType: TextInputType.number,
-                              onSaved: (progression) {
-                                print('progression');
-                                setState(() {
-                                  _progression = double.parse(progression);
-                                  print(_progression);
-                                });
-                                print(_progression);
-                              },
-                              validator: (value) {
-                                if (value.isEmpty) {
-                                  return "Please Input your Procedure-Number Value.";
-                                }
-                                return null;
-                              }),
-                        ),
-                      ]),
-                    ]),
-                  ),
-                  transparent_divider(),
-                  InkWell(
-                      child: Container(
-                        padding: EdgeInsets.symmetric(vertical: 20),
-                        decoration: BoxDecoration(
-                          color: Colors.black,
-                        ),
-                        child: Text(
-                          "+ Add to my List",
-                          style: TextStyle(color: Colors.white),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                      onTap: () => _submitForm(context)),
-                ],
-              ),
+              child: _buildAlertTileContent(),
             ),
           ),
         );
@@ -253,11 +191,78 @@ class _DetailPageState extends State<DetailPage> {
     );
   }
 
+  Widget _buildAlertTileContent(){
+    final _procedureController = TextEditingController();
+
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 25),
+          child: Column(children: [
+            Text(
+                "Are you sure you want to add TITLE OF THE GAME to your list of game?"),
+            transparent_divider(),
+            Row(children: [
+              Expanded(
+                child: Text("Progress: ",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w300,
+                    )),
+              ),
+              Expanded(
+                child: TextFormField(
+                    textAlign: TextAlign.center,
+                    decoration: InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Colors.black87, width: 1.5),
+                        ),
+                        hintText: '10%'),
+                    controller: _procedureController,
+                    keyboardType: TextInputType.number,
+                    onSaved: (progression) {
+                      print('progression');
+                      setState(() {
+                        _progression = double.parse(progression);
+                        print(_progression);
+                      });
+                      print(_progression);
+                    },
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return "Please Input your Procedure-Number Value.";
+                      }
+                      return null;
+                    }),
+              ),
+            ]),
+          ]),
+        ),
+        transparent_divider(),
+        InkWell(
+            child: Container(
+              padding: EdgeInsets.symmetric(vertical: 20),
+              decoration: BoxDecoration(
+                color: Colors.black,
+              ),
+              child: Text(
+                "+ Add to my List",
+                style: TextStyle(color: Colors.white),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            onTap: () => _submitForm(context)),
+      ],
+    );
+  }
+
   void _submitForm(BuildContext context) {
     if (!_formKey.currentState.validate()) return;
 
     _formKey.currentState.save();
-
     Provider.of<Products>(context).addGameUserList(selectedGame);
     Provider.of<Products>(context)
         .changeProgression(selectedGame, _progression);

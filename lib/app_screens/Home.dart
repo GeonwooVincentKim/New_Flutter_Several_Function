@@ -21,8 +21,6 @@ class Home extends StatefulWidget{
 
 class _BodyState extends State<Home>{
   int pageIndex = 0;
-  String _title = '';
-  bool _showStar = true;
   Function onBottomTapped;
   
   List<Game> inProgressList = [], completedList = [];
@@ -51,6 +49,12 @@ class _BodyState extends State<Home>{
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
+              RaisedButton(
+                onPressed: (){
+                  Provider.of<Products>(context).deleteGame(Provider.of<Products>(context).items[0]);
+                },
+                // child: Text('delete'),
+              ),
               ListTilesWithTitle(
                 title: titleList[0],
                 list: inProgressList
