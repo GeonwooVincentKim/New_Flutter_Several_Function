@@ -3,7 +3,6 @@ import 'package:flutter_app/app_screens/details/details_attributes/DetailsBody.d
 import 'package:flutter_app/app_screens/Body.dart';
 import 'package:flutter_app/app_screens/settings/SideMenu.dart';
 
-import 'package:flutter_app/shared/helpers/icomoon.dart';
 import 'package:flutter_app/widgets/expanded/divider.dart';
 import 'package:flutter_app/widgets/expanded/widgets_attribute/Discover/Widget.dart';
 
