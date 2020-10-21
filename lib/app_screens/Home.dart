@@ -49,23 +49,17 @@ class _BodyState extends State<Home>{
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  RaisedButton(
-                    onPressed: (){
-                      Provider.of<Products>(context).deleteGame(Provider.of<Products>(context).items[0]);
-                    },
-                    // child: Text('delete'),
-                    ),
-                    ListTilesWithTitle(
-                      title: titleList[0],
-                      list: inProgressList
-                    ),
-                    transparent_divider(),
-                    ListTilesWithTitle(
-                      title: titleList[1],
-                      list: completedList,
-                    ),
-                  ],
-                );
+                  ListTilesWithTitle(
+                    title: titleList[0],
+                    list: inProgressList
+                  ),
+                  transparent_divider(),
+                  ListTilesWithTitle(
+                    title: titleList[1],
+                    list: completedList,
+                  ),
+                ],
+              );
             }
           )
         ),
