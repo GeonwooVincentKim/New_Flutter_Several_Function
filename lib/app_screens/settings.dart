@@ -11,9 +11,6 @@ class Settings extends StatelessWidget{
     return Scaffold(
       drawer: SideMenu(),
       appBar: _buildAppBarSettings(),
-      // backgroundColor: backgroundColor,
-      // backgroundColor: Colors.black12,
-      // backgroundColor: Colors.white70,
       body: _buildSettingsBody(context),
     );
   }

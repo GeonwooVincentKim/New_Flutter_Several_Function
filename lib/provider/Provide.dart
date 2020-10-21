@@ -4,8 +4,8 @@ import 'package:flutter_app/model/game/game.dart';
 import 'package:flutter_app/data/games.dart';
 
 class Products with ChangeNotifier {
-  List<Game> _productItems = DUMMY_GAMES;
-  List<Game> _userLists = [];
+  List<Game> _productItems = DUMMY_GAMES; // Import Games DummyData (Stored Data that already converted)
+  List<Game> _userLists = []; // Changing User Game Data (Change some values of UserGameData)
   Game _selectedGame;
 
   List<Game> get items {
@@ -43,12 +43,6 @@ class Products with ChangeNotifier {
     notifyListeners();
   }
 
-
-  void addGame(Game game){
-    _productItems.add(game);
-    notifyListeners();
-  }
-
   void addGameUserList(Game game) {
     _userLists.add(game);
     notifyListeners();
@@ -57,11 +51,6 @@ class Products with ChangeNotifier {
   void deleteGame(Game game){
     // _userLists.removeWhere((element) => element.id == game.id);
     _userLists.remove(game);
-    notifyListeners();
-  }
-
-  void deleteProduct(value){
-    _userLists.remove(value);
     notifyListeners();
   }
 }

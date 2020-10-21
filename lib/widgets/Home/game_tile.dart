@@ -29,6 +29,7 @@ class GameTile extends StatelessWidget {
               onDismissed: (direction){
                 if(direction == DismissDirection.startToEnd){
                   Provider.of<Products>(context, listen: false).changeProgression(game, 50);
+                  // Navigator.pushNamed(context, "/game/${game.id}");
                   print("HI");
                 }
                 else if (direction == DismissDirection.endToStart){
