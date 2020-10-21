@@ -29,26 +29,11 @@ class _BodyState extends State<Home>{
 
   @override
   void initState() {
-    // TODO: implement initState
-    // final List<Game> listGame = Provider.of<Products>(context, listen: false).userList;
-      
-    // setState(() {
-    //   inProgressList = listGame.where((game) => game.progression < 100).toList();
-    //   completedList = listGame.where((game) => game.progression == 100).toList();
-    // });
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-
-    // final List<Game> listGame = Provider.of<Products>(context).userList;
-      
-    // setState(() {
-    //   inProgressList = listGame.where((game) => game.progression < 100).toList();
-    //   completedList = listGame.where((game) => game.progression == 100).toList();
-    // });
-
     return Container(
         // height: MediaQuery.of(context).size.height,
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
