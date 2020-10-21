@@ -19,7 +19,7 @@ class _DiscoverState extends State<Discover>{
 
   @override
   void initState(){
-    final List<Game> listGame = Provider.of<GameProvider>(context, listen: false).userItems;
+    final List<Game> listGame = Provider.of<GameProvider>(context, listen: false).gameItems;
     setState(() {
       pageList = listGame.toList();
     });
