@@ -50,6 +50,36 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/1.jpg
+    - assets/img/games/
+    - assets/img/games/persona5/persona5-2.jpg
+    - assets/img/games/persona5/persona5.png
+    - assets/img/games/zeldaBreathOfTheWild/zelda-breath-of-the-wild.jpeg
+    - assets/img/games/zeldaBreathOfTheWild/SI_WiiU_TheLegendOfZeldaBreathOfTheWild_image1600w.jpg
+    - assets/img/games/fireEmblemThreeHouses/fire-emblem-three-houses.jpg
+    - assets/img/games/fireEmblemThreeHouses/fire-emblem-three-houses-official-site-jp-may122019.jpg
+    - assets/img/games/superSmashBrosUltimate/super-smash-bros-ultimate-cover.jpg
+    - assets/img/games/image.jpeg
+    - assets/img/games/kindomHearts3/kh3-cover.jpg
+    - assets/img/games/kindomHearts3/kindom-hearts-3.jpeg
+    - assets/img/games/finalFantasy15/ff15-cover.jpg
+    - assets/img/games/finalFantasy15/ff15-2.jpg
+    - assets/img/games/leagueOfLegends/league-1.jpg
+    - assets/img/games/leagueOfLegends/lol.jpg
+    - assets/img/games/overwatch/overwatch.jpg
+    - assets/img/games/overwatch/overwatch-2.jpg
+    - assets/img/games/zeldaWindWaker/the-legend-of-zelda-the-wind-waker-cover.jpg
+    - assets/img/games/zeldaWindWaker/The-Legend-of-Zelda-Wind-Waker-HD-Wallpapers.jpg
+    - assets/img/games/pokemonYX/xerneas.jpeg
+    - assets/img/games/pokemonYX/pokemon-xy.jpg
+    - assets/img/games/CrazyracingKartrider/images.jpeg
+    - assets/img/games/CrazyracingKartrider/KartRiderRush-3.jpg
+    - assets/img/games/bravelyDefault2/image.jpg
+    - assets/img/games/bravelyDefault2/Switch_BravelyDefault2_.jpg
+    - assets/img/games/noCover.gif
+    - assets/img/games/noImage.png
+    # - assets/img/avatars/panda.jpg
+    # - assets/img/404.png
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
