@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app_screens/discover/discover_attributes/DiscoverBody.dart';
-import 'package:flutter_app/app_screens/main/Body.dart';
+import 'package:flutter_app/app_screens/Body.dart';
 import 'package:flutter_app/app_screens/main/main_attributes/HomeAttributes.dart';
 import 'package:flutter_app/app_screens/settings/SideMenu.dart';
 import 'package:flutter_app/shared/helpers/icomoon.dart';
@@ -8,16 +8,16 @@ import 'package:flutter_app/shared/helpers/icomoon.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 
-class Home extends StatefulWidget{
+class PageTouch extends StatefulWidget{
   final String title;
 
-  Home({Key key, this.title}) : super(key: key);
+  PageTouch({Key key, this.title}) : super(key: key);
   @override
   State<StatefulWidget> createState()
-    => _HomeState();
+    => _PageTouchState();
 }
 
-class _HomeState extends State<Home>{
+class _PageTouchState extends State<PageTouch>{
   String _title;
   int _selectedPage = 0;
   List<Widget> pageList = List<Widget>();

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app_screens/details/details_attributes/DetailsBody.dart';
-import 'package:flutter_app/app_screens/main/Body.dart';
+import 'package:flutter_app/app_screens/Body.dart';
 import 'package:flutter_app/app_screens/settings/SideMenu.dart';
 
 import 'package:flutter_app/shared/helpers/icomoon.dart';
