@@ -14,18 +14,12 @@ class GameTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // margin: EdgeInsets.only(bottom: defaultPadding / 2),
-      // decoration: BoxDecoration(
-      //   borderRadius: BorderRadius.circular(10.0),
-      // ),
       child: GestureDetector(
         onTap: (){
           Provider.of<Products>(context, listen: false).selectGame(game);
           Navigator.pushNamed(context, "/game/${game.id}");
         },
-        // child: _buildTileContent(),
         child: Container(
-          // decoration: BoxDecoration(color: boxBackgroundColor),
           child: game.progression != 100 ?
             Dismissible(
               key: ObjectKey(game.id),
@@ -39,6 +33,7 @@ class GameTile extends StatelessWidget {
                 }
                 else if (direction == DismissDirection.endToStart){
                   Provider.of<Products>(context, listen: false).changeProgression(game, 100);
+                  print(game.progression);
                   print("Yeah"); 
                 }
               },
@@ -46,12 +41,11 @@ class GameTile extends StatelessWidget {
               key: ObjectKey(game.id),
               child: _buildTileContent(),
               background: _buildSlideLeft(),
+              secondaryBackground: null,
               onDismissed: (direction){
                 if(direction == DismissDirection.startToEnd){
                   Provider.of<Products>(context, listen: false).changeProgression(game, 50);
                   print("HI2");
-                } else {
-                  
                 }
               },
             )
@@ -65,7 +59,7 @@ class GameTile extends StatelessWidget {
       children: [
         Container(
           // width: MediaQuery.of(context).size.width / 5,
-          width: 85,
+          width: 95,
           height: 97,
           child: ClipRRect(
             child: Image.asset(
