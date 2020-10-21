@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget{
           '/details': (context) => DetailPage(),
         },
         onGenerateRoute: (RouteSettings settings){
-          final List<String> pathElements = settings.name.split('/')
+          final List<String> pathElements = settings.name.split('/');
           if(pathElements[0] != '') return null;
           if(pathElements[1] == 'game') {
             String gameID = pathElements[2];
