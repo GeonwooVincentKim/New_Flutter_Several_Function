@@ -27,29 +27,29 @@ class GameTile extends StatelessWidget {
           Provider.of<Products>(context, listen: false).selectGame(game);
           Navigator.pushNamed(context, "/game/${game.id}");
         },
-        child: _buildTileContent(),
-        // child: Container(
-        //   // decoration: BoxDecoration(color: boxBackgroundColor),
-        //   child: Dismissible(
-        //     key: ObjectKey(game.id),
-        //     child: _buildTileContent(),
-        //     background: _buildSlideLeft(),
-        //     secondaryBackground: _buildSlideRight(),
-        //     onDismissed: (direction){
-        //       if(direction == DismissDirection.startToEnd){
-        //         Provider.of<Products>(context).deleteGame(game);
-        //         print("HI");
-        //       }
-        //       else if (direction == DismissDirection.endToStart){
-        //         Provider.of<Products>(context).deleteGame(game);
-        //         print("Yeah"); 
-        //       }
-        //       // if (!ObjectKey(game.id)..validate()) return;
-        //       // _formKey.currentState.save();
-        //       // Provider.of<Products>(context).changeProgression(game, game.progression);
-        //     },
-        //   )
-        // ),
+        // child: _buildTileContent(),
+        child: Container(
+          // decoration: BoxDecoration(color: boxBackgroundColor),
+          child: Dismissible(
+            key: ObjectKey(game.id),
+            child: _buildTileContent(),
+            background: _buildSlideLeft(),
+            secondaryBackground: _buildSlideRight(),
+            onDismissed: (direction){
+              if(direction == DismissDirection.startToEnd){
+                Provider.of<Products>(context, listen: false).changeProgression(game, 100);
+                print("HI");
+              }
+              else if (direction == DismissDirection.endToStart){
+                Provider.of<Products>(context, listen: false).changeProgression(game, 100);
+                print("Yeah"); 
+              }
+              // if (!ObjectKey(game.id)..validate()) return;
+              // _formKey.currentState.save();
+              // Provider.of<Products>(context).changeProgression(game, game.progression);
+            },
+          )
+        ),
       ),
     );
   }
