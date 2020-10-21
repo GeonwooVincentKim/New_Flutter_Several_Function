@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Provider/provider.dart';
-import 'package:flutter_app/app_screens/details/details_attributes/DetailsBody.dart';
-import 'package:flutter_app/app_screens/discover/discover_attributes/DiscoverBody.dart';
-import 'package:flutter_app/app_screens/settings/settings_attribute/Settings.dart';
+import 'package:flutter_app/app_screens/Details.dart';
+import 'package:flutter_app/app_screens/Discover.dart';
+import 'package:flutter_app/app_screens/Settings.dart';
 import 'package:flutter_app/data/product_store.dart';
 import 'package:provider/provider.dart';
 import 'app_screens/PageList.dart';

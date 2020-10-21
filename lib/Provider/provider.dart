@@ -9,7 +9,7 @@ class GameProvider with ChangeNotifier{
   Game _selectedGame;
 
   List<Game> get gameItems {
-    return [...gameItems];
+    return [..._gameItems];
   }
 
   List<Game> get userItems {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/app_screens/settings/settings_attribute/SettingsImage.dart';
+import 'package:flutter_app/app_screens/app_attributes/SettingsImage.dart';
 import 'package:flutter_app/shared/style.dart';
 import 'package:flutter_app/widgets/Commons/details_form.dart';
 import 'package:flutter_app/app_screens/SideMenu.dart';

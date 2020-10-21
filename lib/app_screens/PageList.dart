@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app_screens/app_attributes/HomeAppBar.dart';
-import 'package:flutter_app/app_screens/discover/discover_attributes/DiscoverBody.dart';
+import 'package:flutter_app/app_screens/Discover.dart';
 import 'package:flutter_app/app_screens/Home.dart';
 import 'package:flutter_app/app_screens/SideMenu.dart';
 import 'package:flutter_app/shared/helpers/icomoon.dart';
@@ -25,8 +25,8 @@ class _PageTouchState extends State<PageTouch>{
 
   @override
   void initState() {
-    pageList.add(Body());
-    pageList.add(DiscoverPage());
+    pageList.add(Home());
+    pageList.add(Discover());
     _title = "MY GAMES";
     super.initState();
   }
@@ -69,11 +69,6 @@ class _PageTouchState extends State<PageTouch>{
     });
   }
 
-  void onAddButtonTapped(int index){
-    pageController.animateToPage(index);
-    pageController.jumpToPage(index);
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -106,14 +101,12 @@ class _PageTouchState extends State<PageTouch>{
       pageController.animateToPage(index, duration: Duration(milliseconds: 700), curve: Curves.ease);
       switch(index){
         case 0: {
-          //Navigator.pushNamed(context, '/home');
-          // onAddButtonTapped(1);
+          _showStar = true;
           _title="MY GAMES";
           break;
         }
         case 1:{
-          // Navigator.pushNamed(context, '/discover');
-          // onAddButtonTapped(1);
+          _showStar = false;
           _title="DISCOVER";
           break;
         }
