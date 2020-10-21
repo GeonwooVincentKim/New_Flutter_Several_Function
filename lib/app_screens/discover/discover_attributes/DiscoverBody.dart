@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app_screens/details/details_attributes/DetailsBody.dart';
-import 'package:flutter_app/app_screens/Body.dart';
-import 'package:flutter_app/app_screens/settings/SideMenu.dart';
+import 'package:flutter_app/app_screens/Home.dart';
+import 'package:flutter_app/app_screens/SideMenu.dart';
 
 import 'package:flutter_app/widgets/expanded/divider.dart';
 import 'package:flutter_app/widgets/expanded/widgets_attribute/Discover/Widget.dart';

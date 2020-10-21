@@ -3,7 +3,7 @@ import 'package:flutter_app/data/games.dart';
 import 'package:flutter_app/model/game/game.dart';
 
 
-class Provider with ChangeNotifier{
+class GameProvider with ChangeNotifier{
   List<Game> _gameItems = DUMMY_GAMES;
   List<Game> _userItems = [];
   Game _selectedGame;

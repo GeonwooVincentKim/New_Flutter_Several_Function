@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app_screens/settings/dialog/Dialog.dart';
 import 'DetailAttribute.dart';
-import 'package:flutter_app/app_screens/settings/SideMenu.dart';
+import 'package:flutter_app/app_screens/SideMenu.dart';
 import 'package:flutter_app/shared/helpers/icomoon.dart';
 
 class DetailPage extends StatelessWidget{

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/app_screens/app_attributes/HomeAppBar.dart';
 import 'package:flutter_app/app_screens/discover/discover_attributes/DiscoverBody.dart';
-import 'package:flutter_app/app_screens/Body.dart';
-import 'package:flutter_app/app_screens/main/main_attributes/HomeAttributes.dart';
-import 'package:flutter_app/app_screens/settings/SideMenu.dart';
+import 'package:flutter_app/app_screens/Home.dart';
+import 'package:flutter_app/app_screens/SideMenu.dart';
 import 'package:flutter_app/shared/helpers/icomoon.dart';
 // ignore: implementation_imports
 import 'package:flutter/src/widgets/framework.dart';
@@ -19,6 +19,7 @@ class PageTouch extends StatefulWidget{
 
 class _PageTouchState extends State<PageTouch>{
   String _title;
+  bool _showStar = true;
   int _selectedPage = 0;
   List<Widget> pageList = List<Widget>();
 
@@ -56,8 +57,8 @@ class _PageTouchState extends State<PageTouch>{
       },
       //scrollDirection: Axis.horizontal,
       children: <Widget>[
-        Body(),
-        DiscoverPage(),
+        Home(),
+        Discover(),
       ]
     );
   }
@@ -77,12 +78,7 @@ class _PageTouchState extends State<PageTouch>{
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: SideMenu(),
-      appBar: AppBar(
-        backgroundColor: Colors.black87,
-        title: Text(_title),
-        centerTitle: true,
-        actions: AppbarActions(),
-      ),
+      appBar: HomeAppBar(_title, _showStar, context),
       body: buildPageView(),
       bottomNavigationBar: BottomNavigationBar(
 

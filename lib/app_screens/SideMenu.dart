@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/app_screens/settings/settings.dart';
 import 'package:flutter_app/main.dart';
 
 class SideMenu extends StatelessWidget{
@@ -19,14 +18,13 @@ class SideMenu extends StatelessWidget{
           ListTile(
             title: Text("Home-Page"),
             onTap: (){
-              main();
+              Navigator.pushNamed(context, '/');
             },
-            // title: Text("Home"),
           ),
           ListTile(
             title: Text("Settings"),
             onTap: (){
-              settings_main();
+              Navigator.pushNamed(context, '/settings');
             },
           ),
         ],
