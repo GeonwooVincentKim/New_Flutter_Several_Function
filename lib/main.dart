@@ -3,7 +3,7 @@ import 'package:flutter_app/app_screens/details/details_attributes/DetailsBody.d
 import 'package:flutter_app/app_screens/discover/discover_attributes/DiscoverBody.dart';
 import 'package:flutter_app/app_screens/settings/settings_attribute/SettingsBody.dart';
 import 'package:provider/provider.dart';
-import 'app_screens/Home.dart';
+import 'app_screens/PageList.dart';
 
 void main() => runApp(MyApp());
 
