@@ -9,11 +9,7 @@ import 'package:provider/provider.dart';
 class GameTile extends StatelessWidget {
 
   final Game game;
-  List<Game> list;
-
-  GameTile({
-    @required this.game
-  });
+  GameTile({ @required this.game });
 
   @override
   Widget build(BuildContext context) {
@@ -30,25 +26,35 @@ class GameTile extends StatelessWidget {
         // child: _buildTileContent(),
         child: Container(
           // decoration: BoxDecoration(color: boxBackgroundColor),
-          child: Dismissible(
-            key: ObjectKey(game.id),
-            child: _buildTileContent(),
-            background: _buildSlideLeft(),
-            secondaryBackground: _buildSlideRight(),
-            onDismissed: (direction){
-              if(direction == DismissDirection.startToEnd){
-                Provider.of<Products>(context, listen: false).changeProgression(game, 100);
-                print("HI");
-              }
-              else if (direction == DismissDirection.endToStart){
-                Provider.of<Products>(context, listen: false).changeProgression(game, 100);
-                print("Yeah"); 
-              }
-              // if (!ObjectKey(game.id)..validate()) return;
-              // _formKey.currentState.save();
-              // Provider.of<Products>(context).changeProgression(game, game.progression);
-            },
-          )
+          child: game.progression != 100 ?
+            Dismissible(
+              key: ObjectKey(game.id),
+              child: _buildTileContent(),
+              background: _buildSlideLeft(),
+              secondaryBackground: _buildSlideRight(),
+              onDismissed: (direction){
+                if(direction == DismissDirection.startToEnd){
+                  Provider.of<Products>(context, listen: false).changeProgression(game, 50);
+                  print("HI");
+                }
+                else if (direction == DismissDirection.endToStart){
+                  Provider.of<Products>(context, listen: false).changeProgression(game, 100);
+                  print("Yeah"); 
+                }
+              },
+            ) : Dismissible(
+              key: ObjectKey(game.id),
+              child: _buildTileContent(),
+              background: _buildSlideLeft(),
+              onDismissed: (direction){
+                if(direction == DismissDirection.startToEnd){
+                  Provider.of<Products>(context, listen: false).changeProgression(game, 50);
+                  print("HI2");
+                } else {
+                  
+                }
+              },
+            )
         ),
       ),
     );
@@ -69,12 +75,6 @@ class GameTile extends StatelessWidget {
           )
         ),
         _buildTileText()
-        // Expanded(
-        //     flex: 3,
-        //     // For Below-part Widgets, the Main
-        //     child: _buildTileText(),
-        //     // child: ProcessingText(game: game)
-        // )
       ],
     );
   }
