@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget{
           if(pathElements[1] == 'game') {
             String gameID = pathElements[2];
             return MaterialPageRoute(
-              builder: (BuildContext context) => DetailPage(),
+              builder: (BuildContext context) => DetailPage(gameID: gameID),
               // builder: (BuildContext context) => DetailPage(gameID: gamdID),
             );
           }

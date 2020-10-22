@@ -11,8 +11,8 @@ import 'package:flutter_app/shared/helpers/icomoon.dart';
 
 
 class DetailPage extends StatefulWidget {
-  final String gameId;
-  DetailPage({this.gameId});
+  final String gameID;
+  DetailPage({this.gameID});
 
   @override
   _DetailPageState createState() => _DetailPageState();
@@ -36,7 +36,7 @@ class _DetailPageState extends State<DetailPage> {
       print("Passing..??");
       final List<Game> listGame =
           Provider.of<GameProvider>(context, listen: false).gameItems.toList();
-      selectedGame = listGame.firstWhere((game) => game.id == widget.gameId);
+      selectedGame = listGame.firstWhere((game) => game.id == widget.gameID);
     }
 
     super.initState();
