@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/Provider/provider.dart';
 import 'package:flutter_app/app_screens/Details.dart';
 import 'package:flutter_app/app_screens/Discover.dart';
+import 'package:flutter_app/app_screens/MyFavorites.dart';
 import 'package:flutter_app/app_screens/Settings.dart';
 import 'package:flutter_app/data/product_store.dart';
 import 'package:provider/provider.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget{
         routes: {
           '/': (context) => PageTouch(),
           '/discover': (context) => Discover(),
-          // '/favorite': (context) => Favorite(),
+          '/favorite': (context) => Favorites(),
           '/settings': (context) => Settings(),
           '/details': (context) => DetailPage(),
         },

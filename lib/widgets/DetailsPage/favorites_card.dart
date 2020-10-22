@@ -4,25 +4,25 @@ import 'package:flutter_app/model/game/game.dart';
 import 'package:flutter_app/shared/style.dart';
 import 'package:provider/provider.dart';
 
-class FavoritesGameCard extends StatelessWidget {
-  final Game card;
-  FavoritesGameCard({
-    @required this.card
+class FavoritesGameList extends StatelessWidget {
+  final Game gameList;
+  FavoritesGameList({
+    @required this.gameList
   });
   
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        Provider.of<GameProvider>(context, listen: false).selectGame(card);
-        Navigator.pushNamed(context, '/game/${card.id}');
+        Provider.of<GameProvider>(context, listen: false).selectGame(gameList);
+        Navigator.pushNamed(context, '/game/${gameList.id}');
       },
 
       child: Column(
         children: [
-          card.isFavorite?
+          gameList.isFavorite?
             Expanded(flex: 2, child: _buildMyFavoritesImage(), ) : Container(),
-          card.isFavorite?
+          gameList.isFavorite?
             Expanded(flex: 1, child: _buildMyFavoritesText(context), ) : Container(),
         ],
       ),
@@ -30,7 +30,7 @@ class FavoritesGameCard extends StatelessWidget {
   }
 
   Widget _buildMyFavoritesImage(){
-    return Container( child: Image.asset( card.images[1], fit: BoxFit.fill ), );
+    return Container( child: Image.asset( gameList.images[1], fit: BoxFit.fill ), );
   }
 
   Widget _buildMyFavoritesText(BuildContext context){
@@ -41,7 +41,7 @@ class FavoritesGameCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Text(card.title, textScaleFactor: 2, textAlign: TextAlign.center, style: favoritesFont ),
+          Text(gameList.title, textScaleFactor: 2, textAlign: TextAlign.center, style: favoritesFont ),
         ],
       ),
     );
