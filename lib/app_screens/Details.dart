@@ -34,11 +34,9 @@ class _DetailPageState extends State<DetailPage> {
 
     if (selectedGame == null) {
       print("Passing..??");
-      final List<Game> listGame =
-          Provider.of<GameProvider>(context, listen: false).gameItems.toList();
+      final List<Game> listGame = Provider.of<GameProvider>(context, listen: false).gameItems.toList();
       selectedGame = listGame.firstWhere((game) => game.id == widget.gameID);
     }
-
     super.initState();
   }
 
