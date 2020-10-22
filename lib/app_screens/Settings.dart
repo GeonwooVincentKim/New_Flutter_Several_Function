@@ -53,15 +53,10 @@ class Settings extends StatelessWidget{
   Widget _buildProfileImage(){
     return Column(
       children: <Widget>[
-        Center(
-          child: ProfileImageButton(),
-        ),
+        Center(child: ProfileImageButton(),),
         SizedBox(height: defaultPadding),
         Center(
-          child: Text(
-            "UserName",
-            style: TextStyle(fontSize: 24)
-          ),
+          child: Text("UserName", style: TextStyle(fontSize: 24)),
         ),
       ]
     );
@@ -97,18 +92,11 @@ class Settings extends StatelessWidget{
       right: 0,
       
       child: FlatButton(
-        shape: ContinuousRectangleBorder(
-          side: BorderSide(
-            color: lineColor,
-          )
-        ),
+        shape: ContinuousRectangleBorder(side: BorderSide(color: lineColor)),
         color: Colors.black87,
         child: Padding(
           padding: EdgeInsets.all(defaultPadding / 2),
-          child: Text(
-            "EDIT",
-            style: settingsMainFont
-          ),
+          child: Text("EDIT", style: settingsMainFont),
         ),
         onPressed: () {},
       ),
