@@ -124,16 +124,15 @@ class _DetailPageState extends State<DetailPage> {
 
   Widget _buildDetailsBody() {
     return SingleChildScrollView(
-        child: Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        DetailImageAttribute(image: selectedGame.images[0], isFavorite: selectedGame.isFavorite),
-        ProgressBar(gameProgressBar: selectedGame.progression,),
-        _buildDetailsText(selectedGame),
-        _buildBottomImage(),
-      ],
-    ));
+      child: Column(
+        children: <Widget>[
+          DetailImageAttribute(image: selectedGame.images[0], isFavorite: selectedGame.isFavorite),
+          ProgressBar(gameProgressBar: selectedGame.progression,),
+          _buildDetailsText(selectedGame),
+          _buildBottomImage(),
+        ],
+      )
+    );
   }
 
   @override
