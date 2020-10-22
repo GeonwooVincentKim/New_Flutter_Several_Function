@@ -7,6 +7,7 @@ class GameProvider with ChangeNotifier{
   List<Game> _gameItems = DUMMY_GAMES;
   List<Game> _userItems = [];
   Game _selectedGame;
+  List<String> a = [];
 
   List<Game> get gameItems {
     return [..._gameItems];

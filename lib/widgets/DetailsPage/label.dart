@@ -10,6 +10,6 @@ class Label extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(label.toUpperCase(), style: TextStyle(color: labelColor),);
+    return Text(label, style: TextStyle(color: labelColor),);
   }
 }

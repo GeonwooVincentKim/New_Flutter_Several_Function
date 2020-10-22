@@ -190,7 +190,7 @@ class _DetailPageState extends State<DetailPage> {
                           borderSide: BorderSide(color: Colors.black87, width: 1.5),
                         ),
                         hintText: '10%'),
-                    controller: _procedureController,
+                    // controller: _procedureController,
                     keyboardType: TextInputType.number,
                     onSaved: (progression) {
                       print('progression');

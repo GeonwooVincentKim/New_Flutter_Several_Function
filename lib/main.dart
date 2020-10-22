@@ -5,7 +5,7 @@ import 'package:flutter_app/app_screens/Discover.dart';
 import 'package:flutter_app/app_screens/MyFavorites.dart';
 import 'package:flutter_app/app_screens/Settings.dart';
 import 'package:flutter_app/app_screens/app_attributes/ModifyProfile.dart';
-import 'package:flutter_app/data/product_store.dart';
+import 'package:flutter_app/Provider/product_store.dart';
 import 'package:provider/provider.dart';
 import 'app_screens/PageList.dart';
 

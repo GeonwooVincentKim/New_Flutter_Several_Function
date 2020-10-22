@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/model/game/Users.dart';
 import 'package:flutter_app/shared/style.dart';
 import 'package:flutter_app/widgets/Commons/details_form.dart';
+import 'package:flutter_app/widgets/DetailsPage/label.dart';
 
 
 class ModifyProfile extends StatefulWidget {
@@ -9,7 +11,9 @@ class ModifyProfile extends StatefulWidget {
 }
 
 class _ModifyProfileState extends State<ModifyProfile> {
-  final _formKey = GlobalKey<FormState>();
+  final _formModifyKey = GlobalKey<FormState>();
+  User user;
+
 
   Widget _buildModifyAppBar(){
     return AppBar(
@@ -29,9 +33,25 @@ class _ModifyProfileState extends State<ModifyProfile> {
         overflow: Overflow.visible,
         children: [
           Padding(
-            padding: EdgeInsets.symmetric(vertical: defaultPadding, horizontal: defaultPadding),
+            // padding: EdgeInsets.symmetric(vertical: defaultPadding, horizontal: defaultPadding),
+            padding: EdgeInsets.all(defaultPadding * 2),
             child: SingleChildScrollView(
-              child: _buildProfileInfo(),
+              child: Form(
+                key: _formModifyKey,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Label(label: "UserName"),
+                    _buildModifyText(),
+                    Label(label: "Email"),
+                    _buildModifyText(),
+                    Label(label: "Image URL"),
+                    _buildModifyText(),
+                    Label(label: "Address"),
+                    _buildModifyText(),
+                  ],
+                )
+              )
             )
           ),
           _buildModifyForm(),
@@ -48,6 +68,20 @@ class _ModifyProfileState extends State<ModifyProfile> {
     );
   }
 
+  Widget _buildModifyText(){
+    return Column(
+      children: <Widget>[
+        TextFormField(
+          validator: (value){
+            if(value.isEmpty) {return 'Please enter some text';}
+            return null;
+          }
+        ),
+        SizedBox(height: defaultPadding * 2),
+      ],
+    );
+  }
+
   Widget _buildModifyForm(){
     return Positioned(
       bottom: 0,
@@ -61,9 +95,7 @@ class _ModifyProfileState extends State<ModifyProfile> {
           padding: EdgeInsets.all(defaultPadding / 2),
           child: Text("MODIFY", style: settingsMainFont),
         ),
-        onPressed: () {
-          Navigator.pushNamed(context, "/settings");
-        },
+        onPressed: () => _submitForm(context)
       ),
     );
   }
@@ -89,5 +121,10 @@ class _ModifyProfileState extends State<ModifyProfile> {
         ),
       ]
     );
+  }
+
+  void _submitForm(BuildContext context){
+    if(!_formModifyKey.currentState.validate()) return;
+    _formModifyKey.currentState.save();
   }
 }
