@@ -190,8 +190,7 @@ class _DetailPageState extends State<DetailPage> {
                     textAlign: TextAlign.center,
                     decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: Colors.black87, width: 1.5),
+                          borderSide: BorderSide(color: Colors.black87, width: 1.5),
                         ),
                         hintText: '10%'),
                     controller: _procedureController,
@@ -216,18 +215,17 @@ class _DetailPageState extends State<DetailPage> {
         ),
         transparent_divider(),
         InkWell(
-            child: Container(
-              padding: EdgeInsets.symmetric(vertical: 20),
-              decoration: BoxDecoration(
-                color: Colors.black,
-              ),
-              child: Text(
-                "+ Add to my List",
-                style: TextStyle(color: Colors.white),
-                textAlign: TextAlign.center,
-              ),
+          child: Container(
+            padding: EdgeInsets.symmetric(vertical: 20),
+            decoration: BoxDecoration(color: Colors.black),
+            child: Text(
+              "+ Add to my List",
+              style: TextStyle(color: Colors.white),
+              textAlign: TextAlign.center,
             ),
-            onTap: () => _submitForm(context)),
+          ),
+          onTap: () => _submitForm(context)
+        ),
       ],
     );
   }
@@ -237,8 +235,7 @@ class _DetailPageState extends State<DetailPage> {
 
     _formKey.currentState.save();
     Provider.of<GameProvider>(context).addGameList(selectedGame);
-    Provider.of<GameProvider>(context)
-        .changeProgression(selectedGame, _progression);
+    Provider.of<GameProvider>(context).changeProgression(selectedGame, _progression);
     Provider.of<GameProvider>(context).deleteGame(selectedGame);
 
     Navigator.of(context).pop();
