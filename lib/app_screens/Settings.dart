@@ -44,7 +44,7 @@ class Settings extends StatelessWidget{
               ),
             )
           ),
-          _buildEditButton()
+          _buildEditButton(context)
         ], 
       )
     );
@@ -85,7 +85,7 @@ class Settings extends StatelessWidget{
     );
   }
 
-  Widget _buildEditButton(){
+  Widget _buildEditButton(BuildContext context){
     return Positioned(
       bottom: 0,
       left: 0,
@@ -98,7 +98,9 @@ class Settings extends StatelessWidget{
           padding: EdgeInsets.all(defaultPadding / 2),
           child: Text("EDIT", style: settingsMainFont),
         ),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, "/modify");
+        },
       ),
     );
   }

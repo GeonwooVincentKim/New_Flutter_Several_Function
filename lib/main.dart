@@ -4,6 +4,7 @@ import 'package:flutter_app/app_screens/Details.dart';
 import 'package:flutter_app/app_screens/Discover.dart';
 import 'package:flutter_app/app_screens/MyFavorites.dart';
 import 'package:flutter_app/app_screens/Settings.dart';
+import 'package:flutter_app/app_screens/app_attributes/ModifyProfile.dart';
 import 'package:flutter_app/data/product_store.dart';
 import 'package:provider/provider.dart';
 import 'app_screens/PageList.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget{
           '/discover': (context) => Discover(),
           '/favorite': (context) => Favorites(),
           '/settings': (context) => Settings(),
+          '/modify': (context) => ModifyProfile(),
           '/details': (context) => DetailPage(),
         },
         onGenerateRoute: (RouteSettings settings){
