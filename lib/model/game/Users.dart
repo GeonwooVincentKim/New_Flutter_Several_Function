@@ -11,8 +11,8 @@ class User{
   String userAddress;
   
   User({
-    this.id,
-    // @required this.id
+    // this.id,
+    @required this.id,
     @required this.userName,
     @required this.email,
     @required this.photoURL,

@@ -14,11 +14,20 @@ class ModifyProfile extends StatefulWidget {
 
 class _ModifyProfileState extends State<ModifyProfile> {
   final _formModifyKey = GlobalKey<FormState>();
+  
   User user;
-  String userName = 'UserName';
-  String email = 'dddd@gmail.com';
-  String imageURL = 'https://www.naver.com';
-  String address = 'SK Seongsu V1 CENTER I, Seongsu-dong 2-ga, Seongdong-du, Seoul, S.Korea';
+  String _userName = 'UserName';
+  String _email = 'dddd@gmail.com';
+  String _imageURL = 'https://www.naver.com';
+  String _address = 'SK Seongsu V1 CENTER I, Seongsu-dong 2-ga, Seongdong-du, Seoul, S.Korea';
+
+  final Map<String, dynamic> _formData = {
+    'username': '',
+    'email': '',
+    'imageURL': '',
+    'Address': '',
+    // ''
+  };
 
 
   Widget _buildModifyAppBar(){
@@ -74,6 +83,14 @@ class _ModifyProfileState extends State<ModifyProfile> {
     );
   }
 
+  Widget _buildUserNameModify(){
+    return Column(
+      children: <Widget>[
+        
+      ],
+    );
+  }
+
   Widget _buildModifyText(){
     return Column(
       children: <Widget>[
@@ -81,7 +98,15 @@ class _ModifyProfileState extends State<ModifyProfile> {
           validator: (value){
             if(value.isEmpty) {return 'Please enter some text';}
             return null;
-          }
+          },
+          onSaved: (value){
+            print("User Edition!!!!!");
+            setState((){
+              _userName = value;
+              print(_userName);
+            });
+            print(_userName);
+          },
         ),
         SizedBox(height: defaultPadding * 2),
       ],
@@ -106,34 +131,17 @@ class _ModifyProfileState extends State<ModifyProfile> {
     );
   }
 
-  Widget _buildProfileInfo(){
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        DetailsForm(
-          contentsTitle: "Local ID",
-          contentsInfo: "8VxqWO9pRBTvpLGxFXquloo97X13",
-          marginBottom: defaultPadding * 2,
-        ),
-        DetailsForm(
-          contentsTitle: "Email",
-          contentsInfo: "test@test.com",
-          marginBottom: defaultPadding * 2,
-        ),
-        DetailsForm(
-          contentsTitle: "Address",
-          contentsInfo: "Seoul, Gangnam-gu, Samseong 2(i)-dong, Seolleung-ro 112-gil, 87 명인빌딩",
-          marginBottom: defaultPadding * 2,
-        ),
-      ]
-    );
-  }
+
 
   void _submitForm(BuildContext context){
     if(!_formModifyKey.currentState.validate()) return;
     _formModifyKey.currentState.save();
     
-    Provider.of<UserProvider>(context).changeUserInfo(user, userName, email, imageURL, address);
+    Provider.of<UserProvider>(context).changeUserInfo(user, _userName, _email, _imageURL, _address);
+    print(_userName);
+    print(_email);
+    print(_imageURL);
+    print(_address);
     Navigator.of(context).pop();
   }
 }

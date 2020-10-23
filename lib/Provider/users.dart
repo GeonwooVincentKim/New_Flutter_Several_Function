@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_app/model/game/Users.dart';
 
@@ -15,7 +17,7 @@ class UserProvider with ChangeNotifier{
   }
 
   void changeUserInfo(User userModfiy, String userName, String email, String imageURL, String address){
-    // userModfiy.userName = userName;
+    // userModfiy.userName = userName
     // userModfiy.email = email;
     // userModfiy.photoURL = imageURL;
     // userModfiy.userAddress = address;
@@ -24,7 +26,10 @@ class UserProvider with ChangeNotifier{
     if(index != 1){
       final User modifyUser = User.from(userModify);
       modifyUser.userName = userName;
-      // modifyUser.email = 
+      modifyUser.email = email;
+      modifyUser.photoURL = imageURL;
+      modifyUser.userAddress = address;
     }
+    notifyListeners();
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Provider/provider.dart';
+import 'package:flutter_app/Provider/users.dart';
 import 'package:flutter_app/app_screens/Details.dart';
 import 'package:flutter_app/app_screens/Discover.dart';
 import 'package:flutter_app/app_screens/MyFavorites.dart';
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget{
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_ctx) => GameProvider()),
+        ChangeNotifierProvider(create: (_ctx) => UserProvider()),
         ChangeNotifierProvider(create: (_ctx) => Cart()),
       ],
       child: MaterialApp(
@@ -26,7 +28,7 @@ class MyApp extends StatelessWidget{
           '/': (context) => PageTouch(),
           '/discover': (context) => Discover(),
           '/favorite': (context) => Favorites(),
-          '/settings': (context) => Settings(),
+          '/settings': (context) => Setting(),
           '/modify': (context) => ModifyProfile(),
           '/details': (context) => DetailPage(),
         },

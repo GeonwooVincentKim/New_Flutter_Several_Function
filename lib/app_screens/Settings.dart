@@ -1,11 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/Provider/users.dart';
 import 'package:flutter_app/app_screens/app_attributes/SettingsImage.dart';
+import 'package:flutter_app/model/game/Users.dart';
 import 'package:flutter_app/shared/style.dart';
 import 'package:flutter_app/widgets/Commons/details_form.dart';
 import 'package:flutter_app/app_screens/SideMenu.dart';
+import 'package:provider/provider.dart';
 
 
-class Settings extends StatelessWidget{
+class Setting extends StatefulWidget {
+  @override
+  _SettingState createState() => _SettingState();
+}
+
+class _SettingState extends State<Setting> {
+  User userModification;
+  final TextEditingController userNameTextController = TextEditingController();
+  final TextEditingController userEmailTextController = TextEditingController();
+  final TextEditingController userAddressController = TextEditingController();
+
+  // @override
+  // void initState(){
+  //   setState((){
+  //     userModification = Provider.of<UserProvider>(context, listen: false).userModify;
+  //   });
+  //   if(userModification == null){
+  //     print("Pass me the Salt Please Man!!!");
+  //     // final List<User> userInfoList = Provider.of<UserProvider>(context, listen: false).i
+  //   }
+  // }
   AppBar _buildAppBarSettings(){
     return AppBar(
       title: Text("SETTINGS"),
@@ -56,7 +79,7 @@ class Settings extends StatelessWidget{
         Center(child: ProfileImageButton(),),
         SizedBox(height: defaultPadding),
         Center(
-          child: Text("UserName", style: TextStyle(fontSize: 24)),
+          child: Text(_getUserName(), style: TextStyle(fontSize: 24)),
         ),
       ]
     );
@@ -73,12 +96,14 @@ class Settings extends StatelessWidget{
         ),
         DetailsForm(
           contentsTitle: "Email",
-          contentsInfo: "test@test.com",
+          contentsInfo: _getEmail(),
+          // contentsInfo: "test@test.com",
+          // contentsInfo: userModification.email,
           marginBottom: defaultPadding * 2,
         ),
         DetailsForm(
           contentsTitle: "Address",
-          contentsInfo: "Seoul, Gangnam-gu, Samseong 2(i)-dong, Seolleung-ro 112-gil, 87 명인빌딩",
+          contentsInfo: _getAddress(),
           marginBottom: defaultPadding * 2,
         ),
       ]
@@ -104,4 +129,32 @@ class Settings extends StatelessWidget{
       ),
     );
   }
+
+  String _getUserName(){
+    return userNameTextController.text == null ||
+      userNameTextController.text.trim().isEmpty ? 'YourName'
+      : userNameTextController.text;
+  }
+
+  String _getEmail(){
+    return userEmailTextController.text == null ||
+      userEmailTextController.text.trim().isEmpty? 'text@naver.com'
+      : userEmailTextController.text;
+  }
+
+  String _getAddress(){
+    return userAddressController.text == null ||
+      userAddressController.text.trim().isEmpty? 'Seoul, Gangnam-gu, Samseong 2(i)-dong, Seolleung-ro 112-gil, 87 명인빌딩'
+      : userAddressController.text;
+  }
+
+  // Widget _inputNicknameWidget() {
+  //   return TextFormField(
+  //     controller: nicknameTextController,
+  //     style: TextStyle(fontSize: 14, color: Color(0xff333333)),
+  //     decoration: textInputDecoration.copyWith(
+  //       hintText: '펫님의 이름을 적어주세요',
+  //     ),
+  //   );
+  // }
 }
