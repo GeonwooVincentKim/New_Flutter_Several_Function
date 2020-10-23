@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 
 class User{
   final String id;
-  final String userName;
-  final String email;
+  String userName;
+  String email;
   // final String photoURL;
-  List<String> photoURL;
-  final String userAddress;
+  // List<String> photoURL;
+  String photoURL;
+  String userAddress;
   
   User({
     this.id,

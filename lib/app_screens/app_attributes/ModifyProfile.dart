@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/Provider/users.dart';
 import 'package:flutter_app/model/game/Users.dart';
 import 'package:flutter_app/shared/style.dart';
 import 'package:flutter_app/widgets/Commons/details_form.dart';
 import 'package:flutter_app/widgets/DetailsPage/label.dart';
+import 'package:provider/provider.dart';
 
 
 class ModifyProfile extends StatefulWidget {
@@ -13,6 +15,10 @@ class ModifyProfile extends StatefulWidget {
 class _ModifyProfileState extends State<ModifyProfile> {
   final _formModifyKey = GlobalKey<FormState>();
   User user;
+  String userName = 'UserName';
+  String email = 'dddd@gmail.com';
+  String imageURL = 'https://www.naver.com';
+  String address = 'SK Seongsu V1 CENTER I, Seongsu-dong 2-ga, Seongdong-du, Seoul, S.Korea';
 
 
   Widget _buildModifyAppBar(){
@@ -126,5 +132,8 @@ class _ModifyProfileState extends State<ModifyProfile> {
   void _submitForm(BuildContext context){
     if(!_formModifyKey.currentState.validate()) return;
     _formModifyKey.currentState.save();
+    
+    Provider.of<UserProvider>(context).changeUserInfo(user, userName, email, imageURL, address);
+    Navigator.of(context).pop();
   }
 }
