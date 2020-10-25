@@ -154,6 +154,14 @@ class _SettingState extends State<Setting> {
       : userAddressController.text;
   }
 
+  // List<String> getPropensityNameList(List<Propensity> propensityList) {
+  //   List<String> names = [];
+  //   for (final item in propensityList) {
+  //     names.add(item.name);
+  //   }
+  //   return names;
+  // }
+
   // Widget _inputNicknameWidget() {
   //   return TextFormField(
   //     controller: nicknameTextController,
