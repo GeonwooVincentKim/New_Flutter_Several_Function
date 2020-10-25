@@ -6,6 +6,8 @@ import 'package:flutter_app/widgets/Commons/details_form.dart';
 import 'package:flutter_app/widgets/DetailsPage/label.dart';
 import 'package:provider/provider.dart';
 
+import '../../model/game/Users.dart';
+
 
 class ModifyProfile extends StatefulWidget {
   @override
@@ -20,8 +22,9 @@ class _ModifyProfileState extends State<ModifyProfile> {
   String _email = 'dddd@gmail.com';
   String _imageURL = 'https://www.naver.com';
   String _address = 'SK Seongsu V1 CENTER I, Seongsu-dong 2-ga, Seongdong-du, Seoul, S.Korea';
+  bool _isInit = false;
 
-  final Map<String, dynamic> _formData = {
+  final Map<String, dynamic> _formUserData = {
     'username': '',
     'email': '',
     'imageURL': '',
@@ -51,22 +54,39 @@ class _ModifyProfileState extends State<ModifyProfile> {
             // padding: EdgeInsets.symmetric(vertical: defaultPadding, horizontal: defaultPadding),
             padding: EdgeInsets.all(defaultPadding * 2),
             child: SingleChildScrollView(
-              child: Form(
-                key: _formModifyKey,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Label(label: "UserName"),
-                    _buildModifyText(),
-                    Label(label: "Email"),
-                    _buildModifyText(),
-                    Label(label: "Image URL"),
-                    _buildModifyText(),
-                    Label(label: "Address"),
-                    _buildModifyText(),
-                  ],
-                )
+              child: Consumer<UserProvider>(
+                builder: (ctx, user, _){
+                  final List<User> userList = user.userInfoList;
+                  if(user != null && !_isInit){
+                    print("Initialize..");
+                    _formUserData['username'] = userList;
+                    _formUserData['email'] = userList;
+                    // _formUserData['imageURL'] = user.photoURL;
+                    // _formUserData['Address'] = user.userAddress;
+                  }
+                  return Form(
+                    key: _formModifyKey,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Label(label: "UserName"),
+                        _buildModifyText(),
+                        // _buildUserNameModify(),
+                        Label(label: "Email"),
+                        _buildModifyText(),
+                        // _buildUserEmailModify(),
+                        Label(label: "Image URL"),
+                        _buildModifyText(),
+                        // _buildUserImageURLModify(),
+                        Label(label: "Address"),
+                        _buildModifyText(),
+                        // _buildUserAddressModify(),
+                      ],
+                    )
+                  );
+                }
               )
+              
             )
           ),
           _buildModifyForm(),
