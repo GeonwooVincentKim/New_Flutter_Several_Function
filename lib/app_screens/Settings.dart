@@ -18,7 +18,7 @@ class _SettingState extends State<Setting> {
   final TextEditingController userNameTextController = TextEditingController();
   final TextEditingController userEmailTextController = TextEditingController();
   final TextEditingController userAddressController = TextEditingController();
-
+  final TextEditingController userImageTextController = TextEditingController();
   // @override
   // void initState(){
   //   setState((){
@@ -140,6 +140,12 @@ class _SettingState extends State<Setting> {
     return userEmailTextController.text == null ||
       userEmailTextController.text.trim().isEmpty? 'text@naver.com'
       : userEmailTextController.text;
+  }
+
+  String _getImageAddress(){
+    return userImageTextController.text == null ||
+      userImageTextController.text.trim().isEmpty? 'http://url.com'
+      : userImageTextController.text;
   }
 
   String _getAddress(){
