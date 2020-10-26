@@ -16,6 +16,31 @@ class UserProvider with ChangeNotifier{
     return User.from(_userModify);
   }
 
+  void changeUsername(User user){
+    _userModify.userName = user.userName;
+    notifyListeners();
+  }
+
+  void changeUserEmail(User user){
+    _userModify.email = user.email;
+    notifyListeners();
+  }
+
+  void changeUserAddress(User user){
+    _userModify.userAddress = user.userAddress;
+    notifyListeners();
+  }
+
+  void changeUserImageURL(User user){
+    _userModify.photoURL = user.photoURL;
+    notifyListeners();
+  }
+
+  setname(User user){
+    _userModify.userName = user.userName;
+    notifyListeners();
+  }
+
   // void createUser(User userModify) {
   //   print("===== create user ======");
 
@@ -29,7 +54,7 @@ class UserProvider with ChangeNotifier{
   //   notifyListeners();
   // }
 
-  void createUserInfo(User userModfiy){
+  void changeUserInformation(User userModfiy){
     if (userModify != null){
       // User.fro = userModify.id ?? '';
       final User modifyUser = User.from(userModfiy);

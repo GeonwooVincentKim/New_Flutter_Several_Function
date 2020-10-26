@@ -29,15 +29,4 @@ class User{
       userAddress: user.userAddress ?? '',
     );
   }
-  // void createUser(User user) {
-  //   print("===== create user ======");
-
-  //   if (user != null) {
-  //     id = user.id ?? '';
-  //     email = user.email ?? '';
-  //     userName = user.userName ?? '';
-  //     email = user.email ?? '';
-  //   }
-  //   notifyListeners();
-  // }
 }

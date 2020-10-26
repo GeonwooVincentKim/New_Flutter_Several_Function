@@ -97,8 +97,6 @@ class _SettingState extends State<Setting> {
         DetailsForm(
           contentsTitle: "Email",
           contentsInfo: _getEmail(),
-          // contentsInfo: "test@test.com",
-          // contentsInfo: userModification.email,
           marginBottom: defaultPadding * 2,
         ),
         DetailsForm(
@@ -153,22 +151,4 @@ class _SettingState extends State<Setting> {
       userAddressController.text.trim().isEmpty? 'Seoul, Gangnam-gu, Samseong 2(i)-dong, Seolleung-ro 112-gil, 87 명인빌딩'
       : userAddressController.text;
   }
-
-  // List<String> getPropensityNameList(List<Propensity> propensityList) {
-  //   List<String> names = [];
-  //   for (final item in propensityList) {
-  //     names.add(item.name);
-  //   }
-  //   return names;
-  // }
-
-  // Widget _inputNicknameWidget() {
-  //   return TextFormField(
-  //     controller: nicknameTextController,
-  //     style: TextStyle(fontSize: 14, color: Color(0xff333333)),
-  //     decoration: textInputDecoration.copyWith(
-  //       hintText: '펫님의 이름을 적어주세요',
-  //     ),
-  //   );
-  // }
 }
