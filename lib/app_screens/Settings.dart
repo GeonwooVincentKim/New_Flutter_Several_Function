@@ -142,7 +142,7 @@ class _SettingState extends State<Setting> {
       : userEmailTextController.text;
   }
 
-  String _getImageAddress(){
+  String _getImageLink(){
     return userImageTextController.text == null ||
       userImageTextController.text.trim().isEmpty? 'http://url.com'
       : userImageTextController.text;

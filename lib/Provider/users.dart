@@ -16,6 +16,30 @@ class UserProvider with ChangeNotifier{
     return User.from(_userModify);
   }
 
+  // void createUser(User userModify) {
+  //   print("===== create user ======");
+
+  //   if (userModify != null) {
+  //     final User modifyUser = User.from(userModify);
+  //     userModify.id ?? '';
+  //     email = userModify.email ?? '';
+  //     userName = userModify.userName ?? '';
+  //     email = userModify.email ?? '';
+  //   }
+  //   notifyListeners();
+  // }
+
+  void createUserInfo(User userModfiy){
+    if (userModify != null){
+      // User.fro = userModify.id ?? '';
+      final User modifyUser = User.from(userModfiy);
+      // modifyUser.id = modifyUser.id ?? 'test';
+      // modifyUser.email = modifyUser.email ?? '';
+      modifyUser.userName = modifyUser.userName ?? '';
+
+    }
+  }
+
   void changeUserInfo(User userModfiy, String userName, String email, String imageURL, String address){
     // userModfiy.userName = userName
     // userModfiy.email = email;

@@ -6,7 +6,7 @@ import 'package:flutter_app/widgets/Commons/details_form.dart';
 import 'package:flutter_app/widgets/DetailsPage/label.dart';
 import 'package:provider/provider.dart';
 
-import '../../model/game/Users.dart';
+import 'package:flutter_app/model/game/Users.dart';
 
 
 class ModifyProfile extends StatefulWidget {
@@ -60,9 +60,9 @@ class _ModifyProfileState extends State<ModifyProfile> {
                   if(user != null && !_isInit){
                     print("Initialize..");
                     _formUserData['username'] = userList;
-                    _formUserData['email'] = userList;
-                    // _formUserData['imageURL'] = user.photoURL;
-                    // _formUserData['Address'] = user.userAddress;
+                    // _formUserData['email'] = userList;
+                    // _formUserData['imageURL'] = userList;
+                    // _formUserData['Address'] = userList;
                   }
                   return Form(
                     key: _formModifyKey,
@@ -70,16 +70,16 @@ class _ModifyProfileState extends State<ModifyProfile> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Label(label: "UserName"),
-                        _buildModifyText(),
-                        // _buildUserNameModify(),
-                        Label(label: "Email"),
-                        _buildModifyText(),
-                        // _buildUserEmailModify(),
-                        Label(label: "Image URL"),
-                        _buildModifyText(),
-                        // _buildUserImageURLModify(),
-                        Label(label: "Address"),
-                        _buildModifyText(),
+                        // _buildModifyText(),
+                        _buildUserNameModify(),
+                        // Label(label: "Email"),
+                        // _buildModifyText(),
+                        // // _buildUserEmailModify(),
+                        // Label(label: "Image URL"),
+                        // _buildModifyText(),
+                        // // _buildUserImageURLModify(),
+                        // Label(label: "Address"),
+                        // _buildModifyText(),
                         // _buildUserAddressModify(),
                       ],
                     )
@@ -106,7 +106,22 @@ class _ModifyProfileState extends State<ModifyProfile> {
   Widget _buildUserNameModify(){
     return Column(
       children: <Widget>[
-        
+         TextFormField(
+          validator: (value){
+            if(value.isEmpty) {return 'Please enter some text';}
+            return null;
+          },
+          onSaved: (value){
+            print("User Edition!!!!!");
+            setState((){
+              _formUserData['username'] = value;
+              // _userName = value;
+              print(value);
+            });
+            print(value);
+          },
+        ),
+        SizedBox(height: defaultPadding * 2),
       ],
     );
   }
@@ -157,11 +172,14 @@ class _ModifyProfileState extends State<ModifyProfile> {
     if(!_formModifyKey.currentState.validate()) return;
     _formModifyKey.currentState.save();
     
-    Provider.of<UserProvider>(context).changeUserInfo(user, _userName, _email, _imageURL, _address);
-    print(_userName);
-    print(_email);
-    print(_imageURL);
-    print(_address);
+    Provider.of<UserProvider>(context).createUserInfo(user);
+    print(user.userName);
+    print(user.email);
+    // Provider.of<UserProvider>(context).changeUserInfo(user, _userName, _email, _imageURL, _address);
+    // print(_userName);
+    // print(_email);
+    // print(_imageURL);
+    // print(_address);
     Navigator.of(context).pop();
   }
 }
