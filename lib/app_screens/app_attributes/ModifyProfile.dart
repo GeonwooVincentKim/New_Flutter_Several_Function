@@ -58,7 +58,8 @@ class _ModifyProfileState extends State<ModifyProfile> {
             child: SingleChildScrollView(
               child: Consumer<UserProvider>(
                 builder: (ctx, user, _){
-                  final List<User> userList = user.userInfoList;
+                  final User userList = Provider.of<UserProvider>(context, listen: false).userModify;
+                  // final List<User> userList = user.userInfoList;
                   if(user != null && !_isInit){
                     print("Initialize..");
                     _formUserData['username'] = userList;
@@ -119,11 +120,11 @@ class _ModifyProfileState extends State<ModifyProfile> {
           },
           onSaved: (value){
             print("User Edition!!!!!");
-            setState((){
-              _formUserData['username'] = value;
-              // _userName = value;
-              print(value);
-            });
+              setState(() {
+                _formUserData['username'] = value;
+                _formModifyKey.currentState.save();
+                
+              });
             print(value);
           },
         ),

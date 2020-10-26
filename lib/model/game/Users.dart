@@ -29,4 +29,24 @@ class User{
       userAddress: user.userAddress ?? '',
     );
   }
+
+  factory User.fromMap(Map<String, dynamic> data){
+    return User(
+      id: data['id'] ?? '',
+      userName: data['username'] ?? '',
+      email: data['email'] ?? '',
+      photoURL: data['imageURL'] ?? '',
+      userAddress: data['Address'] ?? '',
+    );
+  }
+
+  factory User.initialData(){
+    return User(
+      id: '',
+      userName: '',
+      email: '',
+      photoURL: '',
+      userAddress: '',
+    );
+  }
 }

@@ -1,10 +1,13 @@
+import 'dart:collection';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_app/data/user.dart';
 import 'package:flutter_app/model/game/Users.dart';
 
 
 class UserProvider with ChangeNotifier{
+  User _userList = USER_DUMMY_LIST;
   List<User> _userInfoList = [];
   User _userModify;
 
@@ -13,9 +16,21 @@ class UserProvider with ChangeNotifier{
   }
 
   User get userModify{
-    return User.from(_userModify);
+    return User.from(_userList);
   }
 
+  void editUser(Map<String, dynamic> data){
+    User editUser = User(
+      id: _userList.id,
+      userName: data['username'],
+      photoURL: data['imageURL'],
+      email: data['email'],
+      userAddress: data['Address']
+    );
+    _userList = editUser;
+    notifyListeners();
+  }
+  
   void changeUsername(User user){
     _userModify.userName = user.userName;
     notifyListeners();
