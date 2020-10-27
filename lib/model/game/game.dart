@@ -43,4 +43,37 @@ class Game {
     );
   }
 
+  // Mapign Game form to modify or add new games into my DiscoverList.
+  factory Game.fromMap(Map<String, dynamic> data){
+    return Game(
+      id: data['id'] ?? '',
+      title: data['title'] ?? '',
+      images: data['images'] ?? [],
+      platforms: data['platforms'] ?? [],
+      genres: data['genres'] ?? [],
+      publisher: data['publisher'] ?? [],
+      description: data['descrption'] ?? '',
+      releaseDate: data['releaseDate'] ?? '',
+      isFavorite: data['isFavorite'] ?? false,
+      progression: data['progression'] ?? 0.0,
+      videoUrl: data['videoURL'] ?? ''
+    );
+  }
+   
+  // Initializing Data
+  factory Game.initialData(){
+    return Game(
+      id: '',
+      title: '',
+      images: [],
+      platforms: [],
+      genres: [],
+      publisher: '',
+      description: '',
+      releaseDate: '',
+      isFavorite: false,
+      progression: 0.0,
+      videoUrl: ''
+    );
+  }
 }
