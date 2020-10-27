@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget{
               String gameId = pathElements[2];
 
               return MaterialPageRoute(
-                builder: (BuildContext context) => DetailPage(gameId: gameId),
+                builder: (BuildContext context) => DetailPage(gameID: gameId),
               );
             }
             return null;
