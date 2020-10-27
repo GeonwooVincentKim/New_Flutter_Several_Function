@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/model/game/game.dart';
 import 'package:flutter_app/provider/Provide.dart';
+import 'package:flutter_app/provider/game_provider.dart';
 import 'package:flutter_app/shared/style.dart';
 import 'package:provider/provider.dart';
 
@@ -13,8 +14,12 @@ class FavoritesGameCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      // onTap: (){
+      //   Provider.of<Products>(context, listen: false).selectGame(card);
+      //   Navigator.pushNamed(context, '/game/${card.id}');
+      // },
       onTap: (){
-        Provider.of<Products>(context, listen: false).selectGame(card);
+        Provider.of<GameProvider>(context, listen: false).selectGame(card);
         Navigator.pushNamed(context, '/game/${card.id}');
       },
 

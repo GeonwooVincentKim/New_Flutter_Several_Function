@@ -268,6 +268,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Provider/provide.dart';
 import 'package:flutter_app/model/game/game.dart';
+import 'package:flutter_app/provider/game_provider.dart';
 import 'package:flutter_app/shared/style.dart';
 import 'package:flutter_app/widgets/Commons/details_form.dart';
 import 'package:flutter_app/widgets/Details/detail_image.dart';
@@ -296,12 +297,15 @@ class _DetailPageState extends State<DetailPage> {
   @override
   void initState() {
     setState(() {
-      selectedGame = Provider.of<Products>(context, listen: false).selectedGame;
+      // selectedGame = Provider.of<Products>(context, listen: false).selectedGame;
+      selectedGame = Provider.of<GameProvider>(context, listen: false).selectedGame;
     });
 
     if (selectedGame == null) {
       print("Passing..??");
-      final List<Game> listGame = Provider.of<Products>(context, listen: false).items.toList();
+      // final List<Game> listGame = Provider.of<Products>(context, listen: false).items.toList();
+      final List<Game> listGame = Provider.of<GameProvider>(context, listen: false).gameItems.toList();
+
       selectedGame = listGame.firstWhere((game) => game.id == widget.gameID);
     }
     super.initState();
@@ -498,9 +502,9 @@ class _DetailPageState extends State<DetailPage> {
     if (!_formKey.currentState.validate()) return;
 
     _formKey.currentState.save();
-    Provider.of<Products>(context).addGameUserList(selectedGame);
-    Provider.of<Products>(context).changeProgression(selectedGame, _progression);
-    Provider.of<Products>(context).deleteGame(selectedGame);
+    Provider.of<GameProvider>(context).addGameList(selectedGame);
+    Provider.of<GameProvider>(context).changeProgression(selectedGame, _progression);
+    Provider.of<GameProvider>(context).deleteGame(selectedGame);
 
     Navigator.of(context).pop();
   }

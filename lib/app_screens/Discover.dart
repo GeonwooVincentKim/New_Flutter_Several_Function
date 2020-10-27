@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/provider/Provide.dart';
 import 'package:flutter_app/model/game/game.dart';
+import 'package:flutter_app/provider/game_provider.dart';
 import 'package:flutter_app/shared/style.dart';
 import 'package:flutter_app/widgets/Discover/game_card.dart';
 import 'package:flutter_app/widgets/expanded/divider.dart';
@@ -19,7 +20,8 @@ class _DiscoverState extends State<Discover>{
 
   @override
   void initState(){
-    final List<Game> listGame = Provider.of<Products>(context, listen: false).items;
+    // final List<Game> listGame = Provider.of<Products>(context, listen: false).items;
+    final List<Game> listGame = Provider.of<GameProvider>(context, listen: false).gameItems;
     setState(() {
       pageList = listGame.toList();
     });

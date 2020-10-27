@@ -7,6 +7,7 @@ import 'package:flutter_app/app_screens/attributes/ModifyProfile.dart';
 import 'package:flutter_app/app_screens/settings.dart';
 import 'package:flutter_app/data/ProductStore.dart';
 import 'package:flutter_app/provider/Provide.dart';
+import 'package:flutter_app/provider/game_provider.dart';
 import 'package:provider/provider.dart';
 import 'app_screens/PageSlider.dart';
 
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget{
     return MultiProvider(
         providers: [
           // Show Current Products
-          ChangeNotifierProvider(create: (_ctx) => Products()),
+          // ChangeNotifierProvider(create: (_ctx) => Products()),
+          ChangeNotifierProvider(create: (_ctx) => GameProvider()),
           ChangeNotifierProvider(create: (_ctx) => UserProvider()),
           // Add into your Cart
           ChangeNotifierProvider(create: (_ctx) => Cart()),

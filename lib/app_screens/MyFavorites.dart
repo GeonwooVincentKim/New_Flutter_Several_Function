@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/model/game/game.dart';
 import 'package:flutter_app/provider/Provide.dart';
+import 'package:flutter_app/provider/game_provider.dart';
 import 'package:flutter_app/shared/layout.dart';
 import 'package:flutter_app/shared/style.dart';
 import 'package:flutter_app/widgets/Details/favorites_card.dart';
@@ -50,7 +51,8 @@ class MyFavoritesPage extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    final List<Game> listGame = Provider.of<Products>(context, listen: false).items;
+    // final List<Game> listGame = Provider.of<Products>(context, listen: false).items;
+    final List<Game> listGame = Provider.of<GameProvider>(context, listen: false).gameItems;
     inWidgetList = listGame.where((game) => game.isFavorite).toList();
     
     return Scaffold(

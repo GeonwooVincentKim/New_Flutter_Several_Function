@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/model/game/game.dart';
 import 'package:flutter_app/provider/Provide.dart';
+import 'package:flutter_app/provider/game_provider.dart';
 import 'package:flutter_app/shared/style.dart';
 import 'package:flutter_app/widgets/Commons/gradient_box.dart';
 import 'package:provider/provider.dart';
@@ -16,7 +17,8 @@ class DiscoverGameCard extends StatelessWidget{
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        Provider.of<Products>(context, listen: false).selectGame(discoverGame);
+        // Provider.of<Products>(context, listen: false).selectGame(discoverGame);
+        Provider.of<GameProvider>(context, listen: false).selectGame(discoverGame);
         Navigator.pushNamed(context, "/game/${discoverGame.id}");
       },
       child: Card(

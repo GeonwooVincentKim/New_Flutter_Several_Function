@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/provider/Provide.dart';
+import 'package:flutter_app/provider/game_provider.dart';
 import 'package:flutter_app/shared/helpers/icomoon.dart';
 import 'package:provider/provider.dart';
 
@@ -32,7 +33,39 @@ class _DetailImageAttributeState extends State<DetailImageAttribute> {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
 
-    return Consumer<Products>(
+    // return Consumer<Products>(
+    //   builder: (ctx, product, child) => (
+    //       Stack(
+    //         children: <Widget>[
+    //         Container(
+    //           width: screenWidth,
+    //           child: Image.asset(
+    //             widget.image,
+    //             fit: BoxFit.fitWidth,
+    //           ),
+    //         ),
+    //         Align(
+    //           alignment: Alignment.topRight,
+    //           child: IconButton(
+    //             icon: Icon(
+    //               isFavorite ? IconMoon.istarfull : IconMoon.istar,
+    //               color: Colors.white,
+    //             ),
+    //             onPressed: () {
+    //               Provider.of<Products>(context, listen: false)
+    //                   .changeFavorite(!isFavorite);
+    //               setState(() {
+    //                 isFavorite = !isFavorite;
+    //               });
+    //               print(isFavorite);
+    //             }
+    //           ),
+    //         ),
+    //       ]
+    //     )
+    //   ),
+    // );
+    return Consumer<GameProvider>(
       builder: (ctx, product, child) => (
           Stack(
             children: <Widget>[
@@ -51,7 +84,7 @@ class _DetailImageAttributeState extends State<DetailImageAttribute> {
                   color: Colors.white,
                 ),
                 onPressed: () {
-                  Provider.of<Products>(context, listen: false)
+                  Provider.of<GameProvider>(context, listen: false)
                       .changeFavorite(!isFavorite);
                   setState(() {
                     isFavorite = !isFavorite;

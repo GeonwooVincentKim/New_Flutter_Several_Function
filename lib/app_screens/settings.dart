@@ -216,14 +216,14 @@ class _SettingState extends State<Setting> {
       children: <Widget>[
         DetailsForm(
           contentsTitle: "Local ID",
-          contentsInfo: "8VxqWO9pRBTvpLGxFXquloo97X13",
-          // contentsInfo: user.id,
+          // contentsInfo: "8VxqWO9pRBTvpLGxFXquloo97X13",
+          contentsInfo: user.id,
           marginBottom: defaultPadding * 2,
         ),
         DetailsForm(
           contentsTitle: "Email",
-          // contentsInfo: user.email,
-          contentsInfo: "text@gmail.com",
+          contentsInfo: user.email,
+          // contentsInfo: "text@gmail.com",
           marginBottom: defaultPadding * 2,
         ),
         DetailsForm(
