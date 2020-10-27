@@ -4,7 +4,7 @@ import 'package:flutter_app/app_screens/Details.dart';
 import 'package:flutter_app/app_screens/Discover.dart';
 import 'package:flutter_app/app_screens/MyFavorites.dart';
 import 'package:flutter_app/app_screens/attributes/ModifyProfile.dart';
-import 'package:flutter_app/app_screens/settings.dart';
+import 'package:flutter_app/app_screens/Settings.dart';
 import 'package:flutter_app/data/ProductStore.dart';
 import 'package:flutter_app/provider/game_provider.dart';
 import 'package:provider/provider.dart';
@@ -36,7 +36,6 @@ class MyApp extends StatelessWidget{
             if(pathElements[0] != '') return null;
             if(pathElements[1] == 'game'){
               String gameId = pathElements[2];
-
               return MaterialPageRoute(builder: (BuildContext context) => DetailPage(gameID: gameId),);
             }
             return null;

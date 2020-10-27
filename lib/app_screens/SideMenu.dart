@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/main.dart';
+
 
 class SideMenu extends StatelessWidget{
   @override
@@ -9,28 +9,19 @@ class SideMenu extends StatelessWidget{
         children: [
           DrawerHeader(
             decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("assets/images/1.jpg"),
-                  fit: BoxFit.cover
-              ),
+              image: DecorationImage( image: AssetImage("assets/images/1.jpg"), fit: BoxFit.cover ),
             ), child: null,
           ),
           ListTile(
             title: Text("Home-Page"),
-            onTap: (){
-              Navigator.pushNamed(context, '/');
-            },
-            // title: Text("Home"),
+            onTap: (){ Navigator.pushNamed(context, '/'); },
           ),
           ListTile(
             title: Text("Settings"),
-            onTap: (){
-              Navigator.pushNamed(context, '/settings');
-            },
+            onTap: (){ Navigator.pushNamed(context, '/settings'); },
           ),
         ],
       ),
     );
   }
-
 }

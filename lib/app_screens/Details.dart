@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/Provider/provide.dart';
 import 'package:flutter_app/model/game/game.dart';
 import 'package:flutter_app/provider/game_provider.dart';
 import 'package:flutter_app/shared/style.dart';
