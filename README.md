@@ -48,3 +48,9 @@ Popup-menu
 # The roles of ExampleCode
 
 - [Nothing]
+
+
+# When you want to add your file-directory in this project newly.
+
+- [remote-remove](git remote remove origin)
+- [remote-add](git remote add origin your_new_branch)
