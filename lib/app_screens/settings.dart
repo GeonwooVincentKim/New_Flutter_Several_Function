@@ -85,7 +85,7 @@ class _SettingState extends State<Setting> {
         Center(child: ProfileImageButton(),),
         SizedBox(height: defaultPadding),
         Center(
-          child: Text("Vincent", style: TextStyle(fontSize: 24)),
+          child: Text(user.username, style: TextStyle(fontSize: 24)),
         ),
       ]
     );

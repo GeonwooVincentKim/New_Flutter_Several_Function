@@ -32,8 +32,20 @@ class _ModifyProfileState extends State<ModifyProfile> {
     'email': '',
     'imageURL': '',
     'Address': '',
-    // ''
   };
+
+  @override
+  void initState(){
+    final User userList = Provider.of<UserProvider>(context, listen: false).userModify;
+    if (user != null && !_isInit){
+      print("Initialize..");
+      _formUserData['username'] = userList.username;
+      _formUserData['email'] = userList.email;
+      _formUserData['imageURL'] = userList.photoURL;
+      _formUserData['Address'] = userList.userAddress;
+    }
+    super.initState();
+  }
 
 
   Widget _buildModifyAppBar(){
@@ -54,43 +66,28 @@ class _ModifyProfileState extends State<ModifyProfile> {
         overflow: Overflow.visible,
         children: [
           Padding(
-            // padding: EdgeInsets.symmetric(vertical: defaultPadding, horizontal: defaultPadding),
             padding: EdgeInsets.all(defaultPadding * 2),
             child: SingleChildScrollView(
-              child: Consumer<UserProvider>(
-                builder: (ctx, user, _){
-                  final User userList = Provider.of<UserProvider>(context, listen: false).userModify;
-                  // final List<User> userList = user.userInfoList;
-                  if(user != null && !_isInit){
-                    print("Initialize..");
-                    _formUserData['username'] = userList;
-                    _formUserData['email'] = userList;
-                    _formUserData['imageURL'] = userList;
-                    _formUserData['Address'] = userList;
-                  }
-                  return Form(
-                    key: _formModifyKey,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Label(label: "UserName"),
-                        // _buildModifyText(),
-                        _buildUserNameModify(),
-                        // Label(label: "Email"),
-                        // _buildModifyText(),
-                        // _buildUserEmailModify(),
-                        // Label(label: "Image URL"),
-                        // _buildModifyText(),
-                        // // _buildUserImageURLModify(),
-                        // Label(label: "Address"),
-                        // _buildModifyText(),
-                        // _buildUserAddressModify(),
-                      ],
-                    )
-                  );
-                }
-              )
-              
+              child: Form(
+                key: _formModifyKey,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Label(label: "UserName"),
+                    // _buildModifyText(),
+                    _buildUserNameModify(),
+                    // Label(label: "Email"),
+                    // _buildModifyText(),
+                    // _buildUserEmailModify(),
+                    // Label(label: "Image URL"),
+                    // _buildModifyText(),
+                    // // _buildUserImageURLModify(),
+                    // Label(label: "Address"),
+                    // _buildModifyText(),
+                    // _buildUserAddressModify(),
+                  ],
+                )
+              ),
             )
           ),
           _buildModifyForm(),
@@ -112,6 +109,7 @@ class _ModifyProfileState extends State<ModifyProfile> {
       children: <Widget>[
          TextFormField(
           // controller: SideMenu().userNameTextController,
+          initialValue: _formUserData['username'],
           validator: (value){
             if(value.isEmpty) {return 'Please enter some text';}
             return null;
@@ -120,13 +118,13 @@ class _ModifyProfileState extends State<ModifyProfile> {
             _formModifyKey.currentState.validate();
           },
           onSaved: (value){
-            print("User Edition!!!!!");
-              setState(() {
-                _formUserData['username'] = value;
-                _formModifyKey.currentState.save();
+            _formUserData['username'] = value;
+            // print("User Edition!!!!!");
+            //   setState(() {
                 
-              });
-            print(value);
+            //     // _formModifyKey.currentState.save();
+            //   });
+            // print(value);
           },
         ),
         SizedBox(height: defaultPadding * 2),
@@ -158,8 +156,9 @@ class _ModifyProfileState extends State<ModifyProfile> {
     if(!_formModifyKey.currentState.validate()) return;
     _formModifyKey.currentState.save();
     
-    Provider.of<UserProvider>(context).changeUserInformation(user);
-    print(user.userName);
-    Navigator.of(context).pop();
+    Provider.of<UserProvider>(context).editUser(_formUserData);
+    print(user.username);
+    Navigator.pushNamed(context, '/settings');
+    // Navigator.of(context).pop();
   }
 }

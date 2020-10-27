@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 
 
 class User{
-  String id;
-  String userName;
-  String email;
+  final String id;
+  final String username;
+  final String email;
   // final String photoURL;
   // List<String> photoURL;
-  String photoURL;
-  String userAddress;
+  final String photoURL;
+  final String userAddress;
   
   User({
     // this.id,
     @required this.id,
-    @required this.userName,
+    @required this.username,
     @required this.email,
     @required this.photoURL,
     @required this.userAddress
@@ -22,7 +22,7 @@ class User{
   factory User.from(User user){
     return User(
       id: user.id ?? '',
-      userName: user.userName ?? '',
+      username: user.username ?? '',
       email: user.email ?? '',
       // photoURL: user.photoURL ?? [],
       photoURL: user.photoURL ?? '',
@@ -33,7 +33,7 @@ class User{
   factory User.fromMap(Map<String, dynamic> data){
     return User(
       id: data['id'] ?? '',
-      userName: data['username'] ?? '',
+      username: data['username'] ?? '',
       email: data['email'] ?? '',
       photoURL: data['imageURL'] ?? '',
       userAddress: data['Address'] ?? '',
@@ -43,7 +43,7 @@ class User{
   factory User.initialData(){
     return User(
       id: '',
-      userName: '',
+      username: '',
       email: '',
       photoURL: '',
       userAddress: '',
