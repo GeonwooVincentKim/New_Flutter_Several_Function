@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 
 
 // ignore: must_be_immutable
-class MyFavoritesPage extends StatelessWidget{
+class Favorites extends StatelessWidget{
   List<Game> inWidgetList = [];
 
   Widget _buildMyFavoritesAppBar(){
