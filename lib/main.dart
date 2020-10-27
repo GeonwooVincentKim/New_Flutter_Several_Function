@@ -5,7 +5,7 @@ import 'package:flutter_app/app_screens/Discover.dart';
 import 'package:flutter_app/app_screens/MyFavorites.dart';
 import 'package:flutter_app/app_screens/attributes/ModifyProfile.dart';
 import 'package:flutter_app/app_screens/Settings.dart';
-import 'package:flutter_app/data/ProductStore.dart';
+import 'package:flutter_app/provider/ProductStore.dart';
 import 'package:flutter_app/provider/game_provider.dart';
 import 'package:provider/provider.dart';
 import 'app_screens/PageSlider.dart';
