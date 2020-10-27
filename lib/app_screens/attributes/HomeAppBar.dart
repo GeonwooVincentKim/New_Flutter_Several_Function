@@ -32,4 +32,3 @@ AppBar HomeAppbar (title, showStar, context) {
     ],
   );
 }
-

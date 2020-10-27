@@ -7,20 +7,13 @@ import 'package:flutter_app/widgets/Discover/game_card.dart';
 import 'package:flutter_app/widgets/expanded/divider.dart';
 import 'package:provider/provider.dart';
 
-class Discover extends StatefulWidget{
-  // final void Function(int) onAddButtonTapped;
-  // const Discover({Key key, this.onAddButtonTapped}) : super(key: key);
-
-  // @overide
-  State<StatefulWidget> createState() => _DiscoverState();
-}
+class Discover extends StatefulWidget{ State<StatefulWidget> createState() => _DiscoverState(); }
 
 class _DiscoverState extends State<Discover>{
   List<Game> pageList = [];
 
   @override
   void initState(){
-    // final List<Game> listGame = Provider.of<Products>(context, listen: false).items;
     final List<Game> listGame = Provider.of<GameProvider>(context, listen: false).gameItems;
     setState(() {
       pageList = listGame.toList();

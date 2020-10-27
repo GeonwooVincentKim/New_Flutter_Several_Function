@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/model/game/game.dart';
-import 'package:flutter_app/provider/Provide.dart';
 import 'package:flutter_app/provider/game_provider.dart';
-import 'package:flutter_app/shared/layout.dart';
 import 'package:flutter_app/shared/style.dart';
 import 'package:flutter_app/widgets/Details/favorites_card.dart';
 import 'package:provider/provider.dart';
@@ -28,9 +26,7 @@ class MyFavoritesPage extends StatelessWidget{
         child: Container(
           padding: EdgeInsets.all(10),
           color: Colors.black12,
-          child: Text(
-            'There is no favorite-game in your list'
-          )
+          child: Text('There is no favorite-game in your list')
         ),
       )
       : GridView.builder(
@@ -51,7 +47,6 @@ class MyFavoritesPage extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    // final List<Game> listGame = Provider.of<Products>(context, listen: false).items;
     final List<Game> listGame = Provider.of<GameProvider>(context, listen: false).gameItems;
     inWidgetList = listGame.where((game) => game.isFavorite).toList();
     
