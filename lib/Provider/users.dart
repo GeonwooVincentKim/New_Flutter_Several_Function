@@ -31,6 +31,7 @@ class UserProvider with ChangeNotifier{
     notifyListeners();
   }
   
+  
   void changeUsername(User user){
     _userModify.userName = user.userName;
     notifyListeners();
@@ -86,7 +87,7 @@ class UserProvider with ChangeNotifier{
     // userModfiy.photoURL = imageURL;
     // userModfiy.userAddress = address;
     // notifyListeners();
-    final int index = _userInfoList.indexWhere((userInfo) => userInfo.id == _userModify.id);
+    final int index = _userInfoList.indexWhere((ui) => ui.id == userModify.id);
     if(index != 1){
       final User modifyUser = User.from(userModify);
       modifyUser.userName = userName;

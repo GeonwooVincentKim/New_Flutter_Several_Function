@@ -27,6 +27,8 @@ class Game {
     this.videoUrl
   });
 
+  // Basic forms of adding exisiting List into Discover, Home,
+  // and MyFavorites List.
   factory Game.from(Game game) {
     return Game(
       id: game.id ?? '',
@@ -43,6 +45,7 @@ class Game {
     );
   }
   
+  // Mapign Game form to modify or add new games into my DiscoverList.
   factory Game.fromMap(Map<String, dynamic> data){
     return Game(
       id: data['id'] ?? '',
@@ -59,6 +62,7 @@ class Game {
     );
   }
   
+  // Initializing Data
   factory Game.initialData(){
     return Game(
       id: '',

@@ -57,14 +57,19 @@ class _SettingState extends State<Setting> {
         children: [
           Padding(
             padding: EdgeInsets.symmetric(vertical: 20, horizontal: defaultPadding),
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  _buildProfileImage(),
-                  SizedBox(height: defaultPadding * 4),
-                  _buildProfileInfo(),
-                ],
-              ),
+            child: Consumer<UserProvider>(
+              builder: (ctx, userInfo, child){
+                final User user = userInfo.userModify;
+                return SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      _buildProfileImage(user),
+                      SizedBox(height: defaultPadding * 4),
+                      _buildProfileInfo(user),
+                    ],
+                  ),
+                );
+              }
             )
           ),
           _buildEditButton(context)
@@ -73,35 +78,37 @@ class _SettingState extends State<Setting> {
     );
   }
 
-  Widget _buildProfileImage(){
+  Widget _buildProfileImage(User user){
     return Column(
       children: <Widget>[
         Center(child: ProfileImageButton(),),
         SizedBox(height: defaultPadding),
         Center(
-          child: Text(_getUserName(), style: TextStyle(fontSize: 24)),
+          child: Text("Vincent", style: TextStyle(fontSize: 24)),
         ),
       ]
     );
   }
 
-  Widget _buildProfileInfo(){
+  Widget _buildProfileInfo(User user){
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         DetailsForm(
           contentsTitle: "Local ID",
           contentsInfo: "8VxqWO9pRBTvpLGxFXquloo97X13",
+          // contentsInfo: user.id,
           marginBottom: defaultPadding * 2,
         ),
         DetailsForm(
           contentsTitle: "Email",
-          contentsInfo: _getEmail(),
+          // contentsInfo: user.email,
+          contentsInfo: "text@gmail.com",
           marginBottom: defaultPadding * 2,
         ),
         DetailsForm(
           contentsTitle: "Address",
-          contentsInfo: _getAddress(),
+          contentsInfo: user.userAddress,
           marginBottom: defaultPadding * 2,
         ),
       ]
@@ -126,29 +133,5 @@ class _SettingState extends State<Setting> {
         },
       ),
     );
-  }
-
-  String _getUserName(){
-    return userNameTextController.text == null ||
-      userNameTextController.text.trim().isEmpty ? 'YourName'
-      : userNameTextController.text;
-  }
-
-  String _getEmail(){
-    return userEmailTextController.text == null ||
-      userEmailTextController.text.trim().isEmpty? 'text@naver.com'
-      : userEmailTextController.text;
-  }
-
-  String _getImageLink(){
-    return userImageTextController.text == null ||
-      userImageTextController.text.trim().isEmpty? 'http://url.com'
-      : userImageTextController.text;
-  }
-
-  String _getAddress(){
-    return userAddressController.text == null ||
-      userAddressController.text.trim().isEmpty? 'Seoul, Gangnam-gu, Samseong 2(i)-dong, Seolleung-ro 112-gil, 87 명인빌딩'
-      : userAddressController.text;
   }
 }

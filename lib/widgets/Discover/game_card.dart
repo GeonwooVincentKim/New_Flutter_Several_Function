@@ -23,7 +23,7 @@ class DiscoverGameCard extends StatelessWidget{
         margin: EdgeInsets.only(bottom: defaultPadding),
         color: backgroundColor,
         child: Stack(
-          children: [
+          children: <Widget>[
             _buildGameImage(),
             _buildCardText(),
           ],
@@ -46,7 +46,9 @@ class DiscoverGameCard extends StatelessWidget{
   }
 
   Widget _buildCardText() {
+    print("Go..");
     return Positioned(
+      // top: 200,
       bottom: 0,
       right: 0,
       left: 0,

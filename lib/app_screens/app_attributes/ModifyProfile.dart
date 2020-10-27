@@ -159,12 +159,6 @@ class _ModifyProfileState extends State<ModifyProfile> {
     
     Provider.of<UserProvider>(context).changeUserInformation(user);
     print(user.userName);
-    // print(user.email);
-    // Provider.of<UserProvider>(context).changeUserInfo(user, _userName, _email, _imageURL, _address);
-    // print(_userName);
-    // print(_email);
-    // print(_imageURL);
-    // print(_address);
     Navigator.of(context).pop();
   }
 }
