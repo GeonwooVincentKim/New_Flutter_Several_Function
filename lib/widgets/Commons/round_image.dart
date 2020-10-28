@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/widgets/Commons/asset_network_image.dart';
 
 
 class RoundImage extends StatelessWidget {
@@ -21,8 +22,8 @@ class RoundImage extends StatelessWidget {
       child: Container(
         width: width,
         height: height,
-        child: Image.network(
-          imageUrl,
+        child: AssetNetworkImage(
+          path: imageUrl,
           fit: BoxFit.cover
         )
       )
