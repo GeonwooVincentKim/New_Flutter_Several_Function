@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 class RoundImage extends StatelessWidget {
 
   final double width;
@@ -9,7 +10,8 @@ class RoundImage extends StatelessWidget {
   RoundImage({
     this.width = 100,
     this.height = 100,
-    this.imageUrl = "assets/images/1.jpg"
+    // this.imageUrl = "assets/images/1.jpg"
+    this.imageUrl = "https://cdn.pixabay.com/photo/2016/07/01/23/16/amusement-park-1492099_960_720.jpg",
   });
 
   @override
@@ -19,7 +21,11 @@ class RoundImage extends StatelessWidget {
       child: Container(
         width: width,
         height: height,
-        child: Image.asset(
+        // decoration: BoxDecoration(
+        //   image: DecorationImage(image: AssetImage(pathAsset), fit: BoxFit.fill),
+          
+        // ),
+        child: Image.network(
           imageUrl,
           fit: BoxFit.cover
         )
