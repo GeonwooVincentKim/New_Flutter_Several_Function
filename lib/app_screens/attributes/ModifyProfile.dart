@@ -19,9 +19,6 @@ class ModifyProfile extends StatefulWidget {
 class _ModifyProfileState extends State<ModifyProfile> {
   final _formModifyKey = GlobalKey<FormState>();
   final TextEditingController userNameTextController = TextEditingController();
-  
-  User user;
-  bool _isInit = false;
 
   final Map<String, dynamic> _formUserData = {
     'username': '',
@@ -33,7 +30,7 @@ class _ModifyProfileState extends State<ModifyProfile> {
   @override
   void initState(){
     final User userList = Provider.of<UserProvider>(context, listen: false).userModify;
-    if (user != null && !_isInit){
+    if (userList != null){
       print("Initialize..");
       _formUserData['username'] = userList.username;
       _formUserData['email'] = userList.email;
@@ -69,14 +66,14 @@ class _ModifyProfileState extends State<ModifyProfile> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Label(label: "UserName"),
-                    // _buildUserNameModify(),
+                    Label(label: "UserName"),
+                    _buildUserNameModify(),
                     Label(label: "Email"),
                     _buildUserEmailModify(),
-                    // Label(label: "Image URL"),
-                    // // _buildUserImageURLModify(),
-                    // Label(label: "Address"),
-                    // _buildUserAddressModify(),
+                    Label(label: "Image URL"),
+                    _buildUserImageURLModify(),
+                    Label(label: "Address"),
+                    _buildUserAddressModify(),
                   ],
                 )
               ),
@@ -128,6 +125,38 @@ class _ModifyProfileState extends State<ModifyProfile> {
     );
   }
 
+  Widget _buildUserImageURLModify(){
+    return Column(
+      children: <Widget>[
+        TextFormField(
+          initialValue: _formUserData['imageURL'],
+          validator: (value){
+            if(value.isEmpty) {return 'Please enter some text';}
+            return null;
+          },
+          onSaved: (value) => _formUserData['imageURL'] = value
+        ),
+        SizedBox(height: defaultPadding * 2),
+      ],
+    );
+  }
+
+  Widget _buildUserAddressModify(){
+    return Column(
+      children: <Widget>[
+        TextFormField(
+          initialValue: _formUserData['Address'],
+          validator: (value){
+            if(value.isEmpty) {return 'Please enter some text';}
+            return null;
+          },
+          onSaved: (value) => _formUserData['Address'] = value
+        ),
+        SizedBox(height: defaultPadding * 2),
+      ],
+    );
+  }
+
   Widget _buildModifyForm(){
     return Positioned(
       bottom: 0,
@@ -146,14 +175,11 @@ class _ModifyProfileState extends State<ModifyProfile> {
     );
   }
 
-
-
   void _submitForm(BuildContext context){
     if(!_formModifyKey.currentState.validate()) return;
     _formModifyKey.currentState.save();
     
     Provider.of<UserProvider>(context).editUser(_formUserData);
-    print(user.username);
     Navigator.pushNamed(context, '/settings');
     // Navigator.of(context).pop();
   }
