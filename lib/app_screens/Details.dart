@@ -19,7 +19,7 @@ class DetailPage extends StatefulWidget {
 }
 
 class _DetailPageState extends State<DetailPage> {
-  List<Game> listProgression = [];
+  // List<Game> listProgression = [];
   Game selectedGame;
   double _progression = 0.0;
   bool isFavorite;

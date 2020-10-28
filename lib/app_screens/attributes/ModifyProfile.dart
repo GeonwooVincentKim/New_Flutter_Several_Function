@@ -21,10 +21,6 @@ class _ModifyProfileState extends State<ModifyProfile> {
   final TextEditingController userNameTextController = TextEditingController();
   
   User user;
-  String _userName = 'UserName';
-  String _email = 'dddd@gmail.com';
-  String _imageURL = 'https://www.naver.com';
-  String _address = 'SK Seongsu V1 CENTER I, Seongsu-dong 2-ga, Seongdong-du, Seoul, S.Korea';
   bool _isInit = false;
 
   final Map<String, dynamic> _formUserData = {
@@ -73,17 +69,13 @@ class _ModifyProfileState extends State<ModifyProfile> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Label(label: "UserName"),
-                    // _buildModifyText(),
-                    _buildUserNameModify(),
-                    // Label(label: "Email"),
-                    // _buildModifyText(),
-                    // _buildUserEmailModify(),
+                    // Label(label: "UserName"),
+                    // _buildUserNameModify(),
+                    Label(label: "Email"),
+                    _buildUserEmailModify(),
                     // Label(label: "Image URL"),
-                    // _buildModifyText(),
                     // // _buildUserImageURLModify(),
                     // Label(label: "Address"),
-                    // _buildModifyText(),
                     // _buildUserAddressModify(),
                   ],
                 )
@@ -107,25 +99,29 @@ class _ModifyProfileState extends State<ModifyProfile> {
   Widget _buildUserNameModify(){
     return Column(
       children: <Widget>[
-         TextFormField(
-          // controller: SideMenu().userNameTextController,
+        TextFormField(
           initialValue: _formUserData['username'],
           validator: (value){
             if(value.isEmpty) {return 'Please enter some text';}
             return null;
           },
-          onChanged: (value){
-            _formModifyKey.currentState.validate();
+          onSaved: (value) => _formUserData['username'] = value
+        ),
+        SizedBox(height: defaultPadding * 2),
+      ],
+    );
+  }
+
+  Widget _buildUserEmailModify(){
+    return Column(
+      children: <Widget>[
+        TextFormField(
+          initialValue: _formUserData['email'],
+          validator: (value){
+            if(value.isEmpty) {return 'Please enter some text';}
+            return null;
           },
-          onSaved: (value){
-            _formUserData['username'] = value;
-            // print("User Edition!!!!!");
-            //   setState(() {
-                
-            //     // _formModifyKey.currentState.save();
-            //   });
-            // print(value);
-          },
+          onSaved: (value) => _formUserData['email'] = value
         ),
         SizedBox(height: defaultPadding * 2),
       ],

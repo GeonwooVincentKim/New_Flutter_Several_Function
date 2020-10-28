@@ -32,38 +32,6 @@ class _DetailImageAttributeState extends State<DetailImageAttribute> {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
 
-    // return Consumer<Products>(
-    //   builder: (ctx, product, child) => (
-    //       Stack(
-    //         children: <Widget>[
-    //         Container(
-    //           width: screenWidth,
-    //           child: Image.asset(
-    //             widget.image,
-    //             fit: BoxFit.fitWidth,
-    //           ),
-    //         ),
-    //         Align(
-    //           alignment: Alignment.topRight,
-    //           child: IconButton(
-    //             icon: Icon(
-    //               isFavorite ? IconMoon.istarfull : IconMoon.istar,
-    //               color: Colors.white,
-    //             ),
-    //             onPressed: () {
-    //               Provider.of<Products>(context, listen: false)
-    //                   .changeFavorite(!isFavorite);
-    //               setState(() {
-    //                 isFavorite = !isFavorite;
-    //               });
-    //               print(isFavorite);
-    //             }
-    //           ),
-    //         ),
-    //       ]
-    //     )
-    //   ),
-    // );
     return Consumer<GameProvider>(
       builder: (ctx, product, child) => (
           Stack(
@@ -83,11 +51,8 @@ class _DetailImageAttributeState extends State<DetailImageAttribute> {
                   color: Colors.white,
                 ),
                 onPressed: () {
-                  Provider.of<GameProvider>(context, listen: false)
-                      .changeFavorite(!isFavorite);
-                  setState(() {
-                    isFavorite = !isFavorite;
-                  });
+                  Provider.of<GameProvider>(context, listen: false).changeFavorite(!isFavorite);
+                  setState(() {isFavorite = !isFavorite;});
                   print(isFavorite);
                 }
               ),

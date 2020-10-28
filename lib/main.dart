@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget{
             '/discover': (context) => Discover(),
             '/favorite': (context) => Favorites(),
             '/settings': (context) => Setting(),
-            '/modify': (context) => ModifyProfile(),
+            '/settings/modify': (context) => ModifyProfile(),
             '/details': (context) => DetailPage(),
           },
           onGenerateRoute: (RouteSettings settings){

@@ -4,7 +4,7 @@ import 'package:flutter_app/model/game/game.dart';
 
 
 class GameProvider with ChangeNotifier{
-  List<Game> _gameItems = DUMMY_GAMES;
+  List<Game> _gameItems = DUMMY_GAMES.toList();
   List<Game> _userItems = [];
   Game _selectedGame;
 

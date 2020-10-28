@@ -15,21 +15,6 @@ class Setting extends StatefulWidget {
 }
 
 class _SettingState extends State<Setting> {
-  User userModification;
-  final TextEditingController userNameTextController = TextEditingController();
-  final TextEditingController userEmailTextController = TextEditingController();
-  final TextEditingController userAddressController = TextEditingController();
-  final TextEditingController userImageTextController = TextEditingController();
-  // @override
-  // void initState(){
-  //   setState((){
-  //     userModification = Provider.of<UserProvider>(context, listen: false).userModify;
-  //   });
-  //   if(userModification == null){
-  //     print("Pass me the Salt Please Man!!!");
-  //     // final List<User> userInfoList = Provider.of<UserProvider>(context, listen: false).i
-  //   }
-  // }
   AppBar _buildAppBarSettings(){
     return AppBar(
       title: Text("SETTINGS"),
@@ -115,7 +100,7 @@ class _SettingState extends State<Setting> {
           padding: EdgeInsets.all(defaultPadding / 2),
           child: Text("EDIT", style: settingsMainFont),
         ),
-        onPressed: () { Navigator.pushNamed(context, "/modify"); },
+        onPressed: () { Navigator.pushNamed(context, "/settings/modify"); },
       ),
     );
   }
