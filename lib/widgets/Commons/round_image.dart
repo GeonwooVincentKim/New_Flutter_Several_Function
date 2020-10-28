@@ -21,10 +21,6 @@ class RoundImage extends StatelessWidget {
       child: Container(
         width: width,
         height: height,
-        // decoration: BoxDecoration(
-        //   image: DecorationImage(image: AssetImage(pathAsset), fit: BoxFit.fill),
-          
-        // ),
         child: Image.network(
           imageUrl,
           fit: BoxFit.cover
