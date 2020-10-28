@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Provider/users.dart';
-// import 'package:flutter_app/app_screens/SideMenu.dart';
 import 'package:flutter_app/model/Users.dart';
-// import 'package:flutter_app/model/Users.dart';
 import 'package:flutter_app/shared/style.dart';
-// import 'package:flutter_app/widgets/Commons/details.dart';
 import 'package:flutter_app/widgets/Details/label.dart';
 import 'package:provider/provider.dart';
-
-// import 'package:flutter_app/model/Users.dart';
 
 
 class ModifyProfile extends StatefulWidget {
@@ -39,7 +34,6 @@ class _ModifyProfileState extends State<ModifyProfile> {
     }
     super.initState();
   }
-
 
   Widget _buildModifyAppBar(){
     return AppBar(
@@ -114,11 +108,15 @@ class _ModifyProfileState extends State<ModifyProfile> {
       children: <Widget>[
         TextFormField(
           initialValue: _formUserData['email'],
+          keyboardType: TextInputType.emailAddress,
           validator: (value){
+            Pattern pattern = r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+            RegExp regex = new RegExp(pattern);
             if(value.isEmpty) {return 'Please enter some text';}
+            else if(!regex.hasMatch(value)){return 'Please enter VALID E-Mail';}
             return null;
           },
-          onSaved: (value) => _formUserData['email'] = value
+          onSaved: (value) => _formUserData['email'] = value.replaceAll(new RegExp(r' '), ''),
         ),
         SizedBox(height: defaultPadding * 2),
       ],
@@ -134,7 +132,7 @@ class _ModifyProfileState extends State<ModifyProfile> {
             if(value.isEmpty) {return 'Please enter some text';}
             return null;
           },
-          onSaved: (value) => _formUserData['imageURL'] = value
+          onSaved: (value) => _formUserData['imageURL'] = value.replaceAll(new RegExp(r' '), ''),
         ),
         SizedBox(height: defaultPadding * 2),
       ],
@@ -181,6 +179,5 @@ class _ModifyProfileState extends State<ModifyProfile> {
     
     Provider.of<UserProvider>(context).editUser(_formUserData);
     Navigator.pushNamed(context, '/settings');
-    // Navigator.of(context).pop();
   }
 }
