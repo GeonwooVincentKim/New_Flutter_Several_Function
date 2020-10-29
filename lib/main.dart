@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Provider/users.dart';
-import 'package:flutter_app/app_screens/Details.dart';
-import 'package:flutter_app/app_screens/Discover.dart';
-import 'package:flutter_app/app_screens/MyFavorites.dart';
-import 'package:flutter_app/app_screens/attributes/ModifyProfile.dart';
-import 'package:flutter_app/app_screens/Settings.dart';
+import 'package:flutter_app/app_screens/details/Details.dart';
+import 'package:flutter_app/app_screens/Home/Discover.dart';
+import 'package:flutter_app/app_screens/details/MyFavorites.dart';
+import 'package:flutter_app/app_screens/settings/ModifyProfile.dart';
+import 'package:flutter_app/app_screens/settings/Settings.dart';
 import 'package:flutter_app/provider/ProductStore.dart';
 import 'package:flutter_app/provider/game_provider.dart';
 import 'package:provider/provider.dart';
-import 'app_screens/PageSlider.dart';
+import 'app_screens/Home/PageSlider.dart';
 
 void main() => runApp(MyApp());
 

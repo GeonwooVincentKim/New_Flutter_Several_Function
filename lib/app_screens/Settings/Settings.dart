@@ -3,7 +3,7 @@ import 'package:flutter_app/Provider/users.dart';
 import 'package:flutter_app/model/Users.dart';
 import 'package:flutter_app/shared/style.dart';
 import 'package:flutter_app/widgets/Commons/details_form.dart';
-import 'package:flutter_app/app_screens/SideMenu.dart';
+import 'package:flutter_app/app_screens/Home/SideMenu.dart';
 import 'package:provider/provider.dart';
 
 import 'package:flutter_app/app_screens/attributes/SettingsImage.dart';
