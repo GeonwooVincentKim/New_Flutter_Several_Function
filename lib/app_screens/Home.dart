@@ -19,8 +19,8 @@ class _BodyState extends State<Home>{
   int pageIndex = 0;
   Function onBottomTapped;
   
-  List<Game> inProgress = [], completed = [];
-  List<String> titleList = <String>['IN PROCESS', 'Completed'];
+  List<Game> inProgress = [], completed = [], newGame = [];
+  List<String> titleList = <String>['IN PROCESS', 'Completed', 'New Game'];
   Game deletedGame;
 
   @override
@@ -35,17 +35,20 @@ class _BodyState extends State<Home>{
       color: Colors.black12,
       child: SingleChildScrollView(
         child: Consumer<GameProvider>(
-          builder: (ctx, product, child){
-            final List<Game> listGame = product.userItems;
-            inProgress = listGame.where((game) => game.progression < 100).toList();
+          builder: (ctx, gamesProduct, child){
+            final List<Game> listGame = gamesProduct.userItems;
+            inProgress = listGame.where((game) => game.progression != 0 && game.progression != 100).toList();
             completed = listGame.where((game) => game.progression == 100).toList();
-
+            newGame = listGame.where((game) => game.progression == 0).toList();
+            
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 ListTilesWithTitle(title: titleList[0], gameList: inProgress),
                 transparent_divider(),
                 ListTilesWithTitle(title: titleList[1], gameList: completed),
+                transparent_divider(),
+                ListTilesWithTitle(title: titleList[2], gameList: newGame),
               ],
             );
           }

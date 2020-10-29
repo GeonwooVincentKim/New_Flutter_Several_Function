@@ -20,19 +20,7 @@ class ListTilesWithTitle extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return gameList.length == 0 ?
-      Column(
-        children: [
-          ProgressText(title: title),
-          Center(
-            child: Container(
-              padding: EdgeInsets.all(10),
-              color: Colors.black12,
-              child: Text('There is no Game in the List')
-            )
-          ), (marginBottom ? SizedBox(height: defaultPadding * 2) : Container())
-        ],
-      ) :
+    return gameList.length > 0 ?
       Column(
         children: <Widget>[
           ProgressText(title: title),
@@ -46,6 +34,18 @@ class ListTilesWithTitle extends StatelessWidget{
             }
           )
         ]
+      ) :
+      Column(
+        children: [
+          ProgressText(title: title),
+          Center(
+            child: Container(
+              padding: EdgeInsets.all(10),
+              color: Colors.black12,
+              child: Text('There is no Game in the List')
+            )
+          ), (marginBottom ? SizedBox(height: defaultPadding * 2) : Container())
+        ],
       );
   }
 }

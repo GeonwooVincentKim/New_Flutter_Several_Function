@@ -17,7 +17,8 @@ class GameProvider with ChangeNotifier{
   }
 
   Game get selectedGame{
-    return Game.from(_selectedGame);
+    // return Game.from(_selectedGame);
+    return _selectedGame != null ? Game.from(_selectedGame) : Game.from(_selectedGame);
   }
   
   void changeProgression(Game selectedGame, double progression){

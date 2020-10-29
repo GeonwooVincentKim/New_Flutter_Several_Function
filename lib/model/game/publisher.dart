@@ -12,4 +12,31 @@ class Publisher {
     this.description,
     this.country
   });
+
+  factory Publisher.from(Publisher publisher){
+    return Publisher(
+      id: publisher.id ?? '',
+      name: publisher.name ?? '',
+      description: publisher.description ?? '',
+      country: publisher.country ?? ''
+    );
+  }
+
+  factory Publisher.fromMap(Map<String, dynamic> data){
+    return Publisher(
+      id: data['id'] ?? '',
+      name: data['name'] ?? '',
+      description: data['description'] ?? '',
+      country: data['country'] ?? '',
+    );
+  }
+
+  factory Publisher.initialData(){
+    return Publisher(
+      id: '',
+      name: '',
+      description: '',
+      country: ''
+    );
+  }
 }
