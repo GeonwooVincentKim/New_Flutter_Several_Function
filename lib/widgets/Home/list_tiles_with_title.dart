@@ -40,7 +40,7 @@ class ListTilesWithTitle extends StatelessWidget{
           ProgressText(title: title),
           Center(
             child: Container(
-              padding: EdgeInsets.all(10),
+              padding: EdgeInsets.all(defaultPadding / 2),
               color: Colors.black12,
               child: Text('There is no Game in the List')
             )

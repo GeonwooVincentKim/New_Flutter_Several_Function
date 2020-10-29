@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/model/game/game.dart';
-import 'package:flutter_app/provider/game_provider.dart';
+import 'package:flutter_app/provider/games_provider.dart';
 import 'package:flutter_app/shared/style.dart';
 import 'package:flutter_app/widgets/Commons/details_form.dart';
 import 'package:flutter_app/widgets/Details/detail_image.dart';

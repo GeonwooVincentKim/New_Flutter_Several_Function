@@ -5,8 +5,7 @@ import 'package:flutter_app/app_screens/Home/Discover.dart';
 import 'package:flutter_app/app_screens/details/MyFavorites.dart';
 import 'package:flutter_app/app_screens/settings/ModifyProfile.dart';
 import 'package:flutter_app/app_screens/settings/Settings.dart';
-import 'package:flutter_app/provider/ProductStore.dart';
-import 'package:flutter_app/provider/game_provider.dart';
+import 'package:flutter_app/provider/games_provider.dart';
 import 'package:provider/provider.dart';
 import 'app_screens/Home/PageSlider.dart';
 
@@ -18,7 +17,7 @@ class MyApp extends StatelessWidget{
         providers: [
           ChangeNotifierProvider(create: (_ctx) => GameProvider()),
           ChangeNotifierProvider(create: (_ctx) => UserProvider()),
-          ChangeNotifierProvider(create: (_ctx) => Cart()),
+
         ],
         child: MaterialApp(
           title: "My Flutter App",

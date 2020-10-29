@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/provider/game_provider.dart';
+import 'package:flutter_app/provider/games_provider.dart';
 import 'package:flutter_app/widgets/Home/list_tiles_with_title.dart';
 import 'package:flutter_app/widgets/expanded/divider.dart';
 import 'package:flutter_app/model/game/game.dart';
@@ -37,6 +37,7 @@ class _BodyState extends State<Home>{
         child: Consumer<GameProvider>(
           builder: (ctx, gamesProduct, child){
             final List<Game> listGame = gamesProduct.userItems;
+            // final List<Game> listGame = gamesProduct.gameItems;
             inProgress = listGame.where((game) => game.progression != 0 && game.progression != 100).toList();
             completed = listGame.where((game) => game.progression == 100).toList();
             newGame = listGame.where((game) => game.progression == 0).toList();
@@ -45,9 +46,9 @@ class _BodyState extends State<Home>{
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 ListTilesWithTitle(title: titleList[0], gameList: inProgress),
-                transparent_divider(),
+                // transparent_divider(),
                 ListTilesWithTitle(title: titleList[1], gameList: completed),
-                transparent_divider(),
+                // transparent_divider(),
                 ListTilesWithTitle(title: titleList[2], gameList: newGame),
               ],
             );

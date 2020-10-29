@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/provider/game_provider.dart';
+import 'package:flutter_app/provider/games_provider.dart';
 import 'package:flutter_app/shared/helpers/icomoon.dart';
 import 'package:provider/provider.dart';
 

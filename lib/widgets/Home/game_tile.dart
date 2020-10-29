@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/model/game/game.dart';
-import 'package:flutter_app/provider/game_provider.dart';
+import 'package:flutter_app/provider/games_provider.dart';
 import 'package:flutter_app/shared/helpers/icomoon.dart';
 import 'package:flutter_app/shared/style.dart';
 import 'package:provider/provider.dart';
@@ -28,7 +28,7 @@ class GameTile extends StatelessWidget{
               onDismissed: (direction){
                 if(direction == DismissDirection.startToEnd){
                   Provider.of<GameProvider>(context, listen: false).changeProgression(game, 50);
-                  // Navigator.pushNamed(context, "/game/${game.id}");
+                  // Navigator.pushNamed(context, "/create");
                   print("HI");
                 }
                 else if (direction == DismissDirection.endToStart){
