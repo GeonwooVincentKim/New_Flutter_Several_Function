@@ -220,7 +220,6 @@ class _DetailPageState extends State<DetailPage> {
     _formKey.currentState.save();
     Provider.of<GameProvider>(context).addGameList(selectedGame);
     Provider.of<GameProvider>(context).changeProgression(selectedGame, _progression);
-    Provider.of<GameProvider>(context).deleteGame(selectedGame);
 
     Navigator.of(context).pop();
   }
