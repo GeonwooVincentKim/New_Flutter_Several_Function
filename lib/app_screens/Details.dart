@@ -162,8 +162,6 @@ class _DetailPageState extends State<DetailPage> {
   }
 
   Widget _buildAlertTileContent(){
-    final _procedureController = TextEditingController();
-
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       mainAxisSize: MainAxisSize.min,
@@ -172,7 +170,7 @@ class _DetailPageState extends State<DetailPage> {
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 25),
           child: Column(children: [
-            Text("Are you sure you want to add TITLE OF THE GAME to your list of game?"),
+            Text("Are you sure you want to add ${selectedGame.title} to your list of game?"),
             transparent_divider(),
             Row(children: [
               Expanded(
@@ -186,20 +184,13 @@ class _DetailPageState extends State<DetailPage> {
                           borderSide: BorderSide(color: Colors.black87, width: 1.5),
                         ),
                         hintText: '10%'),
-                    // controller: _procedureController,
                     keyboardType: TextInputType.number,
                     onSaved: (progression) {
                       print('progression');
-                      setState(() {
-                        _progression = double.parse(progression);
-                        print(_progression);
-                      });
-                      print(_progression);
+                      _progression = double.parse(progression);
                     },
                     validator: (value) {
-                      if (value.isEmpty) {
-                        return "Please Input your Procedure-Number Value.";
-                      }
+                      if (value.isEmpty) { return "Please Input your Procedure-Number Value."; }
                       return null;
                     }),
               ),
