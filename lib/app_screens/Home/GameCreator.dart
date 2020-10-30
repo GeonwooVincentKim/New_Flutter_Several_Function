@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app_screens/Home/SideMenu.dart';
 import 'package:flutter_app/model/game/game.dart';
+import 'package:flutter_app/provider/games_provider.dart';
 // import 'package:flutter_app/provider/games.dart';
 import 'package:flutter_app/shared/style.dart';
 import 'package:provider/provider.dart';
@@ -23,13 +24,25 @@ class _GameCreatorState extends State<GameCreator> {
     'releaseDate': '',
     'isFavorite': false,
     'progression': 0.0,
-    'videoURL': ''
+    // 'videoURL': ''
   };
   
-  // @override
-  // void initState(){
-  //   final Game gameSelect = Provider.of<GameProvider>(context, listen: false).selectedGame;
-  // }
+  @override
+  void initState(){
+    final Game gameSelect = Provider.of<GameProvider>(context, listen: false).selectedGame;
+    if(gameSelect != null /* && gameSelect.createUser == userID */){
+      print("Intializing..");
+      _formGameData['title'] = gameSelect.title;
+      _formGameData['images'] = gameSelect.images;
+      _formGameData['platforms'] = gameSelect.platforms;
+      _formGameData['genres'] = gameSelect.genres;
+      _formGameData['publisher'] = gameSelect.publisher;
+      _formGameData['releaseDate'] = gameSelect.releaseDate;
+      _formGameData['isFavorite'] = gameSelect.isFavorite;
+      _formGameData['progression'] = gameSelect.progression;
+    }
+    super.initState();
+  }
 
   AppBar _buildAppBarCreator(){
     return AppBar(
@@ -50,7 +63,9 @@ class _GameCreatorState extends State<GameCreator> {
           Padding(
             padding: EdgeInsets.all(defaultPadding),
             child: SingleChildScrollView(
-              child: Text("Hello World"),
+              // child: Text("Hello World"),
+              // child: GameCreatorForm(),
+              
             )
           )
         ]

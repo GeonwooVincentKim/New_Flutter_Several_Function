@@ -43,10 +43,10 @@ class User{
   factory User.initialData(){
     return User(
       id: '',
-      username: '',
-      email: '',
-      photoURL: '',
-      userAddress: '',
+      username: 'Vincent',
+      email: 'test@example.com',
+      photoURL: 'https://cdn.pixabay.com/photo/2016/07/01/23/16/amusement-park-1492099_960_720.jpg',
+      userAddress: 'Seoul, Gangnam-gu',
     );
   }
 }

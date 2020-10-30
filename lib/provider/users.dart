@@ -5,8 +5,11 @@ import 'package:flutter_app/model/Users.dart';
 
 class UserProvider with ChangeNotifier{
   User _userList = USER_DUMMY_LIST;
-  
+  User _modifyUser;
+  User user;
+
   User get userModify => User.from(_userList);
+  // String get getUserID => _userList.id;
   String get getUserID => _userList.id;
   String get getUsername => _userList.username;
   String get getUserEmail => _userList.email;
