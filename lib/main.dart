@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Provider/users.dart';
+import 'package:flutter_app/app_screens/Home/GameCreator.dart';
 import 'package:flutter_app/app_screens/details/Details.dart';
 import 'package:flutter_app/app_screens/Home/Discover.dart';
 import 'package:flutter_app/app_screens/details/MyFavorites.dart';
 import 'package:flutter_app/app_screens/settings/ModifyProfile.dart';
 import 'package:flutter_app/app_screens/settings/Settings.dart';
 import 'package:flutter_app/provider/games_provider.dart';
+import 'package:flutter_app/provider/genres.dart';
+import 'package:flutter_app/provider/platforms.dart';
+import 'package:flutter_app/provider/publishers_provider.dart';
 import 'package:provider/provider.dart';
 import 'app_screens/Home/PageSlider.dart';
 
@@ -17,7 +21,9 @@ class MyApp extends StatelessWidget{
         providers: [
           ChangeNotifierProvider(create: (_ctx) => GameProvider()),
           ChangeNotifierProvider(create: (_ctx) => UserProvider()),
-
+          ChangeNotifierProvider(create: (_ctx) => GenreProvider()),
+          ChangeNotifierProvider(create: (_ctx) => PlatformProvider()),
+          ChangeNotifierProvider(create: (_ctx) => PublisherProvider()),
         ],
         child: MaterialApp(
           title: "My Flutter App",
@@ -29,6 +35,7 @@ class MyApp extends StatelessWidget{
             '/settings': (context) => Setting(),
             '/settings/modify': (context) => ModifyProfile(),
             '/details': (context) => DetailPage(),
+            '/createGame': (context) => GameCreator(),
           },
           onGenerateRoute: (RouteSettings settings){
             final List<String> pathElements = settings.name.split("/");

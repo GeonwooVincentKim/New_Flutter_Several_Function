@@ -46,9 +46,9 @@ class _BodyState extends State<Home>{
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 ListTilesWithTitle(title: titleList[0], gameList: inProgress),
-                // transparent_divider(),
+                transparent_divider(),
                 ListTilesWithTitle(title: titleList[1], gameList: completed),
-                // transparent_divider(),
+                transparent_divider(),
                 ListTilesWithTitle(title: titleList[2], gameList: newGame),
               ],
             );

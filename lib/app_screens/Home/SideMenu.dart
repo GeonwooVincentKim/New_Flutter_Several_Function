@@ -20,6 +20,10 @@ class SideMenu extends StatelessWidget{
             title: Text("Settings"),
             onTap: (){ Navigator.pushNamed(context, '/settings'); },
           ),
+          ListTile(
+            title: Text("Create Game"),
+            onTap: (){ Navigator.pushNamed(context, '/createGame');}
+          )
         ],
       ),
     );

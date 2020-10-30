@@ -13,8 +13,6 @@ class ModifyProfile extends StatefulWidget {
 
 class _ModifyProfileState extends State<ModifyProfile> {
   final _formModifyKey = GlobalKey<FormState>();
-  final TextEditingController userNameTextController = TextEditingController();
-
   final Map<String, dynamic> _formUserData = {
     'username': '',
     'email': '',
