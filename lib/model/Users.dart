@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// part 'user.dart';
 
 
 class User{
@@ -39,6 +40,16 @@ class User{
       userAddress: data['Address'] ?? '',
     );
   }
+
+  // factory User.fromJson(Map<String, dynamic> data){
+  //   return User(
+  //     id: data['id'] ?? '',
+  //     username: data['username'] ?? '',
+  //     email: data['email'] ?? '',
+  //     photoURL: data['imageURL'] ?? '',
+  //     userAddress: data['Address'] ?? '',
+  //   );
+  // }
 
   factory User.initialData(){
     return User(

@@ -5,7 +5,9 @@ import 'package:flutter_app/model/Users.dart';
 
 class UserProvider with ChangeNotifier{
   User _userList = USER_DUMMY_LIST;
-  User _modifyUser;
+  // User _userList = '{"": ""}';
+  // User data = User(id: "8VxqWO9pRBTvpLGxFXquloo97X13", username: 'Vincent');
+  // User _modifyUser;
   User user;
 
   User get userModify => User.from(_userList);
@@ -18,7 +20,8 @@ class UserProvider with ChangeNotifier{
 
   void editUser(Map<String, dynamic> data){
     User editUser = User(
-      id: _userList.id,
+      // id: _userList.id,
+      id: data['id'],
       username: data['username'],
       photoURL: data['imageURL'],
       email: data['email'],
