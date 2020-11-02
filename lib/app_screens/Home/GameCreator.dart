@@ -5,7 +5,7 @@ import 'package:flutter_app/model/game/game.dart';
 import 'package:flutter_app/provider/games_provider.dart';
 // import 'package:flutter_app/provider/games.dart';
 import 'package:flutter_app/shared/style.dart';
-import 'package:flutter_app/widgets/Home/GameCreateForm.dart';
+import 'package:flutter_app/widgets/CreateGame/GameCreateForm.dart';
 import 'package:provider/provider.dart';
 
 

@@ -82,6 +82,10 @@ class _GameCreateFormState extends State<GameCreateForm> {
             border: OutlineInputBorder(borderSide: BorderSide(color: Colors.black87, width: 1.0)),
             labelText: '',
           ),
+          validator: (value){
+            if(value.isEmpty){return 'Please Enter some Text';}
+            return null;
+          }, onSaved: (value) => widget.formData['description'] = value
         ),
         SizedBox(height: defaultPadding * 2),
       ]
