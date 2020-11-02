@@ -44,7 +44,7 @@ class Game {
   }
 
   // Mapign Game form to modify or add new games into my DiscoverList.
-  factory Game.fromMap(Map<String, dynamic> data){
+  factory Game.fromJSON(Map<String, dynamic> data){
     return Game(
       id: data['id'] ?? '',
       title: data['title'] ?? '',

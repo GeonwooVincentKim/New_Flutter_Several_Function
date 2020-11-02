@@ -142,6 +142,11 @@ class _ModifyProfileState extends State<ModifyProfile> {
       children: <Widget>[
         TextFormField(
           initialValue: _formUserData['Address'],
+          maxLines: 4,
+          decoration: InputDecoration(
+            border: OutlineInputBorder(borderSide: BorderSide(color: Colors.black87, width: 1.0)),
+            labelText: '',
+          ),
           validator: (value){
             if(value.isEmpty) {return 'Please enter some text';}
             return null;
