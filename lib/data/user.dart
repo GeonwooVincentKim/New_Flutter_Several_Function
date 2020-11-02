@@ -1,8 +1,9 @@
 import 'package:flutter_app/model/Users.dart';
 
 
+// Basic information of User, Applied to use JSON.
 // ignore: non_constant_identifier_names
-var USER_DUMMY_LIST = User(
+var USER_BASIC_INFO = User(
     id: '8VxqWO9pRBTvpLGxFXquloo97X13',
     username: 'Vincent',
     email: 'test@example.com',

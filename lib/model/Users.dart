@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 // part 'user.dart';
 
@@ -17,6 +19,7 @@ class User{
     @required this.username,
     @required this.email,
     this.photoURL,
+
     @required this.userAddress
   });
 
@@ -31,29 +34,31 @@ class User{
     );
   }
 
-  factory User.fromMap(Map<String, dynamic> data){
+  // factory User.fromJSON(Map<String, dynamic> _formUserData) => jsonDecode(_formUserData);
+  // _formUserData equals to variable named 'json'.
+  factory User.fromJson(Map<String, dynamic> _formUserData){
     return User(
-      id: data['id'] ?? '',
-      username: data['username'] ?? '',
-      email: data['email'] ?? '',
-      photoURL: data['imageURL'] ?? '',
-      userAddress: data['Address'] ?? '',
+      id: _formUserData['id'] ?? '',
+      username: _formUserData['username'] ?? '',
+      email: _formUserData['email'] ?? '',
+      photoURL: _formUserData['imageURL'] ?? '',
+      userAddress: _formUserData['Address'] ?? '',
     );
   }
 
-  // factory User.fromJson(Map<String, dynamic> data){
+  // factory User.fromMap(Map<String, dynamic> _formUserData){
   //   return User(
-  //     id: data['id'] ?? '',
-  //     username: data['username'] ?? '',
-  //     email: data['email'] ?? '',
-  //     photoURL: data['imageURL'] ?? '',
-  //     userAddress: data['Address'] ?? '',
+  //     id: _formUserData['id'] ?? '',
+  //     username: _formUserData['username'] ?? '',
+  //     email: _formUserData['email'] ?? '',
+  //     photoURL: _formUserData['imageURL'] ?? '',
+  //     userAddress: _formUserData['Address'] ?? '',
   //   );
   // }
 
   factory User.initialData(){
     return User(
-      id: '',
+      id: '1',
       username: 'Vincent',
       email: 'test@example.com',
       photoURL: 'https://cdn.pixabay.com/photo/2016/07/01/23/16/amusement-park-1492099_960_720.jpg',
