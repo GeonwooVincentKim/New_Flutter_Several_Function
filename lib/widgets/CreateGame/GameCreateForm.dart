@@ -79,7 +79,7 @@ class _GameCreateFormState extends State<GameCreateForm> {
             listSelected: widget.formData['genres'],
           ),
           Label(label: "Release Date"),
-          // _buildGameReleaseDate(),
+           _buildGameReleaseDate(),
           Label(label: "Description"),
           _buildGameDescription(),
           Label(label: "Image URL"),
@@ -109,6 +109,11 @@ class _GameCreateFormState extends State<GameCreateForm> {
   Widget _buildGameReleaseDate(){
     return Column(
       children: <Widget>[
+        DropdownButton(
+          items: widget.formData['releaseYear'],
+          value: YearList,
+          onChanged: widget.formData['releaseYear']
+        ),
         // DropdownButton(
         //   value: YearList,
         //   items: widget.formData['releaseYear'],
