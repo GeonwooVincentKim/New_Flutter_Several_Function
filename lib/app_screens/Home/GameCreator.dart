@@ -18,7 +18,8 @@ class _GameCreatorState extends State<GameCreator> {
   final _formGameKey = GlobalKey<FormState>();
   final Map<String, dynamic> _formGameData = {
     'title': '',
-    'images': [],
+    // 'images': ['', ''],
+    'image': '',
     'platforms': [],
     'genres': [],
     'description': '',
@@ -29,7 +30,8 @@ class _GameCreatorState extends State<GameCreator> {
     'progression': 0.0,
     // 'videoURL': ''
   };
-  String ImageURL = '';
+  List<String> ImageURL = ['', ''];
+  String image = '';
   
   @override
   void initState(){
@@ -67,12 +69,13 @@ class _GameCreatorState extends State<GameCreator> {
         overflow: Overflow.visible,
         children: [
           Padding(
-            padding: EdgeInsets.all(defaultPadding * 2),
+            padding: EdgeInsets.all(defaultPadding),
             child: SingleChildScrollView(
               // child: Text("Hello World"),
               child: GameCreateForm(
                 formData: _formGameData, formKey: _formGameKey, 
-                ImageURL: ImageURL, 
+                // ImageURL: ImageURL,
+                ImageURL: image,
                 isPlatform: true, isGenre: true, isReleaseDate: true
               ),
             )
