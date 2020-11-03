@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/provider/games_provider.dart';
+import 'package:flutter_app/shared/style.dart';
 import 'package:provider/provider.dart';
 
 
@@ -32,7 +33,7 @@ class _CreateGameTileState extends State<CreateGameTile> {
         style: TextStyle(fontSize: 12),
       ),
       shape: ContinuousRectangleBorder(
-        side: BorderSide(color: isClicked ? Colors.white : Colors.black),
+        side: BorderSide(color: isClicked ? Colors.white : textAccentColor),
         borderRadius: BorderRadius.circular(5)),
       color: Colors.white,
       onPressed: (){

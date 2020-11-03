@@ -35,6 +35,9 @@ class _GameCreateFormState extends State<GameCreateForm> {
   List<PlatformG> PlatformList = [];
   List<Genre> GenreList = [];
   List<String> ListNamePublisher = [];
+  List<DropdownMenuItem<String>> _YearList;
+  List<DropdownMenuItem<String>> _MonthList;
+  List<DropdownMenuItem<String>> _DayList;
 
   final List<String> YearList = [];
   final List<String> MonthList = [];
@@ -45,6 +48,14 @@ class _GameCreateFormState extends State<GameCreateForm> {
   void initState(){
     PlatformList = Provider.of<PlatformProvider>(context, listen: false).listPlatforms;
     GenreList = Provider.of<GenreProvider>(context, listen: false).listGenres;
+
+    final DateTime today = DateTime.now();
+    for(int i = 1000; i <= today.year; i++){
+      YearList.add(i.toString());
+    }
+    if(widget.formData['releaseYear'] == '') widget.formData['releaseYear'] = YearList[YearList.length - 1];
+    if(widget.formData['releaseMonth'] == '') widget.formData['releaseMonth'] = MonthList[0];
+    // // if(widget.isReleaseDate)
     super.initState();
   }
 
@@ -67,9 +78,8 @@ class _GameCreateFormState extends State<GameCreateForm> {
             currentList: GenreList,
             listSelected: widget.formData['genres'],
           ),
-          // 
           Label(label: "Release Date"),
-          // 
+          // _buildGameReleaseDate(),
           Label(label: "Description"),
           _buildGameDescription(),
           Label(label: "Image URL"),
@@ -93,6 +103,22 @@ class _GameCreateFormState extends State<GameCreateForm> {
         ),
         SizedBox(height: defaultPadding * 2),
       ]
+    );
+  }
+
+  Widget _buildGameReleaseDate(){
+    return Column(
+      children: <Widget>[
+        // DropdownButton(
+        //   value: YearList,
+        //   items: widget.formData['releaseYear'],
+        //   onChanged: (String newValue){
+        //     setState((){
+        //       YearList = newValue
+        //     });
+        //   }
+        // )
+      ],
     );
   }
 

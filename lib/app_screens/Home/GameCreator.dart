@@ -18,8 +18,9 @@ class _GameCreatorState extends State<GameCreator> {
   final _formGameKey = GlobalKey<FormState>();
   final Map<String, dynamic> _formGameData = {
     'title': '',
+    'images': '',
     // 'images': ['', ''],
-    'image': '',
+    // 'image': '',
     'platforms': [],
     'genres': [],
     'description': '',
