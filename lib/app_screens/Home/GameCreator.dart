@@ -18,9 +18,9 @@ class _GameCreatorState extends State<GameCreator> {
   final _formGameKey = GlobalKey<FormState>();
   final Map<String, dynamic> _formGameData = {
     'title': '',
-    'images': '',
-    // 'images': ['', ''],
-    // 'image': '',
+    // 'imageURL': [''],
+    'images': [''],
+    'singleImage': '',
     'platforms': [],
     'genres': [],
     'description': '',
@@ -31,8 +31,9 @@ class _GameCreatorState extends State<GameCreator> {
     'progression': 0.0,
     // 'videoURL': ''
   };
-  List<String> ImageURL = ['', ''];
+  List<String> ImageURL = [''];
   String image = '';
+  String appBarTitle = 'Create Games';
   
   @override
   void initState(){
@@ -55,7 +56,7 @@ class _GameCreatorState extends State<GameCreator> {
 
   AppBar _buildAppBarCreator(){
     return AppBar(
-      title: Text("Create Game"),
+      title: Text(appBarTitle),
       backgroundColor: appBarColor,
       centerTitle: true,
     );
@@ -75,8 +76,8 @@ class _GameCreatorState extends State<GameCreator> {
               // child: Text("Hello World"),
               child: GameCreateForm(
                 formData: _formGameData, formKey: _formGameKey, 
-                // ImageURL: ImageURL,
-                ImageURL: image,
+                ImageURL: ImageURL,
+                singleImage: image,
                 isPlatform: true, isGenre: true, isReleaseDate: true
               ),
             )
@@ -118,6 +119,25 @@ class _GameCreatorState extends State<GameCreator> {
     if(!_formGameKey.currentState.validate()) return;
     _formGameKey.currentState.save();
 
-    Provider.of<GameProvider>(context).createNewGame(_formGameData);
+    _formGameData['images'] = ImageURL;
+    if(_formGameData['progression'] == null){
+      _formGameData['progression'] = 0.0;
+    } else if (_formGameData['progression'] == null){
+      if(_formGameData['progression'].runtimeType != double)
+        _formGameData['progression'] = double.parse(_formGameData['progression']);
+    }
+    _formGameData['platforms'] = (_formGameData['platforms'] == null) ? null : _formGameData['platforms'].toString();
+    _formGameData['genres'] = (_formGameData['genres'] == null) ? null : _formGameData['platforms'].toString();
+
+    // I'll check this codes later..
+    if(appBarTitle == 'Create Games'){
+      Provider.of<GameProvider>(context).createNewGame(_formGameData);
+    } else if(appBarTitle == 'Modify Games'){
+      // Provider.of<GameProvider>(context).modifyGame(_formGameData);
+      Navigator.pop(context, '/');
+    }
+
+    print("Haep~Gyeok");
+    Navigator.pushNamed(context, '/');
   }
 }

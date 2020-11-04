@@ -4,6 +4,7 @@ import 'package:flutter_app/model/game/platform.dart';
 import 'package:flutter_app/provider/genres.dart';
 import 'package:flutter_app/provider/platforms.dart';
 import 'package:flutter_app/shared/style.dart';
+import 'package:flutter_app/widgets/CreateGame/dropdown_list.dart';
 import 'package:flutter_app/widgets/CreateGame/list_checkbox_with_label.dart';
 import 'package:flutter_app/widgets/Details/label.dart';
 import 'package:provider/provider.dart';
@@ -15,8 +16,9 @@ class GameCreateForm extends StatefulWidget {
 
   final GlobalKey<FormState> formKey;
   final Map<String, dynamic> formData;
-  final String ImageURL;
-  // final List<String> ImageURL;
+  // final String ImageURL;
+  final String singleImage;
+  final List<String> ImageURL;
   final bool isPlatform;
   final bool isGenre;
   final bool isReleaseDate;
@@ -24,6 +26,7 @@ class GameCreateForm extends StatefulWidget {
   GameCreateForm({
     @required this.formKey,
     @required this.formData,
+    this.singleImage,
     this.ImageURL,
     this.isPlatform = false,
     this.isGenre = false,
@@ -35,6 +38,12 @@ class _GameCreateFormState extends State<GameCreateForm> {
   List<PlatformG> PlatformList = [];
   List<Genre> GenreList = [];
   List<String> ListNamePublisher = [];
+  List<String> _YearDropdown;
+  List<String> _MonthDropdown;
+  List<String> _DaysDropdown;
+  String yearList;
+  String monthList;
+  String dayList;
   List<DropdownMenuItem<String>> _YearList;
   List<DropdownMenuItem<String>> _MonthList;
   List<DropdownMenuItem<String>> _DayList;
@@ -42,7 +51,6 @@ class _GameCreateFormState extends State<GameCreateForm> {
   final List<String> YearList = [];
   final List<String> MonthList = [];
   final List<String> DayList = [];
-  // final List<String> MonthList = <String>['Januery', 'Feburary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
   @override
   void initState(){
@@ -50,12 +58,14 @@ class _GameCreateFormState extends State<GameCreateForm> {
     GenreList = Provider.of<GenreProvider>(context, listen: false).listGenres;
 
     final DateTime today = DateTime.now();
-    for(int i = 1000; i <= today.year; i++){
-      YearList.add(i.toString());
-    }
+    for(int i = 1870; i <= today.year; i++) YearList.add(i.toString());
+    for(int i = 1; i <= today.month; i++) MonthList.add(i.toString());
     if(widget.formData['releaseYear'] == '') widget.formData['releaseYear'] = YearList[YearList.length - 1];
-    if(widget.formData['releaseMonth'] == '') widget.formData['releaseMonth'] = MonthList[0];
-    // // if(widget.isReleaseDate)
+    if(widget.formData['releaseMonth'] == '') widget.formData['releaseMonth'] = MonthList[MonthList.length - 1];
+    if(widget.isReleaseDate){
+      for(int i = 1; i <= 31; i++) DayList.add(i.toString());
+      if(widget.formData['releaseDate'] == '') widget.formData['releaseDate'] = DayList[0];
+    }
     super.initState();
   }
 
@@ -84,7 +94,7 @@ class _GameCreateFormState extends State<GameCreateForm> {
           _buildGameDescription(),
           Label(label: "Image URL"),
           _buildGameImageURL(),
-          // 
+          SizedBox(height: defaultPadding * 2),
         ],
       )
     );
@@ -108,21 +118,49 @@ class _GameCreateFormState extends State<GameCreateForm> {
 
   Widget _buildGameReleaseDate(){
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        DropdownButton(
-          items: widget.formData['releaseYear'],
-          value: YearList,
-          onChanged: widget.formData['releaseYear']
+        Row(
+          children: <Widget>[
+            DropDownList(
+              contentsList: YearList,
+              contents: widget.formData['releaseYear'],
+              onChange: (String newValue){
+                setState((){widget.formData['releaseYear'] = newValue;});
+              },
+            ),
+            DropDownList(
+              contentsList: MonthList,
+              contents: widget.formData['releaseMonth'],
+              onChange: (String newValue){
+                setState((){widget.formData['releaseMonth'] = newValue;});
+              }
+            ),
+            DropDownList(
+              contentsList: DayList,
+              contents: widget.formData['releaseDate'] ,
+              onChange: (String newValue){
+                setState((){widget.formData['releaseDate'] = newValue;});
+              }
+            ),
+            // DropdownButton(
+            //   value: YearList[20],
+            //   items: YearList.map<DropdownMenuItem<String>>((yearList){
+            //     return DropdownMenuItem(
+            //       value: yearList,
+            //       child: Padding(
+            //         padding: EdgeInsets.symmetric(horizontal: defaultPadding),
+            //         child: Text(yearList),
+            //       )
+            //     );
+            //   }).toList(),
+            //   onChanged: (String newValue){
+            //     setState((){widget.formData['releaseYear'] = newValue;});
+            //   },
+            // )
+          ],
         ),
-        // DropdownButton(
-        //   value: YearList,
-        //   items: widget.formData['releaseYear'],
-        //   onChanged: (String newValue){
-        //     setState((){
-        //       YearList = newValue
-        //     });
-        //   }
-        // )
+        SizedBox(height: defaultPadding),
       ],
     );
   }
@@ -149,17 +187,17 @@ class _GameCreateFormState extends State<GameCreateForm> {
 
   Widget _buildGameImageURL(){
     return Column(
-      children: <Widget>[
-        // List.generate(widget.ImageURL.length)
-        TextFormField(
-          initialValue: widget.formData['image'], 
+      children: List.generate(widget.ImageURL.length, (index) {
+        return TextFormField(
+          initialValue: widget.ImageURL[index], 
           validator: (value){
-            if(value.isEmpty) {return 'Please input your IMAGE-URL';}
+            if(value.isEmpty) return 'Please input your IMAGE-URL';
             return null;
           },
-          onSaved: (value) => widget.formData['image'] = value.replaceAll(new RegExp(r' '), ''),
-        ),SizedBox(height: defaultPadding * 2),
-      ]
+          onSaved: (String value) => setState((){widget.ImageURL[index] = value;}),
+          // onSaved: (value) => widget.formData['imageURL'] = value.replaceAll(new RegExp(r' '), ''),
+        );
+      }),
     );
   }
 }

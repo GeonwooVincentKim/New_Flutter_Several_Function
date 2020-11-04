@@ -9,13 +9,17 @@ class Filter extends StatefulWidget {
 class _FilterState extends State<Filter> {
   final _formFilterKey = GlobalKey<FormState>();
   final Map<String, dynamic> _formFilterListData = {
-    
+    'publisher': '',
+    'platforms': [],
+    'genres': [],
+    'releaseYear': '',
+    'releaseMonth': '',
   };
+
   
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
-    );
+
   }
 }
