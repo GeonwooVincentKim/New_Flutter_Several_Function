@@ -46,8 +46,8 @@ class _GameCreatorState extends State<GameCreator> {
       formGameData['id'] = gameSelect.id;
       formGameData['title'] = gameSelect.title;
       formGameData['images'] = gameSelect.images;
-      // formGameData['platforms'] = gameSelect.platforms;
-      // formGameData['genres'] = gameSelect.genres;
+      formGameData['platforms'] = gameSelect.platforms;
+      formGameData['genres'] = gameSelect.genres;
       // formGameData['releaseYear'] = gameSelect.releaseDate.year.toString();
       // formGameData['releaseMonth'] = gameSelect.releaseMonth;
       // formGameData['releaseDay'] = 
@@ -123,9 +123,9 @@ class _GameCreatorState extends State<GameCreator> {
     formGameKey.currentState.save();
 
     formGameData['images'] = ImageURL;
-    // final String month = formGameData['releaseMonth'];
-    // final String day = formGameData['releaseDay'];
-    // formGameData['releaseDate'] = "$formGameData['releaseYear']/$month/$day";
+    final String month = formGameData['releaseMonth'];
+    final String day = formGameData['releaseDay'];
+    formGameData['releaseDate'] = "$formGameData['releaseYear']/$month/$day";
     
     if(formGameData['progression'] == null){
       formGameData['progression'] = 0.0;

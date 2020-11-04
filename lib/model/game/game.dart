@@ -59,7 +59,7 @@ class Game {
       images: data['images'] ?? [],
       platforms: data['platforms'] ?? [],
       genres: data['genres'] ?? [],
-      publisher: data['publisher'] ?? [],
+      publisher: data['publisher'] ?? '',
       description: data['descrption'] ?? '',
       releaseDate: data['releaseDate'] ?? '',
       isFavorite: data['isFavorite'] ?? false,

@@ -64,7 +64,7 @@ class _GameCreateFormState extends State<GameCreateForm> {
     if(widget.formGameData['releaseMonth'] == '') widget.formGameData['releaseMonth'] = MonthList[MonthList.length - 1];
     if(widget.isReleaseDate){
       for(int i = 1; i <= 31; i++) DayList.add(i.toString());
-      if(widget.formGameData['releaseDate'] == '') widget.formGameData['releaseDate'] = DayList[0];
+      if(widget.formGameData['releaseDay'] == '') widget.formGameData['releaseDay'] = DayList[DayList.length - 1];
     }
     super.initState();
   }
@@ -88,8 +88,8 @@ class _GameCreateFormState extends State<GameCreateForm> {
             currentList: GenreList,
             listSelected: widget.formGameData['genres'],
           ),
-          //Label(label: "Release Date"),
-          //  _buildGameReleaseDate(),
+          Label(label: "Release Date"),
+           _buildGameReleaseDate(),
           Label(label: "Description"),
           _buildGameDescription(),
           Label(label: "Image URL"),
