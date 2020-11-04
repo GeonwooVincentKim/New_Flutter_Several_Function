@@ -16,7 +16,10 @@ class _FilterState extends State<Filter> {
     'releaseMonth': '',
   };
 
-  
+  @override
+  void initState(){
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

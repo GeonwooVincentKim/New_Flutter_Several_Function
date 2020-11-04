@@ -22,7 +22,7 @@ class Game {
     this.singleImage,
     @required this.platforms,
     @required this.genres,
-    @required this.publisher,
+    this.publisher,
     this.description,
     @required this.releaseDate,
     @required this.isFavorite,

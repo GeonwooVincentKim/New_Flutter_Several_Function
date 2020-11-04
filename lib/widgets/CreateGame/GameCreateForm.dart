@@ -14,8 +14,8 @@ class GameCreateForm extends StatefulWidget {
   @override
   _GameCreateFormState createState() => _GameCreateFormState();
 
-  final GlobalKey<FormState> formKey;
-  final Map<String, dynamic> formData;
+  final GlobalKey<FormState> formGameKey;
+  final Map<String, dynamic> formGameData;
   // final String ImageURL;
   final String singleImage;
   final List<String> ImageURL;
@@ -24,8 +24,8 @@ class GameCreateForm extends StatefulWidget {
   final bool isReleaseDate;
 
   GameCreateForm({
-    @required this.formKey,
-    @required this.formData,
+    @required this.formGameKey,
+    @required this.formGameData,
     this.singleImage,
     this.ImageURL,
     this.isPlatform = false,
@@ -60,11 +60,11 @@ class _GameCreateFormState extends State<GameCreateForm> {
     final DateTime today = DateTime.now();
     for(int i = 1870; i <= today.year; i++) YearList.add(i.toString());
     for(int i = 1; i <= today.month; i++) MonthList.add(i.toString());
-    if(widget.formData['releaseYear'] == '') widget.formData['releaseYear'] = YearList[YearList.length - 1];
-    if(widget.formData['releaseMonth'] == '') widget.formData['releaseMonth'] = MonthList[MonthList.length - 1];
+    if(widget.formGameData['releaseYear'] == '') widget.formGameData['releaseYear'] = YearList[YearList.length - 1];
+    if(widget.formGameData['releaseMonth'] == '') widget.formGameData['releaseMonth'] = MonthList[MonthList.length - 1];
     if(widget.isReleaseDate){
       for(int i = 1; i <= 31; i++) DayList.add(i.toString());
-      if(widget.formData['releaseDate'] == '') widget.formData['releaseDate'] = DayList[0];
+      if(widget.formGameData['releaseDate'] == '') widget.formGameData['releaseDate'] = DayList[0];
     }
     super.initState();
   }
@@ -72,7 +72,7 @@ class _GameCreateFormState extends State<GameCreateForm> {
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: widget.formKey,
+      key: widget.formGameKey,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -81,15 +81,15 @@ class _GameCreateFormState extends State<GameCreateForm> {
           Label(label: "Platform"),
           ListCheckBox(
             currentList: PlatformList,
-            listSelected: widget.formData['platforms'],
+            listSelected: widget.formGameData['platforms'],
           ),
           Label(label: "Genre"),
           ListCheckBox(
             currentList: GenreList,
-            listSelected: widget.formData['genres'],
+            listSelected: widget.formGameData['genres'],
           ),
-          Label(label: "Release Date"),
-           _buildGameReleaseDate(),
+          //Label(label: "Release Date"),
+          //  _buildGameReleaseDate(),
           Label(label: "Description"),
           _buildGameDescription(),
           Label(label: "Image URL"),
@@ -105,11 +105,11 @@ class _GameCreateFormState extends State<GameCreateForm> {
     return Column(
       children: <Widget>[
         TextFormField(
-          initialValue: widget.formData['title'],
+          initialValue: widget.formGameData['title'],
           validator: (value){
             if(value.isEmpty){return 'Please Enter some Text';}
             return null;
-          }, onSaved: (value) => widget.formData['title'] = value
+          }, onSaved: (value) => widget.formGameData['title'] = value
         ),
         SizedBox(height: defaultPadding * 2),
       ]
@@ -124,25 +124,25 @@ class _GameCreateFormState extends State<GameCreateForm> {
           children: <Widget>[
             DropDownList(
               contentsList: YearList,
-              contents: widget.formData['releaseYear'],
+              contents: widget.formGameData['releaseYear'],
               onChange: (String newValue){
-                setState((){widget.formData['releaseYear'] = newValue;});
+                setState((){widget.formGameData['releaseYear'] = newValue;});
               },
             ),
             DropDownList(
               contentsList: MonthList,
-              contents: widget.formData['releaseMonth'],
+              contents: widget.formGameData['releaseMonth'],
               onChange: (String newValue){
-                setState((){widget.formData['releaseMonth'] = newValue;});
+                setState((){widget.formGameData['releaseMonth'] = newValue;});
               }
             ),
-            DropDownList(
-              contentsList: DayList,
-              contents: widget.formData['releaseDate'] ,
-              onChange: (String newValue){
-                setState((){widget.formData['releaseDate'] = newValue;});
-              }
-            ),
+            // DropDownList(
+            //   contentsList: DayList,
+            //   contents: widget.formGameData['releaseDay'] ,
+            //   onChange: (String newValue){
+            //     setState((){widget.formGameData['releaseDay'] = newValue;});
+            //   }
+            // ),
             // DropdownButton(
             //   value: YearList[20],
             //   items: YearList.map<DropdownMenuItem<String>>((yearList){
@@ -155,7 +155,7 @@ class _GameCreateFormState extends State<GameCreateForm> {
             //     );
             //   }).toList(),
             //   onChanged: (String newValue){
-            //     setState((){widget.formData['releaseYear'] = newValue;});
+            //     setState((){widget.formGameData['releaseYear'] = newValue;});
             //   },
             // )
           ],
@@ -169,7 +169,7 @@ class _GameCreateFormState extends State<GameCreateForm> {
     return Column(
       children: <Widget>[
         TextFormField(
-          initialValue: widget.formData['description'],
+          initialValue: widget.formGameData['description'],
           maxLines: 4,
           decoration: InputDecoration(
             border: OutlineInputBorder(borderSide: BorderSide(color: Colors.black87, width: 1.0)),
@@ -178,7 +178,7 @@ class _GameCreateFormState extends State<GameCreateForm> {
           validator: (value){
             if(value.isEmpty){return 'Please Enter some Text';}
             return null;
-          }, onSaved: (value) => widget.formData['description'] = value
+          }, onSaved: (value) => widget.formGameData['description'] = value
         ),
         SizedBox(height: defaultPadding * 2),
       ]
@@ -195,7 +195,7 @@ class _GameCreateFormState extends State<GameCreateForm> {
             return null;
           },
           onSaved: (String value) => setState((){widget.ImageURL[index] = value;}),
-          // onSaved: (value) => widget.formData['imageURL'] = value.replaceAll(new RegExp(r' '), ''),
+          // onSaved: (value) => widget.formGameData['imageURL'] = value.replaceAll(new RegExp(r' '), ''),
         );
       }),
     );

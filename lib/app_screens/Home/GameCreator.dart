@@ -15,8 +15,8 @@ class GameCreator extends StatefulWidget {
 }
 
 class _GameCreatorState extends State<GameCreator> {
-  final _formGameKey = GlobalKey<FormState>();
-  final Map<String, dynamic> _formGameData = {
+  final formGameKey = GlobalKey<FormState>();
+  final Map<String, dynamic> formGameData = {
     'title': '',
     // 'imageURL': [''],
     'images': [''],
@@ -26,7 +26,7 @@ class _GameCreatorState extends State<GameCreator> {
     'description': '',
     'releaseYear': '',
     'releaseMonth': '',
-    'releaseDate': '',
+    'releaseDay': '',
     'isFavorite': false,
     'progression': 0.0,
     // 'videoURL': ''
@@ -37,20 +37,24 @@ class _GameCreatorState extends State<GameCreator> {
   
   @override
   void initState(){
-    // final Game gameSelect = Provider.of<GameProvider>(context, listen: false).selectedGame;
+    final Game gameSelect = Provider.of<GameProvider>(context, listen: false).selectedGame;
     // final String userID = Provider.of<User>(context, listen: false).id;
-    // if(gameSelect != null /* && gameSelect.createUser == userID */){
-    //   print("Intializing..");
-    //   _formGameData['title'] = gameSelect.title;
-    //   _formGameData['images'] = gameSelect.images;
-    //   _formGameData['platforms'] = gameSelect.platforms;
-    //   _formGameData['genres'] = gameSelect.genres;
-    //   _formGameData['releaseYear'] = gameSelect.releaseYear;
-    //   _formGameData['releaseMonth'] = gameSelect.releaseMonth;
-    //   _formGameData['releaseDate'] = gameSelect.releaseDate;
-    //   _formGameData['isFavorite'] = gameSelect.isFavorite;
-    //   _formGameData['progression'] = gameSelect.progression;
-    // }
+    if(gameSelect != null /* && gameSelect.createUser == userID */){
+      print("Intializing..");
+      String appBarTitle = 'Edit Game';
+
+      formGameData['id'] = gameSelect.id;
+      formGameData['title'] = gameSelect.title;
+      formGameData['images'] = gameSelect.images;
+      // formGameData['platforms'] = gameSelect.platforms;
+      // formGameData['genres'] = gameSelect.genres;
+      // formGameData['releaseYear'] = gameSelect.releaseDate.year.toString();
+      // formGameData['releaseMonth'] = gameSelect.releaseMonth;
+      // formGameData['releaseDay'] = 
+      // formGameData['releaseDate'] = gameSelect.releaseDate;
+      formGameData['isFavorite'] = gameSelect.isFavorite;
+      formGameData['progression'] = gameSelect.progression;
+    }
     super.initState();
   }
 
@@ -75,9 +79,8 @@ class _GameCreatorState extends State<GameCreator> {
             child: SingleChildScrollView(
               // child: Text("Hello World"),
               child: GameCreateForm(
-                formData: _formGameData, formKey: _formGameKey, 
+                formGameData: formGameData, formGameKey: formGameKey, 
                 ImageURL: ImageURL,
-                singleImage: image,
                 isPlatform: true, isGenre: true, isReleaseDate: true
               ),
             )
@@ -116,24 +119,30 @@ class _GameCreatorState extends State<GameCreator> {
   }
 
   void _submitForm(BuildContext context){
-    if(!_formGameKey.currentState.validate()) return;
-    _formGameKey.currentState.save();
+    if(!formGameKey.currentState.validate()) return;
+    formGameKey.currentState.save();
 
-    _formGameData['images'] = ImageURL;
-    if(_formGameData['progression'] == null){
-      _formGameData['progression'] = 0.0;
-    } else if (_formGameData['progression'] == null){
-      if(_formGameData['progression'].runtimeType != double)
-        _formGameData['progression'] = double.parse(_formGameData['progression']);
+    formGameData['images'] = ImageURL;
+    // final String month = formGameData['releaseMonth'];
+    // final String day = formGameData['releaseDay'];
+    // formGameData['releaseDate'] = "$formGameData['releaseYear']/$month/$day";
+    
+    if(formGameData['progression'] == null){
+      formGameData['progression'] = 0.0;
+    } else if (formGameData['progression']  != null){
+      if(formGameData['progression'].runtimeType != double)
+        formGameData['progression'] = double.parse(formGameData['progression']);
     }
-    _formGameData['platforms'] = (_formGameData['platforms'] == null) ? null : _formGameData['platforms'].toString();
-    _formGameData['genres'] = (_formGameData['genres'] == null) ? null : _formGameData['platforms'].toString();
+    formGameData['platforms'] = (formGameData['platforms'] != null) ? formGameData['platforms'].cast<String>() : null;
+    formGameData['genres'] = (formGameData['genres'] != null) ? formGameData['platforms'].cast<String>() : null;
 
+    print(appBarTitle);
     // I'll check this codes later..
     if(appBarTitle == 'Create Games'){
-      Provider.of<GameProvider>(context).createNewGame(_formGameData);
+      Provider.of<GameProvider>(context).createNewGame(formGameData);
+      print(GameProvider);
     } else if(appBarTitle == 'Modify Games'){
-      // Provider.of<GameProvider>(context).modifyGame(_formGameData);
+      // Provider.of<GameProvider>(context).modifyGame(formGameData);
       Navigator.pop(context, '/');
     }
 
