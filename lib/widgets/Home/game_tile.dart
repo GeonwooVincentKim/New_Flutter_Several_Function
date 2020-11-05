@@ -27,8 +27,9 @@ class GameTile extends StatelessWidget{
               secondaryBackground: _buildSlideRight(),
               onDismissed: (direction){
                 if(direction == DismissDirection.startToEnd){
-                  Provider.of<GameProvider>(context, listen: false).changeProgression(game, 50);
-                  // Navigator.pushNamed(context, "/create");
+                  Provider.of<GameProvider>(context, listen: false).selectGame(game);
+                  // Provider.of<GameProvider>(context, listen: false).changeProgression(game, 50);
+                  Navigator.pushNamed(context, "/createGame");
                   print("HI");
                 }
                 else if (direction == DismissDirection.endToStart){
@@ -38,14 +39,17 @@ class GameTile extends StatelessWidget{
                 }
               },
             ) : Dismissible(
+              // key: ObjectKey(game.id),
               key: ObjectKey(game.id),
               child: _buildTileContent(),
               background: _buildSlideLeft(),
               secondaryBackground: null,
               onDismissed: (direction){
                 if(direction == DismissDirection.startToEnd){
-                  Provider.of<GameProvider>(context, listen: false).changeProgression(game, 50);
-                  print("HI2");
+                  Provider.of<GameProvider>(context, listen: false).selectGame(game);
+                  Navigator.pushNamed(context, "/createGame");
+                  // Provider.of<GameProvider>(context, listen: false).changeProgression(game, 50);
+                  // print("HI2");
                 }
               },
             ),

@@ -48,7 +48,9 @@ class _DetailPageState extends State<DetailPage> {
       actions: [
         IconButton(
           icon: Icon(IconMoon.iedit, color: Colors.white,),
-          onPressed: () {showAddListDialog(context);},
+          onPressed: () {
+            
+            showAddListDialog(context);},
         ),
       ],
     );
@@ -133,9 +135,13 @@ class _DetailPageState extends State<DetailPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: _buildDetailsAppBar(),
-      body: _buildDetailsBody(),
+    return Consumer<GameProvider>(
+      builder: (context, games, _) => (
+        Scaffold(
+          appBar: _buildDetailsAppBar(),
+          body: _buildDetailsBody(),
+        )
+      ),
     );
   }
 
