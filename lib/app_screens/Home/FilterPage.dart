@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/shared/style.dart';
+import 'package:flutter_app/widgets/CreateGame/GameCreateForm.dart';
 
 
 class Filter extends StatefulWidget {
@@ -21,10 +23,64 @@ class _FilterState extends State<Filter> {
     super.initState();
   }
 
+  Widget _filterAppBar(){
+    return AppBar(
+      title: Text("Filters"),
+      backgroundColor: appBarColor,
+      centerTitle: true,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text("Hello World"),
+    return Scaffold(
+      appBar: _filterAppBar(),
+      body: _filterBody(),
     );
+  }
+
+  Widget _filterBody(){
+    double screenHeight = MediaQuery.of(context).size.height;
+    return Container(
+      height: screenHeight,
+      color: backgroundColor,
+      child: Stack(
+        overflow: Overflow.visible,
+        children: [
+          Padding(
+            padding: EdgeInsets.all(defaultPadding),
+            child: SingleChildScrollView(
+              child: GameCreateForm(
+                formGameData: _formFilterListData,
+                formGameKey: _formFilterKey,
+                ImageURL: [],
+              )
+            )
+          ),
+          _buildSubmitButton(context)
+        ]
+      )
+    );
+  }
+
+  Widget _buildSubmitButton(context){
+    return Positioned(
+      bottom: 0,
+      left: 0,
+      right: 0,
+      child: FlatButton(
+        shape: ContinuousRectangleBorder(side: BorderSide(color: lineColor)),
+        color: Colors.black87,
+        child: Padding(
+          padding: EdgeInsets.all(defaultPadding / 2),
+          child: Text("SAVE", style: settingsMainFont),
+        ), onPressed: () => _filterSubmitForm(context)
+      )
+    );
+  }
+
+  void _filterSubmitForm(context){
+    if(!_formFilterKey.currentState.validate()) return;
+    _formFilterKey.currentState.save();
   }
 }

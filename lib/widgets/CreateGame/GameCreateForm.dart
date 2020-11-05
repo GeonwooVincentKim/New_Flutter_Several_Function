@@ -95,7 +95,7 @@ class _GameCreateFormState extends State<GameCreateForm> {
           Label(label: "Description"),
           _buildGameDescription(),
           Label(label: "Image URL"),
-          // _buildGameImageURL(),
+          _buildGameImageURL(),
           SizedBox(height: defaultPadding * 2),
         ],
       )
