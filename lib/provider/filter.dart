@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class Filters with ChangeNotifier{
   final Map<String, dynamic> _homeFilter = {
-    ''
+    'publisher': '',
     'platforms': [],
     'genres': [],
     'releaseDate': '',
@@ -11,6 +11,13 @@ class Filters with ChangeNotifier{
   };
 
   final Map<String, dynamic> _discoverFilter = {
-    // 'platforms': 
+    'publisher': '',
+    'platforms': [],
+    'genres': [],
+    'releaseDate': '',
+    'releaseYear': '',
+    'releaseMonth': '', 
   };
+
+  
 }

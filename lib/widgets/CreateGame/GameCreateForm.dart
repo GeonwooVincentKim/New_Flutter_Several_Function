@@ -64,7 +64,9 @@ class _GameCreateFormState extends State<GameCreateForm> {
     if(widget.formGameData['releaseMonth'] == '') widget.formGameData['releaseMonth'] = MonthList[MonthList.length - 1];
     if(widget.isReleaseDate){
       for(int i = 1; i <= 31; i++) DayList.add(i.toString());
-      if(widget.formGameData['releaseDay'] == '') widget.formGameData['releaseDay'] = DayList[DayList.length - 1];
+      // if(widget.formGameData['releaseDay'] == '') widget.formGameData['releaseDay'] = DayList[DayList.length - 1];
+      if(widget.formGameData['releaseDate'] == '') widget.formGameData['releaseDate'] = DayList[DayList.length - 1];
+      
     }
     super.initState();
   }
@@ -89,11 +91,11 @@ class _GameCreateFormState extends State<GameCreateForm> {
             listSelected: widget.formGameData['genres'],
           ),
           Label(label: "Release Date"),
-           _buildGameReleaseDate(),
+          _buildGameReleaseDate(),
           Label(label: "Description"),
           _buildGameDescription(),
           Label(label: "Image URL"),
-          _buildGameImageURL(),
+          // _buildGameImageURL(),
           SizedBox(height: defaultPadding * 2),
         ],
       )
@@ -141,6 +143,13 @@ class _GameCreateFormState extends State<GameCreateForm> {
             //   contents: widget.formGameData['releaseDay'] ,
             //   onChange: (String newValue){
             //     setState((){widget.formGameData['releaseDay'] = newValue;});
+            //   }
+            // ),
+            // DropDownList(
+            //   contentsList: DayList,
+            //   contents: widget.formGameData['releaseDate'] ,
+            //   onChange: (String newValue){
+            //     setState((){widget.formGameData['releaseDate'] = newValue;});
             //   }
             // ),
             // DropdownButton(

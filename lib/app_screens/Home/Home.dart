@@ -37,10 +37,10 @@ class _BodyState extends State<Home>{
         child: Consumer<GameProvider>(
           builder: (ctx, gamesProduct, child){
             final List<Game> listGame = gamesProduct.userItems;
-            final List<Game> listGame2 = gamesProduct.gameItems;
+            // final List<Game> listGame2 = gamesProduct.gameItems;
             inProgress = listGame.where((game) => game.progression != 0 && game.progression != 100).toList();
             completed = listGame.where((game) => game.progression == 100).toList();
-            newGame = listGame2.where((game) => game.progression == 0).toList();
+            newGame = listGame.where((game) => game.progression == 0).toList();
             
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,

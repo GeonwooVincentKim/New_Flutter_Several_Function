@@ -16,7 +16,7 @@ class GameProvider with ChangeNotifier{
   void createNewGame(Map<String, dynamic> data){
     data['id'] = getRandomString(2);
     final Game newGame = Game.fromJSON(data);
-    _gameItems.add(newGame);
+    _userItems.add(newGame);
     notifyListeners();
   }
 

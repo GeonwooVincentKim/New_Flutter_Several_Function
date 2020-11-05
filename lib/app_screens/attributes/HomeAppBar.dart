@@ -27,6 +27,7 @@ AppBar HomeAppbar (title, showStar, context) {
           onPressed: (){
             print("Not");
             // DetailBody(gameDetailBody: null,);
+            Navigator.pushNamed(context, "/filter");
           }
       ),
     ],

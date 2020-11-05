@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Provider/users.dart';
+import 'package:flutter_app/app_screens/Home/FilterPage.dart';
 import 'package:flutter_app/app_screens/Home/GameCreator.dart';
 import 'package:flutter_app/app_screens/details/Details.dart';
 import 'package:flutter_app/app_screens/Home/Discover.dart';
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget{
             '/settings/modify': (context) => ModifyProfile(),
             '/details': (context) => DetailPage(),
             '/createGame': (context) => GameCreator(),
+            '/filter': (context) => Filter(),
           },
           onGenerateRoute: (RouteSettings settings){
             final List<String> pathElements = settings.name.split("/");
