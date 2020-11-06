@@ -16,6 +16,6 @@ DateTime getDateTimeFormat(String currentDate){
     return DateTime.parse(stringDate);
   }else{
     final currentDate = DateFormat('yyyy-MM-dd').format(DateTime.now());
-    return DateTime.parse(currentDate).toUtc();
+    return DateTime.parse(currentDate);
   }
 }

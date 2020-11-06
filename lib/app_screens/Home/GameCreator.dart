@@ -94,7 +94,8 @@ class _GameCreatorState extends State<GameCreator> {
               child: GameCreateForm(
                 formGameData: formGameData, formGameKey: formGameKey, 
                 imageURL: imageURL,
-                isPlatform: true, isGenre: true, isReleaseDate: true
+                isPlatform: true, isGenre: true, isReleaseDate: true,
+                isDescription: true, isImages: true,
               ),
             )
           ),

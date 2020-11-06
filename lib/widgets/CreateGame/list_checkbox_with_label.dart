@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/shared/style.dart';
 import 'package:flutter_app/widgets/CreateGame/create_game_title.dart';
+import 'package:flutter_app/widgets/Details/label.dart';
 
 
 class ListCheckBox extends StatelessWidget{
+  final String label;
   final List<dynamic> currentList;
   final List<dynamic> listSelected;
 
   ListCheckBox({
+    @required this.label,
     @required this.currentList,
     @required this.listSelected
   });
@@ -17,6 +20,10 @@ class ListCheckBox extends StatelessWidget{
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        Text(
+          label.toUpperCase(),
+          style: TextStyle(color: textAccentColor),
+        ),
         SizedBox(height: defaultPadding),
         currentList != null ?
           GridView.builder(

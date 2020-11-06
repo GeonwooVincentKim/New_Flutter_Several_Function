@@ -17,20 +17,22 @@ class GameCreateForm extends StatefulWidget {
   final GlobalKey<FormState> formGameKey;
   final Map<String, dynamic> formGameData;
   // final String ImageURL;
-  final String singleImage;
   final List<String> imageURL;
   final bool isPlatform;
   final bool isGenre;
   final bool isReleaseDate;
+  final bool isDescription;
+  final bool isImages;
 
   GameCreateForm({
     @required this.formGameKey,
     @required this.formGameData,
-    this.singleImage,
     this.imageURL,
     this.isPlatform = false,
     this.isGenre = false,
-    this.isReleaseDate = false
+    this.isReleaseDate = false,
+    this.isDescription = false,
+    this.isImages = false,
   });
 }
 
@@ -69,24 +71,20 @@ class _GameCreateFormState extends State<GameCreateForm> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Label(label: "TITLE"),
           _buildGameTitle(),
-          Label(label: "Platform"),
           ListCheckBox(
+            label: "Platform",
             currentList: platformList,
             listSelected: widget.formGameData['platforms'],
           ),
-          Label(label: "Genre"),
           ListCheckBox(
+            label: "Genre",
             currentList: genreList,
             listSelected: widget.formGameData['genres'],
           ),
-          Label(label: "Release Date"),
           _buildGameReleaseDate(),
-          Label(label: "Description"),
-          _buildGameDescription(),
-          Label(label: "Image URL"),
-          _buildGameImageURL(),
+          widget.isDescription ? _buildGameDescription() : Container(),
+          widget.isImages ? _buildGameImageURL() : Container(),
           SizedBox(height: defaultPadding * 2),
         ],
       )
@@ -96,7 +94,9 @@ class _GameCreateFormState extends State<GameCreateForm> {
 
   Widget _buildGameTitle(){
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
+        Label(label: "Title"),
         TextFormField(
           initialValue: widget.formGameData['title'],
           validator: (value){
@@ -113,6 +113,7 @@ class _GameCreateFormState extends State<GameCreateForm> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
+        Label(label: "Release Day"),
         Row(
           children: <Widget>[
             DropDownList(
@@ -173,7 +174,7 @@ class _GameCreateFormState extends State<GameCreateForm> {
           maxLines: 4,
           decoration: InputDecoration(
             border: OutlineInputBorder(borderSide: BorderSide(color: Colors.black87, width: 1.0)),
-            labelText: '',
+            labelText: 'DESCRIPTION',
           ),
           validator: (value){
             if(value.isEmpty){return 'Please Enter some Text';}
@@ -194,6 +195,9 @@ class _GameCreateFormState extends State<GameCreateForm> {
             if(value.isEmpty) return 'Please input your IMAGE-URL';
             return null;
           },
+          decoration: InputDecoration(
+            labelText: 'IMAGE URL'
+          ),
           onSaved: (String value) => setState((){widget.imageURL[index] = value;}),
           // onSaved: (value) => widget.formGameData['imageURL'] = value.replaceAll(new RegExp(r' '), ''),
         );

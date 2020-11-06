@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/model/game/game.dart';
+import 'package:flutter_app/shared/helpers/helpers.dart';
 
 class Filters with ChangeNotifier{
   final Map<String, dynamic> _homeFilter = {
@@ -60,5 +62,15 @@ class Filters with ChangeNotifier{
     _homeFilter['releaseYear'] = null;
     _homeFilter['releaseMonth'] = null;
     notifyListeners();
+  }
+  
+  bool isFilter(Game game, Map<String, dynamic> filter){
+    final DateTime releaseDate = game.releaseDate != '' ? getDateTimeFormat(game.releaseDate) : null;
+    if((filter['publisher'] == '' || filter['publisher'] == game.publisher) && 
+    (filter['releaseYear'] == null || filter['releaseYear'] == releaseDate.year.toString()) &&
+    (filter['releaseMonth'] == null || filter['releaseMonth'] == releaseDate.month.toString())) {
+      return true;
+    }
+    return false;
   }
 }
