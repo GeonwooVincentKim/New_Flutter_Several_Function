@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/provider/filter.dart';
 import 'package:flutter_app/provider/games_provider.dart';
 import 'package:flutter_app/widgets/Home/list_tiles_with_title.dart';
 import 'package:flutter_app/widgets/expanded/divider.dart';
@@ -36,11 +37,15 @@ class _BodyState extends State<Home>{
       child: SingleChildScrollView(
         child: Consumer<GameProvider>(
           builder: (ctx, gamesProduct, child){
+            final Map<String, dynamic> homeFilter = Provider.of<Filters>(context).homeFilters;
             final List<Game> listGame = gamesProduct.userItems;
             // final List<Game> listGame2 = gamesProduct.gameItems;
             inProgress = listGame.where((game) => game.progression != 0 && game.progression != 100).toList();
             completed = listGame.where((game) => game.progression == 100).toList();
             newGame = listGame.where((game) => game.progression == 0).toList();
+            // inProgress = listGame.where((game) => game.progression != 0 && game.progression != 100 || isFilter(game, homeFilter)).toList();
+            // completed = listGame.where((game) => game.progression == 100 || isFilter(game, homeFilter)).toList();
+            // newGame = listGame.where((game) => game.progression == 0 && isFilter(game, homeFilter)).toList();
             
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,

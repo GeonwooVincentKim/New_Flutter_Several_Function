@@ -54,8 +54,8 @@ class _GameCreatorState extends State<GameCreator> {
       formGameData['id'] = gameSelect.id;
       formGameData['title'] = gameSelect.title;
       formGameData['images'] = gameSelect.images;
-      imageURL.add(gameSelect.images[0]);
-      formGameData['publisher'] = pub.name;
+      // imageURL.add(gameSelect.images[0]);
+      // formGameData['publisher'] = pub.name;
       
       formGameData['platforms'] = gameSelect.platforms;
       formGameData['genres'] = gameSelect.genres;

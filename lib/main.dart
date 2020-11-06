@@ -7,6 +7,7 @@ import 'package:flutter_app/app_screens/Home/Discover.dart';
 import 'package:flutter_app/app_screens/details/MyFavorites.dart';
 import 'package:flutter_app/app_screens/settings/ModifyProfile.dart';
 import 'package:flutter_app/app_screens/settings/Settings.dart';
+import 'package:flutter_app/provider/filter.dart';
 import 'package:flutter_app/provider/games_provider.dart';
 import 'package:flutter_app/provider/genres.dart';
 import 'package:flutter_app/provider/platforms.dart';
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget{
           ChangeNotifierProvider(create: (_ctx) => GenreProvider()),
           ChangeNotifierProvider(create: (_ctx) => PlatformProvider()),
           ChangeNotifierProvider(create: (_ctx) => PublisherProvider()),
+          ChangeNotifierProvider(create: (_ctx) => Filters()),
         ],
         child: MaterialApp(
           title: "My Flutter App",

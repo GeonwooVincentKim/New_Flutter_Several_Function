@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/provider/filter.dart';
+import 'package:flutter_app/shared/helpers/helpers.dart';
 import 'package:flutter_app/shared/helpers/icomoon.dart';
 import 'package:flutter_app/shared/style.dart';
 import 'package:flutter_app/widgets/CreateGame/GameCreateForm.dart';
+import 'package:provider/provider.dart';
 
 
 class Filter extends StatefulWidget {
@@ -24,6 +27,22 @@ class _FilterState extends State<Filter> {
 
   @override
   void initState(){
+    Map<String, dynamic> filter;
+    if(widget.backPage == 'home') filter = Provider.of<Filters>(context, listen: false).homeFilters;
+    else{filter = Provider.of<Filters>(context, listen: false).discoverFilters;}
+    
+    _formFilterListData['publisher'] = filter['publisher'];
+    _formFilterListData['platforms'] = filter['platforms'];
+    _formFilterListData['genres'] = filter['genres'];
+    _formFilterListData['releaseDate'] = filter['releaseDate'];
+    _formFilterListData['releaseYear'] = filter['releaseYear'];
+    _formFilterListData['releaseMonth'] = filter['releaseMonth'];
+
+    if(filter['releaseDate'] != ''){
+      final DateTime releaseDate = getDateTimeFormat(filter['releaseDate']);
+      _formFilterListData['releaseYear'] = releaseDate.year.toString();
+      _formFilterListData['releaseMonth'] = releaseDate.month.toString();
+    }
     super.initState();
   }
 
@@ -110,6 +129,8 @@ class _FilterState extends State<Filter> {
   void _filterSubmitForm(){
     // if(!_formFilterKey.currentState.validate()) return;
     _formFilterKey.currentState.save();
+    if(widget.backPage == 'home') Provider.of<Filters>(context, listen: false).changeHomeFilter(_formFilterListData);
+    else Provider.of<Filters>(context, listen: false).changeDiscoverFilter(_formFilterListData);
   }
 
   void _filterResetForm(){
@@ -122,5 +143,8 @@ class _FilterState extends State<Filter> {
       _formFilterListData['releaseMonth'] = null;
       _formFilterListData['releaseDate'] = '';
     });
+
+    if(widget.backPage == 'home') Provider.of<Filters>(context, listen: false).resetHomeFilter();
+    else Provider.of<Filters>(context, listen: false).resetDiscoverFilter();
   }
 }
