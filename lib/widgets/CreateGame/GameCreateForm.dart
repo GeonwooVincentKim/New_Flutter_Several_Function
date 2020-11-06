@@ -138,13 +138,13 @@ class _GameCreateFormState extends State<GameCreateForm> {
                 setState((){widget.formGameData['releaseMonth'] = newValue;});
               }
             ),
-            // DropDownList(
-            //   contentsList: DayList,
-            //   contents: widget.formGameData['releaseDay'] ,
-            //   onChange: (String newValue){
-            //     setState((){widget.formGameData['releaseDay'] = newValue;});
-            //   }
-            // ),
+            DropDownList(
+              contentsList: DayList,
+              contents: widget.formGameData['releaseDate'] ,
+              onChange: (String newValue){
+                setState((){widget.formGameData['releaseDate'] = newValue;});
+              }
+            ),
             // DropDownList(
             //   contentsList: DayList,
             //   contents: widget.formGameData['releaseDate'] ,

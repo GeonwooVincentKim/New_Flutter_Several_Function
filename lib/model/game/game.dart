@@ -5,7 +5,6 @@ class Game {
   final String id;
   final String title;
   List<String> images;
-  final String singleImage;
   final List<String> platforms;
   final List<String> genres;
   final String publisher;
@@ -19,7 +18,6 @@ class Game {
     @required this.id,
     @required this.title,
     this.images,
-    this.singleImage,
     @required this.platforms,
     @required this.genres,
     this.publisher,
@@ -38,7 +36,6 @@ class Game {
       id: game.id ?? '',
       title: game.title ?? '',
       images: game.images ?? [],
-      singleImage: game.singleImage ?? '',
       platforms: game.platforms ?? [],
       genres: game.genres ?? [],
       publisher: game.publisher ?? [],
@@ -55,7 +52,6 @@ class Game {
     return Game(
       id: data['id'] ?? '',
       title: data['title'] ?? '',
-      singleImage: data['singleImage'] ?? '',
       images: data['images'] ?? [],
       platforms: data['platforms'] ?? [],
       genres: data['genres'] ?? [],
@@ -74,7 +70,6 @@ class Game {
       id: '',
       title: '',
       images: [],
-      singleImage: '',
       platforms: [],
       genres: [],
       publisher: '',

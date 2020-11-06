@@ -42,7 +42,7 @@ class _GameCreatorState extends State<GameCreator> {
     // final String userID = Provider.of<User>(context, listen: false).id;
     if(gameSelect != null /* && gameSelect.createUser == userID */){
       print("Intializing..");
-      String appBarTitle = 'Edit Game';
+      appBarTitle = 'Edit Game';
 
       formGameData['id'] = gameSelect.id;
       formGameData['title'] = gameSelect.title;
@@ -145,7 +145,9 @@ class _GameCreatorState extends State<GameCreator> {
       Provider.of<GameProvider>(context).createNewGame(formGameData);
       print(GameProvider);
     } else if(appBarTitle == 'Modify Games'){
-      // Provider.of<GameProvider>(context).modifyGame(formGameData);
+      Provider.of<GameProvider>(context).editNewGame(formGameData);
+      print(GameProvider);
+      print("HIIIIIIIIIII");
       Navigator.pop(context, '/');
     }
 
