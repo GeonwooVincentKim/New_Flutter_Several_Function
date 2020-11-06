@@ -1,5 +1,5 @@
 import 'dart:math';
-import 'package:flutter_app/model/game/game.dart';
+import 'package:intl/intl.dart';
 
 
 String getRandomString(int length){
@@ -8,4 +8,14 @@ String getRandomString(int length){
   return String.fromCharCodes(Iterable.generate(
     length, (_) => _chars.codeUnitAt(_rnd.nextInt(_chars.length))
   ));
+}
+
+DateTime getDateTimeFormat(String currentDate){
+  if(currentDate.contains('/')) {
+    final String stringDate = currentDate.replaceAll('/', '-');
+    return DateTime.parse(stringDate);
+  }else{
+    final currentDate = DateFormat('yyyy-MM-dd').format(DateTime.now());
+    return DateTime.parse(currentDate).toUtc();
+  }
 }

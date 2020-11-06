@@ -75,13 +75,29 @@ class _FilterState extends State<Filter> {
       bottom: 0,
       left: 0,
       right: 0,
-      child: FlatButton(
-        shape: ContinuousRectangleBorder(side: BorderSide(color: lineColor)),
-        color: Colors.black87,
-        child: Padding(
-          padding: EdgeInsets.all(defaultPadding / 2),
-          child: Text("SAVE", style: settingsMainFont),
-        ), onPressed: () => _filterSubmitForm()
+      child: Row(
+        children: [
+          Expanded(
+            child: FlatButton(
+              shape: ContinuousRectangleBorder(side: BorderSide(color: lineColor)),
+              color: Colors.black87,
+              child: Padding(
+                padding: EdgeInsets.all(defaultPadding / 2),
+                child: Text("RESET", style: settingsMainFont),
+              ), onPressed: () => _filterResetForm()
+            ),
+          ),
+          Expanded(
+            child: FlatButton(
+              shape: ContinuousRectangleBorder(side: BorderSide(color: lineColor)),
+              color: Colors.black87,
+              child: Padding(
+                padding: EdgeInsets.all(defaultPadding / 2),
+                child: Text("SAVE", style: settingsMainFont),
+              ), onPressed: () => _filterSubmitForm()
+            ),
+          )
+        ],
       )
     );
   }
@@ -89,5 +105,17 @@ class _FilterState extends State<Filter> {
   void _filterSubmitForm(){
     // if(!_formFilterKey.currentState.validate()) return;
     _formFilterKey.currentState.save();
+  }
+
+  void _filterResetForm(){
+    _formFilterKey.currentState.reset();
+    setState(() {
+      _formFilterListData['publisher'] = '';
+      _formFilterListData['platforms'] = [];
+      _formFilterListData['genres'] = [];
+      _formFilterListData['releaseYear'] = null;
+      _formFilterListData['releaseMonth'] = null;
+      _formFilterListData['releaseDate'] = '';
+    });
   }
 }

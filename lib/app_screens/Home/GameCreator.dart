@@ -3,6 +3,7 @@ import 'package:flutter_app/app_screens/Home/SideMenu.dart';
 import 'package:flutter_app/model/Users.dart';
 import 'package:flutter_app/model/game/game.dart';
 import 'package:flutter_app/provider/games_provider.dart';
+import 'package:flutter_app/shared/helpers/helpers.dart';
 import 'package:flutter_app/shared/helpers/icomoon.dart';
 // import 'package:flutter_app/provider/games.dart';
 import 'package:flutter_app/shared/style.dart';
@@ -27,8 +28,8 @@ class _GameCreatorState extends State<GameCreator> {
     'description': '',
     'releaseYear': '',
     'releaseMonth': '',
-    'releaseDate': '',
     // 'releaseDay': '',
+    'releaseDate': '',
     'isFavorite': false,
     'progression': 0.0,
     // 'videoURL': ''
@@ -45,16 +46,18 @@ class _GameCreatorState extends State<GameCreator> {
       print("Intializing..");
       appBarTitle = 'Edit Game';
 
+      final DateTime getCurrentDate = getDateTimeFormat(gameSelect.releaseDate);
+
       formGameData['id'] = gameSelect.id;
       formGameData['title'] = gameSelect.title;
       formGameData['images'] = gameSelect.images;
-      // ImageURL.add(gameSelect.images[0]);
+      imageURL.add(gameSelect.images[0]);
       
       formGameData['platforms'] = gameSelect.platforms;
       formGameData['genres'] = gameSelect.genres;
-      // formGameData['releaseYear'] = gameSelect.releaseDate.year.toString();
-      // formGameData['releaseMonth'] = gameSelect.releaseMonth;
-      // formGameData['releaseDay'] = 
+      formGameData['releaseYear'] = getCurrentDate.year.toString();
+      formGameData['releaseMonth'] = getCurrentDate.month.toString();
+      formGameData['releaseDay'] = getCurrentDate.day.toString();
       // formGameData['releaseDate'] = gameSelect.releaseDate;
       formGameData['isFavorite'] = gameSelect.isFavorite;
       formGameData['progression'] = gameSelect.progression;
@@ -132,7 +135,7 @@ class _GameCreatorState extends State<GameCreator> {
     if(!formGameKey.currentState.validate()) return;
     formGameKey.currentState.save();
 
-    // formGameData['images'] = ImageURL;
+    formGameData['images'] = imageURL;
     final String month = formGameData['releaseMonth'];
     final String day = formGameData['releaseDay'];
     formGameData['releaseDate'] = "$formGameData['releaseYear']/$month/$day";
@@ -173,10 +176,10 @@ class _GameCreatorState extends State<GameCreator> {
       
       formGameData['platforms'] = [];
       formGameData['genres'] = [];
+      formGameData['releaseDate'] = '';
       formGameData['releaseYear'] = null;
       formGameData['releaseMonth'] = null;
       formGameData['releaseDay'] = null;
-      formGameData['releaseDate'] = '';
       formGameData['description'] = '';
       // formGameData['releaseYear'] = gameSelect.releaseDate.year.toString();
       // formGameData['releaseMonth'] = gameSelect.releaseMonth;
