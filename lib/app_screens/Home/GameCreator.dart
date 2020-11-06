@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/app_screens/Home/SideMenu.dart';
 import 'package:flutter_app/model/Users.dart';
 import 'package:flutter_app/model/game/game.dart';
+import 'package:flutter_app/model/game/publisher.dart';
 import 'package:flutter_app/provider/games_provider.dart';
+import 'package:flutter_app/provider/publishers_provider.dart';
 import 'package:flutter_app/shared/helpers/helpers.dart';
 import 'package:flutter_app/shared/helpers/icomoon.dart';
 // import 'package:flutter_app/provider/games.dart';
@@ -28,8 +30,9 @@ class _GameCreatorState extends State<GameCreator> {
     'description': '',
     'releaseYear': '',
     'releaseMonth': '',
-    // 'releaseDay': '',
-    'releaseDate': '',
+    'releaseDay': '',
+    'publisher': '',
+    // 'releaseDate': '',
     'isFavorite': false,
     'progression': 0.0,
     // 'videoURL': ''
@@ -41,17 +44,18 @@ class _GameCreatorState extends State<GameCreator> {
   @override
   void initState(){
     final Game gameSelect = Provider.of<GameProvider>(context, listen: false).selectedGame;
+    final Publisher pub = Provider.of<PublisherProvider>(context, listen: false).singlePublisher;
     // final String userID = Provider.of<User>(context, listen: false).id;
     if(gameSelect != null /* && gameSelect.createUser == userID */){
       print("Intializing..");
       appBarTitle = 'Edit Game';
 
       final DateTime getCurrentDate = getDateTimeFormat(gameSelect.releaseDate);
-
       formGameData['id'] = gameSelect.id;
       formGameData['title'] = gameSelect.title;
       formGameData['images'] = gameSelect.images;
       imageURL.add(gameSelect.images[0]);
+      formGameData['publisher'] = pub.name;
       
       formGameData['platforms'] = gameSelect.platforms;
       formGameData['genres'] = gameSelect.genres;
@@ -94,7 +98,7 @@ class _GameCreatorState extends State<GameCreator> {
               child: GameCreateForm(
                 formGameData: formGameData, formGameKey: formGameKey, 
                 imageURL: imageURL,
-                isPlatform: true, isGenre: true, isReleaseDate: true,
+                isTitle: true, isPublisher: true, isPlatform: true, isGenre: true, isReleaseDate: true,
                 isDescription: true, isImages: true,
               ),
             )

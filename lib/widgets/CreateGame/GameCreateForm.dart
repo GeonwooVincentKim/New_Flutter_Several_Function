@@ -18,6 +18,8 @@ class GameCreateForm extends StatefulWidget {
   final Map<String, dynamic> formGameData;
   // final String ImageURL;
   final List<String> imageURL;
+  final bool isTitle;
+  final bool isPublisher;
   final bool isPlatform;
   final bool isGenre;
   final bool isReleaseDate;
@@ -28,6 +30,8 @@ class GameCreateForm extends StatefulWidget {
     @required this.formGameKey,
     @required this.formGameData,
     this.imageURL,
+    this.isTitle = false,
+    this.isPublisher = false,
     this.isPlatform = false,
     this.isGenre = false,
     this.isReleaseDate = false,
@@ -59,7 +63,6 @@ class _GameCreateFormState extends State<GameCreateForm> {
       for(int i = 1; i <= 31; i++) DayList.add(i.toString());
       if(widget.formGameData['releaseDay'] == '') widget.formGameData['releaseDay'] = DayList[DayList.length - 1];
       // if(widget.formGameData['releaseDate'] == '') widget.formGameData['releaseDate'] = DayList[DayList.length - 1];
-      
     }
     super.initState();
   }
@@ -71,7 +74,8 @@ class _GameCreateFormState extends State<GameCreateForm> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _buildGameTitle(),
+          widget.isTitle ? _buildGameTitle() : Container(),
+          widget.isPublisher ? Container() : _buildGamePublisher(),
           ListCheckBox(
             label: "Platform",
             currentList: platformList,
@@ -97,6 +101,23 @@ class _GameCreateFormState extends State<GameCreateForm> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Label(label: "Title"),
+        TextFormField(
+          initialValue: widget.formGameData['title'],
+          validator: (value){
+            if(value.isEmpty){return 'Please Enter some Text';}
+            return null;
+          }, onSaved: (value) => widget.formGameData['title'] = value
+        ),
+        SizedBox(height: defaultPadding * 2),
+      ]
+    );
+  }
+
+  Widget _buildGamePublisher(){
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Label(label: "Publisher"),
         TextFormField(
           initialValue: widget.formGameData['title'],
           validator: (value){

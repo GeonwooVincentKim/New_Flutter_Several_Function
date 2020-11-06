@@ -5,6 +5,9 @@ import 'package:flutter_app/widgets/CreateGame/GameCreateForm.dart';
 
 
 class Filter extends StatefulWidget {
+  final String backPage;
+  Filter({this.backPage});
+
   @override
   _FilterState createState() => _FilterState();
 } 
@@ -61,6 +64,8 @@ class _FilterState extends State<Filter> {
                 formGameData: _formFilterListData,
                 formGameKey: _formFilterKey,
                 imageURL: [],
+                isTitle: false,
+                isPublisher: false, // Not to visible when state is 'true' in CreateGame page.
               )
             )
           ),

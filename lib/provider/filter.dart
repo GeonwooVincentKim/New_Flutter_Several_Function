@@ -46,9 +46,9 @@ class Filters with ChangeNotifier{
 
   void resetHomeFilter(){
     _homeFilter['publisher'] = '';
-    _homeFilter['platforms'] = '';
-    _homeFilter['genres'] = '';
-    _homeFilter['releaseDate'] = null;
+    _homeFilter['platforms'] = [];
+    _homeFilter['genres'] = [];
+    _homeFilter['releaseDate'] = '';
     _homeFilter['releaseYear'] = null;
     _homeFilter['releaseMonth'] = null;
     notifyListeners();
@@ -56,9 +56,9 @@ class Filters with ChangeNotifier{
 
   void resetDiscoverFilter(){
     _homeFilter['publisher'] = '';
-    _homeFilter['platforms'] = '';
-    _homeFilter['genres'] = '';
-    _homeFilter['releaseDate'] = null;
+    _homeFilter['platforms'] = [];
+    _homeFilter['genres'] = [];
+    _homeFilter['releaseDate'] = '';
     _homeFilter['releaseYear'] = null;
     _homeFilter['releaseMonth'] = null;
     notifyListeners();
@@ -68,9 +68,21 @@ class Filters with ChangeNotifier{
     final DateTime releaseDate = game.releaseDate != '' ? getDateTimeFormat(game.releaseDate) : null;
     if((filter['publisher'] == '' || filter['publisher'] == game.publisher) && 
     (filter['releaseYear'] == null || filter['releaseYear'] == releaseDate.year.toString()) &&
-    (filter['releaseMonth'] == null || filter['releaseMonth'] == releaseDate.month.toString())) {
+    (filter['releaseMonth'] == null || filter['releaseMonth'] == releaseDate.month.toString()) &&
+    (filter['platforms'].length == 0 || checkGameListID(filter['platforms'], game.platforms)) &&
+    (filter['genres'].length == 0 || checkGameListID(filter['genres'], game.genres))) {
       return true;
     }
     return false;
+  }
+
+  bool checkGameListID(List<dynamic> filterListID, List<dynamic> listID){
+    if(filterListID.length > 0 && listID.length > 0){
+      for(var i = 0; i < filterListID.length; i++){
+        if(listID.contains(filterListID[i])) return true;
+      }
+      return false;
+    }
+    return true;
   }
 }
