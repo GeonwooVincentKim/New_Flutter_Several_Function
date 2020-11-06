@@ -18,7 +18,7 @@ class GameCreateForm extends StatefulWidget {
   final Map<String, dynamic> formGameData;
   // final String ImageURL;
   final String singleImage;
-  final List<String> ImageURL;
+  final List<String> imageURL;
   final bool isPlatform;
   final bool isGenre;
   final bool isReleaseDate;
@@ -27,7 +27,7 @@ class GameCreateForm extends StatefulWidget {
     @required this.formGameKey,
     @required this.formGameData,
     this.singleImage,
-    this.ImageURL,
+    this.imageURL,
     this.isPlatform = false,
     this.isGenre = false,
     this.isReleaseDate = false
@@ -35,18 +35,9 @@ class GameCreateForm extends StatefulWidget {
 }
 
 class _GameCreateFormState extends State<GameCreateForm> {
-  List<PlatformG> PlatformList = [];
-  List<Genre> GenreList = [];
-  List<String> ListNamePublisher = [];
-  List<String> _YearDropdown;
-  List<String> _MonthDropdown;
-  List<String> _DaysDropdown;
-  String yearList;
-  String monthList;
-  String dayList;
-  List<DropdownMenuItem<String>> _YearList;
-  List<DropdownMenuItem<String>> _MonthList;
-  List<DropdownMenuItem<String>> _DayList;
+  List<PlatformG> platformList = [];
+  List<Genre> genreList = [];
+  // List<String> ListNamePublisher = [];
 
   final List<String> YearList = [];
   final List<String> MonthList = [];
@@ -54,8 +45,8 @@ class _GameCreateFormState extends State<GameCreateForm> {
 
   @override
   void initState(){
-    PlatformList = Provider.of<PlatformProvider>(context, listen: false).listPlatforms;
-    GenreList = Provider.of<GenreProvider>(context, listen: false).listGenres;
+    platformList = Provider.of<PlatformProvider>(context, listen: false).listPlatforms;
+    genreList = Provider.of<GenreProvider>(context, listen: false).listGenres;
 
     final DateTime today = DateTime.now();
     for(int i = 1870; i <= today.year; i++) YearList.add(i.toString());
@@ -64,8 +55,8 @@ class _GameCreateFormState extends State<GameCreateForm> {
     if(widget.formGameData['releaseMonth'] == '') widget.formGameData['releaseMonth'] = MonthList[MonthList.length - 1];
     if(widget.isReleaseDate){
       for(int i = 1; i <= 31; i++) DayList.add(i.toString());
-      // if(widget.formGameData['releaseDay'] == '') widget.formGameData['releaseDay'] = DayList[DayList.length - 1];
-      if(widget.formGameData['releaseDate'] == '') widget.formGameData['releaseDate'] = DayList[DayList.length - 1];
+      if(widget.formGameData['releaseDay'] == '') widget.formGameData['releaseDay'] = DayList[DayList.length - 1];
+      // if(widget.formGameData['releaseDate'] == '') widget.formGameData['releaseDate'] = DayList[DayList.length - 1];
       
     }
     super.initState();
@@ -82,12 +73,12 @@ class _GameCreateFormState extends State<GameCreateForm> {
           _buildGameTitle(),
           Label(label: "Platform"),
           ListCheckBox(
-            currentList: PlatformList,
+            currentList: platformList,
             listSelected: widget.formGameData['platforms'],
           ),
           Label(label: "Genre"),
           ListCheckBox(
-            currentList: GenreList,
+            currentList: genreList,
             listSelected: widget.formGameData['genres'],
           ),
           Label(label: "Release Date"),
@@ -140,9 +131,9 @@ class _GameCreateFormState extends State<GameCreateForm> {
             ),
             DropDownList(
               contentsList: DayList,
-              contents: widget.formGameData['releaseDate'] ,
+              contents: widget.formGameData['releaseDay'] ,
               onChange: (String newValue){
-                setState((){widget.formGameData['releaseDate'] = newValue;});
+                setState((){widget.formGameData['releaseDay'] = newValue;});
               }
             ),
             // DropDownList(
@@ -196,14 +187,14 @@ class _GameCreateFormState extends State<GameCreateForm> {
 
   Widget _buildGameImageURL(){
     return Column(
-      children: List.generate(widget.ImageURL.length, (index) {
+      children: List.generate(widget.imageURL.length, (index) {
         return TextFormField(
-          initialValue: widget.ImageURL[index], 
+          initialValue: widget.imageURL[index], 
           validator: (value){
             if(value.isEmpty) return 'Please input your IMAGE-URL';
             return null;
           },
-          onSaved: (String value) => setState((){widget.ImageURL[index] = value;}),
+          onSaved: (String value) => setState((){widget.imageURL[index] = value;}),
           // onSaved: (value) => widget.formGameData['imageURL'] = value.replaceAll(new RegExp(r' '), ''),
         );
       }),

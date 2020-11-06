@@ -13,11 +13,18 @@ class GameProvider with ChangeNotifier{
   List<Game> get userItems => [..._userItems];
   Game get selectedGame => _selectedGame != null ? Game.from(_selectedGame) : null;
   
-  void createNewGame(Map<String, dynamic> data){
+  void createNewGameHome(Map<String, dynamic> data){
     data['id'] = getRandomString(2);
     print(data['id']);
     final Game newGame = Game.fromJSON(data);
     _userItems.add(newGame);
+    notifyListeners();
+  }
+
+  void createNewGameDiscover(Map<String, dynamic> data){
+    data['id'] = getRandomString(2);
+    final Game newGame = Game.fromJSON(data);
+    _gameItems.add(newGame);
     notifyListeners();
   }
   

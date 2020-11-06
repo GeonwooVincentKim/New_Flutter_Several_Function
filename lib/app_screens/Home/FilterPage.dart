@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/shared/helpers/icomoon.dart';
 import 'package:flutter_app/shared/style.dart';
 import 'package:flutter_app/widgets/CreateGame/GameCreateForm.dart';
 
@@ -28,6 +29,12 @@ class _FilterState extends State<Filter> {
       title: Text("Filters"),
       backgroundColor: appBarColor,
       centerTitle: true,
+      actions: [
+        IconButton(
+          icon: Icon(IconMoon.icheck, color: Colors.white),
+          onPressed: () => _filterSubmitForm(),
+        )
+      ],
     );
   }
 
@@ -53,7 +60,7 @@ class _FilterState extends State<Filter> {
               child: GameCreateForm(
                 formGameData: _formFilterListData,
                 formGameKey: _formFilterKey,
-                ImageURL: [],
+                imageURL: [],
               )
             )
           ),
@@ -74,12 +81,12 @@ class _FilterState extends State<Filter> {
         child: Padding(
           padding: EdgeInsets.all(defaultPadding / 2),
           child: Text("SAVE", style: settingsMainFont),
-        ), onPressed: () => _filterSubmitForm(context)
+        ), onPressed: () => _filterSubmitForm()
       )
     );
   }
 
-  void _filterSubmitForm(context){
+  void _filterSubmitForm(){
     if(!_formFilterKey.currentState.validate()) return;
     _formFilterKey.currentState.save();
   }

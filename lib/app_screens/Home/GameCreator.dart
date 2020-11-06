@@ -3,6 +3,7 @@ import 'package:flutter_app/app_screens/Home/SideMenu.dart';
 import 'package:flutter_app/model/Users.dart';
 import 'package:flutter_app/model/game/game.dart';
 import 'package:flutter_app/provider/games_provider.dart';
+import 'package:flutter_app/shared/helpers/icomoon.dart';
 // import 'package:flutter_app/provider/games.dart';
 import 'package:flutter_app/shared/style.dart';
 import 'package:flutter_app/widgets/CreateGame/GameCreateForm.dart';
@@ -32,7 +33,7 @@ class _GameCreatorState extends State<GameCreator> {
     'progression': 0.0,
     // 'videoURL': ''
   };
-  List<String> ImageURL = [''];
+  List<String> imageURL = [''];
   String image = '';
   String appBarTitle = 'Create Games';
   
@@ -66,6 +67,12 @@ class _GameCreatorState extends State<GameCreator> {
       title: Text(appBarTitle),
       backgroundColor: appBarColor,
       centerTitle: true,
+      actions: [
+        IconButton(
+          icon: Icon(IconMoon.isave, color: Colors.white),
+          onPressed: () => _submitForm(),
+        )
+      ],
     );
   }
 
@@ -83,7 +90,7 @@ class _GameCreatorState extends State<GameCreator> {
               // child: Text("Hello World"),
               child: GameCreateForm(
                 formGameData: formGameData, formGameKey: formGameKey, 
-                ImageURL: ImageURL,
+                imageURL: imageURL,
                 isPlatform: true, isGenre: true, isReleaseDate: true
               ),
             )
@@ -116,12 +123,12 @@ class _GameCreatorState extends State<GameCreator> {
           padding: EdgeInsets.all(defaultPadding / 2),
           child: Text("SAVE", style: settingsMainFont),
         ),
-        onPressed: () => _submitForm(context),
+        onPressed: () => _submitForm(),
       )
     );
   }
 
-  void _submitForm(BuildContext context){
+  void _submitForm(){
     if(!formGameKey.currentState.validate()) return;
     formGameKey.currentState.save();
 
@@ -142,7 +149,8 @@ class _GameCreatorState extends State<GameCreator> {
     print(appBarTitle);
     // I'll check this codes later..
     if(appBarTitle == 'Create Games'){
-      Provider.of<GameProvider>(context).createNewGame(formGameData);
+      Provider.of<GameProvider>(context).createNewGameHome(formGameData);
+      Provider.of<GameProvider>(context).createNewGameDiscover(formGameData);
       print(GameProvider);
     } else if(appBarTitle == 'Modify Games'){
       Provider.of<GameProvider>(context).editNewGame(formGameData);
@@ -153,5 +161,27 @@ class _GameCreatorState extends State<GameCreator> {
 
     print("Haep~Gyeok");
     Navigator.pushNamed(context, '/');
+    _resetForm();
+  }
+
+  void _resetForm(){
+    formGameKey.currentState.reset();
+    setState((){
+      formGameData['title'] = '';
+      formGameData['images'] = [''];
+      // ImageURL.add(gameSelect.images[0]);
+      
+      formGameData['platforms'] = [];
+      formGameData['genres'] = [];
+      formGameData['releaseYear'] = null;
+      formGameData['releaseMonth'] = null;
+      formGameData['releaseDay'] = null;
+      formGameData['releaseDate'] = '';
+      formGameData['description'] = '';
+      // formGameData['releaseYear'] = gameSelect.releaseDate.year.toString();
+      // formGameData['releaseMonth'] = gameSelect.releaseMonth;
+      // formGameData['releaseDay'] = 
+      // formGameData['releaseDate'] = gameSelect.releaseDate;
+    });
   }
 }

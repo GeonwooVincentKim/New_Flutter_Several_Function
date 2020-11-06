@@ -45,12 +45,12 @@ class GameTile extends StatelessWidget{
               background: _buildSlideLeft(),
               secondaryBackground: null,
               onDismissed: (direction){
-                if(direction == DismissDirection.startToEnd){
-                  Provider.of<GameProvider>(context, listen: false).selectGame(game);
-                  Navigator.pushNamed(context, "/createGame");
-                  // Provider.of<GameProvider>(context, listen: false).changeProgression(game, 50);
-                  // print("HI2");
-                }
+                // if(direction == DismissDirection.startToEnd){
+                //   Provider.of<GameProvider>(context, listen: false).selectGame(game);
+                //   Navigator.pushNamed(context, "/createGame");
+                //   // Provider.of<GameProvider>(context, listen: false).changeProgression(game, 50);
+                //   // print("HI2");
+                // }
               },
             ),
         ),
