@@ -41,4 +41,24 @@ class Filters with ChangeNotifier{
     _homeFilter['releaseMonth'] = currentFilter['releaseMonth'];
     notifyListeners();
   }
+
+  void resetHomeFilter(){
+    _homeFilter['publisher'] = '';
+    _homeFilter['platforms'] = '';
+    _homeFilter['genres'] = '';
+    _homeFilter['releaseDate'] = null;
+    _homeFilter['releaseYear'] = null;
+    _homeFilter['releaseMonth'] = null;
+    notifyListeners();
+  }
+
+  void resetDiscoverFilter(){
+    _homeFilter['publisher'] = '';
+    _homeFilter['platforms'] = '';
+    _homeFilter['genres'] = '';
+    _homeFilter['releaseDate'] = null;
+    _homeFilter['releaseYear'] = null;
+    _homeFilter['releaseMonth'] = null;
+    notifyListeners();
+  }
 }

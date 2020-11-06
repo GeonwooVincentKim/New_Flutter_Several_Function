@@ -13,24 +13,27 @@ class _DiscoverState extends State<Discover>{
 
   @override
   void initState(){
-    final List<Game> listGame = Provider.of<GameProvider>(context, listen: false).gameItems;
-    setState(() {
-      pageList = listGame.toList();
-    });
     super.initState();
   }
 
   Widget _buildDiscoverBody(){
     return Padding(
       padding: EdgeInsets.all(defaultPadding),
-      child: ListView.separated(
-        shrinkWrap: true,
-        separatorBuilder: (context, index) =>
-          transparent_divider(),
-        itemCount: pageList.length,
-        itemBuilder: (context, index){
-          final item = pageList[index];
-          return DiscoverGameCard(discoverGame: item);
+      child: Consumer<GameProvider>(
+        builder: (ctx, gamesProduct, child){
+          final List<Game> listGame = gamesProduct.gameItems;
+          pageList = listGame.toList();
+
+          return ListView.separated(
+            shrinkWrap: true,
+            separatorBuilder: (context, index) =>
+              transparent_divider(),
+            itemCount: pageList.length,
+            itemBuilder: (context, index){
+              final item = pageList[index];
+              return DiscoverGameCard(discoverGame: item);
+            }
+          );
         }
       )
     );

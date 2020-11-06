@@ -147,13 +147,12 @@ class _GameCreatorState extends State<GameCreator> {
     formGameData['genres'] = (formGameData['genres'] != null) ? formGameData['platforms'].cast<String>() : null;
 
     print(appBarTitle);
-    // I'll check this codes later..
     if(appBarTitle == 'Create Games'){
       Provider.of<GameProvider>(context).createNewGameHome(formGameData);
       Provider.of<GameProvider>(context).createNewGameDiscover(formGameData);
       print(GameProvider);
     } else if(appBarTitle == 'Modify Games'){
-      Provider.of<GameProvider>(context).editNewGame(formGameData);
+      Provider.of<GameProvider>(context).editNewGameHome(formGameData);
       print(GameProvider);
       print("HIIIIIIIIIII");
       Navigator.pop(context, '/');
@@ -168,7 +167,8 @@ class _GameCreatorState extends State<GameCreator> {
     formGameKey.currentState.reset();
     setState((){
       formGameData['title'] = '';
-      formGameData['images'] = [''];
+      formGameData['images'] = [];
+      imageURL = [''];
       // ImageURL.add(gameSelect.images[0]);
       
       formGameData['platforms'] = [];

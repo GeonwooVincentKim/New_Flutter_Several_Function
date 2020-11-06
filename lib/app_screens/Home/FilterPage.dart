@@ -87,7 +87,7 @@ class _FilterState extends State<Filter> {
   }
 
   void _filterSubmitForm(){
-    if(!_formFilterKey.currentState.validate()) return;
+    // if(!_formFilterKey.currentState.validate()) return;
     _formFilterKey.currentState.save();
   }
 }

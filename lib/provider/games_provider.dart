@@ -28,7 +28,17 @@ class GameProvider with ChangeNotifier{
     notifyListeners();
   }
   
-  void editNewGame(Map<String, dynamic> data){
+  void editNewGameHome(Map<String, dynamic> data){
+    final Game updatedGame = Game.fromJSON(data);
+    final int index = _userItems.indexWhere((g) => g.id == data['id']);
+    if(index >= 0){
+      _selectedGame = updatedGame;
+      _userItems[index] = updatedGame;
+    }
+    notifyListeners();
+  }
+
+  void editNewGameDisover(Map<String, dynamic> data){
     final Game updatedGame = Game.fromJSON(data);
     final int index = _userItems.indexWhere((g) => g.id == data['id']);
     if(index >= 0){

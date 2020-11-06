@@ -7,5 +7,5 @@ String getRandomString(int length){
   Random _rnd = Random();
   return String.fromCharCodes(Iterable.generate(
     length, (_) => _chars.codeUnitAt(_rnd.nextInt(_chars.length))
-));
+  ));
 }
