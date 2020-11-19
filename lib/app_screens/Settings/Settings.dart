@@ -49,7 +49,9 @@ class _SettingState extends State<Setting> {
                 return SingleChildScrollView(
                   child: Column(
                     children: [
-                      _buildProfileImage(user),
+                      // _buildProfileImage(user),
+                      Center(child: ProfileImageButton()),
+                      _buildUserName(user),
                       SizedBox(height: defaultPadding * 4),
                       _buildProfileInfo(user),
                     ],
@@ -64,17 +66,23 @@ class _SettingState extends State<Setting> {
     );
   }
 
-  Widget _buildProfileImage(User user){
-    return Column(
-      children: <Widget>[
-        Center(child: ProfileImageButton(),),
-        SizedBox(height: defaultPadding),
-        Center(
-          child: Text(user.username, style: TextStyle(fontSize: 24)),
-        ),
-      ]
+  Widget _buildUserName(User user){
+    return Container(
+      child: Text(user.username, style: TextStyle(fontSize: 24)),
+      padding: EdgeInsets.symmetric(vertical: defaultPadding),
     );
   }
+
+  // Widget _buildProfileImage(User user){
+  //   return Center(child: ProfileImageButton(),);
+  //   // return Stack(
+  //   //   children: <Widget>[
+  //   //     Center(child: ProfileImageButton(),),
+  //   //     SizedBox(height: defaultPadding),
+  //   //   ]
+  //   // );
+  // }
+
 
   Widget _buildProfileInfo(User user){
     return Column(
