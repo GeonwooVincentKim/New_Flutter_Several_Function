@@ -14,17 +14,17 @@ class DetailsText extends StatelessWidget{
         children: <Widget>[
           MainFont(),
           transparent_divider(),
-          SubFont1(),
+          PlatForm(),
           transparent_divider(),
-          SubFont2(),
+          Progressions(),
           transparent_divider(),
-          SubFont3(),
+          Editor(),
           transparent_divider(),
-          SubFont4(),
+          ReleaseDate(),
           transparent_divider(),
-          SubFont5(),
+          Description(),
           transparent_divider(),
-          SubFont6(),
+          ImageFonts(),
           transparent_divider(),
           // expanded_widgets_details_down_detail(),
         ],
@@ -41,10 +41,8 @@ class DetailsImage extends StatelessWidget{
   Widget build(BuildContext context) {
     return Container(
       width: 420,
-      child: FittedBox(
-        child: Image(
-            image: NetworkImage("https://www.gstatic.com/webp/gallery/1.jpg")
-        ),
+      child: Image.network(
+        "https://www.gstatic.com/webp/gallery/1.jpg",
         fit: BoxFit.fill,
       ),
     );
@@ -66,7 +64,7 @@ class DetailsBottomImages extends StatelessWidget{
               ExpandedBottomImage(),
             ]
           ),
-          BottomDivider(),
+          CustomDivider(color: Colors.transparent),
           Row(
             children: [
               ExpandedBottomImage(),

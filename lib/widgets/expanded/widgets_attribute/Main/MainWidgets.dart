@@ -1,37 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/widgets/expanded/widgets_attribute/Main/MainDetails.dart';
 
+import 'package:flutter_app/model/game/game.dart';
+
 /*
   Text-Attributes for Main
   1. expanded_widgets_up
   2. expanded_widgets_down
 */
 // ignore: non_constant_identifier_names, camel_case_types
-class expanded_widgets_up extends StatelessWidget{
+class ProgressText extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Text(
-        "IN PROGRESS",
-        style: WidgetTextStyle(),
-      ),
+    // If I don't use this,
+    return Text(
+      "IN PROGRESS",
+      style: WidgetTextStyle(),
     );
   }
 }
 
-
 // ignore: camel_case_types
-class expanded_widgets_down extends StatelessWidget{
+class CompletedText extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Text(
-        "COMPLETED",
-        style: WidgetTextStyle(),
-      ),
+    return Text(
+      "COMPLETED",
+      style: WidgetTextStyle(),
     );
   }
-  
 }
 
 /*
@@ -78,6 +75,13 @@ class ProcessingImage extends StatelessWidget{
 
 // ignore: camel_case_types
 class ProcessingText extends StatelessWidget{
+
+  final Game game;
+
+  ProcessingText({
+    @required this.game
+  });
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -86,7 +90,7 @@ class ProcessingText extends StatelessWidget{
       ),
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-        child: WidgetTextAlign(),
+        child: WidgetTextAlign(game: game),
       ),
     );
   }
@@ -94,6 +98,13 @@ class ProcessingText extends StatelessWidget{
 
 // ignore: camel_case_types
 class ProceededText extends StatelessWidget{
+
+  final Game game;
+
+  ProceededText({
+    @required this.game
+  });
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -106,7 +117,7 @@ class ProceededText extends StatelessWidget{
       ),
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-        child: WidgetTextAlign(),
+        child: WidgetTextAlign(game: game),
       ),
     );
   }

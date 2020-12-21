@@ -10,11 +10,11 @@ class SettingsText extends StatelessWidget{
       child: Column(
         children: <Widget>[
           LocalID(),
-          text_divider(),
+          CustomDivider(color: Colors.transparent,),
           Email(),
-          text_divider(),
+          CustomDivider(color: Colors.transparent,),
           Address(),
-          text_divider(),
+          CustomDivider(color: Colors.transparent,),
         ]
       ),
     );

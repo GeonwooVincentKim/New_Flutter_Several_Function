@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-// import 'file:///E:/flutter_test_project/flutter_app/lib/app_screens/main/Home.dart';
 import 'package:flutter_app/widgets/expanded/divider.dart';
-import 'file:///E:/flutter_test_project/Flutter_Several_Function/lib/widgets/expanded/widgets_attribute/Main/MainWidgets.dart';
-
+import 'package:flutter_app/widgets/expanded/widgets_attribute/Main/MainWidgets.dart';
 
 
 var itemList = [
@@ -27,10 +25,10 @@ class Body extends StatelessWidget{
             Row(
               children: <Widget>[
                 // Import expanded_widgets class.
-                expanded_widgets_up(),
+                ProgressText(),
               ],
             ),
-            divider(),
+            CustomDivider(color: Colors.black87),
             // Import buttons that combined Image and Text.
             // Body_Details(),
             SizedBox(height: 15),
@@ -39,10 +37,10 @@ class Body extends StatelessWidget{
             Row(
               children: <Widget>[
                 // Import expanded_widgets_down class.
-                expanded_widgets_down(),
+                CompletedText(),
               ],
             ),
-            divider(),
+            CustomDivider(color: Colors.black87),
             // Body_Details(),
             SizedBox(height: 15),
             // Body_Details(),
@@ -74,10 +72,10 @@ class New_Body extends StatelessWidget{
             Row(
               children: <Widget>[
                 // Import expanded_widgets class.
-                expanded_widgets_up(),
+                ProgressText(),
               ],
             ),
-            divider(),
+            CustomDivider(color: Colors.black87),
             // Import buttons that combined Image and Text.
             // For the codes that belows 'IN PROGRESS'.
             Expanded(
@@ -92,10 +90,10 @@ class New_Body extends StatelessWidget{
             Row(
               children: <Widget>[
                 // Import expanded_widgets_down class.
-                expanded_widgets_down(),
+                CompletedText(),
               ],
             ),
-            divider(),
+            CustomDivider(color: Colors.black87),
 
             // For the codes that belows 'COMPILED'.
             Expanded(
@@ -140,10 +138,10 @@ class Body_Expanded extends StatelessWidget{
                 Row(
                   children: <Widget>[
                     // Import expanded_widgets class.
-                    expanded_widgets_up(),
+                    ProgressText(),
                   ],
                 ),
-                divider(),
+                CustomDivider(color: Colors.black87),
                 // Import buttons that combined Image and Text.
                 // For the codes that belows 'IN PROGRESS'.
                 Expanded(
@@ -158,10 +156,10 @@ class Body_Expanded extends StatelessWidget{
                 Row(
                   children: <Widget>[
                     // Import expanded_widgets_down class.
-                    expanded_widgets_down(),
+                    CompletedText(),
                   ],
                 ),
-                divider(),
+                CustomDivider(color: Colors.black87),
 
                 // For the codes that belows 'COMPILED'.
                 Expanded(
@@ -176,9 +174,6 @@ class Body_Expanded extends StatelessWidget{
               ],
             ),
           ),
-          // onTap: (){
-          //   Scaffold.of(context).showSnackBar(SnackBar(content: Text('Tap')));
-          // },
         ),
     );
   }
