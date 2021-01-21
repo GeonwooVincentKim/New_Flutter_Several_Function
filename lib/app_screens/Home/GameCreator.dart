@@ -182,9 +182,9 @@ class _GameCreatorState extends State<GameCreator> {
       formGameData['platforms'] = [];
       formGameData['genres'] = [];
       formGameData['releaseDate'] = '';
-      formGameData['releaseYear'] = null;
-      formGameData['releaseMonth'] = null;
-      formGameData['releaseDay'] = null;
+      formGameData['releaseYear'] = '';
+      formGameData['releaseMonth'] = '';
+      formGameData['releaseDay'] = '';
       formGameData['description'] = '';
       // formGameData['releaseYear'] = gameSelect.releaseDate.year.toString();
       // formGameData['releaseMonth'] = gameSelect.releaseMonth;

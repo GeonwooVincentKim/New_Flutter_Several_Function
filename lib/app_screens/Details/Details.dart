@@ -204,18 +204,40 @@ class _DetailPageState extends State<DetailPage> {
           ]),
         ),
         transparent_divider(),
-        InkWell(
-          child: Container(
-            padding: EdgeInsets.symmetric(vertical: 20),
-            decoration: BoxDecoration(color: Colors.black),
-            child: Text(
-              "+ Add to my List",
-              style: TextStyle(color: Colors.white),
-              textAlign: TextAlign.center,
+        Row(
+          children: <Widget>[
+            Expanded(
+              child: InkWell(
+                child: Container(
+                  padding: EdgeInsets.symmetric(vertical: 20),
+                  decoration: BoxDecoration(color: Colors.black),
+                  child: Text(
+                    "+ Add to my List",
+                    style: TextStyle(color: Colors.white),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                onTap: () => _submitForm(context)
+              ),
             ),
-          ),
-          onTap: () => _submitForm(context)
-        ),
+           Expanded(
+              child: InkWell(
+                child: Container(
+                  padding: EdgeInsets.symmetric(vertical: 20),
+                  decoration: BoxDecoration(color: Colors.black),
+                  child: Text(
+                    "+ Add to my List",
+                    style: TextStyle(color: Colors.white),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                onTap: () => Navigator.of(context).pop(),
+              ),
+            )
+          ]
+        )
+        
+        
       ],
     );
   }

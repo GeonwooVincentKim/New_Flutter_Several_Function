@@ -8,8 +8,8 @@ import 'package:provider/provider.dart';
 
 
 class Home extends StatefulWidget{
-  final void Function(int) onBottomTapped;
-  const Home({Key key, this.onBottomTapped}) : super(key: key);
+  // final void Function(int) onBottomTapped;
+  // const Home({Key key, this.onBottomTapped}) : super(key: key);
 
   @override
   State<StatefulWidget> createState()
@@ -18,7 +18,7 @@ class Home extends StatefulWidget{
 
 class _BodyState extends State<Home>{
   int pageIndex = 0;
-  Function onBottomTapped;
+  // Function onBottomTapped;
   
   List<Game> inProgress = [], completed = [], newGame = [];
   List<String> titleList = <String>['IN PROCESS', 'Completed', 'New Game'];
