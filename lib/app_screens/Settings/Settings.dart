@@ -15,6 +15,8 @@ class Setting extends StatefulWidget {
 }
 
 class _SettingState extends State<Setting> {
+  Future<BuildContext> 
+
   AppBar _buildAppBarSettings(){
     return AppBar(
       title: Text("SETTINGS"),
