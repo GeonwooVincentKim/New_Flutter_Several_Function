@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "775552734693",
+    "project_id": "flutter-exercises",
+    "storage_bucket": "flutter-exercises.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:775552734693:android:c459f610b487e9c7f08b0c",
+        "android_client_info": {
+          "package_name": "com.xenoimpact.FlutterExercises"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "775552734693-dn0e12qkjgqok09rbt1572booik2lo32.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_UZcK7Ij4BL-swkqgRo5P3da0rS83ypM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "775552734693-dn0e12qkjgqok09rbt1572booik2lo32.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
