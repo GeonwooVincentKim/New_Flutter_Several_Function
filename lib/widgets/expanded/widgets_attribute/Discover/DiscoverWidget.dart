@@ -5,6 +5,8 @@ class DiscoverUp extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Container(
+      // width: MediaQuery.of(context).size.width,
+      // height: MediaQuery.of(context).size.height,
       width: 365,
       height: 150,
       padding: EdgeInsets.only(right: 1.0, top: 5.0),
@@ -15,11 +17,9 @@ class DiscoverUp extends StatelessWidget{
         ),
 
         // Make it fits to the box.
-        child: FittedBox(
-          child: Image(
-            image: NetworkImage("https://www.gstatic.com/webp/gallery/1.jpg")
-          ),
-          fit: BoxFit.fill,
+        child: Image.network(
+            "https://www.gstatic.com/webp/gallery/1.jpg",
+            fit: BoxFit.fitWidth
         ),
       ),
     );
@@ -32,9 +32,11 @@ class DiscoverDown extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Container(
+      // width: MediaQuery.of(context).size.width,
+      // height: MediaQuery.of(context).size.height,
       width: 365,
       height: 50,
-      padding: EdgeInsets.only(right: 10.0, top: 5.0),
+      padding: EdgeInsets.symmetric(vertical: 5.0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(10.0),

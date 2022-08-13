@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app_screens/main/main_attributes/BodyAttributes.dart';
+import 'package:flutter_app/data/Provide.dart';
 import 'package:flutter_app/widgets/expanded/divider.dart';
 import 'package:flutter_app/widgets/expanded/widgets_attribute/Main/MainWidgets.dart';
+import 'package:flutter_app/model/game/game.dart';
+import 'package:provider/provider.dart';
 
 // Main Scene that shows Body part separately.
 class Body extends StatefulWidget{
@@ -14,61 +17,49 @@ class Body extends StatefulWidget{
 }
 
 class _BodyState extends State<Body>{
+
+  List<Game> inProgressList = [], completedList =[];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    final List<Game> listGame = Provider.of<Products>(context, listen: false).items;
+    setState(() {
+      inProgressList = listGame.where((game) => game.progression < 100).toList();
+      completedList = listGame.where((game) => game.progression == 100).toList();
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    var listUp = ["Title1", "Title2", "Title3"];
-    var listDown = ["Title4", "Title5", "Title6", "Title7"];
-
     return Center(
       child: Container(
-        // padding: EdgeInsets.symmetric(horizontal: 10),
-        alignment: Alignment.topLeft,
+        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         color: Colors.black12,
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-          // padding: EdgeInsets.only(left: 10.0, top: 20.0, right: 10.0),
+        child: SingleChildScrollView(
+          child: Column(
+            // mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              // ...listUp.map((item) {
+              //
+              // }).toList(),
+                  // Import expanded_widgets class.
+              ProgressText(),
+              CustomDivider(color: Colors.black87),
+              // Import buttons that combined Image and Text.
+              // For the codes that belows 'IN PROGRESS'.
+              HomeWidgetsList(list: inProgressList),
+              transparent_divider(),
 
-          child: SingleChildScrollView(
-            child: Column(
-              // mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                // ...list_up.map((item) {
-                //
-                // }).toList(),
-                Row(
-                  children: <Widget>[
-                    // Import expanded_widgets class.
-                    expanded_widgets_up(),
-                  ],
-                ),
-                divider(),
-                // Import buttons that combined Image and Text.
-                // For the codes that belows 'IN PROGRESS'.
-                Row(
-                  children: <Widget>[
-                    InProcessList()
-                  ]
-                ),
+              // Import expanded_widgets_down class.
+              CompletedText(),
+              CustomDivider(color: Colors.black87),
 
-                transparent_divider(),
-
-                Row(
-                  children: <Widget>[
-                    // Import expanded_widgets_down class.
-                    expanded_widgets_down(),
-                  ],
-                ),
-                divider(),
-
-                // For the codes that belows 'COMPILED'.
-                Row(
-                  children: <Widget>[
-                    CompletedList(),
-                  ]
-                ),
-
-              ],
-            ),
+              // For the codes that belows 'COMPILED'.
+              HomeWidgetsList(list: completedList),
+            ],
           ),
         ),
       ),

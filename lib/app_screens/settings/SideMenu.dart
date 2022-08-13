@@ -26,6 +26,8 @@ class SideMenu extends StatelessWidget{
           ListTile(
             title: Text("Settings"),
             onTap: (){
+              // It cannot move to Settings();
+              // So I alternated as settings_main();.
               settings_main();
             },
           ),
