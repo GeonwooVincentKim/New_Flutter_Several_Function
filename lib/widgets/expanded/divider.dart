@@ -7,6 +7,7 @@ class transparent_divider extends StatelessWidget{
   Widget build(BuildContext context) {
     return const Divider(
       color: Colors.transparent,
+      height: 40,
     );
   }
 }
